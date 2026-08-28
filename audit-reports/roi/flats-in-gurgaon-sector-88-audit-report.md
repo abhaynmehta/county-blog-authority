@@ -1,18 +1,18 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/flats-in-gurgaon-sector-88.md
-**Score:** 22/100
+**Score:** 14/100
 **Publishable:** No
 **Word Count:** 2333
 **Paragraphs:** 54
-**Total Issues:** 13
+**Total Issues:** 14
 
 ## Publication Gates
 
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | FAIL | 5 compliance issues |
+| 2. RERA & Legal Compliance | FAIL | 6 compliance issues |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -40,7 +40,7 @@
 - **Acceptance test:** No 'superlative claim ('best') without evidence' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (3)
+## HIGH Issues (4)
 
 ### CG-CONTENT-009: 4 travel time claim(s) without source attribution
 
@@ -64,6 +64,21 @@
 - **Action:** Specify whether figures are carpet area (RERA) or super built-up. RERA mandates carpet area disclosure.
 - **Acceptance test:** All area figures explicitly labeled as carpet area or super built-up
 - **Google rule:** CONTENT-RERA-002
+
+### CG-TRUTH-014: Registry-prohibited wording: 'proposed metro'
+
+- **Owner:** ROI
+- **Category:** prohibited_language
+- **Paragraph:** 16
+- **Found:** "| Destination | Approximate Travel Time | Route |
+| :-: | :-: | :-: |
+| IGI Airport | 30 minutes / 35 minutes | Route 3 / Route 1 |
+| Pataudi Road Junction | 10–12 minutes | Route 1 |
+| Southern Perip"
+- **Reason:** Listed under prohibited_wording in the County Group truth layer
+- **Action:** Remove or rephrase 'proposed metro'
+- **Acceptance test:** No 'proposed metro' wording remains
+- **Editorial rule:** TRUTH_LAYER_PROHIBITED
 
 ## MEDIUM Issues (8)
 
@@ -141,4 +156,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 2 | 3 | 8 | 0 | 13 |
+| ROI | 2 | 4 | 8 | 0 | 14 |

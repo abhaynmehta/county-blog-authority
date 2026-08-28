@@ -1,22 +1,22 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/coco-county-location-map.md
-**Score:** 78/100
-**Publishable:** Yes
+**Score:** 70/100
+**Publishable:** No
 **Word Count:** 112
 **Paragraphs:** 7
-**Total Issues:** 4
+**Total Issues:** 5
 
 ## Publication Gates
 
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | PASS | Compliant |
+| 2. RERA & Legal Compliance | FAIL | 1 compliance issues |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
-## HIGH Issues (2)
+## HIGH Issues (3)
 
 ### CG-CONTENT-002: No internal or external links found in content
 
@@ -32,6 +32,18 @@
 - **Action:** Expand content to at least 1200-1500 words with substantive sections
 - **Acceptance test:** Word count >= 1200
 - **Google rule:** CONTENT-THIN-001
+
+### CG-TRUTH-005: Registry-prohibited wording: 'proposed metro'
+
+- **Owner:** ROI
+- **Category:** prohibited_language
+- **Paragraph:** 5
+- **Found:** "## Metro Connectivity
+Noida Sector 52 Metro Station (Blue Line). Proposed metro expansions in Greater Noida West."
+- **Reason:** Listed under prohibited_wording in the County Group truth layer
+- **Action:** Remove or rephrase 'proposed metro'
+- **Acceptance test:** No 'proposed metro' wording remains
+- **Editorial rule:** TRUTH_LAYER_PROHIBITED
 
 ## MEDIUM Issues (2)
 
@@ -54,4 +66,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 2 | 0 | 4 |
+| ROI | 0 | 3 | 2 | 0 | 5 |

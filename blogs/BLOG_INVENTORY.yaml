@@ -3,8 +3,8 @@ already_processed:
   title: On-page-flats in gurgaon (Sector 88 / Center Court)
   local_file: blogs/roi-incoming/flats-in-gurgaon-sector-88.md
   status: audited
-  score: 22
-  issues: 13
+  score: 14
+  issues: 14
   critical: 2
   publishable: false
 - id: 1QlMWWLJC7--JAD57fy3Oj7MwxZcsOzhsSoCUY1n_hIw
@@ -452,10 +452,10 @@ roi_google_docs:
   title: Coco County Location Map
   local_file: blogs/roi-incoming/coco-county-location-map.md
   status: audited
-  score: 78
-  issues: 4
+  score: 70
+  issues: 5
   critical: 0
-  publishable: true
+  publishable: false
 - id: 1y_yxjppAkbLUpkrVQ76f5SGSfpNw_KLNz_HtR6GXygk
   title: Flats in Ghaziabad Landing Page
   local_file: blogs/roi-incoming/flats-in-ghaziabad-landing.md

@@ -2,18 +2,18 @@
   "file_path": "blogs/roi-incoming/coco-county-location-map.md",
   "word_count": 112,
   "paragraph_count": 7,
-  "score": 78,
-  "publishable": true,
-  "issue_count": 4,
+  "score": 70,
+  "publishable": false,
+  "issue_count": 5,
   "issues_by_severity": {
     "critical": 0,
-    "high": 2,
+    "high": 3,
     "medium": 2,
     "low": 0,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 4,
+    "ROI": 5,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -26,8 +26,8 @@
     },
     {
       "gate": "RERA & Legal Compliance",
-      "status": "PASS",
-      "details": "Compliant"
+      "status": "FAIL",
+      "details": "1 compliance issues"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -82,6 +82,19 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-TRUTH-005",
+      "category": "prohibited_language",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "Registry-prohibited wording: 'proposed metro'",
+      "paragraph": 5,
+      "claim": "## Metro Connectivity\nNoida Sector 52 Metro Station (Blue Line). Proposed metro expansions in Greater Noida West.",
+      "reason": "Listed under prohibited_wording in the County Group truth layer",
+      "recommended_action": "Remove or rephrase 'proposed metro'",
+      "acceptance_test": "No 'proposed metro' wording remains",
+      "editorial_rule": "TRUTH_LAYER_PROHIBITED"
     }
   ]
 }

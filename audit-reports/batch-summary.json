@@ -1,375 +1,1470 @@
 {
   "total": 87,
-  "audited": 4,
-  "skipped": 83,
+  "audited": 87,
+  "skipped": 0,
   "errors": 0,
-  "publishable": 0,
-  "avg_score": 67.7,
+  "publishable": 34,
+  "avg_score": 67.6,
   "results": [
     {
       "slug": "flats-in-gurgaon-sector-88",
-      "skipped": true,
-      "score": 22
+      "publishable": false,
+      "score": 14,
+      "issue_count": 14,
+      "critical_count": 2,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-gurgaon-sector-88-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-gurgaon-sector-88-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-gurgaon-sector-88-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-gurgaon-sector-88-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-gurgaon-sector-88-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-gurgaon-writer-doc",
-      "skipped": true,
-      "score": 54
+      "publishable": false,
+      "score": 54,
+      "issue_count": 7,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-gurgaon-writer-doc-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-gurgaon-writer-doc-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-gurgaon-writer-doc-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-gurgaon-writer-doc-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-gurgaon-writer-doc-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-noida-expressway",
-      "skipped": true,
-      "score": 85
+      "publishable": false,
+      "score": 85,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-noida-expressway-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-noida-expressway-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-noida-expressway-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-noida-expressway-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-noida-expressway-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-noida-jewar-airport",
-      "skipped": true,
-      "score": 37
+      "publishable": false,
+      "score": 37,
+      "issue_count": 9,
+      "critical_count": 3,
+      "gates": {
+        "Factual Accuracy": "FAIL",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-noida-jewar-airport-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-noida-jewar-airport-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-noida-jewar-airport-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-noida-jewar-airport-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-noida-jewar-airport-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-greater-noida",
-      "skipped": true,
-      "score": 85
+      "publishable": false,
+      "score": 85,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-greater-noida-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-greater-noida-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-greater-noida-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-greater-noida-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-greater-noida-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-most-desirable",
-      "skipped": true,
-      "score": 0
+      "publishable": false,
+      "score": 0,
+      "issue_count": 11,
+      "critical_count": 5,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-most-desirable-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-most-desirable-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-most-desirable-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-most-desirable-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-most-desirable-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-commercial-delhi",
-      "skipped": true,
-      "score": 57
+      "publishable": false,
+      "score": 57,
+      "issue_count": 7,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-commercial-delhi-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-commercial-delhi-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-commercial-delhi-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-commercial-delhi-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-commercial-delhi-ago-handoff.md"
+      }
     },
     {
       "slug": "county-107-redefining-opulence",
-      "skipped": true,
-      "score": 55
+      "publishable": false,
+      "score": 55,
+      "issue_count": 6,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-107-redefining-opulence-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-107-redefining-opulence-audit-report.json",
+        "schema": "audit-reports/roi/county-107-redefining-opulence-schema.json",
+        "roi_handoff": "audit-reports/roi/county-107-redefining-opulence-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-107-redefining-opulence-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-low-density",
-      "skipped": true,
-      "score": 52
+      "publishable": false,
+      "score": 52,
+      "issue_count": 7,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-low-density-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-low-density-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-low-density-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-low-density-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-low-density-ago-handoff.md"
+      }
     },
     {
       "slug": "center-court-premium-living-88a",
-      "skipped": true,
-      "score": 67
+      "publishable": false,
+      "score": 67,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/center-court-premium-living-88a-audit-report.md",
+        "audit_report_json": "audit-reports/roi/center-court-premium-living-88a-audit-report.json",
+        "schema": "audit-reports/roi/center-court-premium-living-88a-schema.json",
+        "roi_handoff": "audit-reports/roi/center-court-premium-living-88a-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/center-court-premium-living-88a-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-sector-75",
-      "skipped": true,
-      "score": 37
+      "publishable": false,
+      "score": 37,
+      "issue_count": 8,
+      "critical_count": 2,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-sector-75-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-sector-75-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-sector-75-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-sector-75-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-sector-75-ago-handoff.md"
+      }
     },
     {
       "slug": "county-107-elevated-by-design",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-107-elevated-by-design-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-107-elevated-by-design-audit-report.json",
+        "schema": "audit-reports/roi/county-107-elevated-by-design-schema.json",
+        "roi_handoff": "audit-reports/roi/county-107-elevated-by-design-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-107-elevated-by-design-ago-handoff.md"
+      }
     },
     {
       "slug": "coco-county-affordable-tropical",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/coco-county-affordable-tropical-audit-report.md",
+        "audit_report_json": "audit-reports/roi/coco-county-affordable-tropical-audit-report.json",
+        "schema": "audit-reports/roi/coco-county-affordable-tropical-schema.json",
+        "roi_handoff": "audit-reports/roi/coco-county-affordable-tropical-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/coco-county-affordable-tropical-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-sustainable-luxury",
-      "skipped": true,
-      "score": 75
+      "publishable": true,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-sustainable-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-sustainable-luxury-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-sustainable-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-sustainable-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-sustainable-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "center-court-sector-88a-luxury",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/center-court-sector-88a-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/center-court-sector-88a-luxury-audit-report.json",
+        "schema": "audit-reports/roi/center-court-sector-88a-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/center-court-sector-88a-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/center-court-sector-88a-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-delhi-meerut-expressway",
-      "skipped": true,
-      "score": 52
+      "publishable": false,
+      "score": 52,
+      "issue_count": 7,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-delhi-meerut-expressway-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-delhi-meerut-expressway-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-delhi-meerut-expressway-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-delhi-meerut-expressway-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-delhi-meerut-expressway-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-nsp-upgrade",
-      "skipped": true,
-      "score": 60
+      "publishable": false,
+      "score": 60,
+      "issue_count": 6,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-nsp-upgrade-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-nsp-upgrade-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-nsp-upgrade-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-nsp-upgrade-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-nsp-upgrade-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-gold-ultra-luxury",
-      "skipped": true,
-      "score": 44
+      "publishable": false,
+      "score": 44,
+      "issue_count": 8,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-gold-ultra-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-gold-ultra-luxury-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-gold-ultra-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-gold-ultra-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-gold-ultra-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "county-107-rewriting-rules",
-      "skipped": true,
-      "score": 55
+      "publishable": false,
+      "score": 55,
+      "issue_count": 6,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-107-rewriting-rules-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-107-rewriting-rules-audit-report.json",
+        "schema": "audit-reports/roi/county-107-rewriting-rules-schema.json",
+        "roi_handoff": "audit-reports/roi/county-107-rewriting-rules-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-107-rewriting-rules-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-floor-plans",
-      "skipped": true,
-      "score": 63
+      "publishable": false,
+      "score": 63,
+      "issue_count": 5,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-floor-plans-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-floor-plans-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-floor-plans-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-floor-plans-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-floor-plans-ago-handoff.md"
+      }
     },
     {
       "slug": "tds-guide-luxury-homebuyers",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/tds-guide-luxury-homebuyers-audit-report.md",
+        "audit_report_json": "audit-reports/roi/tds-guide-luxury-homebuyers-audit-report.json",
+        "schema": "audit-reports/roi/tds-guide-luxury-homebuyers-schema.json",
+        "roi_handoff": "audit-reports/roi/tds-guide-luxury-homebuyers-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/tds-guide-luxury-homebuyers-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-gold-opulence",
-      "skipped": true,
-      "score": 55
+      "publishable": false,
+      "score": 55,
+      "issue_count": 6,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-gold-opulence-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-gold-opulence-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-gold-opulence-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-gold-opulence-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-gold-opulence-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-timeless-luxury",
-      "skipped": true,
-      "score": 47
+      "publishable": false,
+      "score": 47,
+      "issue_count": 7,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-timeless-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-timeless-luxury-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-timeless-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-timeless-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-timeless-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-status-symbol",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-status-symbol-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-status-symbol-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-status-symbol-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-status-symbol-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-status-symbol-ago-handoff.md"
+      }
     },
     {
       "slug": "interior-design-trends-2026",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/interior-design-trends-2026-audit-report.md",
+        "audit_report_json": "audit-reports/roi/interior-design-trends-2026-audit-report.json",
+        "schema": "audit-reports/roi/interior-design-trends-2026-schema.json",
+        "roi_handoff": "audit-reports/roi/interior-design-trends-2026-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/interior-design-trends-2026-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-luxury-beyond-walls",
-      "skipped": true,
-      "score": 65
+      "publishable": false,
+      "score": 65,
+      "issue_count": 6,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-luxury-beyond-walls-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-luxury-beyond-walls-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-luxury-beyond-walls-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-luxury-beyond-walls-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-luxury-beyond-walls-ago-handoff.md"
+      }
     },
     {
       "slug": "center-court-sector-88-masterplan",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/center-court-sector-88-masterplan-audit-report.md",
+        "audit_report_json": "audit-reports/roi/center-court-sector-88-masterplan-audit-report.json",
+        "schema": "audit-reports/roi/center-court-sector-88-masterplan-schema.json",
+        "roi_handoff": "audit-reports/roi/center-court-sector-88-masterplan-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/center-court-sector-88-masterplan-ago-handoff.md"
+      }
     },
     {
       "slug": "jewar-airport-noida-homebuyers",
-      "skipped": true,
-      "score": 42
+      "publishable": false,
+      "score": 42,
+      "issue_count": 8,
+      "critical_count": 2,
+      "gates": {
+        "Factual Accuracy": "FAIL",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jewar-airport-noida-homebuyers-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jewar-airport-noida-homebuyers-audit-report.json",
+        "schema": "audit-reports/roi/jewar-airport-noida-homebuyers-schema.json",
+        "roi_handoff": "audit-reports/roi/jewar-airport-noida-homebuyers-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jewar-airport-noida-homebuyers-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-at-a-glance",
-      "skipped": true,
-      "score": 78
+      "publishable": false,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-at-a-glance-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-at-a-glance-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-at-a-glance-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-at-a-glance-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-at-a-glance-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-specifications",
-      "skipped": true,
-      "score": 63
+      "publishable": false,
+      "score": 63,
+      "issue_count": 5,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-specifications-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-specifications-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-specifications-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-specifications-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-specifications-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-location-sector115",
-      "skipped": true,
-      "score": 81
+      "publishable": true,
+      "score": 81,
+      "issue_count": 3,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-location-sector115-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-location-sector115-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-location-sector115-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-location-sector115-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-location-sector115-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-rera-registration",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-rera-registration-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-rera-registration-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-rera-registration-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-rera-registration-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-rera-registration-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-amenities",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-amenities-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-amenities-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-amenities-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-amenities-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-amenities-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-ultimate-luxury",
-      "skipped": true,
-      "score": 48
+      "publishable": false,
+      "score": 48,
+      "issue_count": 6,
+      "critical_count": 2,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-ultimate-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-ultimate-luxury-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-ultimate-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-ultimate-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-ultimate-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-overview",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-overview-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-overview-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-overview-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-overview-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-overview-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-nearby-locations",
-      "skipped": true,
-      "score": 75
+      "publishable": true,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-nearby-locations-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-nearby-locations-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-nearby-locations-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-nearby-locations-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-nearby-locations-ago-handoff.md"
+      }
     },
     {
       "slug": "ivory-county-timeless-luxury",
-      "skipped": true,
-      "score": 60
+      "publishable": false,
+      "score": 60,
+      "issue_count": 6,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivory-county-timeless-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivory-county-timeless-luxury-audit-report.json",
+        "schema": "audit-reports/roi/ivory-county-timeless-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/ivory-county-timeless-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivory-county-timeless-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-location-map",
-      "skipped": true,
-      "score": 75
+      "publishable": true,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-location-map-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-location-map-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-location-map-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-location-map-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-location-map-ago-handoff.md"
+      }
     },
     {
       "slug": "jade-county-nearby-places",
-      "skipped": true,
-      "score": 36
+      "publishable": false,
+      "score": 36,
+      "issue_count": 9,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/jade-county-nearby-places-audit-report.md",
+        "audit_report_json": "audit-reports/roi/jade-county-nearby-places-audit-report.json",
+        "schema": "audit-reports/roi/jade-county-nearby-places-schema.json",
+        "roi_handoff": "audit-reports/roi/jade-county-nearby-places-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/jade-county-nearby-places-ago-handoff.md"
+      }
     },
     {
       "slug": "center-court-location",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/center-court-location-audit-report.md",
+        "audit_report_json": "audit-reports/roi/center-court-location-audit-report.json",
+        "schema": "audit-reports/roi/center-court-location-schema.json",
+        "roi_handoff": "audit-reports/roi/center-court-location-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/center-court-location-ago-handoff.md"
+      }
     },
     {
       "slug": "center-court-masterplan-page",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/center-court-masterplan-page-audit-report.md",
+        "audit_report_json": "audit-reports/roi/center-court-masterplan-page-audit-report.json",
+        "schema": "audit-reports/roi/center-court-masterplan-page-schema.json",
+        "roi_handoff": "audit-reports/roi/center-court-masterplan-page-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/center-court-masterplan-page-ago-handoff.md"
+      }
     },
     {
       "slug": "center-court-unit-plans",
-      "skipped": true,
-      "score": 75
+      "publishable": true,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/center-court-unit-plans-audit-report.md",
+        "audit_report_json": "audit-reports/roi/center-court-unit-plans-audit-report.json",
+        "schema": "audit-reports/roi/center-court-unit-plans-schema.json",
+        "roi_handoff": "audit-reports/roi/center-court-unit-plans-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/center-court-unit-plans-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-noida-landing",
-      "skipped": true,
-      "score": 81
+      "publishable": true,
+      "score": 81,
+      "issue_count": 3,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-noida-landing-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-noida-landing-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-noida-landing-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-noida-landing-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-noida-landing-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-overview-nsp",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-overview-nsp-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-overview-nsp-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-overview-nsp-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-overview-nsp-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-overview-nsp-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-masterplan",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-masterplan-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-masterplan-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-masterplan-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-masterplan-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-masterplan-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-amenities",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-amenities-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-amenities-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-amenities-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-amenities-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-amenities-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-location-nsp",
-      "skipped": true,
-      "score": 75
+      "publishable": true,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-location-nsp-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-location-nsp-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-location-nsp-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-location-nsp-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-location-nsp-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-workspace",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-workspace-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-workspace-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-workspace-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-workspace-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-workspace-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-retail",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-retail-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-retail-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-retail-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-retail-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-retail-ago-handoff.md"
+      }
     },
     {
       "slug": "county-courtyard-leisure",
-      "skipped": true,
-      "score": 75
+      "publishable": true,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-courtyard-leisure-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-courtyard-leisure-audit-report.json",
+        "schema": "audit-reports/roi/county-courtyard-leisure-schema.json",
+        "roi_handoff": "audit-reports/roi/county-courtyard-leisure-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-courtyard-leisure-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-gurugram-landing",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-gurugram-landing-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-gurugram-landing-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-gurugram-landing-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-gurugram-landing-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-gurugram-landing-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-greater-noida-landing",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-greater-noida-landing-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-greater-noida-landing-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-greater-noida-landing-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-greater-noida-landing-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-greater-noida-landing-ago-handoff.md"
+      }
     },
     {
       "slug": "coco-county-overview",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/coco-county-overview-audit-report.md",
+        "audit_report_json": "audit-reports/roi/coco-county-overview-audit-report.json",
+        "schema": "audit-reports/roi/coco-county-overview-schema.json",
+        "roi_handoff": "audit-reports/roi/coco-county-overview-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/coco-county-overview-ago-handoff.md"
+      }
     },
     {
       "slug": "coco-county-features",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/coco-county-features-audit-report.md",
+        "audit_report_json": "audit-reports/roi/coco-county-features-audit-report.json",
+        "schema": "audit-reports/roi/coco-county-features-schema.json",
+        "roi_handoff": "audit-reports/roi/coco-county-features-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/coco-county-features-ago-handoff.md"
+      }
     },
     {
       "slug": "coco-county-specifications",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/coco-county-specifications-audit-report.md",
+        "audit_report_json": "audit-reports/roi/coco-county-specifications-audit-report.json",
+        "schema": "audit-reports/roi/coco-county-specifications-schema.json",
+        "roi_handoff": "audit-reports/roi/coco-county-specifications-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/coco-county-specifications-ago-handoff.md"
+      }
     },
     {
       "slug": "coco-county-masterplan",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/coco-county-masterplan-audit-report.md",
+        "audit_report_json": "audit-reports/roi/coco-county-masterplan-audit-report.json",
+        "schema": "audit-reports/roi/coco-county-masterplan-schema.json",
+        "roi_handoff": "audit-reports/roi/coco-county-masterplan-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/coco-county-masterplan-ago-handoff.md"
+      }
     },
     {
       "slug": "coco-county-location-map",
-      "skipped": true,
-      "score": 78
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/coco-county-location-map-audit-report.md",
+        "audit_report_json": "audit-reports/roi/coco-county-location-map-audit-report.json",
+        "schema": "audit-reports/roi/coco-county-location-map-schema.json",
+        "roi_handoff": "audit-reports/roi/coco-county-location-map-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/coco-county-location-map-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-in-ghaziabad-landing",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-in-ghaziabad-landing-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-in-ghaziabad-landing-audit-report.json",
+        "schema": "audit-reports/roi/flats-in-ghaziabad-landing-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-in-ghaziabad-landing-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-in-ghaziabad-landing-ago-handoff.md"
+      }
     },
     {
       "slug": "commercial-property-delhi-landing",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/commercial-property-delhi-landing-audit-report.md",
+        "audit_report_json": "audit-reports/roi/commercial-property-delhi-landing-audit-report.json",
+        "schema": "audit-reports/roi/commercial-property-delhi-landing-schema.json",
+        "roi_handoff": "audit-reports/roi/commercial-property-delhi-landing-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/commercial-property-delhi-landing-ago-handoff.md"
+      }
     },
     {
       "slug": "ved-van-park-noida-flats",
-      "skipped": true,
-      "score": 62
+      "publishable": true,
+      "score": 62,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ved-van-park-noida-flats-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ved-van-park-noida-flats-audit-report.json",
+        "schema": "audit-reports/roi/ved-van-park-noida-flats-schema.json",
+        "roi_handoff": "audit-reports/roi/ved-van-park-noida-flats-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ved-van-park-noida-flats-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-unit-plans",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-unit-plans-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-unit-plans-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-unit-plans-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-unit-plans-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-unit-plans-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-location",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-location-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-location-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-location-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-location-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-location-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-specifications",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-specifications-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-specifications-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-specifications-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-specifications-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-specifications-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-overview",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-overview-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-overview-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-overview-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-overview-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-overview-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-masterplan",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-masterplan-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-masterplan-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-masterplan-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-masterplan-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-masterplan-ago-handoff.md"
+      }
     },
     {
       "slug": "ivy-county-amenities",
-      "skipped": true,
-      "score": 86
+      "publishable": true,
+      "score": 86,
+      "issue_count": 3,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/ivy-county-amenities-audit-report.md",
+        "audit_report_json": "audit-reports/roi/ivy-county-amenities-audit-report.json",
+        "schema": "audit-reports/roi/ivy-county-amenities-schema.json",
+        "roi_handoff": "audit-reports/roi/ivy-county-amenities-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/ivy-county-amenities-ago-handoff.md"
+      }
     },
     {
       "slug": "buyers-guide-flats-noida-2026",
-      "skipped": true,
-      "score": 15
+      "publishable": false,
+      "score": 15,
+      "issue_count": 9,
+      "critical_count": 4,
+      "gates": {
+        "Factual Accuracy": "FAIL",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/buyers-guide-flats-noida-2026-audit-report.md",
+        "audit_report_json": "audit-reports/roi/buyers-guide-flats-noida-2026-audit-report.json",
+        "schema": "audit-reports/roi/buyers-guide-flats-noida-2026-schema.json",
+        "roi_handoff": "audit-reports/roi/buyers-guide-flats-noida-2026-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/buyers-guide-flats-noida-2026-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-noida-holistic-living",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-noida-holistic-living-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-noida-holistic-living-audit-report.json",
+        "schema": "audit-reports/roi/flats-noida-holistic-living-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-noida-holistic-living-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-noida-holistic-living-ago-handoff.md"
+      }
     },
     {
       "slug": "noida-emerging-sectors-luxury",
-      "skipped": true,
-      "score": 59
+      "publishable": false,
+      "score": 59,
+      "issue_count": 7,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/noida-emerging-sectors-luxury-audit-report.md",
+        "audit_report_json": "audit-reports/roi/noida-emerging-sectors-luxury-audit-report.json",
+        "schema": "audit-reports/roi/noida-emerging-sectors-luxury-schema.json",
+        "roi_handoff": "audit-reports/roi/noida-emerging-sectors-luxury-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/noida-emerging-sectors-luxury-ago-handoff.md"
+      }
     },
     {
       "slug": "holiday-lifestyle-noida-flats",
-      "skipped": true,
-      "score": 78
+      "publishable": true,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/holiday-lifestyle-noida-flats-audit-report.md",
+        "audit_report_json": "audit-reports/roi/holiday-lifestyle-noida-flats-audit-report.json",
+        "schema": "audit-reports/roi/holiday-lifestyle-noida-flats-schema.json",
+        "roi_handoff": "audit-reports/roi/holiday-lifestyle-noida-flats-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/holiday-lifestyle-noida-flats-ago-handoff.md"
+      }
     },
     {
       "slug": "county-low-density-living",
-      "skipped": true,
-      "score": 70
+      "publishable": false,
+      "score": 70,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/county-low-density-living-audit-report.md",
+        "audit_report_json": "audit-reports/roi/county-low-density-living-audit-report.json",
+        "schema": "audit-reports/roi/county-low-density-living-schema.json",
+        "roi_handoff": "audit-reports/roi/county-low-density-living-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/county-low-density-living-ago-handoff.md"
+      }
     },
     {
       "slug": "noida-residential-hotspots-2026",
-      "skipped": true,
-      "score": 67
+      "publishable": false,
+      "score": 67,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/noida-residential-hotspots-2026-audit-report.md",
+        "audit_report_json": "audit-reports/roi/noida-residential-hotspots-2026-audit-report.json",
+        "schema": "audit-reports/roi/noida-residential-hotspots-2026-schema.json",
+        "roi_handoff": "audit-reports/roi/noida-residential-hotspots-2026-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/noida-residential-hotspots-2026-ago-handoff.md"
+      }
     },
     {
       "slug": "commercial-real-estate-delhi-ncr",
-      "skipped": true,
-      "score": 72
+      "publishable": false,
+      "score": 72,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/commercial-real-estate-delhi-ncr-audit-report.md",
+        "audit_report_json": "audit-reports/roi/commercial-real-estate-delhi-ncr-audit-report.json",
+        "schema": "audit-reports/roi/commercial-real-estate-delhi-ncr-schema.json",
+        "roi_handoff": "audit-reports/roi/commercial-real-estate-delhi-ncr-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/commercial-real-estate-delhi-ncr-ago-handoff.md"
+      }
     },
     {
       "slug": "flats-greater-noida-west-conveniences",
@@ -413,13 +1508,43 @@
     },
     {
       "slug": "clove-county-nearby-places",
-      "skipped": true,
-      "score": 86
+      "publishable": true,
+      "score": 86,
+      "issue_count": 3,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/clove-county-nearby-places-audit-report.md",
+        "audit_report_json": "audit-reports/roi/clove-county-nearby-places-audit-report.json",
+        "schema": "audit-reports/roi/clove-county-nearby-places-schema.json",
+        "roi_handoff": "audit-reports/roi/clove-county-nearby-places-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/clove-county-nearby-places-ago-handoff.md"
+      }
     },
     {
       "slug": "clove-county-location-map",
-      "skipped": true,
-      "score": 75
+      "publishable": false,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/clove-county-location-map-audit-report.md",
+        "audit_report_json": "audit-reports/roi/clove-county-location-map-audit-report.json",
+        "schema": "audit-reports/roi/clove-county-location-map-schema.json",
+        "roi_handoff": "audit-reports/roi/clove-county-location-map-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/clove-county-location-map-ago-handoff.md"
+      }
     },
     {
       "slug": "clove-county-seo-page",
@@ -463,43 +1588,163 @@
     },
     {
       "slug": "clove-county-amenities-redefining-community-living-in-sector",
-      "skipped": true,
-      "score": 72
+      "publishable": false,
+      "score": 72,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/clove-county-amenities-redefining-community-living-in-sector-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/clove-county-amenities-redefining-community-living-in-sector-audit-report.json",
+        "schema": "audit-reports/old-agency/clove-county-amenities-redefining-community-living-in-sector-schema.json",
+        "roi_handoff": "audit-reports/old-agency/clove-county-amenities-redefining-community-living-in-sector-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/clove-county-amenities-redefining-community-living-in-sector-ago-handoff.md"
+      }
     },
     {
       "slug": "clove-county-how-sustainable-living-is-shaping-luxury-reside",
-      "skipped": true,
-      "score": 63
+      "publishable": false,
+      "score": 63,
+      "issue_count": 5,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/clove-county-how-sustainable-living-is-shaping-luxury-reside-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/clove-county-how-sustainable-living-is-shaping-luxury-reside-audit-report.json",
+        "schema": "audit-reports/old-agency/clove-county-how-sustainable-living-is-shaping-luxury-reside-schema.json",
+        "roi_handoff": "audit-reports/old-agency/clove-county-how-sustainable-living-is-shaping-luxury-reside-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/clove-county-how-sustainable-living-is-shaping-luxury-reside-ago-handoff.md"
+      }
     },
     {
       "slug": "how-modern-architecture-is-quietly-changing-the-way-noida-li",
-      "skipped": true,
-      "score": 75
+      "publishable": false,
+      "score": 75,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "PASS",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/how-modern-architecture-is-quietly-changing-the-way-noida-li-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/how-modern-architecture-is-quietly-changing-the-way-noida-li-audit-report.json",
+        "schema": "audit-reports/old-agency/how-modern-architecture-is-quietly-changing-the-way-noida-li-schema.json",
+        "roi_handoff": "audit-reports/old-agency/how-modern-architecture-is-quietly-changing-the-way-noida-li-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/how-modern-architecture-is-quietly-changing-the-way-noida-li-ago-handoff.md"
+      }
     },
     {
       "slug": "luxury-living-in-noida-why-2026-is-the-year-for-premium-resi",
-      "skipped": true,
-      "score": 57
+      "publishable": false,
+      "score": 57,
+      "issue_count": 7,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/luxury-living-in-noida-why-2026-is-the-year-for-premium-resi-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/luxury-living-in-noida-why-2026-is-the-year-for-premium-resi-audit-report.json",
+        "schema": "audit-reports/old-agency/luxury-living-in-noida-why-2026-is-the-year-for-premium-resi-schema.json",
+        "roi_handoff": "audit-reports/old-agency/luxury-living-in-noida-why-2026-is-the-year-for-premium-resi-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/luxury-living-in-noida-why-2026-is-the-year-for-premium-resi-ago-handoff.md"
+      }
     },
     {
       "slug": "the-county-group-philosophy-how-a-design-first-approach-is-r",
-      "skipped": true,
-      "score": 72
+      "publishable": false,
+      "score": 72,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/the-county-group-philosophy-how-a-design-first-approach-is-r-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/the-county-group-philosophy-how-a-design-first-approach-is-r-audit-report.json",
+        "schema": "audit-reports/old-agency/the-county-group-philosophy-how-a-design-first-approach-is-r-schema.json",
+        "roi_handoff": "audit-reports/old-agency/the-county-group-philosophy-how-a-design-first-approach-is-r-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/the-county-group-philosophy-how-a-design-first-approach-is-r-ago-handoff.md"
+      }
     },
     {
       "slug": "top-10-features-homebuyers-look-for-in-luxury-apartments-in",
-      "skipped": true,
-      "score": 49
+      "publishable": false,
+      "score": 49,
+      "issue_count": 8,
+      "critical_count": 1,
+      "gates": {
+        "Factual Accuracy": "FAIL",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/top-10-features-homebuyers-look-for-in-luxury-apartments-in-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/top-10-features-homebuyers-look-for-in-luxury-apartments-in-audit-report.json",
+        "schema": "audit-reports/old-agency/top-10-features-homebuyers-look-for-in-luxury-apartments-in-schema.json",
+        "roi_handoff": "audit-reports/old-agency/top-10-features-homebuyers-look-for-in-luxury-apartments-in-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/top-10-features-homebuyers-look-for-in-luxury-apartments-in-ago-handoff.md"
+      }
     },
     {
       "slug": "trust-track-record-and-transparency-what-homebuyers-should-d",
-      "skipped": true,
-      "score": 72
+      "publishable": false,
+      "score": 72,
+      "issue_count": 6,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/trust-track-record-and-transparency-what-homebuyers-should-d-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/trust-track-record-and-transparency-what-homebuyers-should-d-audit-report.json",
+        "schema": "audit-reports/old-agency/trust-track-record-and-transparency-what-homebuyers-should-d-schema.json",
+        "roi_handoff": "audit-reports/old-agency/trust-track-record-and-transparency-what-homebuyers-should-d-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/trust-track-record-and-transparency-what-homebuyers-should-d-ago-handoff.md"
+      }
     },
     {
       "slug": "what-makes-a-real-estate-company-in-noida-trustworthy-for-ho",
-      "skipped": true,
-      "score": 64
+      "publishable": false,
+      "score": 64,
+      "issue_count": 7,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "FAIL",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/old-agency/what-makes-a-real-estate-company-in-noida-trustworthy-for-ho-audit-report.md",
+        "audit_report_json": "audit-reports/old-agency/what-makes-a-real-estate-company-in-noida-trustworthy-for-ho-audit-report.json",
+        "schema": "audit-reports/old-agency/what-makes-a-real-estate-company-in-noida-trustworthy-for-ho-schema.json",
+        "roi_handoff": "audit-reports/old-agency/what-makes-a-real-estate-company-in-noida-trustworthy-for-ho-roi-handoff.md",
+        "ago_handoff": "audit-reports/old-agency/what-makes-a-real-estate-company-in-noida-trustworthy-for-ho-ago-handoff.md"
+      }
     }
   ]
 }

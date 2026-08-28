@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 13**
+**Total items: 14**
 
 The following issues require your attention.
 
@@ -21,3 +21,4 @@ The following issues require your attention.
 | CG-CONTENT-011 | HIGH | Area figures (3 mentions) not labeled as carpet area | Specify whether figures are carpet area (RERA) or super built-up. RERA mandates carpet area disclosure. | All area figures explicitly labeled as carpet area or super built-up |
 | CG-CONTENT-012 | MEDIUM | Keyword stuffing: 'minutes | route' appears 11 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-013 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
+| CG-TRUTH-014 | HIGH | Registry-prohibited wording: 'proposed metro' | Remove or rephrase 'proposed metro' | No 'proposed metro' wording remains |

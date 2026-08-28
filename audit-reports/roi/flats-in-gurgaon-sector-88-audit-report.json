@@ -2,18 +2,18 @@
   "file_path": "blogs/roi-incoming/flats-in-gurgaon-sector-88.md",
   "word_count": 2333,
   "paragraph_count": 54,
-  "score": 22,
+  "score": 14,
   "publishable": false,
-  "issue_count": 13,
+  "issue_count": 14,
   "issues_by_severity": {
     "critical": 2,
-    "high": 3,
+    "high": 4,
     "medium": 8,
     "low": 0,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 13,
+    "ROI": 14,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -27,7 +27,7 @@
     {
       "gate": "RERA & Legal Compliance",
       "status": "FAIL",
-      "details": "5 compliance issues"
+      "details": "6 compliance issues"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -192,6 +192,19 @@
       "reason": "",
       "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-TRUTH-014",
+      "category": "prohibited_language",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "Registry-prohibited wording: 'proposed metro'",
+      "paragraph": 16,
+      "claim": "| Destination | Approximate Travel Time | Route |\n| :-: | :-: | :-: |\n| IGI Airport | 30 minutes / 35 minutes | Route 3 / Route 1 |\n| Pataudi Road Junction | 10\u201312 minutes | Route 1 |\n| Southern Perip",
+      "reason": "Listed under prohibited_wording in the County Group truth layer",
+      "recommended_action": "Remove or rephrase 'proposed metro'",
+      "acceptance_test": "No 'proposed metro' wording remains",
+      "editorial_rule": "TRUTH_LAYER_PROHIBITED"
     }
   ]
 }

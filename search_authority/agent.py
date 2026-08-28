@@ -19,6 +19,7 @@ import yaml
 
 from .batch import load_inventory, save_inventory, ROI_OUTPUT
 from .pipeline import run_pipeline
+from .truth_layer import registry_report
 
 AGENT_LOG = Path("agent-logs")
 CONFIG_PATH = Path("agent-config.yaml")
@@ -229,6 +230,21 @@ def generate_health_report() -> dict:
 
 
 # --- Task 4: AI citation check ---
+
+def check_truth_layer() -> dict:
+    """Report which registry facts are stale or too incomplete to enforce.
+
+    Stale = past its refresh_days TTL, so nobody has re-verified it recently.
+    Incomplete = missing status, source, or last_verified.
+    """
+    report = registry_report()
+    _log("truth_layer", {
+        "claims": report["total_claims"],
+        "stale": report["stale_count"],
+        "incomplete": report["incomplete_count"],
+    })
+    return report
+
 
 def check_ai_citations(queries: list[str]) -> dict:
     """Log target queries for AI citation tracking.
@@ -446,10 +462,12 @@ Commands:
   refresh       Generate refresh brief for a specific blog
   pagespeed     Check Core Web Vitals for blog URLs
   competitors   Show competitor content summary
+  truth         Report stale/incomplete claims in the truth layer
         """,
     )
     parser.add_argument("command", choices=[
-        "watch", "health", "decay", "citations", "refresh", "pagespeed", "competitors",
+        "watch", "health", "decay", "citations", "refresh", "pagespeed",
+        "competitors", "truth",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
@@ -482,6 +500,8 @@ Commands:
         result = check_pagespeed(args.urls)
     elif args.command == "competitors":
         result = get_competitor_summary()
+    elif args.command == "truth":
+        result = check_truth_layer()
 
     print(json.dumps(result, indent=2, default=str))
 

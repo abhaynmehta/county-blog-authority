@@ -13,6 +13,7 @@ from .models import (
     AuditIssue, ContentAnalysis, GateResult, GateStatus,
     IssueCategory, MetadataAnalysis, Owner, Severity,
 )
+from .truth_layer import load_truth_layer
 
 
 # Patterns that indicate prohibited language
@@ -490,6 +491,52 @@ def _check_paragraphs(text: str, issues: list[AuditIssue], issue_counter: list[i
         ))
 
 
+def _check_truth_layer(text: str, issues: list[AuditIssue], issue_counter: list[int],
+                       truth_dir=None):
+    """Enforce the registry's `prohibited_wording` against the content.
+
+    These phrases come from county_context/, not from this file, so the
+    editorial team can ban new wording by editing YAML rather than Python.
+
+    A phrase is skipped when the paragraph containing it was already flagged
+    for infrastructure or prohibited language, so a claim the built-in
+    patterns catch is not reported twice.
+    """
+    layer = load_truth_layer(truth_dir) if truth_dir else load_truth_layer()
+    if not layer.prohibited_wording:
+        return
+
+    already_flagged = {
+        i.paragraph for i in issues
+        if i.paragraph is not None and i.category in (
+            IssueCategory.INFRASTRUCTURE_STATUS, IssueCategory.PROHIBITED_LANGUAGE,
+        )
+    }
+
+    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+
+    for phrase in layer.prohibited_wording:
+        pattern = re.compile(r"\b" + re.escape(phrase) + r"\b", re.IGNORECASE)
+        for idx, para in enumerate(paragraphs, 1):
+            if idx in already_flagged or not pattern.search(para):
+                continue
+            issue_counter[0] += 1
+            issues.append(AuditIssue(
+                issue_id=f"CG-TRUTH-{issue_counter[0]:03d}",
+                category=IssueCategory.PROHIBITED_LANGUAGE,
+                severity=Severity.HIGH,
+                owner=Owner.ROI,
+                summary=f"Registry-prohibited wording: '{phrase}'",
+                paragraph=idx,
+                claim=para[:200],
+                reason="Listed under prohibited_wording in the County Group truth layer",
+                recommended_action=f"Remove or rephrase '{phrase}'",
+                acceptance_test=f"No '{phrase}' wording remains",
+                editorial_rule="TRUTH_LAYER_PROHIBITED",
+            ))
+            already_flagged.add(idx)
+
+
 def _run_gates(analysis: ContentAnalysis):
     """Run publication gates and determine publishability."""
     critical_issues = [i for i in analysis.issues if i.severity == Severity.CRITICAL]
@@ -568,6 +615,9 @@ def audit_text(text: str, file_path: str = "unknown") -> ContentAnalysis:
 
     # Paragraph-level content checks
     _check_paragraphs(text, analysis.issues, issue_counter)
+
+    # Registry-driven wording rules (county_context/)
+    _check_truth_layer(text, analysis.issues, issue_counter)
 
     # Run publication gates
     _run_gates(analysis)
