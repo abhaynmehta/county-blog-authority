@@ -3,7 +3,7 @@
   "word_count": 1856,
   "paragraph_count": 56,
   "score": 85,
-  "publishable": false,
+  "publishable": true,
   "issue_count": 9,
   "issues_by_severity": {
     "critical": 0,
@@ -26,8 +26,8 @@
     },
     {
       "gate": "RERA & Legal Compliance",
-      "status": "FAIL",
-      "details": "2 compliance issues"
+      "status": "PASS",
+      "details": "Compliant"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -65,7 +65,7 @@
     },
     {
       "issue_id": "CG-CONTENT-003",
-      "category": "prohibited_language",
+      "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
       "summary": "Keyword stuffing: 'noida-greater noida' appears 12 times",
@@ -86,7 +86,7 @@
     },
     {
       "issue_id": "CG-CONTENT-005",
-      "category": "prohibited_language",
+      "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
       "summary": "CTA spam: 2 generic 'read more/click here' CTAs in body text",

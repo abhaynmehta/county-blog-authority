@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | FAIL | 6 compliance issues |
+| 2. RERA & Legal Compliance | FAIL | 5 compliance issues |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -140,7 +140,7 @@
 ### CG-CONTENT-012: Keyword stuffing: 'minutes | route' appears 11 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

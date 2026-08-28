@@ -26,8 +26,8 @@
     },
     {
       "gate": "RERA & Legal Compliance",
-      "status": "FAIL",
-      "details": "1 compliance issues"
+      "status": "PASS",
+      "details": "Compliant"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -76,7 +76,7 @@
     },
     {
       "issue_id": "CG-CONTENT-004",
-      "category": "prohibited_language",
+      "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
       "summary": "Keyword stuffing: 'real estate' appears 10 times",

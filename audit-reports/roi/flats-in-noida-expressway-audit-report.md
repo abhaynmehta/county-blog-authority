@@ -2,7 +2,7 @@
 
 **File:** blogs/roi-incoming/flats-in-noida-expressway.md
 **Score:** 85/100
-**Publishable:** No
+**Publishable:** Yes
 **Word Count:** 1856
 **Paragraphs:** 56
 **Total Issues:** 9
@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | FAIL | 2 compliance issues |
+| 2. RERA & Legal Compliance | PASS | Compliant |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -37,7 +37,7 @@
 ### CG-CONTENT-003: Keyword stuffing: 'noida-greater noida' appears 12 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001
@@ -52,7 +52,7 @@
 ### CG-CONTENT-005: CTA spam: 2 generic 'read more/click here' CTAs in body text
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Replace with descriptive anchor text linking to specific content
 - **Acceptance test:** No generic 'read more' or 'click here' CTAs in body
 - **Google rule:** SPAM-CLICKBAIT-002

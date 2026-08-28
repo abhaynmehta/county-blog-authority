@@ -2,7 +2,7 @@
 
 **File:** blogs/roi-incoming/clove-county-location-map.md
 **Score:** 72/100
-**Publishable:** No
+**Publishable:** Yes
 **Word Count:** 253
 **Paragraphs:** 12
 **Total Issues:** 8
@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | FAIL | 1 compliance issues |
+| 2. RERA & Legal Compliance | PASS | Compliant |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -46,7 +46,7 @@
 ### CG-CONTENT-003: Keyword stuffing: 'clove county' appears 8 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

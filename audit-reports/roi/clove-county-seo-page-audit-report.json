@@ -3,7 +3,7 @@
   "word_count": 1327,
   "paragraph_count": 40,
   "score": 91,
-  "publishable": false,
+  "publishable": true,
   "issue_count": 5,
   "issues_by_severity": {
     "critical": 0,
@@ -26,8 +26,8 @@
     },
     {
       "gate": "RERA & Legal Compliance",
-      "status": "FAIL",
-      "details": "1 compliance issues"
+      "status": "PASS",
+      "details": "Compliant"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -43,7 +43,7 @@
   "issues": [
     {
       "issue_id": "CG-CONTENT-001",
-      "category": "prohibited_language",
+      "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
       "summary": "Keyword stuffing: 'clove county' appears 13 times",

@@ -27,7 +27,7 @@
     {
       "gate": "RERA & Legal Compliance",
       "status": "FAIL",
-      "details": "7 compliance issues"
+      "details": "6 compliance issues"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -141,7 +141,7 @@
     },
     {
       "issue_id": "CG-CONTENT-009",
-      "category": "prohibited_language",
+      "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
       "summary": "Keyword stuffing: 'ivory county' appears 19 times",

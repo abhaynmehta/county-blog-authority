@@ -22,7 +22,7 @@ already_processed:
   score: 85
   issues: 9
   critical: 0
-  publishable: false
+  publishable: true
 - id: 10Yfq1i1mUOzSqJXoZcptznniIpeddDidvSM_gyNMB68
   title: Jewar Airport driving luxury flats in Noida
   local_file: blogs/roi-incoming/flats-in-noida-jewar-airport.md
@@ -38,7 +38,7 @@ already_processed:
   score: 82
   issues: 9
   critical: 0
-  publishable: false
+  publishable: true
 roi_google_docs:
 - id: 1SyesX-7xC7Kc9Wvkv1TrHdp5QdR0alWEPmxVV1jfaN0
   title: Ivory County Most Desirable Project of Noida
@@ -231,7 +231,7 @@ roi_google_docs:
   score: 78
   issues: 5
   critical: 0
-  publishable: false
+  publishable: true
 - id: 1Bbou7gLc2iu-Ft-iS4rd1oG8kSaynVDtG0HEFoFOJHE
   title: Ivory County Specifications
   local_file: blogs/roi-incoming/ivory-county-specifications.md
@@ -583,7 +583,7 @@ roi_google_docs:
   score: 72
   issues: 6
   critical: 0
-  publishable: false
+  publishable: true
 - id: 1nOGzOrebrL0uUKQ7fRFUQkx6W2qni3FXwiGwHL6749A
   title: Planning to Buy a Flat in Greater Noida West (Aug v2)
   local_file: blogs/roi-incoming/flats-greater-noida-west-conveniences.md
@@ -591,7 +591,7 @@ roi_google_docs:
   score: 85
   issues: 8
   critical: 0
-  publishable: false
+  publishable: true
 - id: 1LMLArqmsZPgoPserp9BNB0y_W0KarJk8ivIbjtw-f5I
   title: 7 Reasons Why Sector 151 Should be on Your List (Aug v2)
   local_file: blogs/roi-incoming/sector-151-noida-7-reasons.md
@@ -599,7 +599,7 @@ roi_google_docs:
   score: 88
   issues: 8
   critical: 0
-  publishable: false
+  publishable: true
 - id: 1ZF1afHFoWWLtVaSWrxyMwmQf855iprpsWqES2nYjiFA
   title: Clove County Nearby Places (Aug)
   local_file: blogs/roi-incoming/clove-county-nearby-places.md
@@ -615,7 +615,7 @@ roi_google_docs:
   score: 72
   issues: 8
   critical: 0
-  publishable: false
+  publishable: true
 - id: 1IACw_iHEYNT0IBW7NT37nMQrXQwfcrw1xn_AMtqnYnA
   title: Clove County SEO Landing Page (v2)
   local_file: blogs/roi-incoming/clove-county-seo-page.md
@@ -623,7 +623,7 @@ roi_google_docs:
   score: 91
   issues: 5
   critical: 0
-  publishable: false
+  publishable: true
 - id: 1mb2CJnwSnjIvO0FLCqIidZMGegLSIaHxXz3VMatich8
   title: Clove County Masterplan Page (v2)
   local_file: blogs/roi-incoming/clove-county-masterplan-page.md

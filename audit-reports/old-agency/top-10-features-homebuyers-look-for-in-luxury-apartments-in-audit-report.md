@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | FAIL | 1 factual issues |
-| 2. RERA & Legal Compliance | FAIL | 2 compliance issues |
+| 2. RERA & Legal Compliance | FAIL | 1 compliance issues |
 | 3. Technical SEO Eligibility | FAIL | 1 SEO issues |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -76,7 +76,7 @@ Location is the prime factor that positions a property as luxurious in the first
 ### CG-CONTENT-006: Keyword stuffing: 'apartments in' appears 9 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

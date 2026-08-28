@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | FAIL | 2 factual issues |
-| 2. RERA & Legal Compliance | FAIL | 1 compliance issues |
+| 2. RERA & Legal Compliance | PASS | Compliant |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -78,7 +78,7 @@
 ### CG-CONTENT-005: Keyword stuffing: 'greater noida' appears 8 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

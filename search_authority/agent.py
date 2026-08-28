@@ -111,6 +111,43 @@ def watch_and_audit(directory: str = "blogs/roi-incoming", force: bool = False) 
 
 # --- Task 2: Content decay detection ---
 
+def _find_column(headers: list[str], candidates: list[str]) -> Optional[str]:
+    """First header matching any candidate, compared case-insensitively."""
+    lowered = {h.strip().lower(): h for h in headers}
+    for want in candidates:
+        if want in lowered:
+            return lowered[want]
+    for want in candidates:
+        for low, original in lowered.items():
+            if want in low:
+                return original
+    return None
+
+
+def _find_comparison_columns(headers: list[str]) -> tuple[Optional[str], Optional[str]]:
+    """Locate the current and previous impression columns.
+
+    Search Console names these by the chosen range — "Impressions Last 28
+    days" and "Impressions Previous 28 days" — so they cannot be hardcoded.
+    Falls back to explicit impressions/prev_impressions columns.
+    """
+    impression_cols = [h for h in headers if "impression" in h.strip().lower()]
+
+    current = previous = None
+    for header in impression_cols:
+        low = header.strip().lower()
+        if "previous" in low or low.startswith("prev"):
+            previous = header
+        elif "last" in low or "current" in low:
+            current = header
+
+    if not current:
+        plain = [h for h in impression_cols if h != previous]
+        current = plain[0] if plain else None
+
+    return current, previous
+
+
 def check_content_decay(gsc_export_path: str) -> dict:
     """Detect blogs losing impressions using a Google Search Console CSV export.
 
@@ -126,35 +163,53 @@ def check_content_decay(gsc_export_path: str) -> dict:
     if not path.exists():
         return {"error": f"File not found: {gsc_export_path}"}
 
-    rows = []
     with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            rows.append(row)
+        rows = list(csv.DictReader(f))
 
     if not rows:
         return {"error": "Empty CSV file"}
 
-    decaying = []
-    for row in rows:
-        page = row.get("page", row.get("Page", ""))
-        impressions = float(row.get("impressions", row.get("Impressions", 0)))
-        prev_impressions = float(row.get("prev_impressions", row.get("Prev Impressions", impressions)))
+    headers = list(rows[0].keys())
+    page_col = _find_column(headers, ["top pages", "page", "url", "landing page"])
+    current_col, previous_col = _find_comparison_columns(headers)
 
-        if prev_impressions > 0:
-            change = (impressions - prev_impressions) / prev_impressions
-            if change <= -0.20:
-                decaying.append({
-                    "page": page,
-                    "impressions": impressions,
-                    "prev_impressions": prev_impressions,
-                    "change_pct": round(change * 100, 1),
-                })
+    if not page_col:
+        return {"error": f"No page column found. Headers: {headers}"}
+    if not (current_col and previous_col):
+        return {
+            "error": "No comparison columns found. Export from Search Console "
+                     "with date comparison enabled (Last 28 days vs Previous "
+                     "period), which produces 'Impressions Last 28 days' and "
+                     "'Impressions Previous 28 days'.",
+            "headers_seen": headers,
+        }
+
+    decaying, skipped = [], 0
+    for row in rows:
+        try:
+            current = float(str(row.get(current_col, "") or 0).replace(",", ""))
+            previous = float(str(row.get(previous_col, "") or 0).replace(",", ""))
+        except ValueError:
+            skipped += 1
+            continue
+
+        if previous <= 0:
+            continue
+        change = (current - previous) / previous
+        if change <= -0.20:
+            decaying.append({
+                "page": row.get(page_col, ""),
+                "impressions": current,
+                "prev_impressions": previous,
+                "change_pct": round(change * 100, 1),
+            })
 
     result = {
         "total_pages": len(rows),
         "decaying": len(decaying),
+        "skipped_unparseable": skipped,
         "decay_threshold": "-20%",
+        "columns_used": {"page": page_col, "current": current_col, "previous": previous_col},
         "pages": sorted(decaying, key=lambda x: x["change_pct"]),
     }
 
@@ -379,15 +434,29 @@ def generate_refresh_brief(file_path: str) -> dict:
     report_path = AGENT_LOG / "refresh" / f"{Path(file_path).stem}-audit-report.json"
     if report_path.exists():
         report_data = json.loads(report_path.read_text())
-        for issue in report_data.get("issues", []):
-            if issue.get("severity") in ("critical", "high"):
-                brief["action_items"].append({
-                    "severity": issue["severity"],
-                    "summary": issue["summary"],
-                    "action": issue.get("recommended_action", ""),
-                    "test": issue.get("acceptance_test", ""),
-                    "owner": issue.get("owner", "ROI"),
-                })
+        # Every actionable issue, worst first. Filtering to critical/high left
+        # briefs empty for documents whose problems were all medium — which
+        # read as "nothing to do" next to a non-zero issue count.
+        order = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 4}
+        actionable = [
+            i for i in report_data.get("issues", [])
+            if i.get("severity") in order
+        ]
+        actionable.sort(key=lambda i: order.get(i.get("severity"), 9))
+
+        for issue in actionable:
+            brief["action_items"].append({
+                "severity": issue["severity"],
+                "summary": issue["summary"],
+                "action": issue.get("recommended_action", ""),
+                "test": issue.get("acceptance_test", ""),
+                "owner": issue.get("owner", "ROI"),
+                "quoted_text": (issue.get("claim") or "")[:160],
+            })
+
+        brief["blocking_gates"] = [
+            name for name, status in result["gates"].items() if status == "FAIL"
+        ]
 
     brief_path = AGENT_LOG / f"refresh-brief-{Path(file_path).stem}.json"
     brief_path.write_text(json.dumps(brief, indent=2))

@@ -419,7 +419,7 @@ def _check_paragraphs(text: str, issues: list[AuditIssue], issue_counter: list[i
                     issue_counter[0] += 1
                     issues.append(AuditIssue(
                         issue_id=f"CG-CONTENT-{issue_counter[0]:03d}",
-                        category=IssueCategory.PROHIBITED_LANGUAGE,
+                        category=IssueCategory.SPAM_SIGNAL,
                         severity=Severity.MEDIUM,
                         owner=Owner.ROI,
                         summary=f"Keyword stuffing: '{phrase}' appears {count} times",
@@ -481,7 +481,7 @@ def _check_paragraphs(text: str, issues: list[AuditIssue], issue_counter: list[i
         issue_counter[0] += 1
         issues.append(AuditIssue(
             issue_id=f"CG-CONTENT-{issue_counter[0]:03d}",
-            category=IssueCategory.PROHIBITED_LANGUAGE,
+            category=IssueCategory.SPAM_SIGNAL,
             severity=Severity.MEDIUM,
             owner=Owner.ROI,
             summary=f"CTA spam: {body_cta_count} generic 'read more/click here' CTAs in body text",
@@ -823,6 +823,7 @@ def _run_gates(analysis: ContentAnalysis):
     seo_fails = [i for i in analysis.issues if i.category in (
         IssueCategory.HEADING_STRUCTURE, IssueCategory.META_TITLE,
         IssueCategory.META_DESCRIPTION, IssueCategory.CANONICAL,
+        IssueCategory.SPAM_SIGNAL,
     ) and i.severity in (Severity.CRITICAL, Severity.HIGH)]
     analysis.gates.append(GateResult(
         gate_name="Technical SEO Eligibility",

@@ -3,7 +3,7 @@
   "audited": 87,
   "skipped": 0,
   "errors": 0,
-  "publishable": 34,
+  "publishable": 42,
   "avg_score": 67.2,
   "results": [
     {
@@ -48,13 +48,13 @@
     },
     {
       "slug": "flats-in-noida-expressway",
-      "publishable": false,
+      "publishable": true,
       "score": 85,
       "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -74,7 +74,7 @@
       "critical_count": 3,
       "gates": {
         "Factual Accuracy": "FAIL",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -88,13 +88,13 @@
     },
     {
       "slug": "flats-in-greater-noida",
-      "publishable": false,
+      "publishable": true,
       "score": 82,
       "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -554,7 +554,7 @@
       "critical_count": 2,
       "gates": {
         "Factual Accuracy": "FAIL",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -568,13 +568,13 @@
     },
     {
       "slug": "ivory-county-at-a-glance",
-      "publishable": false,
+      "publishable": true,
       "score": 78,
       "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -1448,13 +1448,13 @@
     },
     {
       "slug": "commercial-real-estate-delhi-ncr",
-      "publishable": false,
+      "publishable": true,
       "score": 72,
       "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -1468,13 +1468,13 @@
     },
     {
       "slug": "flats-greater-noida-west-conveniences",
-      "publishable": false,
+      "publishable": true,
       "score": 85,
       "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -1488,13 +1488,13 @@
     },
     {
       "slug": "sector-151-noida-7-reasons",
-      "publishable": false,
+      "publishable": true,
       "score": 88,
       "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -1528,13 +1528,13 @@
     },
     {
       "slug": "clove-county-location-map",
-      "publishable": false,
+      "publishable": true,
       "score": 72,
       "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -1548,13 +1548,13 @@
     },
     {
       "slug": "clove-county-seo-page",
-      "publishable": false,
+      "publishable": true,
       "score": 91,
       "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "PASS",
         "Deployment Integrity": "WARNING"
       },
@@ -1594,7 +1594,7 @@
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "FAIL",
         "Deployment Integrity": "WARNING"
       },
@@ -1674,7 +1674,7 @@
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "FAIL",
         "Deployment Integrity": "WARNING"
       },
@@ -1714,7 +1714,7 @@
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
-        "RERA & Legal Compliance": "FAIL",
+        "RERA & Legal Compliance": "PASS",
         "Technical SEO Eligibility": "FAIL",
         "Deployment Integrity": "WARNING"
       },

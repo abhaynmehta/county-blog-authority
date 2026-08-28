@@ -38,6 +38,10 @@ class IssueCategory(str, Enum):
     CONTENT_OVERLAP = "content_overlap"
     RERA_COMPLIANCE = "rera_compliance"
     PROHIBITED_LANGUAGE = "prohibited_language"
+    # Search-spam signals (keyword stuffing, CTA spam). Kept separate from
+    # PROHIBITED_LANGUAGE so they do not fail the RERA & Legal gate — a
+    # repeated phrase is an SEO problem, not a compliance breach.
+    SPAM_SIGNAL = "spam_signal"
     GRAMMAR = "grammar"
     UNSUPPORTED_CLAIM = "unsupported_claim"
     MISSING_EVIDENCE = "missing_evidence"

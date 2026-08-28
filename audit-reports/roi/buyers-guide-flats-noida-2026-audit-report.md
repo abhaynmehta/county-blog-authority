@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | FAIL | 2 factual issues |
-| 2. RERA & Legal Compliance | FAIL | 4 compliance issues |
+| 2. RERA & Legal Compliance | FAIL | 3 compliance issues |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -95,7 +95,7 @@ Meta Description: Explore key factors to consider when buying flats in Noida in 
 ### CG-CONTENT-007: Keyword stuffing: 'flats in noida,' appears 8 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | FAIL | 2 compliance issues |
+| 2. RERA & Legal Compliance | FAIL | 1 compliance issues |
 | 3. Technical SEO Eligibility | FAIL | 1 SEO issues |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -65,7 +65,7 @@ Remember that the best builder in Noida will never flinch when you ask to see th
 ### CG-CONTENT-005: Keyword stuffing: 'real estate' appears 19 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

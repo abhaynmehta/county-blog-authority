@@ -12,7 +12,7 @@
 | Gate | Status | Details |
 |------|--------|---------|
 | 1. Factual Accuracy | PASS | No factual issues |
-| 2. RERA & Legal Compliance | FAIL | 2 compliance issues |
+| 2. RERA & Legal Compliance | FAIL | 1 compliance issues |
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
@@ -60,7 +60,7 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 ### CG-CONTENT-004: Keyword stuffing: 'in ghaziabad,' appears 12 times
 
 - **Owner:** ROI
-- **Category:** prohibited_language
+- **Category:** spam_signal
 - **Action:** Reduce repetition. Use synonyms and natural phrasing.
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001

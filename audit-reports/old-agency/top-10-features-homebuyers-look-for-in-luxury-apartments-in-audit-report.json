@@ -27,7 +27,7 @@
     {
       "gate": "RERA & Legal Compliance",
       "status": "FAIL",
-      "details": "2 compliance issues"
+      "details": "1 compliance issues"
     },
     {
       "gate": "Technical SEO Eligibility",
@@ -101,7 +101,7 @@
     },
     {
       "issue_id": "CG-CONTENT-006",
-      "category": "prohibited_language",
+      "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
       "summary": "Keyword stuffing: 'apartments in' appears 9 times",
