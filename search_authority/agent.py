@@ -1,0 +1,490 @@
+"""Agentic automation for the County Group Blog Authority System.
+
+Watches for new blog docs, auto-audits them, monitors content decay,
+tracks competitor activity, and verifies AI citations. Runs on free APIs:
+- Anthropic API (Haiku) for AI analysis
+- Google Search Console API for decay detection
+- Google PageSpeed Insights API for Core Web Vitals
+"""
+
+import json
+import os
+import sys
+import time
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Optional
+
+import yaml
+
+from .batch import load_inventory, save_inventory, ROI_OUTPUT
+from .pipeline import run_pipeline
+
+AGENT_LOG = Path("agent-logs")
+CONFIG_PATH = Path("agent-config.yaml")
+CONFIG_EXAMPLE_PATH = Path("agent-config.example.yaml")
+URL_BASE = "https://www.countygroup.in/blog"
+
+
+def _load_config() -> dict:
+    for path in (CONFIG_PATH, CONFIG_EXAMPLE_PATH):
+        if path.exists():
+            return yaml.safe_load(path.read_text()) or {}
+    return {}
+
+
+def _log(action: str, data: dict):
+    AGENT_LOG.mkdir(parents=True, exist_ok=True)
+    entry = {"timestamp": datetime.now().isoformat(), "action": action, **data}
+    log_file = AGENT_LOG / f"{datetime.now().strftime('%Y-%m-%d')}.jsonl"
+    with open(log_file, "a") as f:
+        f.write(json.dumps(entry, default=str) + "\n")
+    print(f"[{entry['timestamp'][:19]}] {action}: {json.dumps(data, default=str)[:200]}")
+
+
+# --- Task 1: Auto-audit new files ---
+
+def watch_and_audit(directory: str = "blogs/roi-incoming", force: bool = False) -> dict:
+    """Scan a directory for new/changed blog files and audit them.
+
+    This is the core loop: ROI drops a file → agent audits → generates reports.
+    """
+    scan_dir = Path(directory)
+    if not scan_dir.exists():
+        return {"error": f"Directory {directory} does not exist"}
+
+    inv = load_inventory()
+    all_entries = (
+        inv.get("already_processed", [])
+        + inv.get("roi_google_docs", [])
+    )
+    known_files = {e.get("local_file") for e in all_entries if e.get("local_file")}
+
+    results = []
+    new_files = []
+
+    for f in sorted(scan_dir.glob("*.md")):
+        rel = str(f)
+        if rel not in known_files:
+            new_files.append(rel)
+
+    if not new_files and not force:
+        _log("watch_scan", {"new_files": 0, "directory": directory})
+        return {"new_files": 0, "message": "No new files found"}
+
+    for fpath in new_files:
+        slug = Path(fpath).stem
+        try:
+            r = run_pipeline(
+                input_path=fpath, slug=slug,
+                output_dir=str(ROI_OUTPUT), url_base=URL_BASE,
+            )
+            entry = {
+                "title": slug.replace("-", " ").title(),
+                "local_file": fpath,
+                "status": "audited",
+                "score": r["score"],
+                "issues": r["issue_count"],
+                "critical": r["critical_count"],
+                "publishable": r["publishable"],
+                "added_by": "agent",
+                "added_at": datetime.now().isoformat(),
+            }
+            inv.setdefault("roi_google_docs", []).append(entry)
+            results.append({"file": fpath, "score": r["score"], "publishable": r["publishable"]})
+            _log("auto_audit", {"file": fpath, "score": r["score"], "issues": r["issue_count"]})
+        except Exception as e:
+            results.append({"file": fpath, "error": str(e)})
+            _log("auto_audit_error", {"file": fpath, "error": str(e)})
+
+    save_inventory(inv)
+    summary = {
+        "new_files": len(new_files),
+        "audited": len([r for r in results if "score" in r]),
+        "errors": len([r for r in results if "error" in r]),
+        "results": results,
+    }
+    _log("watch_complete", summary)
+    return summary
+
+
+# --- Task 2: Content decay detection ---
+
+def check_content_decay(gsc_export_path: str) -> dict:
+    """Detect blogs losing impressions using a Google Search Console CSV export.
+
+    GSC export columns: page, clicks, impressions, ctr, position
+    Compare last 28 days vs previous 28 days.
+
+    Args:
+        gsc_export_path: Path to a GSC performance CSV (exported manually or via API).
+    """
+    import csv
+
+    path = Path(gsc_export_path)
+    if not path.exists():
+        return {"error": f"File not found: {gsc_export_path}"}
+
+    rows = []
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            rows.append(row)
+
+    if not rows:
+        return {"error": "Empty CSV file"}
+
+    decaying = []
+    for row in rows:
+        page = row.get("page", row.get("Page", ""))
+        impressions = float(row.get("impressions", row.get("Impressions", 0)))
+        prev_impressions = float(row.get("prev_impressions", row.get("Prev Impressions", impressions)))
+
+        if prev_impressions > 0:
+            change = (impressions - prev_impressions) / prev_impressions
+            if change <= -0.20:
+                decaying.append({
+                    "page": page,
+                    "impressions": impressions,
+                    "prev_impressions": prev_impressions,
+                    "change_pct": round(change * 100, 1),
+                })
+
+    result = {
+        "total_pages": len(rows),
+        "decaying": len(decaying),
+        "decay_threshold": "-20%",
+        "pages": sorted(decaying, key=lambda x: x["change_pct"]),
+    }
+
+    _log("content_decay", {"total": len(rows), "decaying": len(decaying)})
+
+    if decaying:
+        report_path = AGENT_LOG / f"decay-report-{datetime.now().strftime('%Y-%m-%d')}.json"
+        report_path.write_text(json.dumps(result, indent=2))
+
+    return result
+
+
+# --- Task 3: Inventory health report ---
+
+def generate_health_report() -> dict:
+    """Generate a comprehensive health report from the current inventory."""
+    inv = load_inventory()
+    all_entries = []
+
+    for section in ["already_processed", "roi_google_docs", "old_agency_local"]:
+        for item in inv.get(section, []):
+            score = item.get("score")
+            if score is not None:
+                all_entries.append({
+                    "title": item.get("title", item.get("file", "unknown")),
+                    "score": score,
+                    "issues": item.get("issues", 0),
+                    "critical": item.get("critical", 0),
+                    "publishable": item.get("publishable", False),
+                    "status": item.get("status", "unknown"),
+                    "source": section,
+                })
+
+    if not all_entries:
+        return {"error": "No audited entries found"}
+
+    scores = [e["score"] for e in all_entries]
+    publishable = [e for e in all_entries if e["publishable"]]
+    critical_blogs = [e for e in all_entries if e["critical"] > 0]
+
+    report = {
+        "generated_at": datetime.now().isoformat(),
+        "total_docs": len(all_entries),
+        "audited": len([e for e in all_entries if e["status"] == "audited"]),
+        "publishable": len(publishable),
+        "publishable_pct": round(len(publishable) / len(all_entries) * 100, 1),
+        "avg_score": round(sum(scores) / len(scores), 1),
+        "min_score": min(scores),
+        "max_score": max(scores),
+        "median_score": sorted(scores)[len(scores) // 2],
+        "critical_blogs": len(critical_blogs),
+        "score_distribution": {
+            "90_100": len([s for s in scores if s >= 90]),
+            "80_89": len([s for s in scores if 80 <= s < 90]),
+            "70_79": len([s for s in scores if 70 <= s < 80]),
+            "60_69": len([s for s in scores if 60 <= s < 70]),
+            "below_60": len([s for s in scores if s < 60]),
+        },
+        "top_5": sorted(all_entries, key=lambda x: x["score"], reverse=True)[:5],
+        "bottom_5": sorted(all_entries, key=lambda x: x["score"])[:5],
+    }
+
+    report_path = AGENT_LOG / f"health-report-{datetime.now().strftime('%Y-%m-%d')}.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2, default=str))
+
+    _log("health_report", {
+        "total": report["total_docs"],
+        "publishable": report["publishable"],
+        "avg_score": report["avg_score"],
+    })
+    return report
+
+
+# --- Task 4: AI citation check ---
+
+def check_ai_citations(queries: list[str]) -> dict:
+    """Log target queries for AI citation tracking.
+
+    Run this quarterly. Manually check each query on ChatGPT, Perplexity,
+    Google AI Overview — then record whether County Group was cited.
+
+    Returns a tracking template for manual verification.
+    """
+    template = {
+        "check_date": datetime.now().isoformat()[:10],
+        "queries": [],
+    }
+
+    for q in queries:
+        template["queries"].append({
+            "query": q,
+            "chatgpt_cited": None,
+            "perplexity_cited": None,
+            "google_ai_overview_cited": None,
+            "notes": "",
+        })
+
+    path = AGENT_LOG / f"citation-check-{datetime.now().strftime('%Y-%m-%d')}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(template, indent=2))
+
+    _log("citation_check_template", {"queries": len(queries)})
+    return template
+
+
+DEFAULT_CITATION_QUERIES = [
+    "best luxury flats in Noida",
+    "flats in Sector 151 Noida",
+    "3 BHK Greater Noida West",
+    "Noida Expressway apartments",
+    "premium flats Gurugram Sector 88A",
+    "County Group reviews",
+    "Clove County Noida",
+    "Coco County Greater Noida West",
+    "Ivory County Noida Expressway",
+    "Center Court Gurugram",
+    "Jade County Sector 151",
+    "Courtyard Noida",
+    "RERA registered flats Noida",
+    "luxury apartments near Noida airport",
+    "County Group developer projects",
+]
+
+
+# --- Task 5: Refresh brief generator ---
+
+def generate_refresh_brief(file_path: str) -> dict:
+    """Generate a refresh brief for a blog that needs updating.
+
+    Reads the audit report and creates a concise brief for ROI
+    with exactly what needs to change.
+    """
+    path = Path(file_path)
+    if not path.exists():
+        return {"error": f"File not found: {file_path}"}
+
+    result = run_pipeline(input_path=file_path, output_dir=str(AGENT_LOG / "refresh"))
+
+    brief = {
+        "file": file_path,
+        "current_score": result["score"],
+        "publishable": result["publishable"],
+        "gate_status": result["gates"],
+        "total_issues": result["issue_count"],
+        "critical_issues": result["critical_count"],
+        "action_items": [],
+    }
+
+    report_path = AGENT_LOG / "refresh" / f"{Path(file_path).stem}-audit-report.json"
+    if report_path.exists():
+        report_data = json.loads(report_path.read_text())
+        for issue in report_data.get("issues", []):
+            if issue.get("severity") in ("critical", "high"):
+                brief["action_items"].append({
+                    "severity": issue["severity"],
+                    "summary": issue["summary"],
+                    "action": issue.get("recommended_action", ""),
+                    "test": issue.get("acceptance_test", ""),
+                    "owner": issue.get("owner", "ROI"),
+                })
+
+    brief_path = AGENT_LOG / f"refresh-brief-{Path(file_path).stem}.json"
+    brief_path.write_text(json.dumps(brief, indent=2))
+
+    _log("refresh_brief", {"file": file_path, "score": result["score"], "actions": len(brief["action_items"])})
+    return brief
+
+
+# --- Task 6: Competitor content monitor ---
+
+def log_competitor_content(competitor: str, url: str, title: str, topic: str) -> dict:
+    """Log a competitor blog post for tracking.
+
+    Run monthly. When checking competitor blogs, log new posts here
+    to track their content velocity and topic coverage.
+    """
+    log_path = AGENT_LOG / "competitor-tracker.jsonl"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+
+    entry = {
+        "date": datetime.now().isoformat()[:10],
+        "competitor": competitor,
+        "url": url,
+        "title": title,
+        "topic": topic,
+        "in_our_cluster": False,
+        "responded": False,
+    }
+
+    with open(log_path, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+    _log("competitor_content", {"competitor": competitor, "title": title})
+    return entry
+
+
+def get_competitor_summary() -> dict:
+    """Summarize tracked competitor content."""
+    log_path = AGENT_LOG / "competitor-tracker.jsonl"
+    if not log_path.exists():
+        return {"total": 0, "competitors": {}}
+
+    entries = []
+    for line in log_path.read_text().strip().split("\n"):
+        if line.strip():
+            entries.append(json.loads(line))
+
+    by_competitor = {}
+    for e in entries:
+        name = e["competitor"]
+        by_competitor.setdefault(name, []).append(e)
+
+    return {
+        "total": len(entries),
+        "competitors": {
+            name: {"count": len(posts), "latest": posts[-1]["title"]}
+            for name, posts in by_competitor.items()
+        },
+    }
+
+
+# --- Task 7: PageSpeed check ---
+
+def check_pagespeed(urls: list[str]) -> dict:
+    """Check Core Web Vitals using the free Google PageSpeed Insights API.
+
+    No API key needed for basic usage (limited rate).
+    """
+    try:
+        import urllib.request
+        import urllib.parse
+    except ImportError:
+        return {"error": "urllib not available"}
+
+    results = []
+    for url in urls:
+        api_url = (
+            "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?"
+            + urllib.parse.urlencode({"url": url, "strategy": "mobile"})
+        )
+        try:
+            with urllib.request.urlopen(api_url, timeout=30) as resp:
+                data = json.loads(resp.read())
+
+            lh = data.get("lighthouseResult", {})
+            categories = lh.get("categories", {})
+            perf_score = categories.get("performance", {}).get("score")
+
+            audits = lh.get("audits", {})
+            lcp = audits.get("largest-contentful-paint", {}).get("numericValue")
+            cls = audits.get("cumulative-layout-shift", {}).get("numericValue")
+            inp = audits.get("interaction-to-next-paint", {}).get("numericValue")
+
+            results.append({
+                "url": url,
+                "performance_score": round(perf_score * 100) if perf_score else None,
+                "lcp_ms": round(lcp) if lcp else None,
+                "cls": round(cls, 3) if cls is not None else None,
+                "inp_ms": round(inp) if inp else None,
+            })
+        except Exception as e:
+            results.append({"url": url, "error": str(e)})
+
+    summary = {
+        "checked": len(urls),
+        "results": results,
+        "timestamp": datetime.now().isoformat(),
+    }
+
+    _log("pagespeed", {"checked": len(urls), "errors": len([r for r in results if "error" in r])})
+    return summary
+
+
+# --- CLI ---
+
+def main():
+    """CLI for the agent system."""
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="County Group Blog Authority Agent",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Commands:
+  watch         Scan for new blog files and auto-audit them
+  health        Generate inventory health report
+  decay         Check content decay from GSC export
+  citations     Generate AI citation tracking template
+  refresh       Generate refresh brief for a specific blog
+  pagespeed     Check Core Web Vitals for blog URLs
+  competitors   Show competitor content summary
+        """,
+    )
+    parser.add_argument("command", choices=[
+        "watch", "health", "decay", "citations", "refresh", "pagespeed", "competitors",
+    ])
+    parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
+    parser.add_argument("--file", help="File path (for 'refresh')")
+    parser.add_argument("--gsc", help="GSC export CSV path (for 'decay')")
+    parser.add_argument("--urls", nargs="+", help="URLs (for 'pagespeed')")
+    parser.add_argument("--force", action="store_true")
+
+    args = parser.parse_args()
+
+    if args.command == "watch":
+        result = watch_and_audit(directory=args.dir, force=args.force)
+    elif args.command == "health":
+        result = generate_health_report()
+    elif args.command == "decay":
+        if not args.gsc:
+            print("Error: --gsc required for decay check")
+            sys.exit(1)
+        result = check_content_decay(args.gsc)
+    elif args.command == "citations":
+        result = check_ai_citations(DEFAULT_CITATION_QUERIES)
+    elif args.command == "refresh":
+        if not args.file:
+            print("Error: --file required for refresh brief")
+            sys.exit(1)
+        result = generate_refresh_brief(args.file)
+    elif args.command == "pagespeed":
+        if not args.urls:
+            print("Error: --urls required for pagespeed check")
+            sys.exit(1)
+        result = check_pagespeed(args.urls)
+    elif args.command == "competitors":
+        result = get_competitor_summary()
+
+    print(json.dumps(result, indent=2, default=str))
+
+
+if __name__ == "__main__":
+    main()

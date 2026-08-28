@@ -102,3 +102,7 @@ definitive-resesarch-blueprint-for-claude-blog.md
 
 # Local Claude Code settings (never commit)
 .claude/settings.local.json
+
+# County Group agent (local config with API keys + generated logs)
+agent-config.yaml
+agent-logs/

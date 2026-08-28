@@ -1,0 +1,59 @@
+# County Group Blog Authority Agent Configuration
+# Copy this file and fill in your API keys.
+
+# Anthropic API (for AI-powered analysis)
+# Get your key: https://console.anthropic.com/settings/keys
+# Free $5 credit on signup. Haiku costs ~$0.25/M input tokens.
+anthropic_api_key: ""
+model: "claude-haiku-4-5-20251001"
+
+# Google Search Console
+# Get API access: https://console.cloud.google.com/apis/library/searchconsole.googleapis.com
+# Free. Requires site verification (AGO has access).
+gsc_property: "https://www.countygroup.in/"
+
+# Watch directories for new blog files
+watch_directories:
+  - "blogs/roi-incoming"
+
+# Blog URL base for schema generation
+url_base: "https://www.countygroup.in/blog"
+
+# Content decay threshold (percentage drop in impressions)
+decay_threshold: -20
+
+# Target queries for AI citation tracking (checked quarterly)
+citation_queries:
+  - "best luxury flats in Noida"
+  - "flats in Sector 151 Noida"
+  - "3 BHK Greater Noida West"
+  - "Noida Expressway apartments"
+  - "premium flats Gurugram Sector 88A"
+  - "County Group reviews"
+  - "Clove County Noida"
+  - "Coco County Greater Noida West"
+  - "Ivory County Noida Expressway"
+  - "Center Court Gurugram"
+  - "Jade County Sector 151"
+  - "Courtyard Noida"
+  - "RERA registered flats Noida"
+  - "luxury apartments near Noida airport"
+  - "County Group developer projects"
+
+# Competitor blogs to monitor monthly
+competitors:
+  - name: "Prateek Group"
+    blog_url: "https://prateekgroup.com/blog/"
+  - name: "Eldeco EOE"
+    blog_url: "https://www.eldecoeoe.com/blog/"
+  - name: "Sobha"
+    blog_url: "https://www.sobha.com/blog/"
+  - name: "Express Builders"
+    blog_url: "https://www.ajaynandaexpress.com/blog/"
+  - name: "ATS Greens"
+    blog_url: "https://www.aboradagroup.in/blog/"
+
+# PageSpeed monitoring URLs
+pagespeed_urls:
+  - "https://www.countygroup.in/blog/"
+  - "https://www.countygroup.in/"
