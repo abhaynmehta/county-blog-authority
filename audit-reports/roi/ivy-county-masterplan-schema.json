@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Ivy County Masterplan - Sector 75 Noida | County Group",
+      "description": "Ivy County masterplan. 5.1 acres, five towers, central greens, comprehensive amenities in Sector 75 Noida.",
+      "url": "https://www.countygroup.in/blog/ivy-county-masterplan",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/ivy-county-masterplan"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ivy County Masterplan - Sector 75 Noida | County Group"
+        }
+      ]
+    }
+  ]
+}

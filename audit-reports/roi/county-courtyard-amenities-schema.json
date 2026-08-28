@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "County Courtyard Amenities - NSP Delhi | County Group",
+      "description": "County Courtyard amenities. Smart infrastructure, EV charging, high-speed lifts, dedicated parking at NSP Delhi.",
+      "url": "https://www.countygroup.in/blog/county-courtyard-amenities",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/county-courtyard-amenities"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "County Courtyard Amenities - NSP Delhi | County Group"
+        }
+      ]
+    }
+  ]
+}

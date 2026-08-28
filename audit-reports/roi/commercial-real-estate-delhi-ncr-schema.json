@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Commercial Real Estate in Delhi-NCR: Investment Opportunities and Growth Trends in 2026 | Blog",
+      "description": "Discover the future of commercial real estate in Delhi-NCR with insights into key markets, infrastructure growth, investment factors, and emerging commercial corridors.",
+      "url": "https://www.countygroup.in/blog/commercial-real-estate-delhi-ncr",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/commercial-real-estate-delhi-ncr"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Commercial Real Estate in Delhi-NCR: Investment Opportunities and Growth Trends in 2026 | Blog"
+        }
+      ]
+    }
+  ]
+}

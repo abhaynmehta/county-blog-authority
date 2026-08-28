@@ -1,0 +1,197 @@
+{
+  "file_path": "blogs/roi-incoming/flats-in-gurgaon-sector-88.md",
+  "word_count": 2333,
+  "paragraph_count": 54,
+  "score": 22,
+  "publishable": false,
+  "issue_count": 13,
+  "issues_by_severity": {
+    "critical": 2,
+    "high": 3,
+    "medium": 8,
+    "low": 0,
+    "info": 0
+  },
+  "issues_by_owner": {
+    "ROI": 13,
+    "AGO": 0,
+    "BOTH": 0,
+    "INTERNAL": 0
+  },
+  "gates": [
+    {
+      "gate": "Factual Accuracy",
+      "status": "PASS",
+      "details": "No factual issues"
+    },
+    {
+      "gate": "RERA & Legal Compliance",
+      "status": "FAIL",
+      "details": "5 compliance issues"
+    },
+    {
+      "gate": "Technical SEO Eligibility",
+      "status": "PASS",
+      "details": "SEO basics pass"
+    },
+    {
+      "gate": "Deployment Integrity",
+      "status": "WARNING",
+      "details": "Check post-deployment"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "CG-META-001",
+      "category": "meta_title",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta title too long (88 chars, may truncate)",
+      "claim": "Why Sector 88A is One of the Best Places to Buy a Flat in Gurgaon | Blog by County Group",
+      "reason": "",
+      "recommended_action": "Shorten title to 60 characters or fewer",
+      "acceptance_test": "Title is 30-60 characters"
+    },
+    {
+      "issue_id": "CG-META-002",
+      "category": "meta_description",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta description too long (171 chars)",
+      "claim": "Planning to buy a flat in Gurgaon? Learn why Sector 88A stands out with excellent connectivity, premium residential projects, and strong future growth. Click to know more!",
+      "reason": "",
+      "recommended_action": "Shorten to 120-160 characters",
+      "acceptance_test": "Description is 120-160 characters"
+    },
+    {
+      "issue_id": "CG-META-003",
+      "category": "meta_description",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Clickbait CTA in meta description \u2014 spam signal per Google",
+      "claim": "Planning to buy a flat in Gurgaon? Learn why Sector 88A stands out with excellent connectivity, premium residential projects, and strong future growth. Click to know more!",
+      "reason": "",
+      "recommended_action": "Remove clickbait CTA. Use a factual description of the content.",
+      "acceptance_test": "No 'click to', 'don't miss', 'hurry' etc. in meta",
+      "google_rule": "SPAM-CLICKBAIT-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-004",
+      "category": "prohibited_language",
+      "severity": "critical",
+      "owner": "ROI",
+      "summary": "Prohibited language: 'superlative claim ('best') without evidence'",
+      "paragraph": 1,
+      "claim": "**Keywords:** flats in gurgaon, premium flats in Gurgaon, property to buy in gurgaon, best flats in gurgaon, best property in gurgaon, builders and developers in Delhi NCR, 3 BHK flat in gurgaon, best",
+      "reason": "Violates RERA compliance / editorial policy",
+      "recommended_action": "Remove or rephrase the 'superlative claim ('best') without evidence' claim",
+      "acceptance_test": "No 'superlative claim ('best') without evidence' language remains",
+      "editorial_rule": "BRAND_PROHIBITED_001"
+    },
+    {
+      "issue_id": "CG-CONTENT-005",
+      "category": "prohibited_language",
+      "severity": "critical",
+      "owner": "ROI",
+      "summary": "Prohibited language: 'superlative claim ('best') without evidence'",
+      "paragraph": 18,
+      "claim": "The proposed metro extension along the Dwarka Expressway corridor is expected to add a significant public transport layer to this micro-market, which would further reduce commute times and support pro",
+      "reason": "Violates RERA compliance / editorial policy",
+      "recommended_action": "Remove or rephrase the 'superlative claim ('best') without evidence' claim",
+      "acceptance_test": "No 'superlative claim ('best') without evidence' language remains",
+      "editorial_rule": "BRAND_PROHIBITED_001"
+    },
+    {
+      "issue_id": "CG-CONTENT-006",
+      "category": "unsupported_claim",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Implied appreciation: Implies price support without evidence",
+      "paragraph": 18,
+      "claim": "The proposed metro extension along the Dwarka Expressway corridor is expected to add a significant public transport layer to this micro-market, which would further reduce commute times and support pro",
+      "reason": "",
+      "recommended_action": "Remove forward-looking price claim or add 'past performance does not indicate future results'",
+      "acceptance_test": "No implied price appreciation without disclaimer",
+      "editorial_rule": "EDITORIAL_INVESTMENT_001"
+    },
+    {
+      "issue_id": "CG-CONTENT-007",
+      "category": "unsupported_claim",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Implied appreciation: Implies price appreciation without evidence",
+      "paragraph": 25,
+      "claim": "- **Planned development** sets it apart from older sectors that grew organically and now carry the weight of congestion, mixed land use and ageing infrastructure. Sector 88A was laid out with a clear ",
+      "reason": "",
+      "recommended_action": "Remove forward-looking price claim or add 'past performance does not indicate future results'",
+      "acceptance_test": "No implied price appreciation without disclaimer",
+      "editorial_rule": "EDITORIAL_INVESTMENT_001"
+    },
+    {
+      "issue_id": "CG-CONTENT-008",
+      "category": "unsupported_claim",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Implied appreciation: Implies certain price appreciation",
+      "paragraph": 25,
+      "claim": "- **Planned development** sets it apart from older sectors that grew organically and now carry the weight of congestion, mixed land use and ageing infrastructure. Sector 88A was laid out with a clear ",
+      "reason": "",
+      "recommended_action": "Remove forward-looking price claim or add 'past performance does not indicate future results'",
+      "acceptance_test": "No implied price appreciation without disclaimer",
+      "editorial_rule": "EDITORIAL_INVESTMENT_001"
+    },
+    {
+      "issue_id": "CG-CONTENT-009",
+      "category": "unsupported_claim",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "4 travel time claim(s) without source attribution",
+      "reason": "",
+      "recommended_action": "Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims",
+      "acceptance_test": "Every travel time claim has inline source"
+    },
+    {
+      "issue_id": "CG-CONTENT-010",
+      "category": "rera_compliance",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "RERA mentioned but no registration number provided",
+      "reason": "",
+      "recommended_action": "Add the actual RERA registration number with portal verification link",
+      "acceptance_test": "RERA registration number is visible and verifiable",
+      "google_rule": "CONTENT-RERA-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-011",
+      "category": "rera_compliance",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "Area figures (3 mentions) not labeled as carpet area",
+      "reason": "",
+      "recommended_action": "Specify whether figures are carpet area (RERA) or super built-up. RERA mandates carpet area disclosure.",
+      "acceptance_test": "All area figures explicitly labeled as carpet area or super built-up",
+      "google_rule": "CONTENT-RERA-002"
+    },
+    {
+      "issue_id": "CG-CONTENT-012",
+      "category": "prohibited_language",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Keyword stuffing: 'minutes | route' appears 11 times",
+      "reason": "",
+      "recommended_action": "Reduce repetition. Use synonyms and natural phrasing.",
+      "acceptance_test": "No phrase repeated more than 7 times in one article",
+      "google_rule": "SPAM-KEYWORD-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-013",
+      "category": "image_seo",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No images found in content",
+      "reason": "",
+      "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
+      "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    }
+  ]
+}

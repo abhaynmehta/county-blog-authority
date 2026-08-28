@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How Jewar Airport Is Driving Luxury Flats in Noida | Blog by County Group",
+      "description": "Discover how Jewar Airport is set to drive demand for luxury flats in Noida through improved connectivity, infrastructure growth, and expanding residential opportunities. Click to know more!",
+      "url": "https://www.countygroup.in/blog/flats-in-noida-jewar-airport",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/flats-in-noida-jewar-airport"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Jewar Airport Is Driving Luxury Flats in Noida | Blog by County Group"
+        }
+      ]
+    }
+  ]
+}

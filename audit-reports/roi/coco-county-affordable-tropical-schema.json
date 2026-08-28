@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why Coco County is one of the Smartest 3 BHK Investment in Greater Noida | Blog",
+      "description": "Looking for a premium 3 BHK Flat in Noida? Look no further than Coco County where you can get lush Green Zones and Wellness-Focused Amenities.",
+      "url": "https://www.countygroup.in/blog/coco-county-affordable-tropical",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/coco-county-affordable-tropical"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Coco County is one of the Smartest 3 BHK Investment in Greater Noida | Blog"
+        }
+      ]
+    }
+  ]
+}

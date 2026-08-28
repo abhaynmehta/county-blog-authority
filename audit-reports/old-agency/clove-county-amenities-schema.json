@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Clove County Amenities | Luxury Community Living in Sector 151 Noida",
+      "description": "Explore how Clove County Sector 151 Noida redefines luxury community living with low-density design, wellness spaces, premium amenities, green landscapes, and spacious 4 BHK residences.",
+      "url": "https://www.countygroup.in/blog/clove-county-amenities",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/clove-county-amenities"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Clove County Amenities | Luxury Community Living in Sector 151 Noida"
+        }
+      ]
+    }
+  ]
+}

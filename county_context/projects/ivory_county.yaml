@@ -1,0 +1,38 @@
+project:
+  name: Ivory County
+  developer: County Group
+  registered_promoter: County Group  # verify
+  type: residential
+  segment: premium
+  status: null  # verify
+
+location:
+  city: Noida
+  state: Uttar Pradesh
+  region: NCR
+  sector: null  # verify exact sector
+
+rera:
+  registration_number: null
+  portal_url: null
+
+configurations:
+  - type: 3 BHK
+    carpet_area_sqft: null
+  - type: 4 BHK
+    carpet_area_sqft: null
+  - type: 5 BHK
+    carpet_area_sqft: null
+
+project_details:
+  total_units: null
+  towers: null
+
+amenities: []
+pricing:
+  price_per_sqft: null
+  last_verified: null
+  source: null
+
+county_urls:
+  project_page: null

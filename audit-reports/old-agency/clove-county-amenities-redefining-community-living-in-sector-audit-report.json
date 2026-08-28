@@ -1,0 +1,109 @@
+{
+  "file_path": "blogs/old-agency-incoming/Clove County Amenities_ Redefining Community Living in Sector 151 Noida (1).txt",
+  "word_count": 1358,
+  "paragraph_count": 4,
+  "score": 72,
+  "publishable": false,
+  "issue_count": 6,
+  "issues_by_severity": {
+    "critical": 0,
+    "high": 2,
+    "medium": 4,
+    "low": 0,
+    "info": 0
+  },
+  "issues_by_owner": {
+    "ROI": 6,
+    "AGO": 0,
+    "BOTH": 0,
+    "INTERNAL": 0
+  },
+  "gates": [
+    {
+      "gate": "Factual Accuracy",
+      "status": "PASS",
+      "details": "No factual issues"
+    },
+    {
+      "gate": "RERA & Legal Compliance",
+      "status": "FAIL",
+      "details": "1 compliance issues"
+    },
+    {
+      "gate": "Technical SEO Eligibility",
+      "status": "FAIL",
+      "details": "1 SEO issues"
+    },
+    {
+      "gate": "Deployment Integrity",
+      "status": "WARNING",
+      "details": "Check post-deployment"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "CG-META-001",
+      "category": "meta_title",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta title too long (68 chars, may truncate)",
+      "claim": "Clove County Amenities | Luxury Community Living in Sector 151 Noida",
+      "reason": "",
+      "recommended_action": "Shorten title to 60 characters or fewer",
+      "acceptance_test": "Title is 30-60 characters"
+    },
+    {
+      "issue_id": "CG-META-002",
+      "category": "meta_description",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta description too long (185 chars)",
+      "claim": "Explore how Clove County Sector 151 Noida redefines luxury community living with low-density design, wellness spaces, premium amenities, green landscapes, and spacious 4 BHK residences.",
+      "reason": "",
+      "recommended_action": "Shorten to 120-160 characters",
+      "acceptance_test": "Description is 120-160 characters"
+    },
+    {
+      "issue_id": "CG-META-003",
+      "category": "heading_structure",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "No H1 heading found",
+      "reason": "",
+      "recommended_action": "Add exactly one H1 heading as the main title",
+      "acceptance_test": "Exactly one H1 present",
+      "google_rule": "CONTENT-HEADING-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-004",
+      "category": "prohibited_language",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Keyword stuffing: 'clove county' appears 8 times",
+      "reason": "",
+      "recommended_action": "Reduce repetition. Use synonyms and natural phrasing.",
+      "acceptance_test": "No phrase repeated more than 7 times in one article",
+      "google_rule": "SPAM-KEYWORD-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-005",
+      "category": "internal_links",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "No internal or external links found in content",
+      "reason": "",
+      "recommended_action": "Add 3-5 internal links and 1-3 external authority links",
+      "acceptance_test": "At least 3 internal links and 1 external authority link present"
+    },
+    {
+      "issue_id": "CG-CONTENT-006",
+      "category": "image_seo",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No images found in content",
+      "reason": "",
+      "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
+      "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    }
+  ]
+}

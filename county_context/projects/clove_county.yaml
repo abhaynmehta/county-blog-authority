@@ -1,0 +1,82 @@
+project:
+  name: Clove County
+  developer: County Group
+  registered_promoter: County Group  # verify exact legal name from RERA filing
+  type: residential
+  segment: luxury
+  status: under_construction  # verify current status from RERA portal
+
+location:
+  sector: 151
+  city: Noida
+  state: Uttar Pradesh
+  region: NCR
+  micro_market: Noida Expressway
+  # Nearby landmarks — verify distances from official sources
+  nearby_infrastructure:
+    - name: Noida International Airport (Jewar)
+      status: operational  # Phase I inaugurated 28 Mar 2026, commercial ops 15 Jun 2026
+      source: https://www.niairport.in/en/company/news/2026/2026-06-15
+    - name: Aqua Line Metro
+      status: operational
+      source: https://www.nmrcnoida.com/StationList
+    - name: Noida-Greater Noida Expressway
+      status: operational
+
+rera:
+  registration_number: UPRERAPRJ401801  # verify exact number
+  portal_url: https://www.up-rera.in/Projectsummary?IRSAHEB=D6PY3lyims8%3D&NPJ6RAme=ejOIFvGmsis6emaJtD%2Fl5g%3D%3D&PaURJEMAN4=ZL9MNERkNdZvkLCfu85Q0j1Uin2HFdhy&UI0aPA1ISD=C4BAF%2FPT+Ls%3D&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP
+  statutory_filing: https://up-rera.in/ViewDocument?Param=PRJ401801405CA_Certificate_Clove_County.pdf
+  registered_completion_date: null  # fill from RERA portal
+  # IMPORTANT: RERA registration is a regulatory filing, NOT a government endorsement or delivery guarantee
+
+configurations:
+  - type: 4 BHK
+    carpet_area_sqft: null  # fill from RERA/sanctioned plan, not brochure
+  - type: 5 BHK
+    carpet_area_sqft: null
+
+project_details:
+  total_units: 226  # source: RERA filing — verify
+  towers: 3  # source: RERA filing — verify
+  floors_per_tower: null  # verify
+  land_area_acres: null  # verify from RERA filing
+  open_space_pct: null  # verify from sanctioned plan
+  density: low  # claimed — needs evidence from units/acre calculation
+
+amenities:
+  # Status: planned | under_construction | operational | illustrative
+  # Source tier: rera_filing | sanctioned_plan | brochure | marketing
+  - name: Indoor heated swimming pool
+    status: planned  # verify — is it built or just in plans?
+    source_tier: brochure
+  - name: Air conditioning in all apartments
+    status: planned
+    source_tier: brochure
+  - name: Clubhouse
+    status: planned
+    source_tier: brochure
+  - name: Gymnasium
+    status: planned
+    source_tier: brochure
+  - name: Premium fittings and fixtures
+    status: planned
+    source_tier: brochure
+
+certifications:
+  - name: IGBC Platinum
+    status: targeting  # NOT certified — do not claim as achieved
+    evidence: null  # no current IGBC certificate found
+    # IMPORTANT: "Targeting IGBC Platinum" ≠ "IGBC Platinum certified"
+
+pricing:
+  # NEVER invent prices. Only populate from current official sources.
+  price_per_sqft: null
+  starting_price: null
+  last_verified: null
+  source: null
+
+county_urls:
+  project_page: null  # fill with actual URL
+  contact_page: null
+  site_visit_page: null

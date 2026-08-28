@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Clove County Masterplan - Sector 151 Noida | County Group",
+      "description": "Clove County masterplan. 5 acres, 226 residences, 3 blocks, 8 towers, sports, gardens, Ce La Vi club.",
+      "url": "https://www.countygroup.in/blog/clove-county-masterplan-page",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/clove-county-masterplan-page"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Clove County Masterplan - Sector 151 Noida | County Group"
+        }
+      ]
+    }
+  ]
+}

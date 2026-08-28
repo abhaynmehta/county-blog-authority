@@ -1,0 +1,137 @@
+{
+  "file_path": "blogs/roi-incoming/jewar-airport-noida-homebuyers.md",
+  "word_count": 645,
+  "paragraph_count": 29,
+  "score": 42,
+  "publishable": false,
+  "issue_count": 8,
+  "issues_by_severity": {
+    "critical": 2,
+    "high": 2,
+    "medium": 4,
+    "low": 0,
+    "info": 0
+  },
+  "issues_by_owner": {
+    "ROI": 8,
+    "AGO": 0,
+    "BOTH": 0,
+    "INTERNAL": 0
+  },
+  "gates": [
+    {
+      "gate": "Factual Accuracy",
+      "status": "FAIL",
+      "details": "2 factual issues"
+    },
+    {
+      "gate": "RERA & Legal Compliance",
+      "status": "FAIL",
+      "details": "1 compliance issues"
+    },
+    {
+      "gate": "Technical SEO Eligibility",
+      "status": "PASS",
+      "details": "SEO basics pass"
+    },
+    {
+      "gate": "Deployment Integrity",
+      "status": "WARNING",
+      "details": "Check post-deployment"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "CG-META-001",
+      "category": "meta_title",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta title too long (83 chars, may truncate)",
+      "claim": "Why Jewar Airport Changes Everything for Homebuyers in Noida & Greater Noida | Blog",
+      "reason": "",
+      "recommended_action": "Shorten title to 60 characters or fewer",
+      "acceptance_test": "Title is 30-60 characters"
+    },
+    {
+      "issue_id": "CG-META-002",
+      "category": "meta_description",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta description too long (170 chars)",
+      "claim": "Explore the impact of Jewar Airport on residential living in Noida and Greater Noida, from enhanced connectivity and infrastructure to future-ready housing opportunities.",
+      "reason": "",
+      "recommended_action": "Shorten to 120-160 characters",
+      "acceptance_test": "Description is 120-160 characters"
+    },
+    {
+      "issue_id": "CG-CONTENT-003",
+      "category": "infrastructure_status",
+      "severity": "critical",
+      "owner": "ROI",
+      "summary": "Airport called 'upcoming' \u2014 Noida International Airport is operational since June 2026",
+      "paragraph": 3,
+      "claim": "The upcoming Jewar Airport is set to reshape the real estate narrative of Noida and Greater Noida. As one of India's largest aviation infrastructure projects, its development signals faster connectivi",
+      "reason": "",
+      "evidence_source": "https://www.niairport.in/en/company/news/2026/2026-06-15",
+      "verified_status": "Noida International Airport: commercial ops began 15 June 2026",
+      "recommended_action": "Update to reflect operational status with source link",
+      "acceptance_test": "Airport described as operational with official source"
+    },
+    {
+      "issue_id": "CG-CONTENT-004",
+      "category": "infrastructure_status",
+      "severity": "critical",
+      "owner": "ROI",
+      "summary": "Airport described as future \u2014 Noida International Airport opened June 2026",
+      "paragraph": 3,
+      "claim": "The upcoming Jewar Airport is set to reshape the real estate narrative of Noida and Greater Noida. As one of India's largest aviation infrastructure projects, its development signals faster connectivi",
+      "reason": "",
+      "evidence_source": "https://www.niairport.in/en/company/news/2026/2026-06-15",
+      "verified_status": "Noida International Airport: commercial ops began 15 June 2026",
+      "recommended_action": "Update to reflect operational status with source link",
+      "acceptance_test": "Airport described as operational with official source"
+    },
+    {
+      "issue_id": "CG-CONTENT-005",
+      "category": "prohibited_language",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Keyword stuffing: 'greater noida' appears 8 times",
+      "reason": "",
+      "recommended_action": "Reduce repetition. Use synonyms and natural phrasing.",
+      "acceptance_test": "No phrase repeated more than 7 times in one article",
+      "google_rule": "SPAM-KEYWORD-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-006",
+      "category": "internal_links",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "No internal or external links found in content",
+      "reason": "",
+      "recommended_action": "Add 3-5 internal links and 1-3 external authority links",
+      "acceptance_test": "At least 3 internal links and 1 external authority link present"
+    },
+    {
+      "issue_id": "CG-CONTENT-007",
+      "category": "image_seo",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No images found in content",
+      "reason": "",
+      "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
+      "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-CONTENT-008",
+      "category": "ai_readiness",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "Thin content: only 645 words (minimum 800 for ranking potential)",
+      "reason": "",
+      "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
+      "acceptance_test": "Word count >= 1200",
+      "google_rule": "CONTENT-THIN-001"
+    }
+  ]
+}

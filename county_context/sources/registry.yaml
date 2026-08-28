@@ -1,0 +1,116 @@
+# Source Hierarchy for Indian Real Estate Content
+# Use the HIGHEST available source tier for every factual claim.
+
+tiers:
+  1:
+    name: State RERA authorities
+    description: Primary statutory source for project registration, promoter details, possession dates
+    examples:
+      - UP RERA (https://www.up-rera.in)
+      - Delhi RERA
+      - Haryana RERA (https://haryanarera.gov.in)
+    trust: highest
+    use_for: RERA numbers, project status, possession dates, promoter name, statutory claims
+
+  2:
+    name: Government authorities
+    description: Central, state, municipal, and development authorities
+    examples:
+      - Ministry of Housing and Urban Affairs
+      - NOIDA Authority
+      - GNIDA
+      - YEIDA
+      - DDA
+      - HSVP
+    trust: very_high
+    use_for: Land records, approvals, infrastructure status, policy
+
+  3:
+    name: Official infrastructure authorities
+    description: Metro, airport, expressway, and infrastructure project authorities
+    examples:
+      - Noida International Airport (https://www.niairport.in)
+      - NMRC (https://www.nmrcnoida.com)
+      - NHAI
+      - RRTS/NCRTC
+    trust: very_high
+    use_for: Infrastructure status, timelines, connectivity
+
+  4:
+    name: Financial regulators and government data
+    description: RBI, NHB, government datasets
+    examples:
+      - RBI
+      - NHB
+      - Census data
+      - Economic Survey
+    trust: high
+    use_for: Interest rates, housing finance data, demographic data
+
+  5:
+    name: Company statutory disclosures
+    description: Developer's own statutory filings, annual reports, investor disclosures
+    examples:
+      - Company annual reports
+      - Stock exchange filings (if listed)
+      - RERA-mandated disclosures
+    trust: high
+    use_for: Financial health, project portfolio, corporate claims
+    caveat: Self-reported. Cross-verify material claims.
+
+  6:
+    name: Institutional research
+    description: Respected real estate research firms
+    examples:
+      - CBRE (https://www.cbre.co.in)
+      - ANAROCK (https://www.anarock.com)
+      - JLL
+      - Knight Frank
+      - Cushman & Wakefield
+    trust: moderate_to_high
+    use_for: Market trends, price indices, supply/demand data
+    caveat: Methodology varies. State source and date.
+
+  7:
+    name: Developer brochures and marketing
+    description: Current project brochures, sanctioned plans, contractual documents
+    trust: moderate
+    use_for: Amenity lists, specifications, layout details
+    caveat: >
+      Subject to change. Always note that Agreement for Sale and sanctioned
+      plan govern. Separate statutory facts from marketing language.
+
+  8:
+    name: Credible reporting
+    description: Established news sources, industry publications
+    examples:
+      - Economic Times Real Estate
+      - Livemint
+      - Business Standard
+    trust: moderate
+    use_for: Contextual evidence, market commentary
+    caveat: Not primary sources. Use for context, not for core claims.
+
+  9:
+    name: Competitor and portal content
+    description: Competitor developer websites, property portals
+    examples:
+      - MagicBricks
+      - 99acres
+      - Housing.com
+      - NoBroker
+      - Competitor developer blogs
+    trust: low_for_facts
+    use_for: Content benchmarking, structure analysis, topic coverage
+    caveat: >
+      NEVER use as factual authority. Use only for SERP/content gap research.
+      Do not copy wording, structure, or proprietary data.
+
+# NEVER cite as sources:
+blacklisted:
+  - SEO blogs and content mills
+  - Affiliate marketing sites
+  - Unverified social media posts
+  - Anonymous forum posts
+  - "Top 10" listicle sites without original research
+  - AI-generated content farms

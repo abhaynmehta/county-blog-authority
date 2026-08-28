@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "County Courtyard NSP Delhi - Commercial Spaces | County Group",
+      "description": "County Courtyard at Netaji Subhash Place, Delhi. Integrated business and lifestyle hub with retail, office, and entertainment spaces.",
+      "url": "https://www.countygroup.in/blog/county-courtyard-overview-nsp",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/county-courtyard-overview-nsp"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "County Courtyard NSP Delhi - Commercial Spaces | County Group"
+        }
+      ]
+    }
+  ]
+}

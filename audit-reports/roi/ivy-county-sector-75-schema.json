@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Ivy County: Premium 3 & 4 BHK Flats in Noida with World-Class Amenities | Blog",
+      "description": "Own luxury at Ivy County Sector 75 – spacious 4 BHK flats in Noida offer well-designed homes with excellent connectivity, modern amenities, schools, malls, and green surroundings.",
+      "url": "https://www.countygroup.in/blog/ivy-county-sector-75",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/ivy-county-sector-75"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ivy County: Premium 3 & 4 BHK Flats in Noida with World-Class Amenities | Blog"
+        }
+      ]
+    }
+  ]
+}

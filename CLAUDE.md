@@ -1,7 +1,40 @@
-# Claude Blog - Blog Creation & Optimization Skill
+# County Group Blog Authority System
 
 ## Project Overview
 
+This repository is the **County Group Blog Authority System** — built on top of
+the Claude Blog skill suite (MIT, AgriciDaniel/claude-blog). It extends the base
+with Indian real estate specialization, agency audit workflows, RERA compliance,
+and a County Group truth layer.
+
+### County Group Additions
+```
+county_context/                    # Truth Layer — anti-hallucination registry
+  projects/                       # Project YAML files (Clove County, Center Court, etc.)
+  claims/                         # Claims registry (delivery, amenities, infrastructure)
+  geography/                      # NCR geography hierarchy
+  sources/                        # Source tier registry
+BRAND.md                          # County Group brand context (auto-loaded by skills)
+VOICE.md                          # Writing voice and tone (auto-loaded by skills)
+EDITORIAL_POLICY.md               # Publication gates, owner assignment, refresh policy
+search_authority/                  # Python audit engine
+  content_auditor.py              # Per-paragraph content audit with issue model
+  models.py                       # AuditIssue, ContentAnalysis, GateResult models
+  report.py                       # Markdown, JSON, CSV, agency handoff reports
+  schema.py                       # JSON-LD schema generator (BlogPosting, BreadcrumbList)
+  pipeline.py                     # End-to-end: audit → schema → package
+  cli.py                          # searchctl CLI (content-audit, pipeline, roi/ago-report)
+skills/blog-agency-audit/         # Agency audit skill with ROI/AGO owner assignment
+skills/blog-pipeline/             # End-to-end pipeline skill
+skills/blog/references/indian-real-estate/  # Indian RE entity model, templates, RERA
+```
+
+### Key Principle
+Google official documentation is the deciding line for all SEO rules. Internal
+editorial heuristics are always labelled separately. No SEO folklore, no "AI SEO
+hacks," no fake ranking factors.
+
+### Base Repository
 This repository contains **Claude Blog**, a Tier 4 Claude Code skill for blog content
 creation, optimization, and management. It follows the Agent Skills open standard and the
 3-layer architecture (directive, orchestration, execution). 32 skill directories

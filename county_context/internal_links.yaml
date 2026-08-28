@@ -1,0 +1,69 @@
+# County Group Internal Link Map
+# Every blog must include 3-5 contextual internal links from this registry.
+# FILL actual URLs from countygroup.in before using in production.
+
+# TODO: Crawl countygroup.in to populate these URLs automatically
+# Use: searchctl crawl countygroup.in --max-urls 200 --output county-sitemap/
+
+pages:
+  # Project pages (high-priority link targets)
+  - url: null  # https://countygroup.in/clove-county or similar
+    target_keywords: ["Clove County", "luxury apartments Sector 151", "4 BHK Noida"]
+    page_type: project
+    project: Clove County
+    link_when: "article mentions Clove County, Sector 151, or luxury apartments in Noida"
+
+  - url: null
+    target_keywords: ["Center Court", "3 BHK Sector 88A", "ready to move Noida"]
+    page_type: project
+    project: Center Court
+
+  - url: null
+    target_keywords: ["Jade County", "Ghaziabad apartments"]
+    page_type: project
+    project: Jade County
+
+  # Developer/brand pages
+  - url: null  # https://countygroup.in/about
+    target_keywords: ["County Group", "about County Group", "County Group developer"]
+    page_type: brand
+    link_when: "article discusses developer credibility, track record, or brand"
+
+  # Contact/CTA pages
+  - url: null  # https://countygroup.in/contact
+    target_keywords: ["schedule site visit", "contact County Group", "enquire"]
+    page_type: conversion
+    link_when: "article has a CTA or mentions site visits, enquiries"
+
+  # Location pages
+  - url: null
+    target_keywords: ["Sector 150 Noida", "Sector 151 Noida", "Noida Expressway"]
+    page_type: location
+    link_when: "article discusses Sector 150-151 area"
+
+# External authority links (use 1-3 per blog)
+external_authority:
+  - url: https://www.up-rera.in
+    anchor: "UP RERA portal"
+    use_when: "RERA registration, project verification, buyer rights"
+
+  - url: https://www.niairport.in
+    anchor: "Noida International Airport"
+    use_when: "airport connectivity, Jewar airport"
+
+  - url: https://www.nmrcnoida.com
+    anchor: "Noida Metro Rail Corporation"
+    use_when: "metro connectivity, Aqua Line"
+
+  - url: null  # Noida Authority URL
+    anchor: "NOIDA Authority"
+    use_when: "sector development, land use, approvals"
+
+# Link rules
+rules:
+  - Use descriptive anchor text, never "click here" or "read more"
+  - 3-5 internal links per blog minimum
+  - 1-3 external authority links per blog
+  - Links must be to canonical, live, 200-status URLs
+  - Do not repeatedly use exact-match keyword anchors across site
+  - Every informational blog links to relevant project page + brand page

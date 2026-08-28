@@ -1,0 +1,32 @@
+project:
+  name: Jade County
+  developer: County Group
+  registered_promoter: County Group  # verify
+  type: residential
+  segment: premium
+  status: null  # verify current status
+
+location:
+  city: Ghaziabad
+  state: Uttar Pradesh
+  region: NCR
+  micro_market: Wave City  # verify exact location
+
+rera:
+  registration_number: null
+  portal_url: null
+
+configurations: []  # populate from RERA
+
+project_details:
+  total_units: null
+  towers: null
+
+amenities: []
+pricing:
+  price_per_sqft: null
+  last_verified: null
+  source: null
+
+county_urls:
+  project_page: null

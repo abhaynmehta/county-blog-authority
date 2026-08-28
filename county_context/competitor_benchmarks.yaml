@@ -1,0 +1,139 @@
+# Competitor Blog Benchmarks
+# Source: SERP analysis 27 Aug 2026
+# Purpose: Reference for content generation and audit standards
+
+benchmarks:
+  word_count:
+    minimum: 1500
+    target: 2500
+    pillar_page: 4000
+    source: "Top performers (Prateek 5500, Eldeco 3800, Sobha 2500). ATS ranks at 850 on brand alone — beatable."
+
+  faq_count:
+    minimum: 6
+    target: 10
+    format: "H2 'Frequently Asked Questions' > H3 per question > paragraph answer"
+    hinglish: "Include 1-2 Hinglish variants for voice search (Eldeco does this)"
+
+  internal_links:
+    minimum: 10
+    target: 15
+    strategy: "Link to relevant County project pages + 3-5 other blog posts in the cluster"
+
+  external_citations:
+    minimum: 5
+    target: 8
+    priority_sources:
+      - domain: up-rera.in
+        use: "RERA registration verification links"
+      - domain: anarock.com
+        use: "Quarterly NCR housing market data, price trends"
+      - domain: timesofindia.com
+        use: "Infrastructure news, airport operations, government policy"
+      - domain: pib.gov.in
+        use: "Official government announcements, infrastructure data"
+      - domain: niairport.in
+        use: "Noida International Airport operational data"
+      - domain: economictimes.com
+        use: "Market analysis, investment trends"
+      - domain: magicbricks.com
+        use: "Market reports, price benchmarking"
+    note: "Only Prateek (12-15 ext links) does this well. Everyone else has 0-1."
+
+  schema:
+    required:
+      - BlogPosting
+      - BreadcrumbList
+      - FAQPage
+    format: "@graph array in single script tag"
+    note: "0/6 competitors have any JSON-LD. This is the biggest technical advantage."
+
+competitors:
+  prateek:
+    domain: prateekgroup.com
+    strength: "Data-driven content with external citations (ANAROCK, TOI, PIB)"
+    weakness: "No schema markup"
+    blog_quality: best_in_class
+    threat_level: high
+
+  eldeco:
+    domain: eldecoeoe.com
+    strength: "Transparent scorecard format, Hinglish FAQs"
+    weakness: "Self-serving rankings, no schema"
+    blog_quality: innovative
+    threat_level: medium
+
+  sobha:
+    domain: sobha.com
+    strength: "Topical siloing, breadcrumbs, NRI niche targeting"
+    weakness: "Minimal external citations, no schema"
+    blog_quality: good
+    threat_level: medium
+
+  express_builders:
+    domain: expressbuildersltd.com
+    strength: "High volume output, appears in 4+ SERPs"
+    weakness: "Basic technical SEO, no meta descriptions"
+    blog_quality: adequate
+    threat_level: medium
+
+  ats:
+    domain: atsgreens.com
+    strength: "Brand authority and domain age"
+    weakness: "Thin content (850 words), no FAQ, no schema, no citations"
+    blog_quality: weak
+    threat_level: low
+
+  gaursons:
+    domain: gaursonsindia.com
+    strength: "Active blog with 2026 content"
+    weakness: "Basic quality, no differentiation"
+    blog_quality: adequate
+    threat_level: low
+
+content_clusters:
+  - pillar: "Sector 151 Noida - Premium Living"
+    project: Clove County
+    supporting:
+      - "Clove County amenities deep dive"
+      - "Sector 151 vs Sector 150 comparison"
+      - "Noida Expressway connectivity guide"
+      - "Jewar Airport impact on Sector 151"
+      - "Low-density living in Noida 2026"
+      - "RERA-approved projects Sector 151"
+
+  - pillar: "Greater Noida West - Family Living"
+    projects: [Cherry County, Coco County]
+    supporting:
+      - "Greater Noida West sector comparison"
+      - "3 BHK apartments Greater Noida West"
+      - "Ready-to-move flats Greater Noida"
+      - "Schools and hospitals near Greater Noida West"
+      - "Property price trends Greater Noida 2026"
+
+  - pillar: "Gurgaon Sector 88A - Center Court"
+    project: Center Court
+    supporting:
+      - "Luxury apartments Gurgaon 2026"
+      - "Sector 88A Gurgaon connectivity"
+      - "Dwarka Expressway residential growth"
+      - "Center Court amenities and lifestyle"
+
+backlink_targets:
+  on_page:
+    - {domain: up-rera.in, priority: critical, action: "Cite on every blog with RERA claims"}
+    - {domain: anarock.com, priority: high, action: "Cite quarterly reports for market data"}
+    - {domain: pib.gov.in, priority: high, action: "Government source for infrastructure claims"}
+    - {domain: niairport.in, priority: high, action: "Airport operational data"}
+    - {domain: timesofindia.com, priority: medium, action: "News citations for timeliness"}
+
+  web:
+    - {domain: propshop.org.in, priority: high, action: "Guest post or data partnership"}
+    - {domain: 360propguide.com, priority: high, action: "Pursue County Group project listing"}
+    - {domain: nobroker.in, priority: medium, action: "Complete developer profile"}
+    - {domain: 99acres.com, priority: medium, action: "Ensure accurate project listings"}
+    - {domain: magicbricks.com, priority: medium, action: "Update developer profile"}
+
+  social:
+    - {platform: linkedin, action: "Share data-driven blog excerpts"}
+    - {platform: instagram, action: "Reels embedded in blog posts (Express does this)"}

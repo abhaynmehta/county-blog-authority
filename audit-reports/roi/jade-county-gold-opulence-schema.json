@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why Jade County Gold Is the Most Exclusive 5 BHK Residential Project in Ghaziabad | Blog",
+      "description": "Explore Jade County Gold in Wave City, Ghaziabad, iconic luxury project offering expansive 5 BHK homes and world-class amenities.",
+      "url": "https://www.countygroup.in/blog/jade-county-gold-opulence",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/jade-county-gold-opulence"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Jade County Gold Is the Most Exclusive 5 BHK Residential Project in Ghaziabad | Blog"
+        }
+      ]
+    }
+  ]
+}

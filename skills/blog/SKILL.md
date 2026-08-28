@@ -61,6 +61,16 @@ separate discipline.
 | `/blog flow [find\|optimize\|win\|prompts\|sync]` | FLOW framework prompts (evidence-led, 30 blog-applicable) |
 | `/blog style learn <paths>` | Learn author voice profile from 5-10 posts (feeds blog-write and blog-persona) |
 | `/blog decay <current-gsc> <previous-gsc>` | Detect content decay: flag 20%+ QoQ traffic decline from GSC exports |
+| `/blog agency-audit <file-or-dir>` | Audit agency-submitted blogs with per-paragraph fixes and owner assignment (ROI/AGO) |
+| `/blog pipeline <file-or-topic>` | End-to-end: audit → schema → package with truth-layer validation |
+
+## Indian Real Estate Specialization
+
+This instance is configured for the Indian real estate market (County Group).
+Load `county_context/` for project data, claims registry, and source hierarchy.
+Load `skills/blog/references/indian-real-estate/` for entity model, content
+templates, and RERA compliance rules. Load `BRAND.md`, `VOICE.md`, and
+`EDITORIAL_POLICY.md` for brand-specific constraints.
 
 ## Orchestration Logic
 
@@ -100,6 +110,8 @@ separate discipline.
    - `flow` / `find-leverage-optimize-win` → `blog-flow` (FLOW framework prompts)
    - `style` → `blog-style` (learn author voice profile from existing posts)
    - `decay` → `blog-decay` (content-decay detection from GSC exports)
+   - `agency-audit` / `audit-agency` / `roi-audit` / `ago-audit` → `blog-agency-audit` (agency content audit with actionable fixes)
+   - `pipeline` / `full-pipeline` / `end-to-end` → `blog-pipeline` (audit → schema → package)
 
 ### Platform Detection
 

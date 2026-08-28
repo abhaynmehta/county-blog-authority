@@ -1,0 +1,59 @@
+# Infrastructure Claims Registry
+# Infrastructure status changes frequently. Every claim has a TTL.
+
+claim_category: infrastructure
+
+# CRITICAL: Status labels
+# operational — currently functioning, verified from official source
+# under_construction — work in progress, verified start
+# officially_approved — government approval exists, construction not started
+# proposed — announced/planned, no formal approval yet
+# NEVER present proposed/approved infrastructure as completed.
+
+claims:
+  - claim_id: CG_INFRA_001
+    claim: Noida International Airport (Jewar) is operational
+    status: operational
+    detail: Phase I inaugurated 28 Mar 2026, commercial passenger ops began 15 Jun 2026
+    source: https://www.niairport.in/en/company/news/2026/2026-06-15
+    last_verified: 2026-08-27
+    refresh_days: 30
+    note: >
+      STOP calling it "upcoming" or "in the pipeline" — it is operational.
+      Always link to the official source.
+
+  - claim_id: CG_INFRA_002
+    claim: Aqua Line Metro connectivity to Sector 151
+    status: operational
+    source: https://www.nmrcnoida.com/StationList
+    last_verified: 2026-08-27
+    refresh_days: 30
+    note: Verify which station is nearest to Clove County and actual distance.
+
+  - claim_id: CG_INFRA_003
+    claim: Noida-Greater Noida Expressway connectivity
+    status: operational
+    source: null
+    last_verified: null
+    refresh_days: 90
+
+  - claim_id: CG_INFRA_004
+    claim: Metro Phase 2 expansion
+    status: null  # verify: under_construction or officially_approved?
+    source: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2227985&lang=1&reg=3
+    last_verified: null
+    refresh_days: 30
+
+# Refresh rules for infrastructure claims
+refresh_rules:
+  airport_status: 30  # days
+  metro_construction: 30
+  expressway_status: 90
+  government_approval: 30
+  proposed_infrastructure: 30
+
+prohibited_wording:
+  - "upcoming airport" # it's operational
+  - "proposed metro" # if already approved/under construction
+  - "guaranteed connectivity improvement"
+  - "property values will increase due to infrastructure"  # that's investment advice

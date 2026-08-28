@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Why Homebuyers Desire Luxury Living at Ivory County Noida | Blog",
+      "description": "Looking for the perfect luxury home in Noida? Explore why Ivory County in Sector 115 is the city's most desirable address—offering elegant apartments, top-notch amenities & a prime location to live.",
+      "url": "https://www.countygroup.in/blog/ivory-county-most-desirable",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/ivory-county-most-desirable"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Homebuyers Desire Luxury Living at Ivory County Noida | Blog"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+# County Group Amenities Claims Registry
+# Every amenity claim must state its source tier and current status.
+
+claim_category: project_amenities
+
+claims:
+  - claim_id: CG_AMENITY_001
+    claim: Indoor heated swimming pool
+    projects: [Clove County]
+    status: planned  # planned | under_construction | operational
+    source_tier: brochure
+    evidence: null
+    refresh_rule: event_driven
+    note: >
+      Verify whether pool is built/operational vs only in plans.
+      Do not describe as "available" if only in architectural drawings.
+
+  - claim_id: CG_AMENITY_002
+    claim: Air conditioning in all apartments
+    projects: [Clove County]
+    status: planned
+    source_tier: brochure
+    evidence: null
+    note: Verify from BBA/Agreement for Sale if AC is standard or optional.
+
+  - claim_id: CG_AMENITY_003
+    claim: Premium fittings and fixtures
+    projects: [Clove County]
+    status: planned
+    source_tier: brochure
+    evidence: null
+    note: >
+      Specify which fittings. "Premium" is vague.
+      Better: "Branded bathroom fittings from [manufacturer]" with evidence.
+
+  - claim_id: CG_AMENITY_004
+    claim: Lavish clubhouse and gymnasium
+    projects: [Clove County]
+    status: planned
+    source_tier: brochure
+    evidence: null
+
+  - claim_id: CG_AMENITY_005
+    claim: Low-density living
+    projects: [Clove County]
+    status: claimed
+    source_tier: brochure
+    evidence: null
+    note: >
+      Must be substantiated with units/acre calculation from RERA filing.
+      226 units on X acres = Y units/acre. Compare against sector average.
+
+permitted_wording:
+  - "Clove County features [amenity] as per the project brochure"
+  - "The project specifications include [specific amenity]"
+  - "Buyers should verify amenity specifications in the Agreement for Sale"
+
+prohibited_wording:
+  - "Best amenities in Noida"
+  - "Unmatched luxury amenities"
+  - "No other project offers this"
+  - "World-class amenities" # without evidence of what standard defines "world-class"

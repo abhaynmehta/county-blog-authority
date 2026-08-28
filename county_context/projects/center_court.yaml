@@ -1,0 +1,39 @@
+project:
+  name: Center Court
+  developer: County Group
+  registered_promoter: County Group  # verify exact legal name from RERA
+  type: residential
+  segment: premium
+  status: ready_to_move  # verify current status
+
+location:
+  sector: 88A
+  city: Noida
+  state: Uttar Pradesh
+  region: NCR
+  micro_market: Central Noida
+
+rera:
+  registration_number: null  # fill from RERA portal
+  portal_url: null
+  registered_completion_date: null
+
+configurations:
+  - type: 3 BHK
+    carpet_area_sqft: null  # fill from RERA/sanctioned plan
+
+project_details:
+  total_units: null  # verify
+  towers: null
+  land_area_acres: null
+
+amenities: []  # populate from verified sources
+
+pricing:
+  price_per_sqft: null
+  starting_price: null
+  last_verified: null
+  source: null
+
+county_urls:
+  project_page: null

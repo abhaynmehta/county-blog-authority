@@ -1,0 +1,505 @@
+{
+  "total": 87,
+  "audited": 4,
+  "skipped": 83,
+  "errors": 0,
+  "publishable": 0,
+  "avg_score": 67.7,
+  "results": [
+    {
+      "slug": "flats-in-gurgaon-sector-88",
+      "skipped": true,
+      "score": 22
+    },
+    {
+      "slug": "flats-in-gurgaon-writer-doc",
+      "skipped": true,
+      "score": 54
+    },
+    {
+      "slug": "flats-in-noida-expressway",
+      "skipped": true,
+      "score": 85
+    },
+    {
+      "slug": "flats-in-noida-jewar-airport",
+      "skipped": true,
+      "score": 37
+    },
+    {
+      "slug": "flats-in-greater-noida",
+      "skipped": true,
+      "score": 85
+    },
+    {
+      "slug": "ivory-county-most-desirable",
+      "skipped": true,
+      "score": 0
+    },
+    {
+      "slug": "county-courtyard-commercial-delhi",
+      "skipped": true,
+      "score": 57
+    },
+    {
+      "slug": "county-107-redefining-opulence",
+      "skipped": true,
+      "score": 55
+    },
+    {
+      "slug": "ivory-county-low-density",
+      "skipped": true,
+      "score": 52
+    },
+    {
+      "slug": "center-court-premium-living-88a",
+      "skipped": true,
+      "score": 67
+    },
+    {
+      "slug": "ivy-county-sector-75",
+      "skipped": true,
+      "score": 37
+    },
+    {
+      "slug": "county-107-elevated-by-design",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "coco-county-affordable-tropical",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivory-county-sustainable-luxury",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "center-court-sector-88a-luxury",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "jade-county-delhi-meerut-expressway",
+      "skipped": true,
+      "score": 52
+    },
+    {
+      "slug": "county-courtyard-nsp-upgrade",
+      "skipped": true,
+      "score": 60
+    },
+    {
+      "slug": "ivory-county-gold-ultra-luxury",
+      "skipped": true,
+      "score": 44
+    },
+    {
+      "slug": "county-107-rewriting-rules",
+      "skipped": true,
+      "score": 55
+    },
+    {
+      "slug": "jade-county-floor-plans",
+      "skipped": true,
+      "score": 63
+    },
+    {
+      "slug": "tds-guide-luxury-homebuyers",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "jade-county-gold-opulence",
+      "skipped": true,
+      "score": 55
+    },
+    {
+      "slug": "jade-county-timeless-luxury",
+      "skipped": true,
+      "score": 47
+    },
+    {
+      "slug": "ivory-county-status-symbol",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "interior-design-trends-2026",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "jade-county-luxury-beyond-walls",
+      "skipped": true,
+      "score": 65
+    },
+    {
+      "slug": "center-court-sector-88-masterplan",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "jewar-airport-noida-homebuyers",
+      "skipped": true,
+      "score": 42
+    },
+    {
+      "slug": "ivory-county-at-a-glance",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivory-county-specifications",
+      "skipped": true,
+      "score": 63
+    },
+    {
+      "slug": "ivory-county-location-sector115",
+      "skipped": true,
+      "score": 81
+    },
+    {
+      "slug": "ivory-county-rera-registration",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivory-county-amenities",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivory-county-ultimate-luxury",
+      "skipped": true,
+      "score": 48
+    },
+    {
+      "slug": "ivory-county-overview",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivory-county-nearby-locations",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "ivory-county-timeless-luxury",
+      "skipped": true,
+      "score": 60
+    },
+    {
+      "slug": "jade-county-location-map",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "jade-county-nearby-places",
+      "skipped": true,
+      "score": 36
+    },
+    {
+      "slug": "center-court-location",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "center-court-masterplan-page",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "center-court-unit-plans",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "flats-in-noida-landing",
+      "skipped": true,
+      "score": 81
+    },
+    {
+      "slug": "county-courtyard-overview-nsp",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "county-courtyard-masterplan",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "county-courtyard-amenities",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "county-courtyard-location-nsp",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "county-courtyard-workspace",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "county-courtyard-retail",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "county-courtyard-leisure",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "flats-in-gurugram-landing",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "flats-in-greater-noida-landing",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "coco-county-overview",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "coco-county-features",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "coco-county-specifications",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "coco-county-masterplan",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "coco-county-location-map",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "flats-in-ghaziabad-landing",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "commercial-property-delhi-landing",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ved-van-park-noida-flats",
+      "skipped": true,
+      "score": 62
+    },
+    {
+      "slug": "ivy-county-unit-plans",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivy-county-location",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivy-county-specifications",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "ivy-county-overview",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "ivy-county-masterplan",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "ivy-county-amenities",
+      "skipped": true,
+      "score": 86
+    },
+    {
+      "slug": "buyers-guide-flats-noida-2026",
+      "skipped": true,
+      "score": 15
+    },
+    {
+      "slug": "flats-noida-holistic-living",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "noida-emerging-sectors-luxury",
+      "skipped": true,
+      "score": 59
+    },
+    {
+      "slug": "holiday-lifestyle-noida-flats",
+      "skipped": true,
+      "score": 78
+    },
+    {
+      "slug": "county-low-density-living",
+      "skipped": true,
+      "score": 70
+    },
+    {
+      "slug": "noida-residential-hotspots-2026",
+      "skipped": true,
+      "score": 67
+    },
+    {
+      "slug": "commercial-real-estate-delhi-ncr",
+      "skipped": true,
+      "score": 72
+    },
+    {
+      "slug": "flats-greater-noida-west-conveniences",
+      "publishable": false,
+      "score": 85,
+      "issue_count": 5,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/flats-greater-noida-west-conveniences-audit-report.md",
+        "audit_report_json": "audit-reports/roi/flats-greater-noida-west-conveniences-audit-report.json",
+        "schema": "audit-reports/roi/flats-greater-noida-west-conveniences-schema.json",
+        "roi_handoff": "audit-reports/roi/flats-greater-noida-west-conveniences-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/flats-greater-noida-west-conveniences-ago-handoff.md"
+      }
+    },
+    {
+      "slug": "sector-151-noida-7-reasons",
+      "publishable": false,
+      "score": 88,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/sector-151-noida-7-reasons-audit-report.md",
+        "audit_report_json": "audit-reports/roi/sector-151-noida-7-reasons-audit-report.json",
+        "schema": "audit-reports/roi/sector-151-noida-7-reasons-schema.json",
+        "roi_handoff": "audit-reports/roi/sector-151-noida-7-reasons-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/sector-151-noida-7-reasons-ago-handoff.md"
+      }
+    },
+    {
+      "slug": "clove-county-nearby-places",
+      "skipped": true,
+      "score": 86
+    },
+    {
+      "slug": "clove-county-location-map",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "clove-county-seo-page",
+      "publishable": false,
+      "score": 94,
+      "issue_count": 2,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/clove-county-seo-page-audit-report.md",
+        "audit_report_json": "audit-reports/roi/clove-county-seo-page-audit-report.json",
+        "schema": "audit-reports/roi/clove-county-seo-page-schema.json",
+        "roi_handoff": "audit-reports/roi/clove-county-seo-page-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/clove-county-seo-page-ago-handoff.md"
+      }
+    },
+    {
+      "slug": "clove-county-masterplan-page",
+      "publishable": false,
+      "score": 78,
+      "issue_count": 4,
+      "critical_count": 0,
+      "gates": {
+        "Factual Accuracy": "PASS",
+        "RERA & Legal Compliance": "FAIL",
+        "Technical SEO Eligibility": "PASS",
+        "Deployment Integrity": "WARNING"
+      },
+      "output_files": {
+        "audit_report_md": "audit-reports/roi/clove-county-masterplan-page-audit-report.md",
+        "audit_report_json": "audit-reports/roi/clove-county-masterplan-page-audit-report.json",
+        "schema": "audit-reports/roi/clove-county-masterplan-page-schema.json",
+        "roi_handoff": "audit-reports/roi/clove-county-masterplan-page-roi-handoff.md",
+        "ago_handoff": "audit-reports/roi/clove-county-masterplan-page-ago-handoff.md"
+      }
+    },
+    {
+      "slug": "clove-county-amenities-redefining-community-living-in-sector",
+      "skipped": true,
+      "score": 72
+    },
+    {
+      "slug": "clove-county-how-sustainable-living-is-shaping-luxury-reside",
+      "skipped": true,
+      "score": 63
+    },
+    {
+      "slug": "how-modern-architecture-is-quietly-changing-the-way-noida-li",
+      "skipped": true,
+      "score": 75
+    },
+    {
+      "slug": "luxury-living-in-noida-why-2026-is-the-year-for-premium-resi",
+      "skipped": true,
+      "score": 57
+    },
+    {
+      "slug": "the-county-group-philosophy-how-a-design-first-approach-is-r",
+      "skipped": true,
+      "score": 72
+    },
+    {
+      "slug": "top-10-features-homebuyers-look-for-in-luxury-apartments-in",
+      "skipped": true,
+      "score": 49
+    },
+    {
+      "slug": "trust-track-record-and-transparency-what-homebuyers-should-d",
+      "skipped": true,
+      "score": 72
+    },
+    {
+      "slug": "what-makes-a-real-estate-company-in-noida-trustworthy-for-ho",
+      "skipped": true,
+      "score": 64
+    }
+  ]
+}

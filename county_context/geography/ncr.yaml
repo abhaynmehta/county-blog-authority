@@ -1,0 +1,89 @@
+# NCR Geography Hierarchy
+# Indian real estate is hyper-location-sensitive.
+# NEVER treat these micro-markets as interchangeable.
+
+hierarchy: India > State > NCR > City > Zone/Micro-market > Sector > Project
+
+regions:
+  ncr:
+    name: National Capital Region
+    states: [Delhi, Uttar Pradesh, Haryana, Rajasthan]
+
+    cities:
+      noida:
+        name: Noida
+        state: Uttar Pradesh
+        authority: NOIDA Authority
+        rera_authority: UP RERA
+        micro_markets:
+          - name: Central Noida
+            sectors: [44, 50, 61, 62, 63, 78, 79]
+            character: established_residential
+          - name: Noida Expressway
+            sectors: [93, 94, 95, 96, 97, 98, 99, 100, 104, 107, 108]
+            character: premium_residential_commercial
+          - name: Sector 150 Belt
+            sectors: [150, 151, 152]
+            character: luxury_low_density
+            county_projects: [Clove County]
+          - name: Sector 88-92
+            sectors: [88, 88A, 89, 90, 91, 92]
+            character: established_premium
+            county_projects: [Center Court]
+
+      greater_noida:
+        name: Greater Noida
+        state: Uttar Pradesh
+        authority: GNIDA
+        rera_authority: UP RERA
+        micro_markets:
+          - name: Greater Noida West (Noida Extension)
+            character: affordable_mid_segment
+          - name: Yamuna Expressway
+            character: emerging_investment
+          - name: Knowledge Park
+            character: mixed_use
+
+      gurgaon:
+        name: Gurugram
+        state: Haryana
+        authority: HSVP / GMDA / MCG
+        rera_authority: Haryana RERA
+        micro_markets:
+          - name: Golf Course Road
+            character: ultra_premium
+          - name: Dwarka Expressway
+            character: premium_emerging
+          - name: Sohna Road
+            character: mid_premium
+          - name: New Gurgaon (Sectors 76-95)
+            character: mid_segment
+          - name: Sector 88 Gurgaon
+            county_projects: [New Gurgaon Launch]
+
+      ghaziabad:
+        name: Ghaziabad
+        state: Uttar Pradesh
+        rera_authority: UP RERA
+        micro_markets:
+          - name: Wave City
+            county_projects: [Jade County]
+          - name: Indirapuram
+            character: established_residential
+          - name: Raj Nagar Extension
+            character: affordable
+
+      delhi:
+        name: Delhi
+        state: Delhi
+        authority: DDA
+        rera_authority: Delhi RERA
+        county_projects: [County Courtyard]
+
+# Rules for geography in content:
+rules:
+  - "Sector 150 Noida ≠ Sector 150 Greater Noida — never conflate"
+  - "Noida Extension is commonly called Greater Noida West — use buyer-familiar term"
+  - "Gurgaon/Gurugram — use Gurugram in formal content, note common usage"
+  - "Distances must be from official sources, not Google Maps estimates"
+  - "Travel times vary — never state absolute travel times as guaranteed"

@@ -1,0 +1,29 @@
+project:
+  name: County Courtyard
+  developer: County Group
+  registered_promoter: County Group  # verify
+  type: commercial
+  segment: premium
+  status: null  # verify
+
+location:
+  city: Delhi
+  state: Delhi
+  region: NCR
+
+rera:
+  registration_number: null  # Delhi RERA if applicable
+  portal_url: null
+
+project_details:
+  total_units: null
+  floors: null
+  land_area: null
+
+pricing:
+  price_per_sqft: null
+  last_verified: null
+  source: null
+
+county_urls:
+  project_page: null

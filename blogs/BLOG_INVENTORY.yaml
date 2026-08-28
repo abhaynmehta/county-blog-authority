@@ -1,0 +1,691 @@
+already_processed:
+- id: 1uEwlcBsrPoxximSqmVG4DERWRP_0IuL2r-eg4oWTrYM
+  title: On-page-flats in gurgaon (Sector 88 / Center Court)
+  local_file: blogs/roi-incoming/flats-in-gurgaon-sector-88.md
+  status: audited
+  score: 22
+  issues: 13
+  critical: 2
+  publishable: false
+- id: 1QlMWWLJC7--JAD57fy3Oj7MwxZcsOzhsSoCUY1n_hIw
+  title: Writer doc-OnPage-flats in gurgaon (Center Court rewrite)
+  local_file: blogs/roi-incoming/flats-in-gurgaon-writer-doc.md
+  status: audited
+  score: 54
+  issues: 7
+  critical: 0
+  publishable: false
+- id: 1t_h7cV2O8GI4WRR3q_sEWcfCgpR5i-6wE__efw6ENSI
+  title: On-page-flats in Noida (Expressway / Clove County)
+  local_file: blogs/roi-incoming/flats-in-noida-expressway.md
+  status: audited
+  score: 85
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 10Yfq1i1mUOzSqJXoZcptznniIpeddDidvSM_gyNMB68
+  title: Jewar Airport driving luxury flats in Noida
+  local_file: blogs/roi-incoming/flats-in-noida-jewar-airport.md
+  status: audited
+  score: 37
+  issues: 9
+  critical: 3
+  publishable: false
+- id: 1fCHk1vSner3ipKJsot77lebaynMxmexRMlnelkg2QMw
+  title: On-page-flats in greater noida (Coco County / Greater Noida West)
+  local_file: blogs/roi-incoming/flats-in-greater-noida.md
+  status: audited
+  score: 85
+  issues: 5
+  critical: 0
+  publishable: false
+roi_google_docs:
+- id: 1SyesX-7xC7Kc9Wvkv1TrHdp5QdR0alWEPmxVV1jfaN0
+  title: Ivory County Most Desirable Project of Noida
+  local_file: blogs/roi-incoming/ivory-county-most-desirable.md
+  status: audited
+  score: 0
+  issues: 11
+  critical: 5
+  publishable: false
+- id: 1hj_zL2JQ1b0ZoQXdJg2xHNV3BuoAdA6g_t1XX42aXFQ
+  title: County Courtyard Commercial Real Estate Delhi
+  local_file: blogs/roi-incoming/county-courtyard-commercial-delhi.md
+  status: audited
+  score: 57
+  issues: 7
+  critical: 1
+  publishable: false
+- id: 1KZc7X3GHcHjHyBbUMxJY4NHqZzA6xSGdchtFYDzcLGk
+  title: County 107 Redefining Opulence
+  local_file: blogs/roi-incoming/county-107-redefining-opulence.md
+  status: audited
+  score: 55
+  issues: 6
+  critical: 1
+  publishable: false
+- id: 1eDChJQrEK-aWs82FJFU5MsPUza4hmN4_sPJQYBlg0AY
+  title: Ivory County Low-Density Luxury Living
+  local_file: blogs/roi-incoming/ivory-county-low-density.md
+  status: audited
+  score: 52
+  issues: 7
+  critical: 1
+  publishable: false
+- id: 1YyDvynNWGYmWszkwjqbw8OAnfU2ytDohOhh5kmxqofY
+  title: Center Court Premium Living Sector 88A Gurugram
+  local_file: blogs/roi-incoming/center-court-premium-living-88a.md
+  status: audited
+  score: 67
+  issues: 6
+  critical: 0
+  publishable: false
+- id: 1eDj3ZsLJVjF2nN2xsiQIdJwhnaciw7yuV-cGyucsN1M
+  title: Ivy County Sector 75 Apartment Living
+  local_file: blogs/roi-incoming/ivy-county-sector-75.md
+  status: audited
+  score: 37
+  issues: 8
+  critical: 2
+  publishable: false
+- id: 18UlQgkcWk0VAqvVOPL0kwlTA7TKeQPZ2tF10fOdErFw
+  title: County 107 Elevated by Design
+  local_file: blogs/roi-incoming/county-107-elevated-by-design.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 18lN_geW0sU9s1U0u1diBBni3KW5xf1DVm0aUIFWSb-M
+  title: Coco County Affordable Tropical Living
+  local_file: blogs/roi-incoming/coco-county-affordable-tropical.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1pyz2q02Y9RKXIzK9gi07oQjp9To0F0lnxo7KmcxtDmM
+  title: Ivory County Sustainable Luxury Eco Features
+  local_file: blogs/roi-incoming/ivory-county-sustainable-luxury.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: true
+- id: 1F7NFwcbT6IYh9LgoHJY3Ay0ye-lWl5DA-HEvy8FM4eA
+  title: Center Court Sector 88A Luxury Living Gurugram
+  local_file: blogs/roi-incoming/center-court-sector-88a-luxury.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 12lVG-iMs6HbSfPrh-PQ-0ieBwVsXSnVOIiCPacdvMOo
+  title: Jade County Delhi-Meerut Expressway
+  local_file: blogs/roi-incoming/jade-county-delhi-meerut-expressway.md
+  status: audited
+  score: 52
+  issues: 7
+  critical: 1
+  publishable: false
+- id: 1E_JU5jtNpCoOUg7tAKcIAq7dNks_nzcRoXyEDl5Ftfk
+  title: County Courtyard NSP Upgrade
+  local_file: blogs/roi-incoming/county-courtyard-nsp-upgrade.md
+  status: audited
+  score: 60
+  issues: 6
+  critical: 1
+  publishable: false
+- id: 1NnszjBdtjX8tjm8NEXC-e_62OSs7dg2mQmL4Xxo_67s
+  title: Ivory County Gold Ultra-Luxury
+  local_file: blogs/roi-incoming/ivory-county-gold-ultra-luxury.md
+  status: audited
+  score: 44
+  issues: 8
+  critical: 1
+  publishable: false
+- id: 1hwNxQr_BaiLjHvymgpguiMtmSu0DUm3TN6WLfaji6Qg
+  title: County 107 Rewriting Rules
+  local_file: blogs/roi-incoming/county-107-rewriting-rules.md
+  status: audited
+  score: 55
+  issues: 6
+  critical: 1
+  publishable: false
+- id: 1rTQBNZAT2mCEYLBsEwN02v7xAMANht_3CypGlJSs8io
+  title: Jade County Floor Plans Configurations
+  local_file: blogs/roi-incoming/jade-county-floor-plans.md
+  status: audited
+  score: 63
+  issues: 5
+  critical: 1
+  publishable: false
+- id: 1zozg-RKzoHuWNyWbNshUnVNSKffTVOT9nkZXWQyQhZ4
+  title: TDS Guide for Luxury Homebuyers
+  local_file: blogs/roi-incoming/tds-guide-luxury-homebuyers.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 18dajLguWYweXMZVLcb3QvTo7x8Nl-EqCYCidJHnW62Y
+  title: Jade County Gold Opulence Serenity
+  local_file: blogs/roi-incoming/jade-county-gold-opulence.md
+  status: audited
+  score: 55
+  issues: 6
+  critical: 1
+  publishable: false
+- id: 1UO2o3nz46zJgNCB3jmmQM4-Dfwi8EekCzxYYG4DhEi0
+  title: Jade County Wave City Timeless Luxury
+  local_file: blogs/roi-incoming/jade-county-timeless-luxury.md
+  status: audited
+  score: 47
+  issues: 7
+  critical: 1
+  publishable: false
+- id: 1Y6nrclGblQuk7XqEcH4N32coYbzpkjw7EZOu09CaRR8
+  title: Ivory County Status Symbol 21st Century
+  local_file: blogs/roi-incoming/ivory-county-status-symbol.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 117rIuacXRQIgrPqYRPSmXJmMW22Y1attHLZMUdDvueU
+  title: Interior Design Trends 2026 Noida
+  local_file: blogs/roi-incoming/interior-design-trends-2026.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1jTdOhEJLAkw-7HzVRgmiw5gk2drZqDRRH2Zo9JbOG8k
+  title: Jade County Luxury Beyond Four Walls
+  local_file: blogs/roi-incoming/jade-county-luxury-beyond-walls.md
+  status: audited
+  score: 65
+  issues: 6
+  critical: 1
+  publishable: false
+- id: 1eFIURN4DtymNsyUTxBfVZY_22g2qpjAlyeuhJnsaMpg
+  title: Center Court Sector 88 Masterplan
+  local_file: blogs/roi-incoming/center-court-sector-88-masterplan.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1Z0gxWxt64zMKrGMmaUFVZvOKNc_qRuqz5ckC72244Ls
+  title: Jewar Airport Impact on Noida Homebuyers
+  local_file: blogs/roi-incoming/jewar-airport-noida-homebuyers.md
+  status: audited
+  score: 42
+  issues: 8
+  critical: 2
+  publishable: false
+- id: 1rwVcR4C7H8Y7lgHLbkRyM6_UztIigKfASYgK9edKhKs
+  title: Ivory County At A Glance
+  local_file: blogs/roi-incoming/ivory-county-at-a-glance.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: false
+- id: 1Bbou7gLc2iu-Ft-iS4rd1oG8kSaynVDtG0HEFoFOJHE
+  title: Ivory County Specifications
+  local_file: blogs/roi-incoming/ivory-county-specifications.md
+  status: audited
+  score: 63
+  issues: 5
+  critical: 1
+  publishable: false
+- id: 1N2Zip65tSx2YTuIi_NPCt0kWq63FvqHARCBgeFfTN6M
+  title: Ivory County Location Sector 115
+  local_file: blogs/roi-incoming/ivory-county-location-sector115.md
+  status: audited
+  score: 81
+  issues: 3
+  critical: 0
+  publishable: true
+- id: 1NPPqf5njxgOJzzXhdDBDBkjMhWoCJ9ZdlTn0yNiIJZ8
+  title: Ivory County RERA Registration
+  local_file: blogs/roi-incoming/ivory-county-rera-registration.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 15KZPHccrY-zSu6EE4X2OovERHtmnVWPwdnpIdlwmCek
+  title: Ivory County Amenities
+  local_file: blogs/roi-incoming/ivory-county-amenities.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1mTf_70cizoJPduiz4k32yR_Pw2FfTl87wAXD1be9i_I
+  title: Ivory County Ultimate Luxury Living
+  local_file: blogs/roi-incoming/ivory-county-ultimate-luxury.md
+  status: audited
+  score: 48
+  issues: 6
+  critical: 2
+  publishable: false
+- id: 15i6PqweljMvWXiV2WnBIB8fMLn1xNi4OcEm7ySTGTy0
+  title: Ivory County Overview
+  local_file: blogs/roi-incoming/ivory-county-overview.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1alVZbWNnI06dOPWi9_ITLEh5wqaE2ccxpwreQRaZf7Q
+  title: Ivory County Nearby Locations
+  local_file: blogs/roi-incoming/ivory-county-nearby-locations.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: true
+- id: 10SZUxw8KIFGm2tlqKEOHSVfO53cwqjAoVgCndtmUXjw
+  title: Ivory County Timeless Luxury
+  local_file: blogs/roi-incoming/ivory-county-timeless-luxury.md
+  status: audited
+  score: 60
+  issues: 6
+  critical: 1
+  publishable: false
+- id: 1vf5LkRIN5C7oHVu5PkHFVkOQvS2CP3M4lDNNbJ5VBsQ
+  title: Jade County Location Map
+  local_file: blogs/roi-incoming/jade-county-location-map.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: true
+- id: 1Oz0Nccm3mwd-oE4CIC123_mwJ2f22lHhw6QxyRL_Q4s
+  title: Jade County Nearby Places
+  local_file: blogs/roi-incoming/jade-county-nearby-places.md
+  status: audited
+  score: 36
+  issues: 9
+  critical: 1
+  publishable: false
+- id: 1aHm6SXKMifTc1H8uzISs7eYgPvL5hqfIb7R3sScyC74
+  title: Center Court Location Sector 88A
+  local_file: blogs/roi-incoming/center-court-location.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 17L8iGNhhenDH55w_jcz8iNEljrQh7Am1qN8oHyl86PU
+  title: Center Court Masterplan Page
+  local_file: blogs/roi-incoming/center-court-masterplan-page.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1aGM-ae5JHnh8v3WhVEaLyxHq-iWYqozlp5RAfK1v7qs
+  title: Center Court Unit Plans
+  local_file: blogs/roi-incoming/center-court-unit-plans.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: true
+- id: 112S5AIQv5waCJCwSoDcPRtM50Ze9KIqLjSNqzVwMhEk
+  title: Flats in Noida Landing Page
+  local_file: blogs/roi-incoming/flats-in-noida-landing.md
+  status: audited
+  score: 81
+  issues: 3
+  critical: 0
+  publishable: true
+- id: 1jBBx9gio-REyzwWkjnIo0OJRocSKRhavt85wCVQUNm0
+  title: County Courtyard Overview NSP
+  local_file: blogs/roi-incoming/county-courtyard-overview-nsp.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1gqaPIUsuayqK1snNY6z8t4rY44MQoQLUZEkl6r6qCaM
+  title: County Courtyard Masterplan
+  local_file: blogs/roi-incoming/county-courtyard-masterplan.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1j75Wgm10f3Uau9u7jNuHv_kiYWSJF_7y5nYJ8VAkYw4
+  title: County Courtyard Amenities
+  local_file: blogs/roi-incoming/county-courtyard-amenities.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1dzVfcmfF3KdmEEUeOCx0u_qGEOunQvUWWJz3lBY2Fh8
+  title: County Courtyard Location NSP
+  local_file: blogs/roi-incoming/county-courtyard-location-nsp.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: true
+- id: 1eBQQdKvQ05rmQZOkVtmeRtpi46cHayb4itZtVH5tMas
+  title: County Courtyard Workspace
+  local_file: blogs/roi-incoming/county-courtyard-workspace.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 17HQw1sbdzcVrnYEx_K5wtBkKZ_kHLO2xs8tJiagLx2A
+  title: County Courtyard Retail
+  local_file: blogs/roi-incoming/county-courtyard-retail.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1i3qHUWOgUITXeUwTgXb7bp8BqWiRq0-WHMeBoEUiHIk
+  title: County Courtyard Leisure
+  local_file: blogs/roi-incoming/county-courtyard-leisure.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: true
+- id: 1NY3fEXqe6JXa0R9jK6KriXH_dyJat735zfY1fLWjnrk
+  title: Flats in Gurugram Landing Page
+  local_file: blogs/roi-incoming/flats-in-gurugram-landing.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1T6s3SuDL_rY31vfHlFEw_fVP1hx2_EU_EkhfmnOXESY
+  title: Flats in Greater Noida Landing Page
+  local_file: blogs/roi-incoming/flats-in-greater-noida-landing.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1jq7rPN0R6rocN3ouDAh6LyxmddXPTUdBdJibFa3sRe8
+  title: Coco County Overview
+  local_file: blogs/roi-incoming/coco-county-overview.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1-Ws-owjG_BAQE_KPNrL1WIEDoR2CDTOvZY6_PU9s7jA
+  title: Coco County Features
+  local_file: blogs/roi-incoming/coco-county-features.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 19TFTdbQEK23M2sviMJxIMl_FLY-eOSO3QKHZtfB5NkI
+  title: Coco County Specifications
+  local_file: blogs/roi-incoming/coco-county-specifications.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1AZXp8thrAKc8loA0uXNATIsBVSy1CJd7AXkVANHhdUE
+  title: Coco County Masterplan
+  local_file: blogs/roi-incoming/coco-county-masterplan.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 19xgWY45lmW7kc7i-hpw63opLtdOX90kGExJ7MER--nA
+  title: Coco County Location Map
+  local_file: blogs/roi-incoming/coco-county-location-map.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1y_yxjppAkbLUpkrVQ76f5SGSfpNw_KLNz_HtR6GXygk
+  title: Flats in Ghaziabad Landing Page
+  local_file: blogs/roi-incoming/flats-in-ghaziabad-landing.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1Lw3Z3d1lgvqeiEtRTIVjP8PPYVQjnY69DvM88ZaCfKg
+  title: Commercial Property Delhi Landing
+  local_file: blogs/roi-incoming/commercial-property-delhi-landing.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1pcMMZWx7eqqkyRA2TInDH8w8iP8cq1kkc5l8XM_uCs0
+  title: Ved Van Park Noida Flats Blog
+  local_file: blogs/roi-incoming/ved-van-park-noida-flats.md
+  status: audited
+  score: 62
+  issues: 6
+  critical: 0
+  publishable: true
+- id: 1-UtHe6HtJQUiPgEZ3FzXqd8-EKJ5W95jEy_hcjQvSJ8
+  title: Ivy County Unit Plans
+  local_file: blogs/roi-incoming/ivy-county-unit-plans.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 19XWqyodEDBPu8WSXsGSQf5ISUzoFbrQ7EbYtwLd6pZg
+  title: Ivy County Location Sector 75
+  local_file: blogs/roi-incoming/ivy-county-location.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1THBizvTZzCEZme5fMnekeAJNo_uXuhsyRIzJQ4fj96o
+  title: Ivy County Specifications
+  local_file: blogs/roi-incoming/ivy-county-specifications.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1_G2pwatbvtEwo3ts-2wRb0cI0bwPqb8Hx4lNEy_FoXw
+  title: Ivy County Overview Sector 75
+  local_file: blogs/roi-incoming/ivy-county-overview.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1gosJo78U6pS1btHz32iXuR2qRfu8IM3IGiHDTRW4B6Q
+  title: Ivy County Masterplan
+  local_file: blogs/roi-incoming/ivy-county-masterplan.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1BRSVwXL6VJiJePb4_mLOWEsh9f87VlXc7M7UecR8AGM
+  title: Ivy County Amenities
+  local_file: blogs/roi-incoming/ivy-county-amenities.md
+  status: audited
+  score: 86
+  issues: 3
+  critical: 0
+  publishable: true
+- id: 1KyRP9mEbK7x0FJiTPk3bFupSrUaNFdvpXP4mZXL2cBw
+  title: A Buyer's Guide to Choosing Flats in Noida in 2026
+  local_file: blogs/roi-incoming/buyers-guide-flats-noida-2026.md
+  status: audited
+  score: 15
+  issues: 9
+  critical: 4
+  publishable: false
+- id: 14GXO9H7JabsT18eO32fypwHAIRpQEqZvjhhS2j1K9yY
+  title: How Flats in Noida are Offering a Holistic Living Experience
+  local_file: blogs/roi-incoming/flats-noida-holistic-living.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 1P-MhC_ygig1h8eA8T_Y9lwLyWOTX7jKu5xmt2ynvmYs
+  title: Noida's Fast-Emerging Sectors with Luxury Living
+  local_file: blogs/roi-incoming/noida-emerging-sectors-luxury.md
+  status: audited
+  score: 59
+  issues: 7
+  critical: 0
+  publishable: false
+- id: 1ffkOgfbjdZKmKSFI1PKqxdKl9m9_Kk_tdlMVMzOBLGU
+  title: Can Living at Home Feel Like a Holiday? Noida Luxury Flats
+  local_file: blogs/roi-incoming/holiday-lifestyle-noida-flats.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: true
+- id: 15dxWhukUTrIA8m2rkIC6CzdrU8eJhZgZvNR1_e4mppU
+  title: Inside County Group's Approach to Low-Density Living
+  local_file: blogs/roi-incoming/county-low-density-living.md
+  status: audited
+  score: 70
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1fGrqT0iFO9tP3Qbnq2ob9gMSoyPWsAG4-W-7r5jg3Co
+  title: Planning to Buy a Flat in Noida? Residential Hotspots
+  local_file: blogs/roi-incoming/noida-residential-hotspots-2026.md
+  status: audited
+  score: 67
+  issues: 6
+  critical: 0
+  publishable: false
+- id: 176yQDI8LSx2htMw_MnB1a94DwNvCgwTFV0ylHnhXRJM
+  title: Commercial Real Estate in Delhi-NCR 2026
+  local_file: blogs/roi-incoming/commercial-real-estate-delhi-ncr.md
+  status: audited
+  score: 72
+  issues: 6
+  critical: 0
+  publishable: false
+- id: 1nOGzOrebrL0uUKQ7fRFUQkx6W2qni3FXwiGwHL6749A
+  title: Planning to Buy a Flat in Greater Noida West (Aug v2)
+  local_file: blogs/roi-incoming/flats-greater-noida-west-conveniences.md
+  status: audited
+  score: 85
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1LMLArqmsZPgoPserp9BNB0y_W0KarJk8ivIbjtw-f5I
+  title: 7 Reasons Why Sector 151 Should be on Your List (Aug v2)
+  local_file: blogs/roi-incoming/sector-151-noida-7-reasons.md
+  status: audited
+  score: 88
+  issues: 4
+  critical: 0
+  publishable: false
+- id: 1ZF1afHFoWWLtVaSWrxyMwmQf855iprpsWqES2nYjiFA
+  title: Clove County Nearby Places (Aug)
+  local_file: blogs/roi-incoming/clove-county-nearby-places.md
+  status: audited
+  score: 86
+  issues: 3
+  critical: 0
+  publishable: true
+- id: 1e9eVCmRUiH-QM2O3O2xeuqUi0IsiosXXyHGlkoZJcTI
+  title: Clove County Location Map (Aug)
+  local_file: blogs/roi-incoming/clove-county-location-map.md
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: false
+- id: 1IACw_iHEYNT0IBW7NT37nMQrXQwfcrw1xn_AMtqnYnA
+  title: Clove County SEO Landing Page (v2)
+  local_file: blogs/roi-incoming/clove-county-seo-page.md
+  status: audited
+  score: 94
+  issues: 2
+  critical: 0
+  publishable: false
+- id: 1mb2CJnwSnjIvO0FLCqIidZMGegLSIaHxXz3VMatich8
+  title: Clove County Masterplan Page (v2)
+  local_file: blogs/roi-incoming/clove-county-masterplan-page.md
+  status: audited
+  score: 78
+  issues: 4
+  critical: 0
+  publishable: false
+old_agency_local:
+- file: blogs/old-agency-incoming/Clove County Amenities_ Redefining Community Living
+    in Sector 151 Noida (1).txt
+  status: audited
+  score: 72
+  issues: 6
+  critical: 0
+  publishable: false
+- file: blogs/old-agency-incoming/Clove County_ How Sustainable Living Is Shaping
+    Luxury Residential Projects in Noida - Blog 2.txt
+  status: audited
+  score: 63
+  issues: 5
+  critical: 1
+  publishable: false
+- file: blogs/old-agency-incoming/How Modern Architecture Is Quietly Changing the
+    Way Noida Lives.txt
+  status: audited
+  score: 75
+  issues: 5
+  critical: 0
+  publishable: false
+- file: blogs/old-agency-incoming/Luxury Living in Noida_ Why 2026 Is the Year for
+    Premium Residential Investments - Blog 1.txt
+  status: audited
+  score: 57
+  issues: 7
+  critical: 1
+  publishable: false
+- file: blogs/old-agency-incoming/The County Group Philosophy_ How a Design-First
+    Approach Is Redefining Luxury Real Estate in NCR.txt
+  status: audited
+  score: 72
+  issues: 6
+  critical: 0
+  publishable: false
+- file: blogs/old-agency-incoming/Top 10 Features Homebuyers Look for in Luxury Apartments
+    in Noida - Blog 4.txt
+  status: audited
+  score: 49
+  issues: 8
+  critical: 1
+  publishable: false
+- file: blogs/old-agency-incoming/Trust, Track Record, and Transparency_ What Homebuyers
+    Should Demand from Any Real Estate Group in NCR.txt
+  status: audited
+  score: 72
+  issues: 6
+  critical: 0
+  publishable: false
+- file: blogs/old-agency-incoming/What Makes a Real Estate Company in Noida Trustworthy
+    for Homebuyers - Blog 3 (1).txt
+  status: audited
+  score: 64
+  issues: 7
+  critical: 0
+  publishable: false

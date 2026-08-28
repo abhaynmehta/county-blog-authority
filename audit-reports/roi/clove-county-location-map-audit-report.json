@@ -1,0 +1,98 @@
+{
+  "file_path": "blogs/roi-incoming/clove-county-location-map.md",
+  "word_count": 253,
+  "paragraph_count": 12,
+  "score": 75,
+  "publishable": false,
+  "issue_count": 5,
+  "issues_by_severity": {
+    "critical": 0,
+    "high": 2,
+    "medium": 3,
+    "low": 0,
+    "info": 0
+  },
+  "issues_by_owner": {
+    "ROI": 5,
+    "AGO": 0,
+    "BOTH": 0,
+    "INTERNAL": 0
+  },
+  "gates": [
+    {
+      "gate": "Factual Accuracy",
+      "status": "PASS",
+      "details": "No factual issues"
+    },
+    {
+      "gate": "RERA & Legal Compliance",
+      "status": "FAIL",
+      "details": "1 compliance issues"
+    },
+    {
+      "gate": "Technical SEO Eligibility",
+      "status": "PASS",
+      "details": "SEO basics pass"
+    },
+    {
+      "gate": "Deployment Integrity",
+      "status": "WARNING",
+      "details": "Check post-deployment"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "CG-META-001",
+      "category": "meta_description",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Meta description too short (102 chars)",
+      "claim": "Find Clove County in Sector 151, Noida. Access via Noida-Greater Noida Expressway and Aqua Line Metro.",
+      "reason": "",
+      "recommended_action": "Expand to 120-160 characters for optimal SERP display",
+      "acceptance_test": "Description is 120-160 characters"
+    },
+    {
+      "issue_id": "CG-CONTENT-002",
+      "category": "unsupported_claim",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "1 travel time claim(s) without source attribution",
+      "reason": "",
+      "recommended_action": "Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims",
+      "acceptance_test": "Every travel time claim has inline source"
+    },
+    {
+      "issue_id": "CG-CONTENT-003",
+      "category": "prohibited_language",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Keyword stuffing: 'clove county' appears 8 times",
+      "reason": "",
+      "recommended_action": "Reduce repetition. Use synonyms and natural phrasing.",
+      "acceptance_test": "No phrase repeated more than 7 times in one article",
+      "google_rule": "SPAM-KEYWORD-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-004",
+      "category": "image_seo",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No images found in content",
+      "reason": "",
+      "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
+      "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-CONTENT-005",
+      "category": "ai_readiness",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "Thin content: only 253 words (minimum 800 for ranking potential)",
+      "reason": "",
+      "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
+      "acceptance_test": "Word count >= 1200",
+      "google_rule": "CONTENT-THIN-001"
+    }
+  ]
+}

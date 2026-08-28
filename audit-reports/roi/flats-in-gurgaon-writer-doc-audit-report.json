@@ -1,0 +1,118 @@
+{
+  "file_path": "blogs/roi-incoming/flats-in-gurgaon-writer-doc.md",
+  "word_count": 1949,
+  "paragraph_count": 58,
+  "score": 54,
+  "publishable": false,
+  "issue_count": 7,
+  "issues_by_severity": {
+    "critical": 0,
+    "high": 5,
+    "medium": 2,
+    "low": 0,
+    "info": 0
+  },
+  "issues_by_owner": {
+    "ROI": 7,
+    "AGO": 0,
+    "BOTH": 0,
+    "INTERNAL": 0
+  },
+  "gates": [
+    {
+      "gate": "Factual Accuracy",
+      "status": "PASS",
+      "details": "No factual issues"
+    },
+    {
+      "gate": "RERA & Legal Compliance",
+      "status": "FAIL",
+      "details": "3 compliance issues"
+    },
+    {
+      "gate": "Technical SEO Eligibility",
+      "status": "FAIL",
+      "details": "2 SEO issues"
+    },
+    {
+      "gate": "Deployment Integrity",
+      "status": "WARNING",
+      "details": "Check post-deployment"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "CG-META-001",
+      "category": "meta_title",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "No meta title found",
+      "reason": "",
+      "recommended_action": "Add a unique meta title, 30-60 characters",
+      "acceptance_test": "Meta title present and 30-60 characters"
+    },
+    {
+      "issue_id": "CG-META-002",
+      "category": "meta_description",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "No meta description found",
+      "reason": "",
+      "recommended_action": "Add a unique meta description, 120-160 characters",
+      "acceptance_test": "Meta description present and 120-160 characters"
+    },
+    {
+      "issue_id": "CG-CONTENT-003",
+      "category": "unsupported_claim",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "3 travel time claim(s) without source attribution",
+      "reason": "",
+      "recommended_action": "Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims",
+      "acceptance_test": "Every travel time claim has inline source"
+    },
+    {
+      "issue_id": "CG-CONTENT-004",
+      "category": "rera_compliance",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "RERA mentioned but no registration number provided",
+      "reason": "",
+      "recommended_action": "Add the actual RERA registration number with portal verification link",
+      "acceptance_test": "RERA registration number is visible and verifiable",
+      "google_rule": "CONTENT-RERA-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-005",
+      "category": "rera_compliance",
+      "severity": "high",
+      "owner": "ROI",
+      "summary": "Area figures (8 mentions) not labeled as carpet area",
+      "reason": "",
+      "recommended_action": "Specify whether figures are carpet area (RERA) or super built-up. RERA mandates carpet area disclosure.",
+      "acceptance_test": "All area figures explicitly labeled as carpet area or super built-up",
+      "google_rule": "CONTENT-RERA-002"
+    },
+    {
+      "issue_id": "CG-CONTENT-006",
+      "category": "prohibited_language",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Keyword stuffing: 'center court' appears 26 times",
+      "reason": "",
+      "recommended_action": "Reduce repetition. Use synonyms and natural phrasing.",
+      "acceptance_test": "No phrase repeated more than 7 times in one article",
+      "google_rule": "SPAM-KEYWORD-001"
+    },
+    {
+      "issue_id": "CG-CONTENT-007",
+      "category": "image_seo",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No images found in content",
+      "reason": "",
+      "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
+      "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    }
+  ]
+}

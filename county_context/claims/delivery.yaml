@@ -1,0 +1,60 @@
+# County Group Delivery Evidence Matrix
+# This is the STRONGEST differentiator. Every claim here MUST have RERA evidence.
+# NEVER allow the system to claim "timely delivery" without this evidence.
+
+claim_category: developer_track_record
+
+claims:
+  - claim_id: CG_DELIVERY_001
+    claim: County Group has a track record of timely project delivery
+    claim_type: developer_track_record
+    confidence: requires_verification
+    # IMPORTANT: This claim requires project-by-project RERA evidence.
+    # Fill the matrix below from UP RERA, Delhi RERA portals.
+    evidence_required: true
+    evidence_type: rera_possession_records
+
+# DELIVERY EVIDENCE MATRIX
+# For every County project, document:
+# - RERA committed possession date
+# - Actual possession/OC/CC date
+# - Difference in days
+# - Source (RERA portal URL)
+#
+# FILL THIS FROM RERA PORTALS BEFORE MAKING ANY DELIVERY CLAIMS.
+delivery_matrix:
+  # - project: Cleo County
+  #   phase: Phase 1
+  #   rera_committed_date: YYYY-MM-DD
+  #   actual_possession_date: YYYY-MM-DD
+  #   difference_days: X
+  #   oc_cc_received: true/false
+  #   evidence_url: https://up-rera.in/...
+  #
+  # - project: Cherry County
+  #   ...
+
+# Permitted wording (when evidence is verified):
+permitted_wording:
+  - "County Group's delivery record can be independently checked across completed developments"
+  - "County Group has delivered [X] projects within RERA-committed timelines"
+  - "Buyers can verify County Group's possession track record on the UP RERA portal"
+
+# PROHIBITED wording (never use):
+prohibited_wording:
+  - "Only developer in NCR/Noida with timely delivery"
+  - "100% on-time delivery record"
+  - "Guaranteed on-time possession"
+  - "Best delivery record in NCR"
+  - "No delays ever"
+  # Comparative claims about specific competitors require legal review
+  - "Unlike [competitor], County Group delivers on time"
+
+# Competitor comparison rules:
+competitor_comparison:
+  allowed: false  # until legal review
+  note: >
+    Do NOT claim other developers (ACE, Eldeco, ATS, Prateek, Gaur) have poor
+    delivery records without RERA-verified evidence AND legal review.
+    Instead, focus on County Group's own verifiable record.
+    The positive evidence approach is both legally safer and more authoritative.

@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How Ivory County is setting standards as the Best Low-Density Residential Project in Noida | Blog",
+      "description": "Experience low-density luxury living at Ivory County, Noida. Spacious 3, 4, and 5 BHK apartments with premium amenities, open green spaces, and unmatched privacy in Sector 115.",
+      "url": "https://www.countygroup.in/blog/ivory-county-low-density",
+      "datePublished": "2026-08-27",
+      "dateModified": "2026-08-27",
+      "author": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "County Group"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.countygroup.in/blog/ivory-county-low-density"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://countygroup.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://countygroup.in/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How Ivory County is setting standards as the Best Low-Density Residential Project in Noida | Blog"
+        }
+      ]
+    }
+  ]
+}
