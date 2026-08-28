@@ -4,13 +4,13 @@
   "skipped": 0,
   "errors": 0,
   "publishable": 42,
-  "avg_score": 67.2,
+  "avg_score": 67.9,
   "results": [
     {
       "slug": "flats-in-gurgaon-sector-88",
       "publishable": false,
-      "score": 11,
-      "issue_count": 20,
+      "score": 19,
+      "issue_count": 19,
       "critical_count": 2,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -29,8 +29,8 @@
     {
       "slug": "flats-in-gurgaon-writer-doc",
       "publishable": false,
-      "score": 51,
-      "issue_count": 11,
+      "score": 59,
+      "issue_count": 10,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -309,8 +309,8 @@
     {
       "slug": "jade-county-delhi-meerut-expressway",
       "publishable": false,
-      "score": 52,
-      "issue_count": 8,
+      "score": 60,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -349,8 +349,8 @@
     {
       "slug": "ivory-county-gold-ultra-luxury",
       "publishable": false,
-      "score": 44,
-      "issue_count": 9,
+      "score": 52,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -449,8 +449,8 @@
     {
       "slug": "jade-county-timeless-luxury",
       "publishable": false,
-      "score": 47,
-      "issue_count": 8,
+      "score": 55,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -769,8 +769,8 @@
     {
       "slug": "jade-county-nearby-places",
       "publishable": false,
-      "score": 36,
-      "issue_count": 10,
+      "score": 52,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1189,8 +1189,8 @@
     {
       "slug": "ved-van-park-noida-flats",
       "publishable": true,
-      "score": 62,
-      "issue_count": 7,
+      "score": 70,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",

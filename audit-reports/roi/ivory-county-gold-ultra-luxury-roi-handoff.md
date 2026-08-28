@@ -1,12 +1,12 @@
 # ROI Action Items
 
-**Total items: 9**
+**Total items: 8**
 
 The following issues require your attention.
 
 ## ivory-county-gold-ultra-luxury.md
 
-### CG-CONTENT-003 — CRITICAL
+### CG-CONTENT-002 — CRITICAL
 
 **Prohibited language: 'unmatched claim'**
 
@@ -16,16 +16,7 @@ The following issues require your attention.
 - **Fix:** Remove or rephrase the 'unmatched claim' claim
 - **Done when:** No 'unmatched claim' language remains
 
-### CG-CONTENT-002 — HIGH
-
-**Travel time claim needs verification — never state as guaranteed**
-
-- **Where:** Paragraph 7
-- **Text in question:** “15 min to”
-- **Fix:** Add verified source or remove claim
-- **Done when:** Claim has inline source attribution
-
-### CG-CONTENT-004 — HIGH
+### CG-CONTENT-003 — HIGH
 
 **Area figures (2 mentions) not labeled as carpet area**
 
@@ -33,14 +24,14 @@ The following issues require your attention.
 - **Done when:** All area figures explicitly labeled as carpet area or super built-up
 - **Rule:** CONTENT-RERA-002
 
-### CG-CONTENT-006 — HIGH
+### CG-CONTENT-005 — HIGH
 
 **No internal or external links found in content**
 
 - **Fix:** Add 3-5 internal links and 1-3 external authority links
 - **Done when:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-008 — HIGH
+### CG-CONTENT-007 — HIGH
 
 **Thin content: only 367 words (minimum 800 for ranking potential)**
 
@@ -56,7 +47,7 @@ The following issues require your attention.
 - **Fix:** Shorten title to 60 characters or fewer
 - **Done when:** Title is 30-60 characters
 
-### CG-CONTENT-005 — MEDIUM
+### CG-CONTENT-004 — MEDIUM
 
 **Keyword stuffing: 'ivory county' appears 10 times**
 
@@ -64,14 +55,14 @@ The following issues require your attention.
 - **Done when:** No phrase repeated more than 7 times in one article
 - **Rule:** SPAM-KEYWORD-001
 
-### CG-CONTENT-007 — MEDIUM
+### CG-CONTENT-006 — MEDIUM
 
 **No images found in content**
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-PROJECT-009 — INFO
+### CG-PROJECT-008 — INFO
 
 **Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number**
 

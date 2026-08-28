@@ -2,18 +2,18 @@
   "file_path": "blogs/roi-incoming/flats-in-gurgaon-writer-doc.md",
   "word_count": 1949,
   "paragraph_count": 58,
-  "score": 51,
+  "score": 59,
   "publishable": false,
-  "issue_count": 11,
+  "issue_count": 10,
   "issues_by_severity": {
     "critical": 0,
-    "high": 5,
+    "high": 4,
     "medium": 3,
     "low": 2,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 9,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 2
@@ -63,16 +63,6 @@
     },
     {
       "issue_id": "CG-CONTENT-003",
-      "category": "unsupported_claim",
-      "severity": "high",
-      "owner": "ROI",
-      "summary": "3 travel time claim(s) without source attribution",
-      "reason": "",
-      "recommended_action": "Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims",
-      "acceptance_test": "Every travel time claim has inline source"
-    },
-    {
-      "issue_id": "CG-CONTENT-004",
       "category": "rera_compliance",
       "severity": "high",
       "owner": "ROI",
@@ -83,7 +73,7 @@
       "google_rule": "CONTENT-RERA-001"
     },
     {
-      "issue_id": "CG-CONTENT-005",
+      "issue_id": "CG-CONTENT-004",
       "category": "rera_compliance",
       "severity": "high",
       "owner": "ROI",
@@ -94,7 +84,7 @@
       "google_rule": "CONTENT-RERA-002"
     },
     {
-      "issue_id": "CG-CONTENT-006",
+      "issue_id": "CG-CONTENT-005",
       "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
@@ -105,7 +95,7 @@
       "google_rule": "SPAM-KEYWORD-001"
     },
     {
-      "issue_id": "CG-CONTENT-007",
+      "issue_id": "CG-CONTENT-006",
       "category": "image_seo",
       "severity": "medium",
       "owner": "ROI",
@@ -115,7 +105,7 @@
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
     },
     {
-      "issue_id": "CG-PROJECT-008",
+      "issue_id": "CG-PROJECT-007",
       "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",
@@ -126,7 +116,7 @@
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
     },
     {
-      "issue_id": "CG-LINK-009",
+      "issue_id": "CG-LINK-008",
       "category": "internal_links",
       "severity": "low",
       "owner": "INTERNAL",
@@ -137,7 +127,7 @@
       "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
     },
     {
-      "issue_id": "CG-LINK-010",
+      "issue_id": "CG-LINK-009",
       "category": "internal_links",
       "severity": "low",
       "owner": "INTERNAL",
@@ -148,7 +138,7 @@
       "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
     },
     {
-      "issue_id": "CG-LINK-011",
+      "issue_id": "CG-LINK-010",
       "category": "external_links",
       "severity": "medium",
       "owner": "ROI",

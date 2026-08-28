@@ -2,18 +2,18 @@
   "file_path": "blogs/roi-incoming/ved-van-park-noida-flats.md",
   "word_count": 209,
   "paragraph_count": 10,
-  "score": 62,
+  "score": 70,
   "publishable": true,
-  "issue_count": 7,
+  "issue_count": 6,
   "issues_by_severity": {
     "critical": 0,
-    "high": 4,
+    "high": 3,
     "medium": 2,
     "low": 0,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 7,
+    "ROI": 6,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -57,25 +57,13 @@
       "category": "unsupported_claim",
       "severity": "high",
       "owner": "ROI",
-      "summary": "Travel time claim needs verification \u2014 never state as guaranteed",
-      "paragraph": 5,
-      "claim": "5 min drive",
-      "reason": "",
-      "recommended_action": "Add verified source or remove claim",
-      "acceptance_test": "Claim has inline source attribution"
-    },
-    {
-      "issue_id": "CG-CONTENT-003",
-      "category": "unsupported_claim",
-      "severity": "high",
-      "owner": "ROI",
       "summary": "1 travel time claim(s) without source attribution",
       "reason": "",
       "recommended_action": "Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims",
       "acceptance_test": "Every travel time claim has inline source"
     },
     {
-      "issue_id": "CG-CONTENT-004",
+      "issue_id": "CG-CONTENT-003",
       "category": "internal_links",
       "severity": "high",
       "owner": "ROI",
@@ -85,7 +73,7 @@
       "acceptance_test": "At least 3 internal links and 1 external authority link present"
     },
     {
-      "issue_id": "CG-CONTENT-005",
+      "issue_id": "CG-CONTENT-004",
       "category": "image_seo",
       "severity": "medium",
       "owner": "ROI",
@@ -95,7 +83,7 @@
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
     },
     {
-      "issue_id": "CG-CONTENT-006",
+      "issue_id": "CG-CONTENT-005",
       "category": "ai_readiness",
       "severity": "high",
       "owner": "ROI",
@@ -106,7 +94,7 @@
       "google_rule": "CONTENT-THIN-001"
     },
     {
-      "issue_id": "CG-PROJECT-007",
+      "issue_id": "CG-PROJECT-006",
       "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",

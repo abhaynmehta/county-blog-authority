@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/ivory-county-gold-ultra-luxury.md
-**Score:** 44/100
+**Score:** 52/100
 **Publishable:** No
 **Word Count:** 367
 **Paragraphs:** 9
-**Total Issues:** 9
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -18,7 +18,7 @@
 
 ## CRITICAL Issues (1)
 
-### CG-CONTENT-003: Prohibited language: 'unmatched claim'
+### CG-CONTENT-002: Prohibited language: 'unmatched claim'
 
 - **Owner:** ROI
 - **Category:** prohibited_language
@@ -30,18 +30,9 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 - **Acceptance test:** No 'unmatched claim' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (4)
+## HIGH Issues (3)
 
-### CG-CONTENT-002: Travel time claim needs verification — never state as guaranteed
-
-- **Owner:** ROI
-- **Category:** unsupported_claim
-- **Paragraph:** 7
-- **Found:** "15 min to"
-- **Action:** Add verified source or remove claim
-- **Acceptance test:** Claim has inline source attribution
-
-### CG-CONTENT-004: Area figures (2 mentions) not labeled as carpet area
+### CG-CONTENT-003: Area figures (2 mentions) not labeled as carpet area
 
 - **Owner:** ROI
 - **Category:** rera_compliance
@@ -49,14 +40,14 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 - **Acceptance test:** All area figures explicitly labeled as carpet area or super built-up
 - **Google rule:** CONTENT-RERA-002
 
-### CG-CONTENT-006: No internal or external links found in content
+### CG-CONTENT-005: No internal or external links found in content
 
 - **Owner:** ROI
 - **Category:** internal_links
 - **Action:** Add 3-5 internal links and 1-3 external authority links
 - **Acceptance test:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-008: Thin content: only 367 words (minimum 800 for ranking potential)
+### CG-CONTENT-007: Thin content: only 367 words (minimum 800 for ranking potential)
 
 - **Owner:** ROI
 - **Category:** ai_readiness
@@ -74,7 +65,7 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 - **Action:** Shorten title to 60 characters or fewer
 - **Acceptance test:** Title is 30-60 characters
 
-### CG-CONTENT-005: Keyword stuffing: 'ivory county' appears 10 times
+### CG-CONTENT-004: Keyword stuffing: 'ivory county' appears 10 times
 
 - **Owner:** ROI
 - **Category:** spam_signal
@@ -82,7 +73,7 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001
 
-### CG-CONTENT-007: No images found in content
+### CG-CONTENT-006: No images found in content
 
 - **Owner:** ROI
 - **Category:** image_seo
@@ -91,7 +82,7 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 
 ## INFO Issues (1)
 
-### CG-PROJECT-009: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+### CG-PROJECT-008: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -103,4 +94,4 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 4 | 3 | 0 | 9 |
+| ROI | 1 | 3 | 3 | 0 | 8 |

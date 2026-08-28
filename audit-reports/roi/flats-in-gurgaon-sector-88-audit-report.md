@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/flats-in-gurgaon-sector-88.md
-**Score:** 11/100
+**Score:** 19/100
 **Publishable:** No
 **Word Count:** 2333
 **Paragraphs:** 54
-**Total Issues:** 20
+**Total Issues:** 19
 
 ## Publication Gates
 
@@ -40,16 +40,9 @@
 - **Acceptance test:** No 'superlative claim ('best') without evidence' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (4)
+## HIGH Issues (3)
 
-### CG-CONTENT-009: 4 travel time claim(s) without source attribution
-
-- **Owner:** ROI
-- **Category:** unsupported_claim
-- **Action:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
-- **Acceptance test:** Every travel time claim has inline source
-
-### CG-CONTENT-010: RERA mentioned but no registration number provided
+### CG-CONTENT-009: RERA mentioned but no registration number provided
 
 - **Owner:** ROI
 - **Category:** rera_compliance
@@ -57,7 +50,7 @@
 - **Acceptance test:** RERA registration number is visible and verifiable
 - **Google rule:** CONTENT-RERA-001
 
-### CG-CONTENT-011: Area figures (3 mentions) not labeled as carpet area
+### CG-CONTENT-010: Area figures (3 mentions) not labeled as carpet area
 
 - **Owner:** ROI
 - **Category:** rera_compliance
@@ -65,7 +58,7 @@
 - **Acceptance test:** All area figures explicitly labeled as carpet area or super built-up
 - **Google rule:** CONTENT-RERA-002
 
-### CG-TRUTH-014: Registry-prohibited wording: 'proposed metro'
+### CG-TRUTH-013: Registry-prohibited wording: 'proposed metro'
 
 - **Owner:** ROI
 - **Category:** prohibited_language
@@ -137,7 +130,7 @@
 - **Acceptance test:** No implied price appreciation without disclaimer
 - **Editorial rule:** EDITORIAL_INVESTMENT_001
 
-### CG-CONTENT-012: Keyword stuffing: 'minutes | route' appears 11 times
+### CG-CONTENT-011: Keyword stuffing: 'minutes | route' appears 11 times
 
 - **Owner:** ROI
 - **Category:** spam_signal
@@ -145,14 +138,14 @@
 - **Acceptance test:** No phrase repeated more than 7 times in one article
 - **Google rule:** SPAM-KEYWORD-001
 
-### CG-CONTENT-013: No images found in content
+### CG-CONTENT-012: No images found in content
 
 - **Owner:** ROI
 - **Category:** image_seo
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
-### CG-LINK-020: Generic anchor text 'here' on an internal link
+### CG-LINK-019: Generic anchor text 'here' on an internal link
 
 - **Owner:** ROI
 - **Category:** internal_links
@@ -163,7 +156,7 @@
 
 ## LOW Issues (4)
 
-### CG-LINK-016: Internal URL needs verification: countygroup.in/flats-in-gurugram
+### CG-LINK-015: Internal URL needs verification: countygroup.in/flats-in-gurugram
 
 - **Owner:** INTERNAL
 - **Category:** internal_links
@@ -172,7 +165,7 @@
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
 
-### CG-LINK-017: Internal URL needs verification: countygroup.in/Residential
+### CG-LINK-016: Internal URL needs verification: countygroup.in/Residential
 
 - **Owner:** INTERNAL
 - **Category:** internal_links
@@ -181,7 +174,7 @@
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
 
-### CG-LINK-018: Internal URL needs verification: countygroup.in/centercourt/location
+### CG-LINK-017: Internal URL needs verification: countygroup.in/centercourt/location
 
 - **Owner:** INTERNAL
 - **Category:** internal_links
@@ -190,7 +183,7 @@
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
 
-### CG-LINK-019: Internal URL needs verification: countygroup.in/centercourt/amenities
+### CG-LINK-018: Internal URL needs verification: countygroup.in/centercourt/amenities
 
 - **Owner:** INTERNAL
 - **Category:** internal_links
@@ -201,7 +194,7 @@
 
 ## INFO Issues (1)
 
-### CG-PROJECT-015: Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh
+### CG-PROJECT-014: Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -213,5 +206,5 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 2 | 4 | 9 | 0 | 16 |
+| ROI | 2 | 3 | 9 | 0 | 15 |
 | INTERNAL | 0 | 0 | 0 | 4 | 4 |

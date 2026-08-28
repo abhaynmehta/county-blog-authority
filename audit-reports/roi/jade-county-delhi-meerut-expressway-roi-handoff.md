@@ -1,12 +1,12 @@
 # ROI Action Items
 
-**Total items: 8**
+**Total items: 7**
 
 The following issues require your attention.
 
 ## jade-county-delhi-meerut-expressway.md
 
-### CG-CONTENT-004 — CRITICAL
+### CG-CONTENT-003 — CRITICAL
 
 **Prohibited language: 'unmatched claim'**
 
@@ -16,23 +16,14 @@ The following issues require your attention.
 - **Fix:** Remove or rephrase the 'unmatched claim' claim
 - **Done when:** No 'unmatched claim' language remains
 
-### CG-CONTENT-003 — HIGH
-
-**Travel time claim needs verification — never state as guaranteed**
-
-- **Where:** Paragraph 5
-- **Text in question:** “20 minutes to”
-- **Fix:** Add verified source or remove claim
-- **Done when:** Claim has inline source attribution
-
-### CG-CONTENT-005 — HIGH
+### CG-CONTENT-004 — HIGH
 
 **No internal or external links found in content**
 
 - **Fix:** Add 3-5 internal links and 1-3 external authority links
 - **Done when:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-007 — HIGH
+### CG-CONTENT-006 — HIGH
 
 **Thin content: only 373 words (minimum 800 for ranking potential)**
 
@@ -56,14 +47,14 @@ The following issues require your attention.
 - **Fix:** Shorten to 120-160 characters
 - **Done when:** Description is 120-160 characters
 
-### CG-CONTENT-006 — MEDIUM
+### CG-CONTENT-005 — MEDIUM
 
 **No images found in content**
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-PROJECT-008 — INFO
+### CG-PROJECT-007 — INFO
 
 **Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area**
 

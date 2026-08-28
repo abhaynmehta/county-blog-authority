@@ -305,3 +305,31 @@ def test_near_matches_in_either_order():
 def test_near_respects_the_window():
     text = "The Center Court" + (" filler" * 100) + " HARERA"
     assert _near(text, "The Center Court", "HARERA", window=30) is None
+
+
+# --- Travel time claims ---
+
+@pytest.mark.parametrize("sentence", [
+    "Approximate drive times are 30 minutes from IFFCO Chowk.",
+    "It is roughly 30 minutes from IFFCO Chowk, depending on traffic.",
+    "Indicative times: 22 minutes from Rajiv Chowk.",
+    "As per Google Maps it is 30 minutes from IGI Airport.",
+    "County Group material lists 30 minutes from IFFCO Chowk.",
+])
+def test_hedged_or_attributed_travel_times_are_accepted(patched, sentence):
+    """The risk is a drive time stated as a guarantee, not one marked
+    approximate or attributed to a source."""
+    result = audit_text(f"# X\n\n{sentence}\n")
+    assert not any("travel time" in i.summary.lower() for i in result.issues), sentence
+
+
+def test_bare_travel_time_claims_are_flagged(patched):
+    result = audit_text("# X\n\nIt is 30 minutes from IFFCO Chowk and 22 minutes from Rajiv Chowk.\n")
+    assert any("travel time" in i.summary.lower() for i in result.issues)
+
+
+def test_a_travel_time_claim_is_reported_once_not_twice(patched):
+    """Two overlapping checks previously reported the same claim twice."""
+    result = audit_text("# X\n\nIt is 30 minutes from IFFCO Chowk.\n")
+    hits = [i for i in result.issues if "travel time" in i.summary.lower()]
+    assert len(hits) == 1

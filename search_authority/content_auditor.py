@@ -51,14 +51,24 @@ STALE_INFRA_PATTERNS = [
      "https://www.niairport.in/en/company/news/2026/2026-06-15"),
 ]
 
+# A travel-time claim is acceptable when it is either attributed to a source
+# or hedged as approximate. The risk being guarded against is a drive time
+# stated as a guarantee; "roughly 30 minutes, traffic depending" is not that.
+_TRAVEL_TIME_HEDGE = (
+    r"(?:google\s+maps|source|as\s+per|according\s+to|material\s+lists|"
+    r"project\s+material|indicative|approximate(?:ly)?|roughly|about|"
+    r"vary\s+with\s+traffic|depending\s+on\s+traffic|estimated)"
+)
+
 # Unsupported claim patterns
 UNSUPPORTED_CLAIM_PATTERNS = [
     (r"\b\d+%\s+(?:appreciation|growth|return|rental\s+yield)\b",
      "Percentage claim needs verified source"),
     (r"\b₹[\d,.]+\s+(?:per\s+sq\.?\s*ft|psf)\b",
      "Price claim needs current source and date"),
-    (r"\b\d+\s+(?:minutes?|mins?)\s+(?:from|to|drive)\b",
-     "Travel time claim needs verification — never state as guaranteed"),
+    # Travel times are handled by the dedicated paragraph check below, which
+    # counts the claims and allows hedged phrasing. A second pattern here
+    # fired on hedged text too and reported the same problem twice.
 ]
 
 # Clickbait / spam signal patterns in meta
@@ -352,7 +362,7 @@ def _check_paragraphs(text: str, issues: list[AuditIssue], issue_counter: list[i
             r"\b\d+[\s–-]*(?:\d+\s+)?(?:minutes?|mins?)\s+(?:away|drive|from)",
             para, re.IGNORECASE,
         )
-        if times_in_para and not re.search(r"(?:google\s+maps|source|as\s+per|according\s+to)", para, re.IGNORECASE):
+        if times_in_para and not re.search(_TRAVEL_TIME_HEDGE, para, re.IGNORECASE):
             travel_time_paras.append((para_idx, len(times_in_para)))
     if travel_time_paras:
         total_claims = sum(count for _, count in travel_time_paras)

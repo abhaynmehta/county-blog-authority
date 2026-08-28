@@ -2,18 +2,18 @@
   "file_path": "blogs/roi-incoming/jade-county-nearby-places.md",
   "word_count": 137,
   "paragraph_count": 5,
-  "score": 36,
+  "score": 52,
   "publishable": false,
-  "issue_count": 10,
+  "issue_count": 8,
   "issues_by_severity": {
     "critical": 1,
-    "high": 5,
+    "high": 3,
     "medium": 3,
     "low": 0,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 10,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -81,37 +81,13 @@
       "category": "unsupported_claim",
       "severity": "high",
       "owner": "ROI",
-      "summary": "Travel time claim needs verification \u2014 never state as guaranteed",
-      "paragraph": 4,
-      "claim": "25 minutes from",
-      "reason": "",
-      "recommended_action": "Add verified source or remove claim",
-      "acceptance_test": "Claim has inline source attribution"
-    },
-    {
-      "issue_id": "CG-CONTENT-005",
-      "category": "unsupported_claim",
-      "severity": "high",
-      "owner": "ROI",
-      "summary": "Travel time claim needs verification \u2014 never state as guaranteed",
-      "paragraph": 5,
-      "claim": "25 min from",
-      "reason": "",
-      "recommended_action": "Add verified source or remove claim",
-      "acceptance_test": "Claim has inline source attribution"
-    },
-    {
-      "issue_id": "CG-CONTENT-006",
-      "category": "unsupported_claim",
-      "severity": "high",
-      "owner": "ROI",
       "summary": "8 travel time claim(s) without source attribution",
       "reason": "",
       "recommended_action": "Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims",
       "acceptance_test": "Every travel time claim has inline source"
     },
     {
-      "issue_id": "CG-CONTENT-007",
+      "issue_id": "CG-CONTENT-005",
       "category": "internal_links",
       "severity": "high",
       "owner": "ROI",
@@ -121,7 +97,7 @@
       "acceptance_test": "At least 3 internal links and 1 external authority link present"
     },
     {
-      "issue_id": "CG-CONTENT-008",
+      "issue_id": "CG-CONTENT-006",
       "category": "image_seo",
       "severity": "medium",
       "owner": "ROI",
@@ -131,7 +107,7 @@
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
     },
     {
-      "issue_id": "CG-CONTENT-009",
+      "issue_id": "CG-CONTENT-007",
       "category": "ai_readiness",
       "severity": "high",
       "owner": "ROI",
@@ -142,7 +118,7 @@
       "google_rule": "CONTENT-THIN-001"
     },
     {
-      "issue_id": "CG-PROJECT-010",
+      "issue_id": "CG-PROJECT-008",
       "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",

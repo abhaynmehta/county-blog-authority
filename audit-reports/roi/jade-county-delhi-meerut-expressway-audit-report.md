@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/jade-county-delhi-meerut-expressway.md
-**Score:** 52/100
+**Score:** 60/100
 **Publishable:** No
 **Word Count:** 373
 **Paragraphs:** 12
-**Total Issues:** 8
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -18,7 +18,7 @@
 
 ## CRITICAL Issues (1)
 
-### CG-CONTENT-004: Prohibited language: 'unmatched claim'
+### CG-CONTENT-003: Prohibited language: 'unmatched claim'
 
 - **Owner:** ROI
 - **Category:** prohibited_language
@@ -30,25 +30,16 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 - **Acceptance test:** No 'unmatched claim' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (3)
+## HIGH Issues (2)
 
-### CG-CONTENT-003: Travel time claim needs verification — never state as guaranteed
-
-- **Owner:** ROI
-- **Category:** unsupported_claim
-- **Paragraph:** 5
-- **Found:** "20 minutes to"
-- **Action:** Add verified source or remove claim
-- **Acceptance test:** Claim has inline source attribution
-
-### CG-CONTENT-005: No internal or external links found in content
+### CG-CONTENT-004: No internal or external links found in content
 
 - **Owner:** ROI
 - **Category:** internal_links
 - **Action:** Add 3-5 internal links and 1-3 external authority links
 - **Acceptance test:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-007: Thin content: only 373 words (minimum 800 for ranking potential)
+### CG-CONTENT-006: Thin content: only 373 words (minimum 800 for ranking potential)
 
 - **Owner:** ROI
 - **Category:** ai_readiness
@@ -74,7 +65,7 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 - **Action:** Shorten to 120-160 characters
 - **Acceptance test:** Description is 120-160 characters
 
-### CG-CONTENT-006: No images found in content
+### CG-CONTENT-005: No images found in content
 
 - **Owner:** ROI
 - **Category:** image_seo
@@ -83,7 +74,7 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 
 ## INFO Issues (1)
 
-### CG-PROJECT-008: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
+### CG-PROJECT-007: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -95,4 +86,4 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 3 | 3 | 0 | 8 |
+| ROI | 1 | 2 | 3 | 0 | 7 |

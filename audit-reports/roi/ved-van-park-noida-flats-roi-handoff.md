@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 7**
+**Total items: 6**
 
 The following issues require your attention.
 
@@ -8,28 +8,19 @@ The following issues require your attention.
 
 ### CG-CONTENT-002 — HIGH
 
-**Travel time claim needs verification — never state as guaranteed**
-
-- **Where:** Paragraph 5
-- **Text in question:** “5 min drive”
-- **Fix:** Add verified source or remove claim
-- **Done when:** Claim has inline source attribution
-
-### CG-CONTENT-003 — HIGH
-
 **1 travel time claim(s) without source attribution**
 
 - **Fix:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
 - **Done when:** Every travel time claim has inline source
 
-### CG-CONTENT-004 — HIGH
+### CG-CONTENT-003 — HIGH
 
 **No internal or external links found in content**
 
 - **Fix:** Add 3-5 internal links and 1-3 external authority links
 - **Done when:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-006 — HIGH
+### CG-CONTENT-005 — HIGH
 
 **Thin content: only 209 words (minimum 800 for ranking potential)**
 
@@ -45,14 +36,14 @@ The following issues require your attention.
 - **Fix:** Expand to 120-160 characters for optimal SERP display
 - **Done when:** Description is 120-160 characters
 
-### CG-CONTENT-005 — MEDIUM
+### CG-CONTENT-004 — MEDIUM
 
 **No images found in content**
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-PROJECT-007 — INFO
+### CG-PROJECT-006 — INFO
 
 **Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number**
 

@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 16**
+**Total items: 15**
 
 The following issues require your attention.
 
@@ -28,20 +28,13 @@ The following issues require your attention.
 
 ### CG-CONTENT-009 — HIGH
 
-**4 travel time claim(s) without source attribution**
-
-- **Fix:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
-- **Done when:** Every travel time claim has inline source
-
-### CG-CONTENT-010 — HIGH
-
 **RERA mentioned but no registration number provided**
 
 - **Fix:** Add the actual RERA registration number with portal verification link
 - **Done when:** RERA registration number is visible and verifiable
 - **Rule:** CONTENT-RERA-001
 
-### CG-CONTENT-011 — HIGH
+### CG-CONTENT-010 — HIGH
 
 **Area figures (3 mentions) not labeled as carpet area**
 
@@ -49,7 +42,7 @@ The following issues require your attention.
 - **Done when:** All area figures explicitly labeled as carpet area or super built-up
 - **Rule:** CONTENT-RERA-002
 
-### CG-TRUTH-014 — HIGH
+### CG-TRUTH-013 — HIGH
 
 **Registry-prohibited wording: 'proposed metro'**
 
@@ -111,7 +104,7 @@ The following issues require your attention.
 - **Fix:** Remove forward-looking price claim or add 'past performance does not indicate future results'
 - **Done when:** No implied price appreciation without disclaimer
 
-### CG-CONTENT-012 — MEDIUM
+### CG-CONTENT-011 — MEDIUM
 
 **Keyword stuffing: 'minutes | route' appears 11 times**
 
@@ -119,14 +112,14 @@ The following issues require your attention.
 - **Done when:** No phrase repeated more than 7 times in one article
 - **Rule:** SPAM-KEYWORD-001
 
-### CG-CONTENT-013 — MEDIUM
+### CG-CONTENT-012 — MEDIUM
 
 **No images found in content**
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-LINK-020 — MEDIUM
+### CG-LINK-019 — MEDIUM
 
 **Generic anchor text 'here' on an internal link**
 
@@ -135,7 +128,7 @@ The following issues require your attention.
 - **Done when:** No internal link uses generic anchor text
 - **Rule:** CONTENT-LINK-001
 
-### CG-PROJECT-015 — INFO
+### CG-PROJECT-014 — INFO
 
 **Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh**
 

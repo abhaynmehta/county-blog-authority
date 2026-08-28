@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/ved-van-park-noida-flats.md
-**Score:** 62/100
+**Score:** 70/100
 **Publishable:** Yes
 **Word Count:** 209
 **Paragraphs:** 10
-**Total Issues:** 7
+**Total Issues:** 6
 
 ## Publication Gates
 
@@ -16,32 +16,23 @@
 | 3. Technical SEO Eligibility | PASS | SEO basics pass |
 | 4. Deployment Integrity | WARN | Check post-deployment |
 
-## HIGH Issues (4)
+## HIGH Issues (3)
 
-### CG-CONTENT-002: Travel time claim needs verification — never state as guaranteed
-
-- **Owner:** ROI
-- **Category:** unsupported_claim
-- **Paragraph:** 5
-- **Found:** "5 min drive"
-- **Action:** Add verified source or remove claim
-- **Acceptance test:** Claim has inline source attribution
-
-### CG-CONTENT-003: 1 travel time claim(s) without source attribution
+### CG-CONTENT-002: 1 travel time claim(s) without source attribution
 
 - **Owner:** ROI
 - **Category:** unsupported_claim
 - **Action:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
 - **Acceptance test:** Every travel time claim has inline source
 
-### CG-CONTENT-004: No internal or external links found in content
+### CG-CONTENT-003: No internal or external links found in content
 
 - **Owner:** ROI
 - **Category:** internal_links
 - **Action:** Add 3-5 internal links and 1-3 external authority links
 - **Acceptance test:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-006: Thin content: only 209 words (minimum 800 for ranking potential)
+### CG-CONTENT-005: Thin content: only 209 words (minimum 800 for ranking potential)
 
 - **Owner:** ROI
 - **Category:** ai_readiness
@@ -59,7 +50,7 @@
 - **Action:** Expand to 120-160 characters for optimal SERP display
 - **Acceptance test:** Description is 120-160 characters
 
-### CG-CONTENT-005: No images found in content
+### CG-CONTENT-004: No images found in content
 
 - **Owner:** ROI
 - **Category:** image_seo
@@ -68,7 +59,7 @@
 
 ## INFO Issues (1)
 
-### CG-PROJECT-007: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+### CG-PROJECT-006: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -80,4 +71,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 4 | 2 | 0 | 7 |
+| ROI | 0 | 3 | 2 | 0 | 6 |

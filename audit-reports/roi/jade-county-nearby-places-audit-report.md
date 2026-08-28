@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/jade-county-nearby-places.md
-**Score:** 36/100
+**Score:** 52/100
 **Publishable:** No
 **Word Count:** 137
 **Paragraphs:** 5
-**Total Issues:** 10
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -29,41 +29,23 @@
 - **Acceptance test:** No 'unmatched claim' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (5)
+## HIGH Issues (3)
 
-### CG-CONTENT-004: Travel time claim needs verification — never state as guaranteed
-
-- **Owner:** ROI
-- **Category:** unsupported_claim
-- **Paragraph:** 4
-- **Found:** "25 minutes from"
-- **Action:** Add verified source or remove claim
-- **Acceptance test:** Claim has inline source attribution
-
-### CG-CONTENT-005: Travel time claim needs verification — never state as guaranteed
-
-- **Owner:** ROI
-- **Category:** unsupported_claim
-- **Paragraph:** 5
-- **Found:** "25 min from"
-- **Action:** Add verified source or remove claim
-- **Acceptance test:** Claim has inline source attribution
-
-### CG-CONTENT-006: 8 travel time claim(s) without source attribution
+### CG-CONTENT-004: 8 travel time claim(s) without source attribution
 
 - **Owner:** ROI
 - **Category:** unsupported_claim
 - **Action:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
 - **Acceptance test:** Every travel time claim has inline source
 
-### CG-CONTENT-007: No internal or external links found in content
+### CG-CONTENT-005: No internal or external links found in content
 
 - **Owner:** ROI
 - **Category:** internal_links
 - **Action:** Add 3-5 internal links and 1-3 external authority links
 - **Acceptance test:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-009: Thin content: only 137 words (minimum 800 for ranking potential)
+### CG-CONTENT-007: Thin content: only 137 words (minimum 800 for ranking potential)
 
 - **Owner:** ROI
 - **Category:** ai_readiness
@@ -89,7 +71,7 @@
 - **Action:** Expand to 120-160 characters for optimal SERP display
 - **Acceptance test:** Description is 120-160 characters
 
-### CG-CONTENT-008: No images found in content
+### CG-CONTENT-006: No images found in content
 
 - **Owner:** ROI
 - **Category:** image_seo
@@ -98,7 +80,7 @@
 
 ## INFO Issues (1)
 
-### CG-PROJECT-010: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
+### CG-PROJECT-008: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -110,4 +92,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 5 | 3 | 0 | 10 |
+| ROI | 1 | 3 | 3 | 0 | 8 |

@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 9**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -22,20 +22,13 @@ The following issues require your attention.
 
 ### CG-CONTENT-003 — HIGH
 
-**3 travel time claim(s) without source attribution**
-
-- **Fix:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
-- **Done when:** Every travel time claim has inline source
-
-### CG-CONTENT-004 — HIGH
-
 **RERA mentioned but no registration number provided**
 
 - **Fix:** Add the actual RERA registration number with portal verification link
 - **Done when:** RERA registration number is visible and verifiable
 - **Rule:** CONTENT-RERA-001
 
-### CG-CONTENT-005 — HIGH
+### CG-CONTENT-004 — HIGH
 
 **Area figures (8 mentions) not labeled as carpet area**
 
@@ -43,7 +36,7 @@ The following issues require your attention.
 - **Done when:** All area figures explicitly labeled as carpet area or super built-up
 - **Rule:** CONTENT-RERA-002
 
-### CG-CONTENT-006 — MEDIUM
+### CG-CONTENT-005 — MEDIUM
 
 **Keyword stuffing: 'center court' appears 26 times**
 
@@ -51,21 +44,21 @@ The following issues require your attention.
 - **Done when:** No phrase repeated more than 7 times in one article
 - **Rule:** SPAM-KEYWORD-001
 
-### CG-CONTENT-007 — MEDIUM
+### CG-CONTENT-006 — MEDIUM
 
 **No images found in content**
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-LINK-011 — MEDIUM
+### CG-LINK-010 — MEDIUM
 
 **No external authority links — every link points back to County Group**
 
 - **Fix:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
 - **Done when:** At least 2 external authority links present
 
-### CG-PROJECT-008 — INFO
+### CG-PROJECT-007 — INFO
 
 **Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh**
 

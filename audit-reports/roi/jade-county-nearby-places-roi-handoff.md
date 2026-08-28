@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 10**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -18,37 +18,19 @@ The following issues require your attention.
 
 ### CG-CONTENT-004 — HIGH
 
-**Travel time claim needs verification — never state as guaranteed**
-
-- **Where:** Paragraph 4
-- **Text in question:** “25 minutes from”
-- **Fix:** Add verified source or remove claim
-- **Done when:** Claim has inline source attribution
-
-### CG-CONTENT-005 — HIGH
-
-**Travel time claim needs verification — never state as guaranteed**
-
-- **Where:** Paragraph 5
-- **Text in question:** “25 min from”
-- **Fix:** Add verified source or remove claim
-- **Done when:** Claim has inline source attribution
-
-### CG-CONTENT-006 — HIGH
-
 **8 travel time claim(s) without source attribution**
 
 - **Fix:** Add source (e.g., 'via Google Maps as of [date]') or remove specific time claims
 - **Done when:** Every travel time claim has inline source
 
-### CG-CONTENT-007 — HIGH
+### CG-CONTENT-005 — HIGH
 
 **No internal or external links found in content**
 
 - **Fix:** Add 3-5 internal links and 1-3 external authority links
 - **Done when:** At least 3 internal links and 1 external authority link present
 
-### CG-CONTENT-009 — HIGH
+### CG-CONTENT-007 — HIGH
 
 **Thin content: only 137 words (minimum 800 for ranking potential)**
 
@@ -72,14 +54,14 @@ The following issues require your attention.
 - **Fix:** Expand to 120-160 characters for optimal SERP display
 - **Done when:** Description is 120-160 characters
 
-### CG-CONTENT-008 — MEDIUM
+### CG-CONTENT-006 — MEDIUM
 
 **No images found in content**
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-PROJECT-010 — INFO
+### CG-PROJECT-008 — INFO
 
 **Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area**
 

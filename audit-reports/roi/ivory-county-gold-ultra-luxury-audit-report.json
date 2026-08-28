@@ -2,18 +2,18 @@
   "file_path": "blogs/roi-incoming/ivory-county-gold-ultra-luxury.md",
   "word_count": 367,
   "paragraph_count": 9,
-  "score": 44,
+  "score": 52,
   "publishable": false,
-  "issue_count": 9,
+  "issue_count": 8,
   "issues_by_severity": {
     "critical": 1,
-    "high": 4,
+    "high": 3,
     "medium": 3,
     "low": 0,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 9,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -54,18 +54,6 @@
     },
     {
       "issue_id": "CG-CONTENT-002",
-      "category": "unsupported_claim",
-      "severity": "high",
-      "owner": "ROI",
-      "summary": "Travel time claim needs verification \u2014 never state as guaranteed",
-      "paragraph": 7,
-      "claim": "15 min to",
-      "reason": "",
-      "recommended_action": "Add verified source or remove claim",
-      "acceptance_test": "Claim has inline source attribution"
-    },
-    {
-      "issue_id": "CG-CONTENT-003",
       "category": "prohibited_language",
       "severity": "critical",
       "owner": "ROI",
@@ -78,7 +66,7 @@
       "editorial_rule": "BRAND_PROHIBITED_001"
     },
     {
-      "issue_id": "CG-CONTENT-004",
+      "issue_id": "CG-CONTENT-003",
       "category": "rera_compliance",
       "severity": "high",
       "owner": "ROI",
@@ -89,7 +77,7 @@
       "google_rule": "CONTENT-RERA-002"
     },
     {
-      "issue_id": "CG-CONTENT-005",
+      "issue_id": "CG-CONTENT-004",
       "category": "spam_signal",
       "severity": "medium",
       "owner": "ROI",
@@ -100,7 +88,7 @@
       "google_rule": "SPAM-KEYWORD-001"
     },
     {
-      "issue_id": "CG-CONTENT-006",
+      "issue_id": "CG-CONTENT-005",
       "category": "internal_links",
       "severity": "high",
       "owner": "ROI",
@@ -110,7 +98,7 @@
       "acceptance_test": "At least 3 internal links and 1 external authority link present"
     },
     {
-      "issue_id": "CG-CONTENT-007",
+      "issue_id": "CG-CONTENT-006",
       "category": "image_seo",
       "severity": "medium",
       "owner": "ROI",
@@ -120,7 +108,7 @@
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
     },
     {
-      "issue_id": "CG-CONTENT-008",
+      "issue_id": "CG-CONTENT-007",
       "category": "ai_readiness",
       "severity": "high",
       "owner": "ROI",
@@ -131,7 +119,7 @@
       "google_rule": "CONTENT-THIN-001"
     },
     {
-      "issue_id": "CG-PROJECT-009",
+      "issue_id": "CG-PROJECT-008",
       "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",
