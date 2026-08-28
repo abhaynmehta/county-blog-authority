@@ -25,4 +25,4 @@ requests>=2.34.2,<3.0.0
 
 # Report generation (optional - graceful fallback if unavailable)
 matplotlib>=3.8.0,<4.0.0
-weasyprint>=61.0,<70.0
+weasyprint>=69.0,<70.0
