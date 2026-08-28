@@ -20,6 +20,7 @@ import yaml
 from .batch import load_inventory, save_inventory, ROI_OUTPUT
 from .pipeline import run_pipeline
 from .truth_layer import registry_report
+from .dashboard import build as build_dashboard
 
 AGENT_LOG = Path("agent-logs")
 CONFIG_PATH = Path("agent-config.yaml")
@@ -358,6 +359,28 @@ def check_links(urls: Optional[list[str]] = None, timeout: int = 15) -> dict:
     return summary
 
 
+def check_cannibalization() -> dict:
+    """Find pages competing for the same search terms across the corpus."""
+    from .cannibalization import analyse_corpus
+
+    inv = load_inventory()
+    entries = []
+    for section in ("already_processed", "roi_google_docs", "old_agency_local"):
+        entries.extend(inv.get(section) or [])
+
+    report = analyse_corpus(entries)
+    AGENT_LOG.mkdir(parents=True, exist_ok=True)
+    (AGENT_LOG / f"cannibalization-{datetime.now().strftime('%Y-%m-%d')}.json").write_text(
+        json.dumps(report, indent=2)
+    )
+    _log("cannibalization", {
+        "pages": report["pages_analysed"],
+        "collisions": report["collisions"],
+        "high": report["by_severity"]["high"],
+    })
+    return report
+
+
 def check_ai_citations(queries: list[str]) -> dict:
     """Log target queries for AI citation tracking.
 
@@ -590,11 +613,13 @@ Commands:
   competitors   Show competitor content summary
   truth         Report stale/incomplete claims in the truth layer
   links         Check that County URLs actually resolve
+  cannibals     Find pages competing for the same search terms
+  dashboard     Build the HTML dashboard from current audit data
         """,
     )
     parser.add_argument("command", choices=[
         "watch", "health", "decay", "citations", "refresh", "pagespeed",
-        "competitors", "truth", "links",
+        "competitors", "truth", "links", "cannibals", "dashboard",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
@@ -631,6 +656,11 @@ Commands:
         result = check_truth_layer()
     elif args.command == "links":
         result = check_links(urls=args.urls)
+    elif args.command == "cannibals":
+        result = check_cannibalization()
+    elif args.command == "dashboard":
+        result = build_dashboard()
+        _log("dashboard", result)
 
     print(json.dumps(result, indent=2, default=str))
 
