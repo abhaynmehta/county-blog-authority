@@ -125,6 +125,14 @@ def generate_csv_issues(analyses: list[ContentAnalysis]) -> str:
     return output.getvalue()
 
 
+def _clean_quote(text: str, limit: int = 220) -> str:
+    """Flatten quoted source text so it stays readable inside the report."""
+    collapsed = " ".join(str(text).split())
+    if len(collapsed) > limit:
+        collapsed = collapsed[:limit].rstrip() + "…"
+    return collapsed.replace("“", '"').replace("”", '"')
+
+
 def generate_agency_handoff(analyses: list[ContentAnalysis], agency: Owner) -> str:
     """Generate a report filtered for a specific agency (ROI or AGO)."""
     lines = []
@@ -141,17 +149,38 @@ def generate_agency_handoff(analyses: list[ContentAnalysis], agency: Owner) -> s
             continue
 
         lines.append(f"## {Path(analysis.file_path).name}")
-        lines.append(f"")
-        lines.append(f"| # | Severity | Issue | Action | Acceptance Test |")
-        lines.append(f"|---|----------|-------|--------|-----------------|")
+        lines.append("")
+
+        # Worst first, so the blocking problems are read before the nits.
+        order = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 4}
+        agency_issues = sorted(
+            agency_issues, key=lambda i: order.get(i.severity.value, 9)
+        )
+
         for issue in agency_issues:
             total += 1
-            lines.append(
-                f"| {issue.issue_id} | {issue.severity.value.upper()} "
-                f"| {issue.summary} | {issue.recommended_action} "
-                f"| {issue.acceptance_test} |"
-            )
-        lines.append(f"")
+            lines.append(f"### {issue.issue_id} — {issue.severity.value.upper()}")
+            lines.append("")
+            lines.append(f"**{issue.summary}**")
+            lines.append("")
+
+            where = f"Paragraph {issue.paragraph}" if issue.paragraph else None
+            if where:
+                lines.append(f"- **Where:** {where}")
+            if issue.claim:
+                quoted = _clean_quote(issue.claim)
+                lines.append(f"- **Text in question:** “{quoted}”")
+            if issue.reason:
+                lines.append(f"- **Why:** {issue.reason}")
+            if issue.verified_status:
+                lines.append(f"- **Verified fact:** {issue.verified_status}")
+            if issue.evidence_source:
+                lines.append(f"- **Source:** {issue.evidence_source}")
+            lines.append(f"- **Fix:** {issue.recommended_action}")
+            lines.append(f"- **Done when:** {issue.acceptance_test}")
+            if issue.google_rule:
+                lines.append(f"- **Rule:** {issue.google_rule}")
+            lines.append("")
 
     lines.insert(2, f"**Total items: {total}**")
     lines.insert(3, f"")
