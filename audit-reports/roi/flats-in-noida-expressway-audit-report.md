@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1856
 **Paragraphs:** 56
-**Total Issues:** 5
+**Total Issues:** 9
 
 ## Publication Gates
 
@@ -57,8 +57,48 @@
 - **Acceptance test:** No generic 'read more' or 'click here' CTAs in body
 - **Google rule:** SPAM-CLICKBAIT-002
 
+## LOW Issues (3)
+
+### CG-LINK-007: Internal URL needs verification: countygroup.in/flats-in-noida
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/flats-in-noida"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-008: Internal URL needs verification: countygroup.in/clovecounty/overview
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/clovecounty/overview"
+- **Reason:** not listed in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-009: Internal URL needs verification: countygroup.in/contact.php
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/contact.php"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+## INFO Issues (1)
+
+### CG-PROJECT-006: Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 0 | 5 | 0 | 5 |
+| ROI | 0 | 0 | 5 | 0 | 6 |
+| INTERNAL | 0 | 0 | 0 | 3 | 3 |

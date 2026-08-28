@@ -80,3 +80,20 @@ county_urls:
   project_page: null  # fill with actual URL
   contact_page: null
   site_visit_page: null
+
+# Supplied 29 Aug 2026. Unit-level areas not yet provided — do not publish
+# any Clove County area figure until the floor-plan kit is in the registry.
+positioning:
+  tagline: Limited Residences, Infinite Calm
+  configurations_offered:
+    - 4 BHK
+    - 5 BHK
+  starting_price_inr: 80000000
+  starting_price_display: "Rs 8 Cr. Onwards"
+  source: County Group project material
+  last_verified: 2026-08-29
+  refresh_days: 60
+
+prohibited_for_this_project:
+  - Publishing a Clove County carpet or super area figure; none is registered yet
+  - Publishing a price without its effective date and asterisk

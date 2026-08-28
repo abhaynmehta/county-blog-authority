@@ -4,16 +4,16 @@
   "paragraph_count": 9,
   "score": 75,
   "publishable": true,
-  "issue_count": 5,
+  "issue_count": 6,
   "issues_by_severity": {
     "critical": 0,
     "high": 2,
     "medium": 3,
     "low": 0,
-    "info": 0
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 5,
+    "ROI": 6,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -93,6 +93,17 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-PROJECT-006",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Presenting the promoter registration number as a project RERA number",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
     }
   ]
 }

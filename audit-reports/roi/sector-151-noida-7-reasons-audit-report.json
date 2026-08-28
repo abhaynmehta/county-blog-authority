@@ -4,19 +4,19 @@
   "paragraph_count": 48,
   "score": 88,
   "publishable": false,
-  "issue_count": 4,
+  "issue_count": 8,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
     "medium": 4,
-    "low": 0,
-    "info": 0
+    "low": 3,
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 4,
+    "ROI": 5,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 0
+    "INTERNAL": 3
   },
   "gates": [
     {
@@ -84,6 +84,50 @@
       "reason": "",
       "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-PROJECT-005",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Publishing a Clove County carpet or super area figure; none is registered yet",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-LINK-006",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/flats-in-noida",
+      "claim": "https://www.countygroup.in/flats-in-noida",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-007",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/clovecounty/amenities",
+      "claim": "https://www.countygroup.in/clovecounty/amenities",
+      "reason": "not listed in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-008",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/clovecounty/overview",
+      "claim": "https://www.countygroup.in/clovecounty/overview",
+      "reason": "not listed in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
     }
   ]
 }

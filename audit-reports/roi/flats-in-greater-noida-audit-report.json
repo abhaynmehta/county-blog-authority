@@ -2,21 +2,21 @@
   "file_path": "blogs/roi-incoming/flats-in-greater-noida.md",
   "word_count": 2114,
   "paragraph_count": 78,
-  "score": 85,
+  "score": 82,
   "publishable": false,
-  "issue_count": 5,
+  "issue_count": 9,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
-    "medium": 5,
-    "low": 0,
+    "medium": 6,
+    "low": 3,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 5,
+    "ROI": 6,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 0
+    "INTERNAL": 3
   },
   "gates": [
     {
@@ -95,6 +95,49 @@
       "reason": "",
       "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-LINK-006",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/flats-in-greater-noida",
+      "claim": "https://www.countygroup.in/flats-in-greater-noida",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-007",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/Completed-Residential",
+      "claim": "https://www.countygroup.in/Completed-Residential",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-008",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/contact.php",
+      "claim": "https://www.countygroup.in/contact.php",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-009",
+      "category": "external_links",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No external authority links \u2014 every link points back to County Group",
+      "reason": "",
+      "recommended_action": "Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
+      "acceptance_test": "At least 2 external authority links present"
     }
   ]
 }

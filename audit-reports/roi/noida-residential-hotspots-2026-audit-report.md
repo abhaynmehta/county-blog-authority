@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 529
 **Paragraphs:** 20
-**Total Issues:** 6
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -66,8 +66,26 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (2)
+
+### CG-PROJECT-007: Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
+### CG-PROJECT-008: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Presenting the promoter registration number as a project RERA number
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 3 | 3 | 0 | 6 |
+| ROI | 0 | 3 | 3 | 0 | 8 |

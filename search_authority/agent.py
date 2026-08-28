@@ -246,6 +246,63 @@ def check_truth_layer() -> dict:
     return report
 
 
+def check_links(urls: Optional[list[str]] = None, timeout: int = 15) -> dict:
+    """Check that County URLs actually resolve.
+
+    The audit itself is offline and deterministic, so it can only say a URL is
+    unlisted. This does the network half: fetches each URL and reports its
+    status, following redirects so a 301 to the canonical page is visible.
+
+    With no `urls`, checks everything in county_context/site_urls.yaml.
+    """
+    import urllib.error
+    import urllib.request
+
+    from .truth_layer import raw_site_urls
+
+    if urls is None:
+        urls = raw_site_urls()
+
+    results = []
+    for url in urls:
+        entry = {"url": url}
+        try:
+            req = urllib.request.Request(
+                url,
+                method="GET",
+                headers={"User-Agent": "CountyGroup-LinkCheck/1.0"},
+            )
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                entry["status"] = resp.status
+                final = resp.geturl()
+                entry["ok"] = 200 <= resp.status < 300
+                if final.rstrip("/") != url.rstrip("/"):
+                    entry["redirected_to"] = final
+        except urllib.error.HTTPError as exc:
+            entry.update({"status": exc.code, "ok": False})
+        except Exception as exc:  # DNS, TLS, timeout
+            entry.update({"status": None, "ok": False, "error": str(exc)[:120]})
+        results.append(entry)
+
+    broken = [r for r in results if not r.get("ok")]
+    redirects = [r for r in results if r.get("redirected_to")]
+
+    summary = {
+        "checked": len(results),
+        "ok": len(results) - len(broken),
+        "broken": len(broken),
+        "redirected": len(redirects),
+        "results": results,
+    }
+
+    AGENT_LOG.mkdir(parents=True, exist_ok=True)
+    (AGENT_LOG / f"link-check-{datetime.now().strftime('%Y-%m-%d')}.json").write_text(
+        json.dumps(summary, indent=2)
+    )
+    _log("link_check", {"checked": len(results), "broken": len(broken)})
+    return summary
+
+
 def check_ai_citations(queries: list[str]) -> dict:
     """Log target queries for AI citation tracking.
 
@@ -463,11 +520,12 @@ Commands:
   pagespeed     Check Core Web Vitals for blog URLs
   competitors   Show competitor content summary
   truth         Report stale/incomplete claims in the truth layer
+  links         Check that County URLs actually resolve
         """,
     )
     parser.add_argument("command", choices=[
         "watch", "health", "decay", "citations", "refresh", "pagespeed",
-        "competitors", "truth",
+        "competitors", "truth", "links",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
@@ -502,6 +560,8 @@ Commands:
         result = get_competitor_summary()
     elif args.command == "truth":
         result = check_truth_layer()
+    elif args.command == "links":
+        result = check_links(urls=args.urls)
 
     print(json.dumps(result, indent=2, default=str))
 

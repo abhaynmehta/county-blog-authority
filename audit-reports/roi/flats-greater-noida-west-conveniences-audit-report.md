@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 2138
 **Paragraphs:** 54
-**Total Issues:** 5
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -58,8 +58,38 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (3)
+
+### CG-LINK-006: Internal URL needs verification: countygroup.in/flats-in-greater-noida
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/flats-in-greater-noida"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-007: Internal URL needs verification: countygroup.in/Residential
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/Residential"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-008: Internal URL needs verification: countygroup.in/contact.php
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/contact.php"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
 | ROI | 0 | 0 | 5 | 0 | 5 |
+| INTERNAL | 0 | 0 | 0 | 3 | 3 |

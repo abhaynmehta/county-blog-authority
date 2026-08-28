@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 5**
+**Total items: 6**
 
 The following issues require your attention.
 
@@ -13,3 +13,4 @@ The following issues require your attention.
 | CG-META-003 | MEDIUM | Clickbait CTA in meta description — spam signal per Google | Remove clickbait CTA. Use a factual description of the content. | No 'click to', 'don't miss', 'hurry' etc. in meta |
 | CG-CONTENT-004 | MEDIUM | Keyword stuffing: 'greater noida' appears 36 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-005 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
+| CG-LINK-009 | MEDIUM | No external authority links — every link points back to County Group | Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news) | At least 2 external authority links present |

@@ -1,39 +1,137 @@
 project:
-  name: Center Court
-  developer: County Group
-  registered_promoter: County Group  # verify exact legal name from RERA
+  name: The Center Court
+  developer: County Group  # marketed as County Group; see registered_promoter
+  registered_promoter: Ashiana Landcraft Realty Private Limited
+  promoter_note: >
+    CORRECTION 2026-08-29: the price list names Ashiana Landcraft Realty
+    Private Limited as the RERA-registered promoter, which is not County
+    Group. Confirm the commercial relationship (JV / marketing tie-up)
+    before any content describes this as a County Group development.
   type: residential
   segment: premium
-  status: ready_to_move  # verify current status
+  status: under_construction  # verify
 
 location:
-  sector: 88A
-  city: Noida
-  state: Uttar Pradesh
+  # CORRECTION 2026-08-29: previously recorded as Noida, Uttar Pradesh.
+  # The project is in Gurugram, Haryana and falls under HARERA, not UP-RERA.
+  sector: 88-A
+  city: Gurugram
+  state: Haryana
   region: NCR
-  micro_market: Central Noida
+  source: The Center Court price list, w.e.f. 01 Sept 2026
+  last_verified: 2026-08-29
 
 rera:
-  registration_number: null  # fill from RERA portal
-  portal_url: null
-  registered_completion_date: null
+  authority: HARERA  # Haryana — NOT UP-RERA
+  registration_number: RC/REP/HARERA/GGM/46 of 2017/7(3)/45/2024/04
+  portal_url: https://www.haryanarera.gov.in/
+  registered_completion_date: null  # verify on the HARERA portal
+  source: The Center Court price list, w.e.f. 01 Sept 2026
+  last_verified: 2026-08-29
+  refresh_days: 90
 
+# All figures from the 01 Sept 2026 price list.
+# Carpet area is the RERA-disclosed figure. Super area is a pricing
+# convention and must never be presented as the size of the flat.
 configurations:
-  - type: 3 BHK
-    carpet_area_sqft: null  # fill from RERA/sanctioned plan
-
-project_details:
-  total_units: null  # verify
-  towers: null
-  land_area_acres: null
-
-amenities: []  # populate from verified sources
+  - type: 3 BHK + 2T
+    code: A
+    super_area_sqft: 1565
+    built_up_area_sqft: 1260
+    carpet_area_sqft: 888
+    balcony_area_sqft: 240
+    basic_price_inr: 25040000
+  - type: 3 BHK + 3T
+    code: B
+    super_area_sqft: 1910
+    built_up_area_sqft: 1530
+    carpet_area_sqft: 1076
+    balcony_area_sqft: 294
+    basic_price_inr: 30560000
+  - type: 3 BHK + 3T + Utility
+    code: C
+    super_area_sqft: 2175
+    built_up_area_sqft: 1772
+    carpet_area_sqft: 1292
+    balcony_area_sqft: 258
+    basic_price_inr: 34800000
+    extras: [Study Room, Servant Room]
 
 pricing:
-  price_per_sqft: null
-  starting_price: null
-  last_verified: null
-  source: null
+  basic_rate_per_sqft_super: 16000
+  currency: INR
+  effective_from: 2026-09-01
+  starting_price_inr: 25040000
+  source: The Center Court price list, w.e.f. 01 Sept 2026
+  last_verified: 2026-08-29
+  refresh_days: 60
+
+additional_charges:
+  parking_space_inr: 700000
+  ifms_per_sqft_inr: 50
+  edc_per_sqft_inr: 350
+  idc_per_sqft_inr: 34
+  club_development_inr: 350000
+  power_backup_per_kva_inr: 25000
+
+location_charges_per_sqft_inr:
+  park_facing: 400
+  corner: 200
+
+# Travel times are marketing claims from the project material, not measured.
+# Any blog using these must attribute them and never state them as guaranteed.
+connectivity:
+  source: County Group project material
+  last_verified: 2026-08-29
+  refresh_days: 180
+  note: Unverified drive times. Attribute or omit; never present as guaranteed.
+  claims:
+    - destination: IFFCO Chowk
+      stated_minutes: 30
+    - destination: Rajiv Chowk
+      stated_minutes: 22
+    - destination: Yashobhoomi Convention Centre
+      stated_minutes: 20
+    - destination: IGI Airport
+      stated_minutes: 30
+
+amenities:
+  - Outdoor pool (resort-style, wooden deck)
+  - Heated indoor pool
+  - Gymnasium
+  - Yoga space
+  - Kids outdoor play area
+  - Open-air amphitheatre with skating rink
+  - Multipurpose courts (basketball, volleyball, pickleball)
+  - Cricket practice nets (2)
+amenities_source: County Group project material
+amenities_last_verified: 2026-08-29
+amenities_note: >
+  Confirm which of these are built and operational versus planned before
+  describing any of them as available.
+
+master_plan_elements:
+  - Entry/Exit
+  - Amphitheatre / Skating rink
+  - Children's play area
+  - Main swimming pool
+  - Kids swimming pool
+  - Pool deck
+  - Ramp to basement
+  - Club house
+  - Party lawn
+  - Multipurpose court
+  - Cricket net practice
+  - Internal driveway
+  - Tower drop-off
+  - Seating alcove
 
 county_urls:
-  project_page: null
+  project_page: https://www.countygroup.in/centercourt/
+  campaign_page: https://www.countygroup.in/centercourt-campaign/
+
+prohibited_for_this_project:
+  - Describing this project as being in Noida or Uttar Pradesh
+  - Citing UP-RERA for this project; it is registered under HARERA
+  - Quoting super area as the flat size without naming carpet area
+  - Stating drive times as guaranteed rather than as approximate claims

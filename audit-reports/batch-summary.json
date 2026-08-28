@@ -4,13 +4,13 @@
   "skipped": 0,
   "errors": 0,
   "publishable": 34,
-  "avg_score": 67.6,
+  "avg_score": 67.2,
   "results": [
     {
       "slug": "flats-in-gurgaon-sector-88",
       "publishable": false,
-      "score": 14,
-      "issue_count": 14,
+      "score": 11,
+      "issue_count": 20,
       "critical_count": 2,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -29,8 +29,8 @@
     {
       "slug": "flats-in-gurgaon-writer-doc",
       "publishable": false,
-      "score": 54,
-      "issue_count": 7,
+      "score": 51,
+      "issue_count": 11,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -50,7 +50,7 @@
       "slug": "flats-in-noida-expressway",
       "publishable": false,
       "score": 85,
-      "issue_count": 5,
+      "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -69,8 +69,8 @@
     {
       "slug": "flats-in-noida-jewar-airport",
       "publishable": false,
-      "score": 37,
-      "issue_count": 9,
+      "score": 34,
+      "issue_count": 14,
       "critical_count": 3,
       "gates": {
         "Factual Accuracy": "FAIL",
@@ -89,8 +89,8 @@
     {
       "slug": "flats-in-greater-noida",
       "publishable": false,
-      "score": 85,
-      "issue_count": 5,
+      "score": 82,
+      "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -110,7 +110,7 @@
       "slug": "ivory-county-most-desirable",
       "publishable": false,
       "score": 0,
-      "issue_count": 11,
+      "issue_count": 12,
       "critical_count": 5,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -170,7 +170,7 @@
       "slug": "ivory-county-low-density",
       "publishable": false,
       "score": 52,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -190,7 +190,7 @@
       "slug": "center-court-premium-living-88a",
       "publishable": false,
       "score": 67,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -270,7 +270,7 @@
       "slug": "ivory-county-sustainable-luxury",
       "publishable": true,
       "score": 75,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -289,8 +289,8 @@
     {
       "slug": "center-court-sector-88a-luxury",
       "publishable": false,
-      "score": 70,
-      "issue_count": 5,
+      "score": 62,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -310,7 +310,7 @@
       "slug": "jade-county-delhi-meerut-expressway",
       "publishable": false,
       "score": 52,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -350,7 +350,7 @@
       "slug": "ivory-county-gold-ultra-luxury",
       "publishable": false,
       "score": 44,
-      "issue_count": 8,
+      "issue_count": 9,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -390,7 +390,7 @@
       "slug": "jade-county-floor-plans",
       "publishable": false,
       "score": 63,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -430,7 +430,7 @@
       "slug": "jade-county-gold-opulence",
       "publishable": false,
       "score": 55,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -450,7 +450,7 @@
       "slug": "jade-county-timeless-luxury",
       "publishable": false,
       "score": 47,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -470,7 +470,7 @@
       "slug": "ivory-county-status-symbol",
       "publishable": false,
       "score": 70,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -510,7 +510,7 @@
       "slug": "jade-county-luxury-beyond-walls",
       "publishable": false,
       "score": 65,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -570,7 +570,7 @@
       "slug": "ivory-county-at-a-glance",
       "publishable": false,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -590,7 +590,7 @@
       "slug": "ivory-county-specifications",
       "publishable": false,
       "score": 63,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -610,7 +610,7 @@
       "slug": "ivory-county-location-sector115",
       "publishable": true,
       "score": 81,
-      "issue_count": 3,
+      "issue_count": 4,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -630,7 +630,7 @@
       "slug": "ivory-county-rera-registration",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -650,7 +650,7 @@
       "slug": "ivory-county-amenities",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -670,7 +670,7 @@
       "slug": "ivory-county-ultimate-luxury",
       "publishable": false,
       "score": 48,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 2,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -690,7 +690,7 @@
       "slug": "ivory-county-overview",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -710,7 +710,7 @@
       "slug": "ivory-county-nearby-locations",
       "publishable": true,
       "score": 75,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -730,7 +730,7 @@
       "slug": "ivory-county-timeless-luxury",
       "publishable": false,
       "score": 60,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -750,7 +750,7 @@
       "slug": "jade-county-location-map",
       "publishable": true,
       "score": 75,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -770,7 +770,7 @@
       "slug": "jade-county-nearby-places",
       "publishable": false,
       "score": 36,
-      "issue_count": 9,
+      "issue_count": 10,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -850,7 +850,7 @@
       "slug": "flats-in-noida-landing",
       "publishable": true,
       "score": 81,
-      "issue_count": 3,
+      "issue_count": 4,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1150,7 +1150,7 @@
       "slug": "flats-in-ghaziabad-landing",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1190,7 +1190,7 @@
       "slug": "ved-van-park-noida-flats",
       "publishable": true,
       "score": 62,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1309,8 +1309,8 @@
     {
       "slug": "ivy-county-amenities",
       "publishable": true,
-      "score": 86,
-      "issue_count": 3,
+      "score": 83,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1330,7 +1330,7 @@
       "slug": "buyers-guide-flats-noida-2026",
       "publishable": false,
       "score": 15,
-      "issue_count": 9,
+      "issue_count": 10,
       "critical_count": 4,
       "gates": {
         "Factual Accuracy": "FAIL",
@@ -1350,7 +1350,7 @@
       "slug": "flats-noida-holistic-living",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1370,7 +1370,7 @@
       "slug": "noida-emerging-sectors-luxury",
       "publishable": false,
       "score": 59,
-      "issue_count": 7,
+      "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1390,7 +1390,7 @@
       "slug": "holiday-lifestyle-noida-flats",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1410,7 +1410,7 @@
       "slug": "county-low-density-living",
       "publishable": false,
       "score": 70,
-      "issue_count": 5,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1430,7 +1430,7 @@
       "slug": "noida-residential-hotspots-2026",
       "publishable": false,
       "score": 67,
-      "issue_count": 6,
+      "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1470,7 +1470,7 @@
       "slug": "flats-greater-noida-west-conveniences",
       "publishable": false,
       "score": 85,
-      "issue_count": 5,
+      "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1490,7 +1490,7 @@
       "slug": "sector-151-noida-7-reasons",
       "publishable": false,
       "score": 88,
-      "issue_count": 4,
+      "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1509,8 +1509,8 @@
     {
       "slug": "clove-county-nearby-places",
       "publishable": true,
-      "score": 86,
-      "issue_count": 3,
+      "score": 83,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1529,8 +1529,8 @@
     {
       "slug": "clove-county-location-map",
       "publishable": false,
-      "score": 75,
-      "issue_count": 5,
+      "score": 72,
+      "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1549,8 +1549,8 @@
     {
       "slug": "clove-county-seo-page",
       "publishable": false,
-      "score": 94,
-      "issue_count": 2,
+      "score": 91,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1569,8 +1569,8 @@
     {
       "slug": "clove-county-masterplan-page",
       "publishable": false,
-      "score": 78,
-      "issue_count": 4,
+      "score": 75,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1590,7 +1590,7 @@
       "slug": "clove-county-amenities-redefining-community-living-in-sector",
       "publishable": false,
       "score": 72,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1610,7 +1610,7 @@
       "slug": "clove-county-how-sustainable-living-is-shaping-luxury-reside",
       "publishable": false,
       "score": 63,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1630,7 +1630,7 @@
       "slug": "how-modern-architecture-is-quietly-changing-the-way-noida-li",
       "publishable": false,
       "score": 75,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1650,7 +1650,7 @@
       "slug": "luxury-living-in-noida-why-2026-is-the-year-for-premium-resi",
       "publishable": false,
       "score": 57,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1690,7 +1690,7 @@
       "slug": "top-10-features-homebuyers-look-for-in-luxury-apartments-in",
       "publishable": false,
       "score": 49,
-      "issue_count": 8,
+      "issue_count": 9,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "FAIL",
@@ -1730,7 +1730,7 @@
       "slug": "what-makes-a-real-estate-company-in-noida-trustworthy-for-ho",
       "publishable": false,
       "score": 64,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",

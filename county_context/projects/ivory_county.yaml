@@ -1,38 +1,119 @@
 project:
   name: Ivory County
   developer: County Group
-  registered_promoter: County Group  # verify
+  registered_promoter: Themecounty Private Limited
   type: residential
   segment: premium
-  status: null  # verify
+  status: under_construction  # phased; see phases below
 
 location:
   city: Noida
   state: Uttar Pradesh
   region: NCR
-  sector: null  # verify exact sector
+  sector: "115"
+  plot: GH-01
+  district: Gautam Buddha Nagar
+  pincode: "201301"
+  source: Ivory County price list, w.e.f. 01 Mar 2026
+  last_verified: 2026-08-29
 
 rera:
-  registration_number: null
-  portal_url: null
+  # NOTE: UPRERAPRM206951 is a PROMOTER registration, not a per-project
+  # registration. Content must not present it as a project RERA number.
+  promoter_registration_number: UPRERAPRM206951
+  project_registration_number: null  # verify per phase on up-rera.in
+  portal_url: https://www.up-rera.in/
+  source: Ivory County price list, w.e.f. 01 Mar 2026
+  last_verified: 2026-08-29
+  refresh_days: 90
 
+# Every figure below is from the 01 Mar 2026 price list.
+# RERA requires carpet area to be the disclosed figure; super area is a
+# pricing convention only and must never be presented as the flat's size.
 configurations:
-  - type: 3 BHK
-    carpet_area_sqft: null
-  - type: 4 BHK
-    carpet_area_sqft: null
-  - type: 5 BHK
-    carpet_area_sqft: null
+  - type: 3 BHK + 3T
+    code: A
+    super_area_sqft: 2034
+    built_up_area_sqft: 1769
+    carpet_area_sqft: 1255
+    basic_price_inr: 37629000
+  - type: 3 BHK + 3T + Utility
+    code: B
+    super_area_sqft: 2304
+    built_up_area_sqft: 1969
+    carpet_area_sqft: 1396
+    basic_price_inr: 42624000
+  - type: 4 BHK + 4T + Utility
+    code: C
+    super_area_sqft: 2727
+    built_up_area_sqft: 2253
+    carpet_area_sqft: 1636
+    basic_price_inr: 50449500
+  - type: 4 BHK + 4T + Utility
+    code: D
+    super_area_sqft: 3195
+    built_up_area_sqft: 2603
+    carpet_area_sqft: 1950
+    basic_price_inr: 62302500
 
 project_details:
-  total_units: null
-  towers: null
+  phases:
+    - phase: 1
+      towers: [A1, A2, A3, B5, B6, C1, C2, C3, C4, C5, C6]
+      includes: [Club/Community Centre 1, Commercial Complex, School Building]
+    - phase: 2
+      towers: [E, F1, F2, G]
+      includes: [Club/Community Centre 2]
+    - phase: 3
+      towers: [A4, A5, B1, B2, B3, B4, D1, D2]
+  total_units: null  # verify
+  max_floors: 25  # inferred from floor-charge bands (21st-25th); verify
 
-amenities: []
 pricing:
-  price_per_sqft: null
-  last_verified: null
-  source: null
+  basic_rate_per_sqft_super:
+    - 18500
+    - 19500  # two rate bands appear on the list; confirm which tower/phase each applies to
+  currency: INR
+  effective_from: 2026-03-01
+  source: Ivory County price list, w.e.f. 01 Mar 2026
+  last_verified: 2026-08-29
+  refresh_days: 60
+  note: >
+    Prices are subject to change without notice at the company's discretion.
+    Never publish a price without the "w.e.f." date and an asterisk.
+
+additional_charges:
+  parking_per_car_inr: 700000
+  one_time_lease_rent_per_sqft_inr: 80
+  club_membership_inr: 250000
+  power_backup_per_kva_inr: 25000
+  ifms_per_sqft_inr: 50  # payable at possession
+
+location_charges_per_sqft_inr:
+  park_facing: 300
+  corner: 150
+  green_belt_facing: 200
+  park_pool_club: 400
+
+payment_plans:
+  - name: Special 25 Plan
+    split: "25:25:25:25"
+  - name: Super Structure Plan
+    split: "40:40:20"
+  - name: Construction Linked Plan (CLP)
+    split: milestone-linked
+
+amenities: []  # verify from brochure before publishing any amenity claim
 
 county_urls:
-  project_page: null
+  project_page: https://www.countygroup.in/ivorycounty/
+  campaign_page: https://www.countygroup.in/ivorycounty/campaign
+
+developer_office:
+  name: County Spaces
+  address: Plot No. 15, Sector-135, Noida - 201305, Uttar Pradesh
+
+prohibited_for_this_project:
+  - Presenting the promoter registration number as a project RERA number
+  - Quoting super area as the flat size without naming carpet area
+  - Publishing any price without its effective date

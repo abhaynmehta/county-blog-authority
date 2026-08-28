@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1482
 **Paragraphs:** 12
-**Total Issues:** 5
+**Total Issues:** 6
 
 ## Publication Gates
 
@@ -64,8 +64,18 @@ Talk to anyone seriously searching for the best flats in Noida right now and the
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (1)
+
+### CG-PROJECT-006: Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 2 | 2 | 0 | 5 |
+| ROI | 1 | 2 | 2 | 0 | 6 |

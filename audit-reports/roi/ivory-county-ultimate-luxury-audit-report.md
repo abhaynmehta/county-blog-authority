@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 201
 **Paragraphs:** 9
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -75,8 +75,18 @@ Meta Description: Indulge in ultimate luxury at Ivory County Sector 115 Noida. P
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (1)
+
+### CG-PROJECT-007: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Presenting the promoter registration number as a project RERA number
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 2 | 2 | 2 | 0 | 6 |
+| ROI | 2 | 2 | 2 | 0 | 7 |

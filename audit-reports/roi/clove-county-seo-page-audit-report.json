@@ -2,21 +2,21 @@
   "file_path": "blogs/roi-incoming/clove-county-seo-page.md",
   "word_count": 1327,
   "paragraph_count": 40,
-  "score": 94,
+  "score": 91,
   "publishable": false,
-  "issue_count": 2,
+  "issue_count": 5,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
-    "medium": 2,
-    "low": 0,
-    "info": 0
+    "medium": 3,
+    "low": 1,
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 2,
+    "ROI": 4,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 0
+    "INTERNAL": 1
   },
   "gates": [
     {
@@ -61,6 +61,38 @@
       "reason": "",
       "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-PROJECT-003",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Publishing a Clove County carpet or super area figure; none is registered yet",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-LINK-004",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/flats-in-noida",
+      "claim": "https://www.countygroup.in/flats-in-noida",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-005",
+      "category": "external_links",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No external authority links \u2014 every link points back to County Group",
+      "reason": "",
+      "recommended_action": "Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
+      "acceptance_test": "At least 2 external authority links present"
     }
   ]
 }

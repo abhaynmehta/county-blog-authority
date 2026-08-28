@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 14**
+**Total items: 16**
 
 The following issues require your attention.
 
@@ -22,3 +22,5 @@ The following issues require your attention.
 | CG-CONTENT-012 | MEDIUM | Keyword stuffing: 'minutes | route' appears 11 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-013 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
 | CG-TRUTH-014 | HIGH | Registry-prohibited wording: 'proposed metro' | Remove or rephrase 'proposed metro' | No 'proposed metro' wording remains |
+| CG-PROJECT-015 | INFO | Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh | Confirm the content does not do this | Describing this project as being in Noida or Uttar Pradesh |
+| CG-LINK-020 | MEDIUM | Generic anchor text 'here' on an internal link | Use descriptive anchor text naming the destination | No internal link uses generic anchor text |

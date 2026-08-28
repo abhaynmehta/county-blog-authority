@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 421
 **Paragraphs:** 18
-**Total Issues:** 7
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -80,8 +80,18 @@ Meta Description: Experience low-density luxury living at Ivory County, Noida. S
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (1)
+
+### CG-PROJECT-008: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Presenting the promoter registration number as a project RERA number
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 3 | 3 | 0 | 7 |
+| ROI | 1 | 3 | 3 | 0 | 8 |

@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 137
 **Paragraphs:** 5
-**Total Issues:** 9
+**Total Issues:** 10
 
 ## Publication Gates
 
@@ -96,8 +96,18 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (1)
+
+### CG-PROJECT-010: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Quoting super area as the flat size without naming carpet area
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 5 | 3 | 0 | 9 |
+| ROI | 1 | 5 | 3 | 0 | 10 |

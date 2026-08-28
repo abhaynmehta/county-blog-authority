@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 11**
+**Total items: 12**
 
 The following issues require your attention.
 
@@ -19,3 +19,4 @@ The following issues require your attention.
 | CG-CONTENT-009 | MEDIUM | Keyword stuffing: 'ivory county' appears 19 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-010 | HIGH | No internal or external links found in content | Add 3-5 internal links and 1-3 external authority links | At least 3 internal links and 1 external authority link present |
 | CG-CONTENT-011 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
+| CG-PROJECT-012 | INFO | Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number | Confirm the content does not do this | Presenting the promoter registration number as a project RERA number |

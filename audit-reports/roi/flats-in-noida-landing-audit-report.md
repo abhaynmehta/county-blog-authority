@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 214
 **Paragraphs:** 11
-**Total Issues:** 3
+**Total Issues:** 4
 
 ## Publication Gates
 
@@ -42,8 +42,18 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (1)
+
+### CG-PROJECT-004: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Presenting the promoter registration number as a project RERA number
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 1 | 0 | 3 |
+| ROI | 0 | 2 | 1 | 0 | 4 |

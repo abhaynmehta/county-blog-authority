@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 9**
+**Total items: 10**
 
 The following issues require your attention.
 
@@ -17,3 +17,4 @@ The following issues require your attention.
 | CG-CONTENT-007 | MEDIUM | Keyword stuffing: 'flats in noida,' appears 8 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-008 | HIGH | No internal or external links found in content | Add 3-5 internal links and 1-3 external authority links | At least 3 internal links and 1 external authority link present |
 | CG-CONTENT-009 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
+| CG-PROJECT-010 | INFO | Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number | Confirm the content does not do this | Presenting the promoter registration number as a project RERA number |

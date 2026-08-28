@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 7**
 
 The following issues require your attention.
 
@@ -14,3 +14,4 @@ The following issues require your attention.
 | CG-CONTENT-004 | HIGH | No internal or external links found in content | Add 3-5 internal links and 1-3 external authority links | At least 3 internal links and 1 external authority link present |
 | CG-CONTENT-005 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
 | CG-CONTENT-006 | HIGH | Thin content: only 343 words (minimum 800 for ranking potential) | Expand content to at least 1200-1500 words with substantive sections | Word count >= 1200 |
+| CG-PROJECT-007 | INFO | Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh | Confirm the content does not do this | Describing this project as being in Noida or Uttar Pradesh |

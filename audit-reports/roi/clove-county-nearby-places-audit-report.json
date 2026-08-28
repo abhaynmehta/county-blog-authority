@@ -2,21 +2,21 @@
   "file_path": "blogs/roi-incoming/clove-county-nearby-places.md",
   "word_count": 269,
   "paragraph_count": 19,
-  "score": 86,
+  "score": 83,
   "publishable": true,
-  "issue_count": 3,
+  "issue_count": 6,
   "issues_by_severity": {
     "critical": 0,
     "high": 1,
-    "medium": 2,
-    "low": 0,
-    "info": 0
+    "medium": 3,
+    "low": 1,
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 3,
+    "ROI": 5,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 0
+    "INTERNAL": 1
   },
   "gates": [
     {
@@ -72,6 +72,38 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-PROJECT-004",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Publishing a Clove County carpet or super area figure; none is registered yet",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-LINK-005",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/clovecounty/nearby-places",
+      "claim": "https://www.countygroup.in/clovecounty/nearby-places",
+      "reason": "not listed in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-006",
+      "category": "external_links",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "No external authority links \u2014 every link points back to County Group",
+      "reason": "",
+      "recommended_action": "Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
+      "acceptance_test": "At least 2 external authority links present"
     }
   ]
 }

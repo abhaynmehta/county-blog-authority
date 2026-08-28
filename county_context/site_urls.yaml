@@ -1,0 +1,71 @@
+# Known County Group URLs.
+#
+# Anything an audit finds that is not listed here is reported as "needs
+# verification" — not as an error. The audit runs offline and cannot know
+# whether an unlisted URL resolves; `searchctl-agent links` checks that over
+# the network.
+#
+# Source: supplied by Abhay Mehta, 29 Aug 2026.
+
+domains:
+  - countygroup.in
+  - cleocounty.com
+
+project_sites:
+  - url: https://www.countygroup.in/
+    label: Corporate home
+  - url: https://www.countygroup.in/clovecounty/
+    label: Clove County
+  - url: https://www.countygroup.in/jadecounty/
+    label: Jade County
+  - url: https://www.countygroup.in/ivorycounty/
+    label: Ivory County
+  - url: https://www.countygroup.in/centercourt/
+    label: The Center Court
+  - url: https://www.countygroup.in/county107/
+    label: County 107
+  - url: https://www.countygroup.in/ivycounty/
+    label: Ivy County
+  - url: https://www.countygroup.in/cococounty/
+    label: Coco County
+  - url: https://www.cleocounty.com/
+    label: Cleo County
+  - url: https://www.countygroup.in/countyspaces
+    label: County Spaces
+  - url: https://www.countygroup.in/countycourtyard/
+    label: County Courtyard
+
+landing_pages:
+  - url: https://www.countygroup.in/ivorycounty/campaign
+    label: Ivory County campaign
+  - url: https://www.countygroup.in/centercourt-campaign/
+    label: Center Court campaign
+  - url: https://www.countygroup.in/jadecounty/campaign/
+    label: Jade County campaign
+  - url: https://www.countygroup.in/clovecounty/campaign
+    label: Clove County campaign
+
+# URLs found in agency blog content that are not on the authoritative list.
+# Each needs confirming: does it resolve, and is it the canonical URL?
+# Move confirmed entries up into project_sites; correct or remove the rest.
+unverified:
+  - url: https://www.countygroup.in/flats-in-noida
+    seen_in: agency blogs
+    status: unverified
+  - url: https://www.countygroup.in/flats-in-greater-noida
+    seen_in: agency blogs
+    status: unverified
+  - url: https://www.countygroup.in/flats-in-gurugram
+    seen_in: agency blogs
+    status: unverified
+  - url: https://www.countygroup.in/Residential
+    seen_in: agency blogs
+    status: unverified
+    note: Capitalised path — confirm the canonical casing.
+  - url: https://www.countygroup.in/Completed-Residential
+    seen_in: agency blogs
+    status: unverified
+    note: Capitalised path — confirm the canonical casing.
+  - url: https://www.countygroup.in/contact.php
+    seen_in: agency blogs
+    status: unverified

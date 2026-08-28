@@ -2,21 +2,21 @@
   "file_path": "blogs/roi-incoming/flats-in-gurgaon-sector-88.md",
   "word_count": 2333,
   "paragraph_count": 54,
-  "score": 14,
+  "score": 11,
   "publishable": false,
-  "issue_count": 14,
+  "issue_count": 20,
   "issues_by_severity": {
     "critical": 2,
     "high": 4,
-    "medium": 8,
-    "low": 0,
-    "info": 0
+    "medium": 9,
+    "low": 4,
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 14,
+    "ROI": 16,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 0
+    "INTERNAL": 4
   },
   "gates": [
     {
@@ -205,6 +205,73 @@
       "recommended_action": "Remove or rephrase 'proposed metro'",
       "acceptance_test": "No 'proposed metro' wording remains",
       "editorial_rule": "TRUTH_LAYER_PROHIBITED"
+    },
+    {
+      "issue_id": "CG-PROJECT-015",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Describing this project as being in Noida or Uttar Pradesh",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-LINK-016",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/flats-in-gurugram",
+      "claim": "https://www.countygroup.in/flats-in-gurugram",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-017",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/Residential",
+      "claim": "https://www.countygroup.in/Residential",
+      "reason": "already listed as unverified in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-018",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/centercourt/location",
+      "claim": "https://www.countygroup.in/centercourt/location",
+      "reason": "not listed in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-019",
+      "category": "internal_links",
+      "severity": "low",
+      "owner": "INTERNAL",
+      "summary": "Internal URL needs verification: countygroup.in/centercourt/amenities",
+      "claim": "https://www.countygroup.in/centercourt/amenities",
+      "reason": "not listed in site_urls.yaml",
+      "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
+      "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-LINK-020",
+      "category": "internal_links",
+      "severity": "medium",
+      "owner": "ROI",
+      "summary": "Generic anchor text 'here' on an internal link",
+      "claim": "[here](https://www.countygroup.in/centercourt/)",
+      "reason": "",
+      "recommended_action": "Use descriptive anchor text naming the destination",
+      "acceptance_test": "No internal link uses generic anchor text",
+      "google_rule": "CONTENT-LINK-001"
     }
   ]
 }

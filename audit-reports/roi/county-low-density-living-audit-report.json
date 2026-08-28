@@ -4,16 +4,16 @@
   "paragraph_count": 16,
   "score": 70,
   "publishable": false,
-  "issue_count": 5,
+  "issue_count": 7,
   "issues_by_severity": {
     "critical": 0,
     "high": 3,
     "medium": 2,
     "low": 0,
-    "info": 0
+    "info": 2
   },
   "issues_by_owner": {
-    "ROI": 5,
+    "ROI": 7,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -93,6 +93,28 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-PROJECT-006",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Publishing a Clove County carpet or super area figure; none is registered yet",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROJECT-007",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Presenting the promoter registration number as a project RERA number",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
     }
   ]
 }

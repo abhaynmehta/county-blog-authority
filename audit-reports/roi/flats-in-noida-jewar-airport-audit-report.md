@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/flats-in-noida-jewar-airport.md
-**Score:** 37/100
+**Score:** 34/100
 **Publishable:** No
 **Word Count:** 1950
 **Paragraphs:** 45
-**Total Issues:** 9
+**Total Issues:** 14
 
 ## Publication Gates
 
@@ -51,7 +51,7 @@
 - **Action:** Update to reflect operational status with source link
 - **Acceptance test:** Airport described as operational with official source
 
-## MEDIUM Issues (6)
+## MEDIUM Issues (7)
 
 ### CG-META-001: Meta title too long (73 chars, may truncate)
 
@@ -103,8 +103,55 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+### CG-LINK-014: No external authority links — every link points back to County Group
+
+- **Owner:** ROI
+- **Category:** external_links
+- **Action:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
+- **Acceptance test:** At least 2 external authority links present
+
+## LOW Issues (3)
+
+### CG-LINK-011: Internal URL needs verification: countygroup.in/flats-in-noida
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/flats-in-noida"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-012: Internal URL needs verification: countygroup.in/Residential
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/Residential"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-013: Internal URL needs verification: countygroup.in/contact.php
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/contact.php"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+## INFO Issues (1)
+
+### CG-PROJECT-010: Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 3 | 0 | 6 | 0 | 9 |
+| ROI | 3 | 0 | 7 | 0 | 11 |
+| INTERNAL | 0 | 0 | 0 | 3 | 3 |

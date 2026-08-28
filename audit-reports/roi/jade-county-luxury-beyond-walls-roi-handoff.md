@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 7**
 
 The following issues require your attention.
 
@@ -14,3 +14,4 @@ The following issues require your attention.
 | CG-CONTENT-004 | MEDIUM | Keyword stuffing: 'in ghaziabad,' appears 12 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-005 | HIGH | No internal or external links found in content | Add 3-5 internal links and 1-3 external authority links | At least 3 internal links and 1 external authority link present |
 | CG-CONTENT-006 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
+| CG-PROJECT-007 | INFO | Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area | Confirm the content does not do this | Quoting super area as the flat size without naming carpet area |

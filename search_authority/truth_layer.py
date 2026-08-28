@@ -12,6 +12,7 @@ before being relied on in published content.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from datetime import date, datetime
 from pathlib import Path
@@ -83,12 +84,60 @@ class Claim:
 
 
 @dataclass
+class Project:
+    """A County Group project as the registry records it.
+
+    `prohibited` holds rules that apply only when content discusses this
+    project — e.g. Center Court must never be described as being in Noida.
+    """
+
+    name: str
+    slug: str
+    city: Optional[str] = None
+    state: Optional[str] = None
+    sector: Optional[str] = None
+    rera_authority: Optional[str] = None
+    rera_number: Optional[str] = None
+    promoter: Optional[str] = None
+    project_page: Optional[str] = None
+    prohibited: list[str] = field(default_factory=list)
+    configurations: list[dict] = field(default_factory=list)
+
+    def carpet_areas(self) -> list[int]:
+        out = []
+        for c in self.configurations:
+            v = c.get("carpet_area_sqft")
+            if isinstance(v, (int, float)):
+                out.append(int(v))
+        return out
+
+    def super_areas(self) -> list[int]:
+        out = []
+        for c in self.configurations:
+            v = c.get("super_area_sqft")
+            if isinstance(v, (int, float)):
+                out.append(int(v))
+        return out
+
+
+@dataclass
 class TruthLayer:
     """The loaded registry: claims plus the wording rules they imply."""
 
     claims: list[Claim] = field(default_factory=list)
     prohibited_wording: list[str] = field(default_factory=list)
+    projects: list[Project] = field(default_factory=list)
+    known_urls: set = field(default_factory=set)
+    unverified_urls: set = field(default_factory=set)
+    load_errors: list[dict] = field(default_factory=list)
     loaded_from: Optional[str] = None
+
+    def project_by_name(self, name: str) -> Optional[Project]:
+        target = name.strip().lower()
+        for p in self.projects:
+            if p.name.lower() == target or p.slug == target:
+                return p
+        return None
 
     def stale_claims(self, today: Optional[date] = None) -> list[Claim]:
         return [c for c in self.claims if c.is_stale(today)]
@@ -104,7 +153,7 @@ class TruthLayer:
 
     @property
     def is_empty(self) -> bool:
-        return not self.claims and not self.prohibited_wording
+        return not self.claims and not self.prohibited_wording and not self.projects
 
 
 def load_truth_layer(base_dir: Path | str = CONTEXT_DIR) -> TruthLayer:
@@ -117,10 +166,9 @@ def load_truth_layer(base_dir: Path | str = CONTEXT_DIR) -> TruthLayer:
     claims_dir = base / "claims"
     layer = TruthLayer(loaded_from=str(base))
 
-    if not claims_dir.is_dir():
-        return layer
-
-    for path in sorted(claims_dir.glob("*.yaml")):
+    # Claims and projects are independent: a registry may have either, both,
+    # or neither. Missing claims must not stop projects from loading.
+    for path in sorted(claims_dir.glob("*.yaml")) if claims_dir.is_dir() else []:
         try:
             data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         except yaml.YAMLError:
@@ -150,7 +198,120 @@ def load_truth_layer(base_dir: Path | str = CONTEXT_DIR) -> TruthLayer:
             if text and text not in layer.prohibited_wording:
                 layer.prohibited_wording.append(text)
 
+    layer.projects = _load_projects(base / "projects", layer.load_errors)
+    layer.known_urls, layer.unverified_urls = _load_site_urls(
+        base / "site_urls.yaml", layer.load_errors
+    )
     return layer
+
+
+def _normalise_url(url: str) -> str:
+    """Compare URLs without tripping over trailing slashes, query strings,
+    fragments, or www/scheme differences.
+
+    Only the host is lowercased. URL paths are case-sensitive on most
+    servers — countygroup.in/Residential returns 200 while /residential
+    returns 404 — so folding the path would invent broken links.
+    """
+    u = str(url).split("#")[0].split("?")[0].strip().rstrip("/")
+    u = re.sub(r"^https?://", "", u, flags=re.IGNORECASE)
+    u = re.sub(r"^www\.", "", u, flags=re.IGNORECASE)
+    host, slash, path = u.partition("/")
+    return host.lower() + slash + path
+
+
+def _load_site_urls(path: Path, errors: list[dict]) -> tuple[set[str], set[str]]:
+    """Load the authoritative URL list. Returns (known, unverified)."""
+    if not path.is_file():
+        return set(), set()
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except yaml.YAMLError as exc:
+        errors.append({"file": str(path), "error": str(exc).split("\n")[0]})
+        return set(), set()
+    if not isinstance(data, dict):
+        return set(), set()
+
+    known: set[str] = set()
+    for key in ("project_sites", "landing_pages"):
+        for entry in data.get(key) or []:
+            url = entry.get("url") if isinstance(entry, dict) else entry
+            if url:
+                known.add(_normalise_url(url))
+                _RAW_URLS.add(str(url))
+
+    unverified = set()
+    for e in data.get("unverified") or []:
+        if isinstance(e, dict) and e.get("url"):
+            unverified.add(_normalise_url(e["url"]))
+            _RAW_URLS.add(str(e["url"]))
+    return known, unverified
+
+
+# URLs exactly as written in site_urls.yaml. The normalised forms are for
+# comparison only and must never be used to make a request — normalisation
+# strips the scheme and cannot round-trip back to a fetchable URL.
+_RAW_URLS: set[str] = set()
+
+
+def raw_site_urls(base_dir: Path | str = CONTEXT_DIR) -> list[str]:
+    """Every URL in site_urls.yaml, exactly as written."""
+    _RAW_URLS.clear()
+    load_truth_layer(base_dir)
+    return sorted(_RAW_URLS)
+
+
+def _load_projects(projects_dir: Path, errors: list[dict]) -> list[Project]:
+    """Load one Project per YAML file under `projects/`.
+
+    A file that fails to parse is recorded in `errors` rather than skipped
+    silently — an unreadable project file means its facts stop being
+    enforced, which must never happen quietly.
+    """
+    if not projects_dir.is_dir():
+        return []
+
+    projects: list[Project] = []
+    for path in sorted(projects_dir.glob("*.yaml")):
+        try:
+            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        except yaml.YAMLError as exc:
+            errors.append({"file": str(path), "error": str(exc).split("\n")[0]})
+            continue
+        if not isinstance(data, dict):
+            errors.append({"file": str(path), "error": "top level is not a mapping"})
+            continue
+
+        meta = data.get("project") or {}
+        name = meta.get("name")
+        if not name:
+            errors.append({"file": str(path), "error": "no project.name"})
+            continue
+
+        loc = data.get("location") or {}
+        rera = data.get("rera") or {}
+
+        projects.append(Project(
+            name=str(name),
+            slug=path.stem,
+            city=loc.get("city"),
+            state=loc.get("state"),
+            sector=str(loc["sector"]) if loc.get("sector") is not None else None,
+            rera_authority=rera.get("authority"),
+            rera_number=rera.get("registration_number"),
+            promoter=meta.get("registered_promoter"),
+            project_page=(data.get("county_urls") or {}).get("project_page"),
+            prohibited=[
+                str(p).split("#")[0].strip()
+                for p in (data.get("prohibited_for_this_project") or [])
+                if str(p).strip()
+            ],
+            configurations=[
+                c for c in (data.get("configurations") or []) if isinstance(c, dict)
+            ],
+        ))
+
+    return projects
 
 
 def registry_report(base_dir: Path | str = CONTEXT_DIR,
@@ -168,7 +329,9 @@ def registry_report(base_dir: Path | str = CONTEXT_DIR,
     return {
         "loaded_from": layer.loaded_from,
         "total_claims": len(layer.claims),
+        "total_projects": len(layer.projects),
         "prohibited_phrases": len(layer.prohibited_wording),
+        "load_errors": layer.load_errors,
         "stale_count": len(stale),
         "incomplete_count": len(incomplete),
         "stale": [

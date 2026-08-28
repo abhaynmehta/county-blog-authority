@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/clove-county-location-map.md
-**Score:** 75/100
+**Score:** 72/100
 **Publishable:** No
 **Word Count:** 253
 **Paragraphs:** 12
-**Total Issues:** 5
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -33,7 +33,7 @@
 - **Acceptance test:** Word count >= 1200
 - **Google rule:** CONTENT-THIN-001
 
-## MEDIUM Issues (3)
+## MEDIUM Issues (4)
 
 ### CG-META-001: Meta description too short (102 chars)
 
@@ -58,8 +58,37 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+### CG-LINK-008: No external authority links — every link points back to County Group
+
+- **Owner:** ROI
+- **Category:** external_links
+- **Action:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
+- **Acceptance test:** At least 2 external authority links present
+
+## LOW Issues (1)
+
+### CG-LINK-007: Internal URL needs verification: countygroup.in/clovecounty/location-map
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/clovecounty/location-map"
+- **Reason:** not listed in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+## INFO Issues (1)
+
+### CG-PROJECT-006: Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 3 | 0 | 5 |
+| ROI | 0 | 2 | 4 | 0 | 7 |
+| INTERNAL | 0 | 0 | 0 | 1 | 1 |

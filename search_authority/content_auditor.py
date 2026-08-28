@@ -13,7 +13,7 @@ from .models import (
     AuditIssue, ContentAnalysis, GateResult, GateStatus,
     IssueCategory, MetadataAnalysis, Owner, Severity,
 )
-from .truth_layer import load_truth_layer
+from .truth_layer import load_truth_layer, _normalise_url
 
 
 # Patterns that indicate prohibited language
@@ -537,6 +537,258 @@ def _check_truth_layer(text: str, issues: list[AuditIssue], issue_counter: list[
             already_flagged.add(idx)
 
 
+# Cities a project could be wrongly placed in. Checked only against the city
+# the registry records for a project the content actually names.
+_NCR_CITIES = ["Noida", "Greater Noida", "Gurugram", "Gurgaon", "Ghaziabad", "Faridabad", "Delhi"]
+
+# A city name followed by any of these is part of a larger proper noun — a
+# road, an airport, or the region — and says nothing about where a project is.
+# "Delhi NCR", "Greater Noida Expressway" and "Noida International Airport"
+# must never be read as claims that a project sits in Delhi or Greater Noida.
+_CITY_COMPOUND_SUFFIX = (
+    r"(?!\s*[-–]?\s*(?:NCR|Expressway|Express\s*way|Airport|Metro|Flyway|"
+    r"Authority|Link\s+Road|Development|Region|International))"
+)
+
+# Only these may sit between the project name and the location assertion.
+# Anything else — notably a colon followed by a keyword list — usually means
+# the preposition belongs to a different phrase ("flats in Ghaziabad"), not
+# to the project.
+_PROJECT_APPOSITIVE = (
+    r"(?:\s+(?:project|development|residences?|apartments?|complex|society|"
+    r"towers?|by\s+County\s+Group))?"
+)
+
+# The city must be asserted as the project's location, not merely appear near
+# it. "Clove County on the Greater Noida Expressway" is not a location claim;
+# "Clove County in Greater Noida" is.
+_LOCATION_ASSERTION = (
+    r"(?:\s*,\s*|\s+(?:in|at|near\s+by|within)\s+|"
+    r"\s+(?:is\s+|are\s+)?(?:located|situated|positioned|based)\s+(?:in|at)\s+)"
+)
+
+# Which RERA authority governs which state. Citing the wrong one is a
+# compliance error, not a typo — the buyer cannot verify the registration.
+_RERA_AUTHORITY_BY_STATE = {
+    "uttar pradesh": "UP-RERA",
+    "haryana": "HARERA",
+}
+
+
+def _near(text: str, anchor: str, target: str, window: int = 220):
+    """Find `target` within `window` characters of `anchor`, in either order.
+
+    Sentence-bounded matching is unreliable here because Indian real estate
+    copy is full of abbreviations ("sq. ft.", "Pvt. Ltd.") that a period-based
+    boundary treats as a sentence end.
+    """
+    a_re = re.compile(re.escape(anchor), re.IGNORECASE)
+    t_re = re.compile(r"\b" + re.escape(target) + r"\b", re.IGNORECASE)
+
+    for a in a_re.finditer(text):
+        lo = max(0, a.start() - window)
+        hi = min(len(text), a.end() + window)
+        t = t_re.search(text, lo, hi)
+        if t:
+            span_lo, span_hi = min(a.start(), t.start()), max(a.end(), t.end())
+            return text[span_lo:span_hi]
+    return None
+
+
+def _check_projects(text: str, issues: list[AuditIssue], issue_counter: list[int],
+                    layer):
+    """Verify claims made about a named project against the registry.
+
+    Only runs for projects the content actually names, so a blog about Clove
+    County is never judged against Center Court's facts.
+    """
+    for project in layer.projects:
+        if not re.search(r"\b" + re.escape(project.name) + r"\b", text, re.IGNORECASE):
+            continue
+
+        # Wrong city for a named project.
+        if project.city:
+            for city in _NCR_CITIES:
+                if city.lower() == project.city.lower():
+                    continue
+                # "Gurgaon" and "Gurugram" are the same place.
+                if {city.lower(), project.city.lower()} == {"gurgaon", "gurugram"}:
+                    continue
+                # Require an explicit "<project> in <city>" style assertion.
+                assertion = re.compile(
+                    re.escape(project.name)
+                    + _PROJECT_APPOSITIVE
+                    + _LOCATION_ASSERTION
+                    + r"(?:the\s+)?"
+                    + re.escape(city)
+                    + r"\b"
+                    + _CITY_COMPOUND_SUFFIX,
+                    re.IGNORECASE,
+                )
+                found = assertion.search(text)
+                match = found.group(0) if found else None
+                if match:
+                    issue_counter[0] += 1
+                    issues.append(AuditIssue(
+                        issue_id=f"CG-PROJECT-{issue_counter[0]:03d}",
+                        category=IssueCategory.FACTUAL_ERROR,
+                        severity=Severity.CRITICAL,
+                        owner=Owner.ROI,
+                        summary=f"{project.name} placed in {city}; registry says {project.city}",
+                        claim=match[:200],
+                        evidence_source=project.project_page,
+                        verified_status=f"{project.name} is in {project.city}"
+                                        + (f", {project.state}" if project.state else ""),
+                        recommended_action=f"Correct the location to {project.city}",
+                        acceptance_test=f"{project.name} is described as being in {project.city}",
+                    ))
+                    break
+
+        # Wrong RERA authority for the project's state.
+        expected = project.rera_authority or _RERA_AUTHORITY_BY_STATE.get(
+            (project.state or "").lower()
+        )
+        if expected:
+            wrong = [a for a in ("UP-RERA", "UPRERA", "HARERA")
+                     if a.replace("-", "").lower() != expected.replace("-", "").lower()]
+            for authority in wrong:
+                match = _near(text, project.name, authority, window=320)
+                if match:
+                    issue_counter[0] += 1
+                    issues.append(AuditIssue(
+                        issue_id=f"CG-PROJECT-{issue_counter[0]:03d}",
+                        category=IssueCategory.RERA_COMPLIANCE,
+                        severity=Severity.CRITICAL,
+                        owner=Owner.ROI,
+                        summary=f"{project.name} cited under {authority}; it is registered with {expected}",
+                        claim=match[:200],
+                        verified_status=f"{project.name} is registered with {expected}",
+                        recommended_action=f"Cite {expected} and link its portal",
+                        acceptance_test=f"Only {expected} is cited for {project.name}",
+                        google_rule="CONTENT-RERA-003",
+                    ))
+                    break
+
+        # Super area presented without carpet area, for a project we have
+        # both figures for. RERA makes carpet area the disclosable number.
+        supers = project.super_areas()
+        if supers and not re.search(r"(?i)carpet\s+area", text):
+            for value in supers:
+                if re.search(rf"\b{value}\b", text):
+                    issue_counter[0] += 1
+                    issues.append(AuditIssue(
+                        issue_id=f"CG-PROJECT-{issue_counter[0]:03d}",
+                        category=IssueCategory.RERA_COMPLIANCE,
+                        severity=Severity.HIGH,
+                        owner=Owner.ROI,
+                        summary=f"{project.name} super area {value} sq ft quoted with no carpet area",
+                        claim=f"{value} sq ft",
+                        verified_status=f"Registry carpet areas: {project.carpet_areas()}",
+                        recommended_action="State the carpet area alongside, and label which is which",
+                        acceptance_test="Carpet area is stated and labelled wherever super area appears",
+                        google_rule="CONTENT-RERA-002",
+                    ))
+                    break
+
+        # Project-specific bans declared in the project YAML.
+        for rule in project.prohibited:
+            issue_counter[0] += 1
+            issues.append(AuditIssue(
+                issue_id=f"CG-PROJECT-{issue_counter[0]:03d}",
+                category=IssueCategory.MISSING_EVIDENCE,
+                severity=Severity.INFO,
+                owner=Owner.ROI,
+                summary=f"Reviewer note for {project.name}: {rule}",
+                recommended_action="Confirm the content does not do this",
+                acceptance_test=rule,
+                editorial_rule="PROJECT_SPECIFIC_RULE",
+            ))
+            break  # one reminder per project, not one per rule
+
+
+def _check_links(text: str, issues: list[AuditIssue], issue_counter: list[int],
+                 layer):
+    """Check the links in a post: are they present, and do they resolve to
+    URLs the registry knows about?
+
+    A link to a County page that is not in the registry is usually a typo or
+    a dead campaign URL — the kind of thing that quietly leaks link equity.
+    """
+    md_links = re.findall(r"\[([^\]]*)\]\((https?://[^)\s]+)\)", text)
+    bare = re.findall(r"(?<![(\[])\bhttps?://[^\s)\]]+", text)
+    urls = [u for _, u in md_links] + bare
+
+    if not urls:
+        return  # absence of links is already reported elsewhere
+
+    known = set(layer.known_urls) | {
+        _normalise_url(p.project_page) for p in layer.projects if p.project_page
+    }
+    already_unverified = set(layer.unverified_urls)
+
+    internal = [u for u in urls if "countygroup.in" in u or "cleocounty.com" in u]
+    external = [u for u in urls if u not in internal]
+
+    seen: set[str] = set()
+    for url in internal:
+        stem = _normalise_url(url)
+        if not known or stem in known or stem in seen:
+            continue
+        # Blog-to-blog links are ordinary internal linking and are not
+        # expected to appear in the project URL registry.
+        path = stem.partition("/")[2]
+        if path.startswith("blog/"):
+            continue
+        seen.add(stem)
+        # The audit is offline, so it cannot tell a dead URL from one simply
+        # missing from the registry. Report it as needing verification.
+        note = ("already listed as unverified in site_urls.yaml"
+                if stem in already_unverified else "not listed in site_urls.yaml")
+        issue_counter[0] += 1
+        issues.append(AuditIssue(
+            issue_id=f"CG-LINK-{issue_counter[0]:03d}",
+            category=IssueCategory.INTERNAL_LINKS,
+            severity=Severity.LOW,
+            owner=Owner.INTERNAL,
+            summary=f"Internal URL needs verification: {stem}",
+            claim=url,
+            reason=note,
+            recommended_action="Run `agent links` to check it resolves, then add it to "
+                               "county_context/site_urls.yaml or correct the link",
+            acceptance_test="Every internal link resolves and is listed in site_urls.yaml",
+        ))
+
+    # Anchor text quality: generic anchors waste the internal link.
+    for anchor, url in md_links:
+        if "countygroup.in" not in url:
+            continue
+        if anchor.strip().lower() in {"here", "click here", "read more", "this", "link", "know more"}:
+            issue_counter[0] += 1
+            issues.append(AuditIssue(
+                issue_id=f"CG-LINK-{issue_counter[0]:03d}",
+                category=IssueCategory.INTERNAL_LINKS,
+                severity=Severity.MEDIUM,
+                owner=Owner.ROI,
+                summary=f"Generic anchor text '{anchor.strip()}' on an internal link",
+                claim=f"[{anchor}]({url})",
+                recommended_action="Use descriptive anchor text naming the destination",
+                acceptance_test="No internal link uses generic anchor text",
+                google_rule="CONTENT-LINK-001",
+            ))
+
+    if not external:
+        issue_counter[0] += 1
+        issues.append(AuditIssue(
+            issue_id=f"CG-LINK-{issue_counter[0]:03d}",
+            category=IssueCategory.EXTERNAL_LINKS,
+            severity=Severity.MEDIUM,
+            owner=Owner.ROI,
+            summary="No external authority links — every link points back to County Group",
+            recommended_action="Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
+            acceptance_test="At least 2 external authority links present",
+        ))
+
+
 def _run_gates(analysis: ContentAnalysis):
     """Run publication gates and determine publishability."""
     critical_issues = [i for i in analysis.issues if i.severity == Severity.CRITICAL]
@@ -616,8 +868,11 @@ def audit_text(text: str, file_path: str = "unknown") -> ContentAnalysis:
     # Paragraph-level content checks
     _check_paragraphs(text, analysis.issues, issue_counter)
 
-    # Registry-driven wording rules (county_context/)
+    # Registry-driven checks (county_context/)
     _check_truth_layer(text, analysis.issues, issue_counter)
+    _layer = load_truth_layer()
+    _check_projects(text, analysis.issues, issue_counter, _layer)
+    _check_links(text, analysis.issues, issue_counter, _layer)
 
     # Run publication gates
     _run_gates(analysis)

@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 9**
+**Total items: 11**
 
 The following issues require your attention.
 
@@ -17,3 +17,5 @@ The following issues require your attention.
 | CG-CONTENT-007 | MEDIUM | Implied appreciation: Implies price appreciation without evidence | Remove forward-looking price claim or add 'past performance does not indicate future results' | No implied price appreciation without disclaimer |
 | CG-CONTENT-008 | MEDIUM | Keyword stuffing: 'luxury flats' appears 9 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-009 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
+| CG-PROJECT-010 | INFO | Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet | Confirm the content does not do this | Publishing a Clove County carpet or super area figure; none is registered yet |
+| CG-LINK-014 | MEDIUM | No external authority links — every link points back to County Group | Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news) | At least 2 external authority links present |

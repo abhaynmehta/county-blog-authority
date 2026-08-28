@@ -16,7 +16,46 @@ rera:
   registration_number: null
   portal_url: null
 
-configurations: []  # populate from RERA
+# From County Group floor-plan material supplied 29 Aug 2026.
+# Carpet area is the RERA-disclosed figure; super area is a pricing
+# convention and must never be presented as the size of the flat.
+configurations:
+  - type: 3 BHK + 3T
+    super_area_sqft: 2358
+    built_up_area_sqft: 2046
+    carpet_area_sqft: 1297
+    price_from_inr: 27100000
+  - type: 4 BHK + 4T
+    super_area_sqft: 2898
+    built_up_area_sqft: 2562
+    carpet_area_sqft: 1612
+    price_from_inr: 33300000
+  - type: 4 BHK + 4T
+    super_area_sqft: 3555
+    built_up_area_sqft: 3167
+    carpet_area_sqft: 2038
+    price_from_inr: 40800000
+  - type: 5 BHK + 5T
+    super_area_sqft: 5094
+    built_up_area_sqft: 4591
+    carpet_area_sqft: 2951
+    price_from_inr: 63700000
+configurations_source: County Group floor-plan material
+configurations_last_verified: 2026-08-29
+
+pricing:
+  starting_price_inr: 27100000
+  currency: INR
+  source: County Group floor-plan material
+  last_verified: 2026-08-29
+  refresh_days: 60
+  note: >
+    Prices are "onwards" and carry an asterisk in source material. Never
+    publish without the asterisk and an effective date.
+
+prohibited_for_this_project:
+  - Quoting super area as the flat size without naming carpet area
+  - Publishing a price without its effective date and asterisk
 
 project_details:
   total_units: null

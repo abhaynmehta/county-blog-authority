@@ -4,16 +4,16 @@
   "paragraph_count": 5,
   "score": 36,
   "publishable": false,
-  "issue_count": 9,
+  "issue_count": 10,
   "issues_by_severity": {
     "critical": 1,
     "high": 5,
     "medium": 3,
     "low": 0,
-    "info": 0
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 9,
+    "ROI": 10,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -140,6 +140,17 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-PROJECT-010",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Quoting super area as the flat size without naming carpet area",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
     }
   ]
 }

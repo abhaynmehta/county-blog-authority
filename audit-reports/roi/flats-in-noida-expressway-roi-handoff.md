@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 5**
+**Total items: 6**
 
 The following issues require your attention.
 
@@ -13,3 +13,4 @@ The following issues require your attention.
 | CG-CONTENT-003 | MEDIUM | Keyword stuffing: 'noida-greater noida' appears 12 times | Reduce repetition. Use synonyms and natural phrasing. | No phrase repeated more than 7 times in one article |
 | CG-CONTENT-004 | MEDIUM | No images found in content | Add 1 hero image and 2-4 supporting visuals with descriptive alt text | Hero image + 2 supporting images with specific alt text |
 | CG-CONTENT-005 | MEDIUM | CTA spam: 2 generic 'read more/click here' CTAs in body text | Replace with descriptive anchor text linking to specific content | No generic 'read more' or 'click here' CTAs in body |
+| CG-PROJECT-006 | INFO | Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet | Confirm the content does not do this | Publishing a Clove County carpet or super area figure; none is registered yet |

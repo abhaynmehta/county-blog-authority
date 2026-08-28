@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/flats-in-gurgaon-sector-88.md
-**Score:** 14/100
+**Score:** 11/100
 **Publishable:** No
 **Word Count:** 2333
 **Paragraphs:** 54
-**Total Issues:** 14
+**Total Issues:** 20
 
 ## Publication Gates
 
@@ -80,7 +80,7 @@
 - **Acceptance test:** No 'proposed metro' wording remains
 - **Editorial rule:** TRUTH_LAYER_PROHIBITED
 
-## MEDIUM Issues (8)
+## MEDIUM Issues (9)
 
 ### CG-META-001: Meta title too long (88 chars, may truncate)
 
@@ -152,8 +152,66 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+### CG-LINK-020: Generic anchor text 'here' on an internal link
+
+- **Owner:** ROI
+- **Category:** internal_links
+- **Found:** "[here](https://www.countygroup.in/centercourt/)"
+- **Action:** Use descriptive anchor text naming the destination
+- **Acceptance test:** No internal link uses generic anchor text
+- **Google rule:** CONTENT-LINK-001
+
+## LOW Issues (4)
+
+### CG-LINK-016: Internal URL needs verification: countygroup.in/flats-in-gurugram
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/flats-in-gurugram"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-017: Internal URL needs verification: countygroup.in/Residential
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/Residential"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-018: Internal URL needs verification: countygroup.in/centercourt/location
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/centercourt/location"
+- **Reason:** not listed in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-019: Internal URL needs verification: countygroup.in/centercourt/amenities
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/centercourt/amenities"
+- **Reason:** not listed in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+## INFO Issues (1)
+
+### CG-PROJECT-015: Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Describing this project as being in Noida or Uttar Pradesh
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 2 | 4 | 8 | 0 | 14 |
+| ROI | 2 | 4 | 9 | 0 | 16 |
+| INTERNAL | 0 | 0 | 0 | 4 | 4 |

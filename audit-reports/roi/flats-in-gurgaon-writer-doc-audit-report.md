@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/flats-in-gurgaon-writer-doc.md
-**Score:** 54/100
+**Score:** 51/100
 **Publishable:** No
 **Word Count:** 1949
 **Paragraphs:** 58
-**Total Issues:** 7
+**Total Issues:** 11
 
 ## Publication Gates
 
@@ -55,7 +55,7 @@
 - **Acceptance test:** All area figures explicitly labeled as carpet area or super built-up
 - **Google rule:** CONTENT-RERA-002
 
-## MEDIUM Issues (2)
+## MEDIUM Issues (3)
 
 ### CG-CONTENT-006: Keyword stuffing: 'center court' appears 26 times
 
@@ -72,8 +72,46 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+### CG-LINK-011: No external authority links — every link points back to County Group
+
+- **Owner:** ROI
+- **Category:** external_links
+- **Action:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
+- **Acceptance test:** At least 2 external authority links present
+
+## LOW Issues (2)
+
+### CG-LINK-009: Internal URL needs verification: countygroup.in/flats-in-gurugram
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/flats-in-gurugram"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-LINK-010: Internal URL needs verification: countygroup.in/contact.php
+
+- **Owner:** INTERNAL
+- **Category:** internal_links
+- **Found:** "https://www.countygroup.in/contact.php"
+- **Reason:** already listed as unverified in site_urls.yaml
+- **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
+- **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+## INFO Issues (1)
+
+### CG-PROJECT-008: Reviewer note for The Center Court: Describing this project as being in Noida or Uttar Pradesh
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Describing this project as being in Noida or Uttar Pradesh
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 5 | 2 | 0 | 7 |
+| ROI | 0 | 5 | 3 | 0 | 9 |
+| INTERNAL | 0 | 0 | 0 | 2 | 2 |
