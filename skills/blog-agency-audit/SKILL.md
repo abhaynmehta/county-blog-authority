@@ -9,7 +9,7 @@ license: MIT
 compatibility: Requires Python 3.11+ and search_authority package
 metadata:
   author: County Group
-  version: "0.1.0"
+  version: "2.2.0"
 user-invokable: true
 argument-hint: "<file-or-directory> [--roi-report] [--ago-report] [--fixes] [--schema] [--meta]"
 ---

@@ -51,6 +51,8 @@ Every command is invoked through the main orchestrator
 | `style learn <paths>` | blog-style | Learn author voice profile from existing posts (v1.10.0) |
 | `decay <current-gsc> <previous-gsc>` | blog-decay | Detect content decay: 20%+ QoQ decline from GSC exports (v1.10.0) |
 | `update <file>` | blog-rewrite | Update an existing post with fresh statistics (routes to rewrite) |
+| `agency-audit <file-or-dir>` | blog-agency-audit | Audit agency-supplied content with ROI/AGO owner assignment (County Group) |
+| `pipeline <file>` | blog-pipeline | End-to-end audit to schema to agency handoff package (County Group) |
 
 Alias: `/blog update <file>` routes to `/blog rewrite <file>` for
 freshness-focused updates.

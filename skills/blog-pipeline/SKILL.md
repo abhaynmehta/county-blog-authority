@@ -10,7 +10,7 @@ argument-hint: "<topic-or-file> [--audit-only] [--generate] [--full]"
 license: MIT
 metadata:
   author: County Group
-  version: "0.1.0"
+  version: "2.2.0"
 ---
 
 # County Group Blog Pipeline
