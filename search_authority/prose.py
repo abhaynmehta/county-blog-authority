@@ -76,12 +76,28 @@ DENSITY_LIMIT = {"EM_DASH": 2.0}
 MIN_COUNT = {"EM_DASH": 3}
 
 
+# Published web content uses typographic quotes far more often than straight
+# ones. Matching only the straight apostrophe missed "In today's fast-paced
+# world" on real pages — the single most recognisable tell there is.
+_SMART_QUOTES = {
+    "\u2018": "'", "\u2019": "'", "\u201a": "'", "\u201b": "'",
+    "\u201c": '"', "\u201d": '"', "\u201e": '"',
+}
+
+
+def _normalise_quotes(text: str) -> str:
+    for smart, plain in _SMART_QUOTES.items():
+        text = text.replace(smart, plain)
+    return text
+
+
 def check_prose(text: str, issue_counter: list[int]) -> list[AuditIssue]:
     """Return style findings for `text`.
 
     Every finding quotes the offending phrase, because "your writing sounds
     generated" is not actionable and "paragraph 4 says 'delve into'" is.
     """
+    text = _normalise_quotes(text)
     issues: list[AuditIssue] = []
     words = max(1, len(text.split()))
     paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]

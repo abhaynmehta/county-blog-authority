@@ -144,6 +144,56 @@ export default function Benchmark() {
             </table>
           </section>
 
+          {data.by_competitor && (
+            <section className="card">
+              <h3>Competitor by competitor</h3>
+              <p className="hint">
+                A median across rivals hides who is driving a gap. One of them
+                citing heavily can make the field look stronger than it is.
+              </p>
+              <table className="mini wide">
+                <thead>
+                  <tr>
+                    <th>Site</th>
+                    <th className="num">Pages</th>
+                    <th className="num">Words</th>
+                    <th className="num">H2s</th>
+                    <th className="num">Outside links</th>
+                    <th className="num">Tables</th>
+                    <th className="num">Writing tells</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ fontWeight: 700 }}>
+                    <td>County Group (us)</td>
+                    <td className="num">{data.own_pages.length}</td>
+                    <td className="num">{show(data.comparison.word_count.ours)}</td>
+                    <td className="num">{show(data.comparison.h2_count.ours)}</td>
+                    <td className="num">{show(data.comparison.external_links.ours)}</td>
+                    <td className="num">{show(data.comparison.tables.ours)}</td>
+                    <td className="num">{show(data.comparison.prose_tells?.ours)}</td>
+                  </tr>
+                  {Object.entries(data.by_competitor).map(([name, d]) => (
+                    <tr key={name}>
+                      <td>{name}</td>
+                      <td className="num">{d.pages}</td>
+                      <td className="num">{show(d.word_count)}</td>
+                      <td className="num">{show(d.h2_count)}</td>
+                      <td className="num">{show(d.external_links)}</td>
+                      <td className="num">{show(d.tables)}</td>
+                      <td className="num">{show(d.prose_tells)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="hint" style={{ marginTop: "8px" }}>
+                Writing tells count machine-written or boilerplate phrasing.
+                Lower is better, and it is the one column where a high number
+                is a competitor's weakness rather than their strength.
+              </p>
+            </section>
+          )}
+
           <section className="card">
             <h3>Structured data</h3>
             <div className="cols">

@@ -167,3 +167,22 @@ def test_an_unreachable_page_records_the_error(monkeypatch):
     monkeypatch.setattr(hygiene, "_fetch", lambda url: (None, "", "dns failure"))
     page = hygiene.check_page("https://x.in/")
     assert not page.ok and page.error == "dns failure"
+
+
+# ── Typographic quotes ────────────────────────────────────────────────────
+#
+# Published web content uses curly quotes far more often than straight ones.
+# Matching only the straight apostrophe missed the single most recognisable
+# tell there is on real competitor pages.
+
+def test_smart_apostrophes_are_matched():
+    assert "Filler opener" in summaries(prose("In today’s fast-paced world, buyers want more."))
+
+
+def test_straight_apostrophes_still_match():
+    assert "Filler opener" in summaries(prose("In today's fast-paced world, buyers want more."))
+
+
+def test_curly_double_quotes_do_not_break_matching():
+    text = "“Not only” is it spacious but also well lit."
+    assert prose(text) is not None

@@ -193,3 +193,23 @@ def test_benchmark_reports_unreachable_pages(monkeypatch, allow_all):
     monkeypatch.setattr(competitors, "_fetch", fetch)
     result = benchmark(["https://r.com/broken"], ["https://x.in/good"])
     assert result["unreachable"] == ["https://r.com/broken"]
+
+
+# ── Prose quality ─────────────────────────────────────────────────────────
+#
+# Writing quality is a universal measure, so unlike the County registry
+# checks it is fair to apply to a competitor's content.
+
+def test_writing_tells_are_counted_on_a_competitor_page(monkeypatch, allow_all):
+    html = ("<body><p>In today's fast-paced world, let us delve into the "
+            "tapestry of luxury living here.</p></body>")
+    monkeypatch.setattr(competitors, "_fetch", lambda url: (200, html, None))
+    result = profile_page("https://rival.example/post")
+    assert result.prose_tells >= 2
+    assert result.prose_examples
+
+
+def test_clean_writing_records_no_tells(monkeypatch, allow_all):
+    html = "<body><p>" + ("The project has three bedrooms and two bathrooms. " * 20) + "</p></body>"
+    monkeypatch.setattr(competitors, "_fetch", lambda url: (200, html, None))
+    assert profile_page("https://rival.example/post").prose_tells == 0

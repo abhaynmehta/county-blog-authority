@@ -43,7 +43,7 @@ TIMEOUT = 25
 SIGNALS = (
     "word_count", "headings", "h2_count", "schema_types", "faq_present",
     "internal_links", "external_links", "images", "images_with_alt",
-    "tables", "lists", "has_author", "has_date",
+    "tables", "lists", "has_author", "has_date", "prose_tells",
 )
 
 
@@ -68,6 +68,11 @@ class PageProfile:
     lists: int = 0
     has_author: bool = False
     has_date: bool = False
+    # Count of machine-written / boilerplate tells. A universal writing
+    # measure, so it is fair to apply to anyone's content — unlike the
+    # County registry checks, which are not.
+    prose_tells: int = 0
+    prose_examples: list[str] = field(default_factory=list)
 
     @property
     def ok(self) -> bool:
@@ -210,6 +215,12 @@ def profile_page(url: str, own_domains: tuple[str, ...] = ()) -> PageProfile:
     page.has_date = bool(
         re.search(r'(?i)(datePublished|dateModified|<time[\s>]|published\s+on)', html)
     )
+
+    from .prose import check_prose
+
+    tells = check_prose(text, [0])
+    page.prose_tells = len(tells)
+    page.prose_examples = [t.summary for t in tells][:4]
     return page
 
 
@@ -290,6 +301,7 @@ _MEANING = {
                  "an AI answer or a featured snippet."),
     "tables": ("They use more comparison tables",
                "Tables are among the most extractable structures on a page."),
+    "prose_tells": ("", ""),  # handled separately; lower is better here
     "internal_links": ("They link internally more",
                        "Internal links pass authority and keep a reader moving "
                        "through related pages."),
@@ -399,8 +411,15 @@ def discover_articles(index_url: str, limit: int = 8) -> list[str]:
         # Deeper than the index, and not the index itself.
         if not parsed.path.rstrip("/").startswith(index_path) or parsed.path.rstrip("/") == index_path:
             continue
-        # Skip pagination and category listings.
+        # Skip pagination, taxonomy listings, and platform internals. A
+        # WordPress index links its own admin and feed URLs, which are not
+        # articles and would skew every measurement they entered.
         if re.search(r"/(page|category|tag|author)/", parsed.path, re.IGNORECASE):
+            continue
+        if re.search(r"/(wp-admin|wp-content|wp-json|feed|xmlrpc|comments)",
+                     parsed.path, re.IGNORECASE):
+            continue
+        if parsed.path.lower().endswith((".pdf", ".jpg", ".png", ".zip", ".xml")):
             continue
         if absolute not in seen:
             seen.append(absolute)

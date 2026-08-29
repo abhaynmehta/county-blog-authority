@@ -1,12 +1,14 @@
-# Blog indexes benchmarked against.
+# Blog indexes and articles benchmarked against.
 #
 # Competitors are measured, never treated as sources of fact: a rival's page
 # is evidence of what they publish, not of what is true. Nothing here feeds
 # the truth registry.
 #
-# Every URL below was fetched on 29 Aug 2026 and its state recorded. Entries
-# that do not work are kept with the reason rather than deleted, so nobody
-# re-adds a guess that was already tried.
+# Sites that render their article links in JavaScript cannot be discovered by
+# a plain fetch, so those carry an explicit `articles` list instead. Where
+# both are present the explicit list wins.
+#
+# Every entry was fetched and its state recorded on 29 Aug 2026.
 
 own:
   - https://www.countygroup.in/blog/
@@ -16,13 +18,41 @@ pages_per_site: 5
 competitors:
   - name: Prateek Group
     blog: https://prateekgroup.com/blog/
-    status: working
+    discovery: automatic
     verified: 2026-08-29
-    note: 5 articles discovered; the only competitor currently comparable.
 
-# ── Not currently usable ──────────────────────────────────────────────────
-# Named as benchmarks but not fetchable as configured. Supply a working blog
-# URL for any of these and move it into the list above.
+  - name: Ace Group
+    blog: https://acegroupindia.com/blog/
+    discovery: automatic
+    verified: 2026-08-29
+    note: 16 articles discoverable; the largest competitor corpus available.
+
+  - name: Eldeco
+    blog: https://www.eldecogroup.com/blogs/
+    discovery: explicit
+    verified: 2026-08-29
+    note: >
+      The index returns 200 but contains no article links — they are
+      rendered client-side. URLs supplied by Abhay Mehta.
+    articles:
+      - https://www.eldecogroup.com/blogs/eldeco's-green-vision:-creating-oxygen-rich-sustainable-communities
+      - https://www.eldecogroup.com/blogs/greater-noida's-real-estate-boom:-why-now-is-the-best-time-to-invest-in-eldeco-7-peaks
+      - https://www.eldecogroup.com/blogs/from-concept-to-creation:-how-eldeco-delivers-unmatched-real-estate-excellence
+      - https://www.eldecogroup.com/blogs/eldeco's-commitment-to-quality:-delivering-timeless-homes-for-40+-years
+
+  - name: Gaursons India
+    blog: https://www.gaursonsindia.com/blog.php
+    discovery: explicit
+    verified: 2026-08-29
+    note: >
+      blog.php lists only navigation links; articles sit at the site root as
+      .php pages and are not linked from a crawlable index. URLs supplied by
+      Abhay Mehta.
+    articles:
+      - https://www.gaursonsindia.com/why-smart-investors-are-quietly-betting-on-the-yamuna-expressway.php
+      - https://www.gaursonsindia.com/a-decade-of-excellence-celebrating-10-years-of-gaurs-international-school.php
+      - https://www.gaursonsindia.com/exclusive-living-the-rise-of-luxury-flats-in-noida-s-premier-neighborhoods.php
+      - https://www.gaursonsindia.com/blog-gaur-city-one-of-the-top-townships-in-greater-noida.php
 
 unavailable:
   - name: Godrej Properties
@@ -30,27 +60,14 @@ unavailable:
     status: robots_disallowed
     verified: 2026-08-29
     note: >
-      Their robots.txt disallows our user agent. We do not fetch it. If a
-      comparison against Godrej is needed, do it by hand in a browser rather
-      than by overriding robots.
-
-  - name: Eldeco
-    blog: https://www.eldecogroup.com/blog/
-    status: not_found
-    verified: 2026-08-29
-    note: >
-      404. The homepage resolves but exposes no blog link, so the real path
-      is unknown. Needs the correct URL.
+      Their robots.txt disallows our user agent, so we do not fetch it.
+      Compare by hand in a browser rather than overriding robots.
 
   - name: ATS Group
     blog: https://www.atsgreens.com/blog/
     status: no_articles_found
     verified: 2026-08-29
-    note: >
-      The index returns 200 but its HTML contains only pagination links —
-      article links are likely rendered by JavaScript, which this fetcher
-      does not execute. Would need a headless browser, or supply article
-      URLs directly.
+    note: Index returns 200 but exposes only pagination links.
 
   - name: Elite Group
     blog: https://www.elitegroup.co.in/blog/

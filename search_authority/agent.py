@@ -688,7 +688,8 @@ Commands:
         for index in cfg.get("own") or []:
             own += discover_articles(index, limit=pages)
         for entry in cfg.get("competitors") or []:
-            rivals += discover_articles(entry["blog"], limit=pages)
+            explicit = list(entry.get("articles") or [])[:pages]
+            rivals += explicit or discover_articles(entry.get("blog", ""), limit=pages)
         result = benchmark(rivals, own)
         _log("benchmark", {"ours": len(own), "theirs": len(rivals)})
     elif args.command == "history":

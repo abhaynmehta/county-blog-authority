@@ -384,7 +384,11 @@ def competitors(pages: int = 5) -> dict:
     rival_urls: list[str] = []
     names: dict[str, str] = {}
     for entry in config.get("competitors") or []:
-        found = discover_articles(entry["blog"], limit=pages)
+        # Sites that render their article links in JavaScript cannot be
+        # discovered by a plain fetch, so an explicit list stands in.
+        found = list(entry.get("articles") or [])[:pages]
+        if not found and entry.get("blog"):
+            found = discover_articles(entry["blog"], limit=pages)
         rival_urls.extend(found)
         for url in found:
             names[url] = entry["name"]
@@ -402,6 +406,32 @@ def competitors(pages: int = 5) -> dict:
         {"name": e.get("name"), "reason": e.get("status"), "note": e.get("note")}
         for e in (config.get("unavailable") or [])
     ]
+
+    # Per competitor as well as pooled. A median across four rivals hides
+    # which of them is actually driving a gap, and one outlier can make the
+    # field look stronger or weaker than it is.
+    from collections import defaultdict
+
+    from search_authority.competitors import PageProfile, _stat, SIGNALS
+
+    grouped: dict[str, list[PageProfile]] = defaultdict(list)
+    for profile, raw in zip(
+        [PageProfile(**{k: v for k, v in p.items() if k != "competitor"})
+         for p in result["competitor_pages"]],
+        result["competitor_pages"],
+    ):
+        if profile.ok and profile.word_count:
+            grouped[raw["competitor"]].append(profile)
+
+    result["by_competitor"] = {
+        name: {
+            "pages": len(pages),
+            **{signal: _stat(pages, signal) for signal in SIGNALS
+               if signal != "schema_types"},
+            "schema_types": sorted({t for p in pages for t in p.schema_types}),
+        }
+        for name, pages in sorted(grouped.items())
+    }
     return result
 
 
