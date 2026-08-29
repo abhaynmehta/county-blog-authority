@@ -21,6 +21,7 @@ from .batch import load_inventory, save_inventory, ROI_OUTPUT
 from .pipeline import run_pipeline
 from .truth_layer import registry_report
 from .dashboard import build as build_dashboard
+from .history import summary as history_summary
 from .hygiene import run as run_hygiene
 from .reports import weekly_report
 from .social import social_report
@@ -620,13 +621,14 @@ Commands:
   hygiene       Check live pages against the registry
   report        Weekly analysis: --prev A.csv --curr B.csv [--leads L.csv]
   social        Social post analysis: --file export.csv
+  history       Repeat mistakes and score trends across all audits
   dashboard     Build the HTML dashboard from current audit data
         """,
     )
     parser.add_argument("command", choices=[
         "watch", "health", "decay", "citations", "refresh", "pagespeed",
         "competitors", "truth", "links", "cannibals", "dashboard", "hygiene",
-        "report", "social",
+        "report", "social", "history",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
@@ -674,6 +676,10 @@ Commands:
             sys.exit(1)
         result = weekly_report(args.prev, args.curr, args.leads)
         _log("weekly_report", {"findings": len(result.get("findings", []))})
+    elif args.command == "history":
+        result = history_summary()
+        _log("history", {"runs": result.get("runs", 0),
+                         "regressions": len(result.get("regressions", []))})
     elif args.command == "social":
         if not args.file:
             print("Error: --file is required for social")

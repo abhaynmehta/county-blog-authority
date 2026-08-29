@@ -190,3 +190,16 @@ td.bad { color: var(--bad); font-weight: 600; }
 
 a { color: var(--primary); }
 .mini.wide a { font-size: 12px; }
+
+/* Grouped tabs: labels keep a growing row navigable. */
+.tabs { align-items: flex-end; gap: 0; }
+.tab-group { display: flex; flex-direction: column; margin-right: 20px; }
+.tab-group-label {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink3); padding: 0 16px 3px; opacity: .75;
+}
+.tab-group { position: relative; }
+.tab-group > div { display: flex; }
+.tab-group .tab { display: inline-block; }
+.tab-group { flex-direction: row; flex-wrap: wrap; align-items: flex-end; }
+.tab-group-label { width: 100%; }

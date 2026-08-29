@@ -33,6 +33,7 @@ export const api = {
   corpus: () => request("/corpus"),
   cannibalization: () => request("/cannibalization"),
   hygiene: () => request("/hygiene"),
+  history: () => request("/history"),
 };
 
 // Ordering used everywhere issues are displayed: worst first.

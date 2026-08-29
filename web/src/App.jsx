@@ -5,15 +5,20 @@ import Hygiene from "./Hygiene.jsx";
 import Overlap from "./Overlap.jsx";
 import Reports from "./Reports.jsx";
 import Social from "./Social.jsx";
+import History from "./History.jsx";
 
+// Grouped so the row stays readable as tabs are added.
 const TABS = [
-  { id: "audit", label: "Audit a draft" },
-  { id: "corpus", label: "All content" },
-  { id: "overlap", label: "Keyword overlap" },
-  { id: "hygiene", label: "Live pages" },
-  { id: "reports", label: "Ads report" },
-  { id: "social", label: "Social report" },
+  { id: "audit", label: "Audit a draft", group: "Content" },
+  { id: "corpus", label: "All content", group: "Content" },
+  { id: "history", label: "Repeat mistakes", group: "Content" },
+  { id: "overlap", label: "Keyword overlap", group: "Search" },
+  { id: "hygiene", label: "Live pages", group: "Search" },
+  { id: "reports", label: "Ads", group: "Performance" },
+  { id: "social", label: "Social", group: "Performance" },
 ];
+
+const GROUPS = [...new Set(TABS.map((t) => t.group))];
 
 /* ── Small presentational pieces ─────────────────────────────────────── */
 
@@ -270,17 +275,22 @@ export default function App() {
         </p>
       </header>
 
-      <nav className="tabs" role="tablist">
-        {TABS.map((t) => (
-          <button
-            key={t.id}
-            role="tab"
-            className="tab"
-            aria-selected={tab === t.id}
-            onClick={() => setTab(t.id)}
-          >
-            {t.label}
-          </button>
+      <nav className="tabs" role="tablist" aria-label="Sections">
+        {GROUPS.map((group) => (
+          <div className="tab-group" key={group}>
+            <span className="tab-group-label">{group}</span>
+            {TABS.filter((t) => t.group === group).map((t) => (
+              <button
+                key={t.id}
+                role="tab"
+                className="tab"
+                aria-selected={tab === t.id}
+                onClick={() => setTab(t.id)}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
         ))}
       </nav>
 
@@ -290,6 +300,7 @@ export default function App() {
       {tab === "hygiene" && <Hygiene />}
       {tab === "reports" && <Reports />}
       {tab === "social" && <Social />}
+      {tab === "history" && <History />}
     </div>
   );
 }

@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 
 from .content_auditor import audit_text, audit_file
+from .history import record as record_history
 from .models import Owner, ContentAnalysis
 from .report import (
     generate_markdown_report,
@@ -94,6 +95,15 @@ def run_pipeline(
             {"name": headline},
         ])
         combined_schema = schemas_to_jsonld(blog_schema, breadcrumb)
+
+    # Every run is recorded before packaging, pass or fail. The value of the
+    # ledger comes from it being complete: a history that only kept successes
+    # could not show that a problem keeps coming back.
+    try:
+        record_history(result, slug=slug, source=input_path)
+    except OSError:
+        # A read-only filesystem must not stop an audit from completing.
+        pass
 
     # Stage 3: Package
     files = {}

@@ -28,6 +28,7 @@ from search_authority import __version__ as engine_version
 from search_authority.cannibalization import analyse_corpus
 from search_authority.content_auditor import audit_text
 from search_authority.dashboard import collect_data
+from search_authority.history import summary as history_summary
 from search_authority.hygiene import run as run_hygiene
 from search_authority.reports import compare, explain, load_leads, load_rows
 from search_authority.social import social_report
@@ -359,6 +360,16 @@ async def social(
         return result
     finally:
         path.unlink(missing_ok=True)
+
+
+@app.get("/history", tags=["corpus"])
+def history() -> dict:
+    """Audit history: what is improving, what recurs, what came back.
+
+    An individual audit says what is wrong now. This says whether the same
+    mistake keeps returning, which is the part worth raising with an agency.
+    """
+    return history_summary()
 
 
 # ── Serve the built console from the same process ─────────────────────────
