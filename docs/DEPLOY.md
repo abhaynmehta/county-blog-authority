@@ -48,7 +48,24 @@ Any of these will run it from a GitHub push:
 3. Railway finds the `Dockerfile` on its own. No build command needed.
 4. Under **Variables**, leave `PORT` unset — the container reads whatever
    Railway provides.
-5. Under **Settings → Networking**, click **Generate Domain**.
+5. **Add a volume mounted at `/data`.** This is not optional if you want the
+   audit history to mean anything: a container filesystem is wiped on every
+   deploy, so without it the ledger resets each time you push and the whole
+   point of tracking repeat mistakes is lost. The image already sets
+   `COUNTY_DATA_DIR=/data`, so mounting the volume is the only step.
+6. Under **Settings → Networking**, click **Generate Domain**.
+
+### What persists, and what does not
+
+| Data | Where it lives | Survives a deploy |
+|---|---|---|
+| Project registry, claims, URLs | `county_context/`, in git | Yes — it ships in the image |
+| Audit history ledger | `/data`, the mounted volume | Only with the volume |
+| Generated reports and dashboard | container filesystem | No, and that is fine — regenerate them |
+| Uploaded CSVs | temporary file, deleted after the request | No, by design |
+
+Only the ledger needs the volume. Everything else is either in git or
+cheaply regenerated.
 
 The first deploy takes a few minutes because it builds the React bundle and
 installs Python dependencies. Afterwards, every push to `main` redeploys.
@@ -59,10 +76,19 @@ installs Python dependencies. Afterwards, every push to `main` redeploys.
 curl https://<your-domain>/health
 ```
 
-You want `"status":"ok"` and `"registry_errors":[]`. An empty error list
-matters as much as the status: it means every project file parsed, so the
-audit engine is actually enforcing its facts rather than running with a
-partly-loaded registry.
+Three things to check in that response:
+
+- `"status":"ok"` — the app started.
+- `"registry_errors":[]` — every project file parsed. This matters as much
+  as the status: a registry that fails to load leaves the engine running
+  with partly-loaded facts rather than erroring, so an empty list is what
+  tells you it is genuinely enforcing anything.
+- `"storage":{"durable":true}` — the volume is mounted. If this says
+  `false`, the app works but audit history resets on every deploy, and the
+  response carries a `warning` saying so.
+
+CI asserts all three against a running container, so a green build means the
+image serves rather than merely compiling.
 
 ## Before it is public
 

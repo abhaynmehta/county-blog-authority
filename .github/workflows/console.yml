@@ -100,5 +100,9 @@ jobs:
           done
           curl -fs http://localhost:8000/health | tee /dev/stderr | grep -q '"status":"ok"'
           curl -fs http://localhost:8000/health | grep -q '"registry_errors":\[\]'
+          # The container sets COUNTY_DATA_DIR, so history must report as
+          # durable. If this regresses, deployed history silently resets on
+          # every redeploy.
+          curl -fs http://localhost:8000/health | grep -q '"durable":true'
           docker logs console
           docker rm -f console

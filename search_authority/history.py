@@ -14,13 +14,38 @@ record of what was true on a date cannot be quietly revised.
 from __future__ import annotations
 
 import json
+import os
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
 from typing import Iterable, Optional
 
-LEDGER = Path("audit-history/ledger.jsonl")
+# Where the ledger lives. Configurable because a container filesystem is
+# ephemeral: on Railway, Render or Fly, anything written at runtime is lost
+# on the next deploy. Point COUNTY_DATA_DIR at a mounted volume and the
+# history survives; leave it unset and it stays beside the code, which is
+# correct on a laptop and wrong in a container.
+DATA_DIR = Path(os.environ.get("COUNTY_DATA_DIR", "audit-history"))
+LEDGER = DATA_DIR / "ledger.jsonl"
+
+
+def storage_status() -> dict:
+    """Whether the ledger will survive a restart, and how we know."""
+    configured = "COUNTY_DATA_DIR" in os.environ
+    running_in_container = Path("/.dockerenv").exists()
+    return {
+        "data_dir": str(DATA_DIR.resolve()),
+        "configured": configured,
+        "in_container": running_in_container,
+        "durable": configured or not running_in_container,
+        "warning": (
+            "COUNTY_DATA_DIR is not set and this looks like a container. "
+            "Audit history will be lost on the next deploy. Mount a volume "
+            "and set COUNTY_DATA_DIR to it."
+            if running_in_container and not configured else None
+        ),
+    }
 
 # An issue that disappears and later returns on the same document is a
 # regression: it was fixed, then reintroduced. Those matter more than a

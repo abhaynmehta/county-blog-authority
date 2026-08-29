@@ -29,7 +29,7 @@ from search_authority.cannibalization import analyse_corpus
 from search_authority.content_auditor import audit_text
 from search_authority.dashboard import collect_data
 from search_authority.competitors import benchmark, discover_articles
-from search_authority.history import summary as history_summary
+from search_authority.history import storage_status, summary as history_summary
 from search_authority.hygiene import run as run_hygiene
 from search_authority.reports import compare, explain, load_leads, load_rows
 from search_authority.social import social_report
@@ -160,6 +160,7 @@ def health() -> dict:
         "projects_loaded": len(layer.projects),
         "claims_loaded": len(layer.claims),
         "registry_errors": layer.load_errors,
+        "storage": storage_status(),
     }
 
 

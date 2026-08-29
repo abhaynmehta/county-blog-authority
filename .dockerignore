@@ -11,3 +11,7 @@ agent-logs
 audit-reports
 tests
 brain
+
+# Local audit history must not ship in the image; the container keeps its
+# own under COUNTY_DATA_DIR.
+audit-history

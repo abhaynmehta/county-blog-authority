@@ -14,7 +14,14 @@ WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PORT=8000
+    PORT=8000 \
+    COUNTY_DATA_DIR=/data
+
+# The audit ledger is the one thing the app writes that must outlive a
+# deploy. A container filesystem does not, so this path expects a mounted
+# volume. Without one the app still runs — the history simply resets, and
+# /health says so rather than failing quietly.
+VOLUME ["/data"]
 
 # Dependencies first, so code edits do not invalidate the layer.
 COPY pyproject.toml ./
@@ -31,7 +38,9 @@ COPY blogs/BLOG_INVENTORY.yaml ./blogs/BLOG_INVENTORY.yaml
 COPY --from=web /build/dist ./web/dist
 
 # Run as a non-root user.
-RUN useradd --create-home --uid 10001 appuser && chown -R appuser:appuser /app
+RUN useradd --create-home --uid 10001 appuser \
+    && mkdir -p /data \
+    && chown -R appuser:appuser /app /data
 USER appuser
 
 EXPOSE 8000

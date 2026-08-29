@@ -201,3 +201,41 @@ def test_the_summary_reports_the_current_average_not_the_historical_one(ledger):
     write_entry(ledger, "a", 0, [], score=20)
     write_entry(ledger, "a", 5, [], score=90)
     assert summary(ledger)["average_score_now"] == 90.0
+
+
+# ── Storage durability ────────────────────────────────────────────────────
+#
+# A container filesystem is ephemeral. Writing the ledger there means the
+# history is lost on the next deploy, which defeats the point of keeping one.
+
+def test_the_data_directory_is_configurable(monkeypatch, tmp_path):
+    monkeypatch.setenv("COUNTY_DATA_DIR", str(tmp_path / "vol"))
+    import importlib
+
+    from search_authority import history as module
+    reloaded = importlib.reload(module)
+    try:
+        assert reloaded.LEDGER.parent == tmp_path / "vol"
+    finally:
+        monkeypatch.delenv("COUNTY_DATA_DIR", raising=False)
+        importlib.reload(module)
+
+
+def test_storage_is_durable_outside_a_container(monkeypatch):
+    from search_authority.history import storage_status
+    monkeypatch.delenv("COUNTY_DATA_DIR", raising=False)
+    status = storage_status()
+    assert status["durable"] is True
+    assert status["warning"] is None
+
+
+def test_an_unconfigured_container_is_warned_about(monkeypatch):
+    """The failure is silent otherwise: everything works until a redeploy."""
+    import search_authority.history as module
+    monkeypatch.delenv("COUNTY_DATA_DIR", raising=False)
+    monkeypatch.setattr(module.Path, "exists", lambda self: str(self) == "/.dockerenv")
+
+    status = module.storage_status()
+
+    assert status["durable"] is False
+    assert "lost on the next deploy" in status["warning"]
