@@ -34,6 +34,7 @@ export const api = {
   cannibalization: () => request("/cannibalization"),
   hygiene: () => request("/hygiene"),
   history: () => request("/history"),
+  competitors: () => request("/competitors"),
 };
 
 // Ordering used everywhere issues are displayed: worst first.

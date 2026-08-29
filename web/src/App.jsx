@@ -6,6 +6,7 @@ import Overlap from "./Overlap.jsx";
 import Reports from "./Reports.jsx";
 import Social from "./Social.jsx";
 import History from "./History.jsx";
+import Benchmark from "./Benchmark.jsx";
 
 // Grouped so the row stays readable as tabs are added.
 const TABS = [
@@ -14,6 +15,7 @@ const TABS = [
   { id: "history", label: "Repeat mistakes", group: "Content" },
   { id: "overlap", label: "Keyword overlap", group: "Search" },
   { id: "hygiene", label: "Live pages", group: "Search" },
+  { id: "benchmark", label: "Competitors", group: "Search" },
   { id: "reports", label: "Ads", group: "Performance" },
   { id: "social", label: "Social", group: "Performance" },
 ];
@@ -301,6 +303,7 @@ export default function App() {
       {tab === "reports" && <Reports />}
       {tab === "social" && <Social />}
       {tab === "history" && <History />}
+      {tab === "benchmark" && <Benchmark />}
     </div>
   );
 }

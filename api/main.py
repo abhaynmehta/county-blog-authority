@@ -28,6 +28,7 @@ from search_authority import __version__ as engine_version
 from search_authority.cannibalization import analyse_corpus
 from search_authority.content_auditor import audit_text
 from search_authority.dashboard import collect_data
+from search_authority.competitors import benchmark, discover_articles
 from search_authority.history import summary as history_summary
 from search_authority.hygiene import run as run_hygiene
 from search_authority.reports import compare, explain, load_leads, load_rows
@@ -360,6 +361,48 @@ async def social(
         return result
     finally:
         path.unlink(missing_ok=True)
+
+
+@app.get("/competitors", tags=["corpus"])
+def competitors(pages: int = 5) -> dict:
+    """Benchmark our blog against competitors on the same structural signals.
+
+    Slow — it fetches several pages per site — so the console calls it on
+    demand rather than on load.
+    """
+    import yaml
+
+    config_path = Path("county_context/competitor_blogs.yaml")
+    if not config_path.is_file():
+        raise HTTPException(503, "county_context/competitor_blogs.yaml is missing")
+    config = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
+
+    own_urls: list[str] = []
+    for index in config.get("own") or []:
+        own_urls.extend(discover_articles(index, limit=pages))
+
+    rival_urls: list[str] = []
+    names: dict[str, str] = {}
+    for entry in config.get("competitors") or []:
+        found = discover_articles(entry["blog"], limit=pages)
+        rival_urls.extend(found)
+        for url in found:
+            names[url] = entry["name"]
+
+    result = benchmark(rival_urls, own_urls)
+    for page in result["competitor_pages"]:
+        page["competitor"] = names.get(page["url"], "unknown")
+
+    # A comparison against one rival must not read as a comparison against
+    # the market. Name who was left out and why.
+    result["compared_against"] = sorted({
+        names[u] for u in names
+    })
+    result["not_compared"] = [
+        {"name": e.get("name"), "reason": e.get("status"), "note": e.get("note")}
+        for e in (config.get("unavailable") or [])
+    ]
+    return result
 
 
 @app.get("/history", tags=["corpus"])

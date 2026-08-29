@@ -1,0 +1,59 @@
+# Blog indexes benchmarked against.
+#
+# Competitors are measured, never treated as sources of fact: a rival's page
+# is evidence of what they publish, not of what is true. Nothing here feeds
+# the truth registry.
+#
+# Every URL below was fetched on 29 Aug 2026 and its state recorded. Entries
+# that do not work are kept with the reason rather than deleted, so nobody
+# re-adds a guess that was already tried.
+
+own:
+  - https://www.countygroup.in/blog/
+
+pages_per_site: 5
+
+competitors:
+  - name: Prateek Group
+    blog: https://prateekgroup.com/blog/
+    status: working
+    verified: 2026-08-29
+    note: 5 articles discovered; the only competitor currently comparable.
+
+# ── Not currently usable ──────────────────────────────────────────────────
+# Named as benchmarks but not fetchable as configured. Supply a working blog
+# URL for any of these and move it into the list above.
+
+unavailable:
+  - name: Godrej Properties
+    blog: https://www.godrejproperties.com/
+    status: robots_disallowed
+    verified: 2026-08-29
+    note: >
+      Their robots.txt disallows our user agent. We do not fetch it. If a
+      comparison against Godrej is needed, do it by hand in a browser rather
+      than by overriding robots.
+
+  - name: Eldeco
+    blog: https://www.eldecogroup.com/blog/
+    status: not_found
+    verified: 2026-08-29
+    note: >
+      404. The homepage resolves but exposes no blog link, so the real path
+      is unknown. Needs the correct URL.
+
+  - name: ATS Group
+    blog: https://www.atsgreens.com/blog/
+    status: no_articles_found
+    verified: 2026-08-29
+    note: >
+      The index returns 200 but its HTML contains only pagination links —
+      article links are likely rendered by JavaScript, which this fetcher
+      does not execute. Would need a headless browser, or supply article
+      URLs directly.
+
+  - name: Elite Group
+    blog: https://www.elitegroup.co.in/blog/
+    status: not_found
+    verified: 2026-08-29
+    note: 404. Needs the correct domain or blog path.

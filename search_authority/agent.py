@@ -21,6 +21,7 @@ from .batch import load_inventory, save_inventory, ROI_OUTPUT
 from .pipeline import run_pipeline
 from .truth_layer import registry_report
 from .dashboard import build as build_dashboard
+from .competitors import benchmark, discover_articles
 from .history import summary as history_summary
 from .hygiene import run as run_hygiene
 from .reports import weekly_report
@@ -622,13 +623,14 @@ Commands:
   report        Weekly analysis: --prev A.csv --curr B.csv [--leads L.csv]
   social        Social post analysis: --file export.csv
   history       Repeat mistakes and score trends across all audits
+  benchmark     Compare our blog against competitors on the same signals
   dashboard     Build the HTML dashboard from current audit data
         """,
     )
     parser.add_argument("command", choices=[
         "watch", "health", "decay", "citations", "refresh", "pagespeed",
         "competitors", "truth", "links", "cannibals", "dashboard", "hygiene",
-        "report", "social", "history",
+        "report", "social", "history", "benchmark",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
@@ -676,6 +678,19 @@ Commands:
             sys.exit(1)
         result = weekly_report(args.prev, args.curr, args.leads)
         _log("weekly_report", {"findings": len(result.get("findings", []))})
+    elif args.command == "benchmark":
+        import yaml as _yaml
+        cfg = _yaml.safe_load(
+            Path("county_context/competitor_blogs.yaml").read_text(encoding="utf-8")
+        )
+        pages = cfg.get("pages_per_site", 5)
+        own, rivals = [], []
+        for index in cfg.get("own") or []:
+            own += discover_articles(index, limit=pages)
+        for entry in cfg.get("competitors") or []:
+            rivals += discover_articles(entry["blog"], limit=pages)
+        result = benchmark(rivals, own)
+        _log("benchmark", {"ours": len(own), "theirs": len(rivals)})
     elif args.command == "history":
         result = history_summary()
         _log("history", {"runs": result.get("runs", 0),
