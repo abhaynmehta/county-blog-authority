@@ -178,3 +178,12 @@ td.detail { background: var(--raised); padding: 12px 14px; }
 .card.note b { color: var(--info); }
 .card.err { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
 .row select { min-width: 150px; }
+
+input[type="file"] {
+  padding: 7px 9px; font-size: 13px; background: var(--ground);
+  border: 1px dashed var(--rule); cursor: pointer;
+}
+td.good { color: var(--good); font-weight: 600; }
+td.bad { color: var(--bad); font-weight: 600; }
+.issue-good { border-left-color: var(--good); }
+.pill-info { background: var(--info-bg); color: var(--info); }

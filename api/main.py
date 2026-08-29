@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -27,6 +27,7 @@ from search_authority.cannibalization import analyse_corpus
 from search_authority.content_auditor import audit_text
 from search_authority.dashboard import collect_data
 from search_authority.hygiene import run as run_hygiene
+from search_authority.reports import compare, explain, load_leads, load_rows
 from search_authority.models import Severity
 from search_authority.schema import (
     generate_blog_schema, generate_breadcrumb_schema, schemas_to_jsonld,
@@ -245,3 +246,57 @@ def hygiene() -> dict:
     than on load.
     """
     return run_hygiene()
+
+
+@app.post("/report/weekly", tags=["reporting"])
+async def weekly(
+    previous: UploadFile = File(..., description="Last period's export"),
+    current: UploadFile = File(..., description="This period's export"),
+    leads: Optional[UploadFile] = File(None, description="Lead status export"),
+) -> dict:
+    """Compare two platform exports and explain what moved.
+
+    Accepts whatever CSV the platform produced — Meta, Google Ads, GA4 and
+    Search Console all name their columns differently, so the columns that
+    were matched come back in the response for checking.
+    """
+    import tempfile
+
+    def spool(upload: UploadFile) -> Path:
+        suffix = Path(upload.filename or "export.csv").suffix or ".csv"
+        handle = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+        handle.write(upload.file.read())
+        handle.close()
+        return Path(handle.name)
+
+    paths = []
+    try:
+        previous_path, current_path = spool(previous), spool(current)
+        paths += [previous_path, current_path]
+
+        previous_rows, previous_meta = load_rows(previous_path)
+        current_rows, current_meta = load_rows(current_path)
+        if not previous_rows and not current_rows:
+            raise HTTPException(422, {
+                "message": "Neither export could be read",
+                "previous": previous_meta, "current": current_meta,
+            })
+
+        lead_data = None
+        if leads is not None and leads.filename:
+            leads_path = spool(leads)
+            paths.append(leads_path)
+            lead_data = load_leads(leads_path)
+
+        comparison = compare(previous_rows, current_rows)
+        return {
+            "columns_used": current_meta.get("columns_used"),
+            "rows_compared": len(comparison["rows"]),
+            "totals": comparison["totals"],
+            "leads": lead_data,
+            "findings": explain(comparison, lead_data),
+            "campaigns": comparison["rows"],
+        }
+    finally:
+        for path in paths:
+            path.unlink(missing_ok=True)

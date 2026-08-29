@@ -22,6 +22,7 @@ from .pipeline import run_pipeline
 from .truth_layer import registry_report
 from .dashboard import build as build_dashboard
 from .hygiene import run as run_hygiene
+from .reports import weekly_report
 
 AGENT_LOG = Path("agent-logs")
 CONFIG_PATH = Path("agent-config.yaml")
@@ -616,17 +617,22 @@ Commands:
   links         Check that County URLs actually resolve
   cannibals     Find pages competing for the same search terms
   hygiene       Check live pages against the registry
+  report        Weekly analysis: --prev A.csv --curr B.csv [--leads L.csv]
   dashboard     Build the HTML dashboard from current audit data
         """,
     )
     parser.add_argument("command", choices=[
         "watch", "health", "decay", "citations", "refresh", "pagespeed",
         "competitors", "truth", "links", "cannibals", "dashboard", "hygiene",
+        "report",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
     parser.add_argument("--gsc", help="GSC export CSV path (for 'decay')")
     parser.add_argument("--urls", nargs="+", help="URLs (for 'pagespeed')")
+    parser.add_argument("--prev", help="Previous period export (for 'report')")
+    parser.add_argument("--curr", help="Current period export (for 'report')")
+    parser.add_argument("--leads", help="Lead status export (for 'report')")
     parser.add_argument("--force", action="store_true")
 
     args = parser.parse_args()
@@ -660,6 +666,12 @@ Commands:
         result = check_links(urls=args.urls)
     elif args.command == "cannibals":
         result = check_cannibalization()
+    elif args.command == "report":
+        if not (args.prev and args.curr):
+            print("Error: --prev and --curr are required for report")
+            sys.exit(1)
+        result = weekly_report(args.prev, args.curr, args.leads)
+        _log("weekly_report", {"findings": len(result.get("findings", []))})
     elif args.command == "hygiene":
         result = run_hygiene(urls=args.urls)
         _log("hygiene", {"pages": result["pages_checked"],
