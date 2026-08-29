@@ -14,7 +14,7 @@ location:
   plot: GH-01
   district: Gautam Buddha Nagar
   pincode: "201301"
-  source: Ivory County price list, w.e.f. 01 Mar 2026
+  source: Ivory County price list, w.e.f. 01 Sept 2026
   last_verified: 2026-08-29
 
 rera:
@@ -29,7 +29,7 @@ rera:
     - UPRERAPRJ115902   # believed Phase 2
     - UPRERAPRJ507062   # believed Phase 3
   portal_url: https://www.up-rera.in/
-  source: Ivory County price list, w.e.f. 01 Mar 2026
+  source: Ivory County price list, w.e.f. 01 Sept 2026
   last_verified: 2026-08-29
   refresh_days: 90
 
@@ -42,25 +42,28 @@ configurations:
     super_area_sqft: 2034
     built_up_area_sqft: 1769
     carpet_area_sqft: 1255
-    basic_price_inr: 37629000
+    basic_price_inr: 38646000
   - type: 3 BHK + 3T + Utility
     code: B
     super_area_sqft: 2304
     built_up_area_sqft: 1969
     carpet_area_sqft: 1396
-    basic_price_inr: 42624000
+    basic_price_inr: 43776000
   - type: 4 BHK + 4T + Utility
     code: C
     super_area_sqft: 2727
     built_up_area_sqft: 2253
     carpet_area_sqft: 1636
-    basic_price_inr: 50449500
+    basic_price_inr: null   # NOT in the 01 Sept 2026 list as converted.
+    # 2727 sq ft falls between the two rate bands (19,000 and 20,000), so
+    # the price is 5,18,13,000 or 5,45,40,000. Confirm from the PDF before
+    # publishing; the March figure of 5,04,49,500 is superseded.
   - type: 4 BHK + 4T + Utility
     code: D
     super_area_sqft: 3195
     built_up_area_sqft: 2603
     carpet_area_sqft: 1950
-    basic_price_inr: 62302500
+    basic_price_inr: 63900000
   # Ivory Gold tier — Phase-2 towers (E, F, G). Same project, premium
   # pricing at Rs 24,000/sq ft super, w.e.f. 01 Sept 2026.
   - type: 4 BHK + 5T
@@ -126,11 +129,14 @@ project_details:
 
 pricing:
   basic_rate_per_sqft_super:
-    - 18500
-    - 19500  # two rate bands appear on the list; confirm which tower/phase each applies to
+    - 19000   # applies to types A and B
+    - 20000   # applies to type D
   currency: INR
-  effective_from: 2026-03-01
-  source: Ivory County price list, w.e.f. 01 Mar 2026
+  effective_from: 2026-09-01
+  supersedes:
+    effective_from: 2026-03-01
+    rates: [18500, 19500]
+  source: Ivory County price list, w.e.f. 01 Sept 2026
   last_verified: 2026-08-29
   refresh_days: 60
   note: >

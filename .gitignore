@@ -109,3 +109,7 @@ agent-logs/
 
 # Generated dashboard (rebuild with: agent dashboard)
 dashboard/
+
+# React console build output and deps
+web/node_modules/
+web/dist/

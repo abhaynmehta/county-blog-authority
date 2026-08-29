@@ -51,12 +51,18 @@ configurations:
     built_up_area_sqft: 3167
     carpet_area_sqft: 2038
     basic_price_inr: 40882500
+  # Jade Gold tier — same project and RERA registrations, premium rate of
+  # Rs 12,500/sq ft super. Source: Jade Gold price list, w.e.f. 15 Oct 2025.
+  - type: 5 BHK + 5T + U
+    code: A
+    tier: Jade Gold
+    super_area_sqft: 5094
+    built_up_area_sqft: 4591
+    carpet_area_sqft: 2951
+    basic_price_inr: 63675000
+    rate_per_sqft_super: 12500
 configurations_source: Jade County price list, w.e.f. 15 Oct 2025
 configurations_last_verified: 2026-08-29
-configurations_note: >
-  A 5 BHK of 5094 sq ft super / 2951 sq ft carpet at Rs 6.37 Cr was mentioned
-  separately but appears in neither the 15 Oct 2025 price list nor the
-  e-brochure. NOT RECORDED — supply a source before any content uses it.
 
 pricing:
   basic_rate_per_sqft_super: 11500
@@ -76,7 +82,18 @@ additional_charges:
   club_membership_inr: 400000
   power_backup_per_kva_inr: 25000
 
+tiers:
+  - name: Jade County
+    rate_per_sqft_super: 11500
+    effective_from: 2025-10-15
+  - name: Jade Gold
+    rate_per_sqft_super: 12500
+    effective_from: 2025-10-15
+    note: >
+      Jade Gold is a premium tier within Jade County under the same RERA
+      registrations, not a separate project. Content may use the name but
+      must not present its pricing as Jade County's or vice versa.
+
 prohibited_for_this_project:
   - Quoting super area as the flat size without naming carpet area
-  - Publishing the 5 BHK configuration until a source is on file
   - Publishing a price without its effective date and asterisk

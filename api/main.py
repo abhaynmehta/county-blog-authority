@@ -1,0 +1,236 @@
+"""FastAPI service exposing the audit engine over HTTP.
+
+This is the boundary that lets a browser do what previously needed a
+terminal. The engine itself is unchanged and still deterministic — the API
+is a thin transport layer over `search_authority`, deliberately holding no
+audit logic of its own, so the CLI and the dashboard can never disagree.
+
+Run locally:
+    uvicorn api.main:app --reload --port 8000
+"""
+
+from __future__ import annotations
+
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from search_authority import __version__ as engine_version
+from search_authority.cannibalization import analyse_corpus
+from search_authority.content_auditor import audit_text
+from search_authority.dashboard import collect_data
+from search_authority.models import Severity
+from search_authority.schema import (
+    generate_blog_schema, generate_breadcrumb_schema, schemas_to_jsonld,
+)
+from search_authority.truth_layer import load_truth_layer, registry_report
+
+app = FastAPI(
+    title="County Group Blog Authority API",
+    version=engine_version,
+    description="Deterministic content audit for County Group real estate content.",
+)
+
+# The dashboard is served from a different origin in development.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
+
+MAX_CONTENT_CHARS = 200_000
+
+
+# ── Schemas ───────────────────────────────────────────────────────────────
+
+class AuditRequest(BaseModel):
+    content: str = Field(..., description="Raw blog text or markdown")
+    slug: str = Field("untitled", description="Slug used for schema URLs")
+
+
+class IssueOut(BaseModel):
+    issue_id: str
+    severity: str
+    owner: str
+    category: str
+    summary: str
+    paragraph: Optional[int] = None
+    quoted_text: Optional[str] = None
+    verified_fact: Optional[str] = None
+    source: Optional[str] = None
+    recommended_action: str
+    acceptance_test: str
+    rule: Optional[str] = None
+
+
+class GateOut(BaseModel):
+    gate: str
+    status: str
+    details: str
+
+
+class AuditResponse(BaseModel):
+    slug: str
+    score: int
+    publishable: bool
+    word_count: int
+    gates: list[GateOut]
+    issues: list[IssueOut]
+    counts: dict
+    audited_at: str
+
+
+# ── Helpers ───────────────────────────────────────────────────────────────
+
+def _to_issue(issue) -> IssueOut:
+    return IssueOut(
+        issue_id=issue.issue_id,
+        severity=issue.severity.value,
+        owner=issue.owner.value,
+        category=issue.category.value,
+        summary=issue.summary,
+        paragraph=issue.paragraph,
+        quoted_text=issue.claim,
+        verified_fact=issue.verified_status,
+        source=issue.evidence_source,
+        recommended_action=issue.recommended_action,
+        acceptance_test=issue.acceptance_test,
+        rule=issue.google_rule or issue.editorial_rule,
+    )
+
+
+def _run_audit(content: str, slug: str) -> AuditResponse:
+    if not content.strip():
+        raise HTTPException(422, "content is empty")
+    if len(content) > MAX_CONTENT_CHARS:
+        raise HTTPException(
+            413, f"content exceeds {MAX_CONTENT_CHARS} characters"
+        )
+
+    result = audit_text(content)
+    return AuditResponse(
+        slug=slug,
+        score=result.score,
+        publishable=result.publishable,
+        word_count=result.word_count,
+        gates=[GateOut(gate=g.gate_name, status=g.status.value, details=g.details)
+               for g in result.gates],
+        issues=[_to_issue(i) for i in result.issues],
+        counts={
+            sev.value: sum(1 for i in result.issues if i.severity == sev)
+            for sev in Severity
+        },
+        audited_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    )
+
+
+# ── Routes ────────────────────────────────────────────────────────────────
+
+@app.get("/health", tags=["ops"])
+def health() -> dict:
+    """Liveness probe. Confirms the engine and registry both load."""
+    layer = load_truth_layer()
+    return {
+        "status": "ok",
+        "engine_version": engine_version,
+        "projects_loaded": len(layer.projects),
+        "claims_loaded": len(layer.claims),
+        "registry_errors": layer.load_errors,
+    }
+
+
+@app.post("/audit", response_model=AuditResponse, tags=["audit"])
+def audit(request: AuditRequest) -> AuditResponse:
+    """Audit pasted content. The same engine the CLI uses."""
+    return _run_audit(request.content, request.slug)
+
+
+@app.post("/schema", tags=["audit"])
+def schema(request: AuditRequest) -> dict:
+    """Generate JSON-LD for a post, ready for AGO to paste into the CMS."""
+    result = audit_text(request.content)
+    headline = result.metadata.title or result.metadata.h1 or request.slug
+    blog = generate_blog_schema(
+        headline=headline,
+        description=result.metadata.meta_description or headline,
+        url=f"https://www.countygroup.in/blog/{request.slug}",
+        date_published=datetime.now(timezone.utc).date().isoformat(),
+    )
+    crumbs = generate_breadcrumb_schema([
+        {"name": "Home", "url": "https://www.countygroup.in/"},
+        {"name": "Blog", "url": "https://www.countygroup.in/blog/"},
+        {"name": headline},
+    ])
+    return {"slug": request.slug, "jsonld": schemas_to_jsonld(blog, crumbs)}
+
+
+@app.get("/projects", tags=["registry"])
+def projects() -> dict:
+    """Every project the registry knows, with its verified figures.
+
+    The dashboard shows these beside an audit so a writer can see the
+    correct carpet area rather than guessing.
+    """
+    layer = load_truth_layer()
+    return {
+        "projects": [
+            {
+                "name": p.name,
+                "slug": p.slug,
+                "city": p.city,
+                "state": p.state,
+                "sector": p.sector,
+                "rera_authority": p.rera_authority,
+                "rera_number": p.rera_number,
+                "promoter": p.promoter,
+                "project_page": p.project_page,
+                "configurations": p.configurations,
+                "unverified_configurations": p.unverified_configurations,
+                "prohibited": p.prohibited,
+            }
+            for p in layer.projects
+        ],
+        "prohibited_wording": layer.prohibited_wording,
+        "load_errors": layer.load_errors,
+    }
+
+
+@app.get("/registry/health", tags=["registry"])
+def registry_health() -> dict:
+    """Which registry facts are stale or missing a source."""
+    return registry_report()
+
+
+@app.get("/corpus", tags=["corpus"])
+def corpus() -> dict:
+    """The audited corpus: scores, gates, and per-document issues."""
+    try:
+        return collect_data()
+    except OSError as exc:
+        raise HTTPException(503, f"corpus data unavailable: {exc}") from exc
+
+
+@app.get("/cannibalization", tags=["corpus"])
+def cannibalization() -> dict:
+    """Pages competing for the same search terms, with the rebuttal text."""
+    import yaml
+
+    from search_authority.dashboard import INVENTORY_PATH
+
+    try:
+        inventory = yaml.safe_load(INVENTORY_PATH.read_text(encoding="utf-8")) or {}
+    except OSError as exc:
+        raise HTTPException(503, f"inventory unavailable: {exc}") from exc
+
+    entries = []
+    for section in ("already_processed", "roi_google_docs", "old_agency_local"):
+        entries.extend(inventory.get(section) or [])
+    return analyse_corpus(entries)

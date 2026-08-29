@@ -1,0 +1,104 @@
+name: Console
+
+# Covers the County Group additions: the audit engine, the HTTP API, the
+# React console, and the container image. The upstream blog-suite checks
+# live in ci.yml and are untouched.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "search_authority/**"
+      - "api/**"
+      - "web/**"
+      - "county_context/**"
+      - "tests/test_search_authority.py"
+      - "tests/test_truth_layer.py"
+      - "tests/test_project_checks.py"
+      - "tests/test_cannibalization.py"
+      - "tests/test_dashboard.py"
+      - "tests/test_agent.py"
+      - "tests/test_api.py"
+      - "Dockerfile"
+      - ".github/workflows/console.yml"
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  engine:
+    name: Engine and API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install pyyaml python-docx pytest "fastapi>=0.110" "uvicorn[standard]" httpx
+
+      - name: Registry smoke test
+        # Fails fast when a YAML file stops parsing. A registry that will
+        # not load silently stops enforcing every fact it holds, so this
+        # runs before the suite rather than as part of it.
+        run: |
+          python - <<'PY'
+          from search_authority.truth_layer import load_truth_layer
+          layer = load_truth_layer()
+          assert not layer.load_errors, layer.load_errors
+          assert layer.projects, "no projects loaded"
+          print(f"{len(layer.projects)} projects, {len(layer.claims)} claims")
+          PY
+
+      - name: County Group test suite
+        run: |
+          pytest -q \
+            tests/test_search_authority.py \
+            tests/test_truth_layer.py \
+            tests/test_project_checks.py \
+            tests/test_cannibalization.py \
+            tests/test_dashboard.py \
+            tests/test_agent.py \
+            tests/test_api.py
+
+  console:
+    name: React console
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v6.0.0
+        with:
+          node-version: "20"
+      - run: npm install
+      - name: Component tests
+        run: npm run test
+      - name: Production build
+        run: npm run build
+
+  image:
+    name: Container image
+    runs-on: ubuntu-latest
+    needs: [engine, console]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build
+        run: docker build -t county-console:${{ github.sha }} .
+      - name: Smoke test the running container
+        # A green build proves the image compiles; only a request proves it
+        # serves. This asserts the registry loaded inside the container too.
+        run: |
+          docker run -d --name console -p 8000:8000 county-console:${{ github.sha }}
+          for _ in $(seq 1 30); do
+            curl -fs http://localhost:8000/health > /dev/null && break
+            sleep 2
+          done
+          curl -fs http://localhost:8000/health | tee /dev/stderr | grep -q '"status":"ok"'
+          curl -fs http://localhost:8000/health | grep -q '"registry_errors":\[\]'
+          docker logs console
+          docker rm -f console
