@@ -1,7 +1,7 @@
 // Thin client over the audit API. Kept separate from components so tests
 // can stub it, and so the base URL changes in exactly one place.
 
-const BASE = import.meta.env?.VITE_API_BASE ?? "/api";
+const BASE = import.meta.env?.VITE_API_BASE ?? "";
 
 async function request(path, options) {
   const response = await fetch(`${BASE}${path}`, {

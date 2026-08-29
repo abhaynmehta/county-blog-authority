@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Kpi } from "./Corpus.jsx";
 
-const BASE = import.meta.env?.VITE_API_BASE ?? "/api";
+const BASE = import.meta.env?.VITE_API_BASE ?? "";
 
 function num(value) {
   return typeof value === "number" ? value.toLocaleString() : "—";

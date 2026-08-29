@@ -5,7 +5,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    proxy: { "/api": { target: "http://localhost:8000", changeOrigin: true, rewrite: p => p.replace(/^\/api/, "") } },
+    // The console calls the API at the root, matching how FastAPI serves
+    // the built bundle in production. These forward those paths to uvicorn
+    // while developing, so there is no dev-only URL shape to get wrong.
+    proxy: Object.fromEntries(
+      [
+        "/health", "/audit", "/schema", "/projects", "/registry",
+        "/corpus", "/cannibalization", "/hygiene", "/report",
+      ].map((path) => [path, { target: "http://localhost:8000", changeOrigin: true }]),
+    ),
   },
   test: {
     environment: "jsdom",

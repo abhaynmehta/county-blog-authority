@@ -18,6 +18,8 @@ from typing import Optional
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -357,3 +359,33 @@ async def social(
         return result
     finally:
         path.unlink(missing_ok=True)
+
+
+# ── Serve the built console from the same process ─────────────────────────
+#
+# With web/dist present this is one command on one port: no separate dev
+# server, no CORS, and it works offline. `npm run dev` is still the better
+# loop while editing the console, but for daily use one process is fewer
+# things to get wrong on a machine that is not this one.
+
+_DIST = Path(__file__).resolve().parent.parent / "web" / "dist"
+
+if _DIST.is_dir():
+    app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
+
+    @app.get("/", include_in_schema=False)
+    def console_index() -> FileResponse:
+        return FileResponse(_DIST / "index.html")
+
+    @app.get("/{path:path}", include_in_schema=False)
+    def console_routes(path: str) -> FileResponse:
+        """Serve a real file when one exists, otherwise the console shell.
+
+        Registered last so every API route above still wins; this only ever
+        sees paths the API did not claim.
+        """
+        candidate = (_DIST / path).resolve()
+        # Containment check: a crafted path must not escape the dist folder.
+        if candidate.is_file() and _DIST.resolve() in candidate.parents:
+            return FileResponse(candidate)
+        return FileResponse(_DIST / "index.html")
