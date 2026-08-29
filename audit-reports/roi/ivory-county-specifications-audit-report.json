@@ -2,12 +2,12 @@
   "file_path": "blogs/roi-incoming/ivory-county-specifications.md",
   "word_count": 541,
   "paragraph_count": 18,
-  "score": 63,
+  "score": 55,
   "publishable": false,
-  "issue_count": 6,
+  "issue_count": 7,
   "issues_by_severity": {
     "critical": 1,
-    "high": 2,
+    "high": 3,
     "medium": 2,
     "low": 0,
     "info": 1
@@ -16,7 +16,7 @@
     "ROI": 6,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 0
+    "INTERNAL": 1
   },
   "gates": [
     {
@@ -98,6 +98,17 @@
     },
     {
       "issue_id": "CG-PROJECT-006",
+      "category": "missing_evidence",
+      "severity": "high",
+      "owner": "INTERNAL",
+      "summary": "Ivory County carpet area 4085 sq ft has no source document on file",
+      "claim": "Carpet Area:** 4085 sq. ft",
+      "reason": "Recorded in the registry as unverified",
+      "recommended_action": "Obtain the price list or floor plan covering this unit, then move it into configurations",
+      "acceptance_test": "4085 sq ft is backed by a dated source"
+    },
+    {
+      "issue_id": "CG-PROJECT-007",
       "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",

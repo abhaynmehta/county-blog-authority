@@ -16,56 +16,67 @@ rera:
   registration_number: null
   portal_url: null
 
-# From County Group floor-plan material supplied 29 Aug 2026.
-# Carpet area is the RERA-disclosed figure; super area is a pricing
-# convention and must never be presented as the size of the flat.
+# ── Sourced from "Jade County Price List", w.e.f. 15 Oct 2025.
+# Supplied by Abhay Mehta, 29 Aug 2026.
+rera_project:
+  authority: UP-RERA
+  registration_numbers:
+    - UPRERAPRJ267958/06/2025
+    - UPRERAPRJ639770/06/2025
+  promoter_name: Themecounty Private Limited
+  promoter_registration_number: UPRERAPRM206951
+  portal_url: https://www.up-rera.in/
+  source: Jade County price list, w.e.f. 15 Oct 2025
+  last_verified: 2026-08-29
+  refresh_days: 90
+  note: Two project registrations listed; confirm which covers which towers.
+
+# Carpet area is the RERA-disclosed figure. Super area is a pricing
+# convention only and must never be presented as the size of the flat.
 configurations:
-  - type: 3 BHK + 3T
+  - type: 3 BHK + 3T + U
     super_area_sqft: 2358
     built_up_area_sqft: 2046
     carpet_area_sqft: 1297
-    price_from_inr: 27100000
-  - type: 4 BHK + 4T
+    basic_price_inr: 27117000
+  - type: 4 BHK + 4T + U
+    code: C
     super_area_sqft: 2898
     built_up_area_sqft: 2562
     carpet_area_sqft: 1612
-    price_from_inr: 33300000
-  - type: 4 BHK + 4T
+    basic_price_inr: 33327000
+  - type: 4 BHK + 4T + U
+    code: B
     super_area_sqft: 3555
     built_up_area_sqft: 3167
     carpet_area_sqft: 2038
-    price_from_inr: 40800000
-  - type: 5 BHK + 5T
-    super_area_sqft: 5094
-    built_up_area_sqft: 4591
-    carpet_area_sqft: 2951
-    price_from_inr: 63700000
-configurations_source: County Group floor-plan material
+    basic_price_inr: 40882500
+configurations_source: Jade County price list, w.e.f. 15 Oct 2025
 configurations_last_verified: 2026-08-29
+configurations_note: >
+  A 5 BHK of 5094 sq ft super / 2951 sq ft carpet at Rs 6.37 Cr was mentioned
+  separately but appears in neither the 15 Oct 2025 price list nor the
+  e-brochure. NOT RECORDED — supply a source before any content uses it.
 
 pricing:
-  starting_price_inr: 27100000
+  basic_rate_per_sqft_super: 11500
   currency: INR
-  source: County Group floor-plan material
+  effective_from: 2025-10-15
+  starting_price_inr: 27117000
+  starting_price_display: "Rs 2.71 Cr* onwards"
+  source: Jade County price list, w.e.f. 15 Oct 2025
   last_verified: 2026-08-29
   refresh_days: 60
   note: >
-    Prices are "onwards" and carry an asterisk in source material. Never
-    publish without the asterisk and an effective date.
+    Effective date is 15 Oct 2025 — the oldest price list in the registry.
+    Confirm it is still current before publishing.
+
+additional_charges:
+  parking_per_car_inr: 600000
+  club_membership_inr: 400000
+  power_backup_per_kva_inr: 25000
 
 prohibited_for_this_project:
   - Quoting super area as the flat size without naming carpet area
+  - Publishing the 5 BHK configuration until a source is on file
   - Publishing a price without its effective date and asterisk
-
-project_details:
-  total_units: null
-  towers: null
-
-amenities: []
-pricing:
-  price_per_sqft: null
-  last_verified: null
-  source: null
-
-county_urls:
-  project_page: null

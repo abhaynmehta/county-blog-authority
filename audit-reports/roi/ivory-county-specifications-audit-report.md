@@ -1,11 +1,11 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/ivory-county-specifications.md
-**Score:** 63/100
+**Score:** 55/100
 **Publishable:** No
 **Word Count:** 541
 **Paragraphs:** 18
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -30,7 +30,7 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 - **Acceptance test:** No 'world-class without evidence' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (2)
+## HIGH Issues (3)
 
 ### CG-CONTENT-003: No internal or external links found in content
 
@@ -46,6 +46,15 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 - **Action:** Expand content to at least 1200-1500 words with substantive sections
 - **Acceptance test:** Word count >= 1200
 - **Google rule:** CONTENT-THIN-001
+
+### CG-PROJECT-006: Ivory County carpet area 4085 sq ft has no source document on file
+
+- **Owner:** INTERNAL
+- **Category:** missing_evidence
+- **Found:** "Carpet Area:** 4085 sq. ft"
+- **Reason:** Recorded in the registry as unverified
+- **Action:** Obtain the price list or floor plan covering this unit, then move it into configurations
+- **Acceptance test:** 4085 sq ft is backed by a dated source
 
 ## MEDIUM Issues (2)
 
@@ -66,7 +75,7 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 
 ## INFO Issues (1)
 
-### CG-PROJECT-006: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+### CG-PROJECT-007: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -79,3 +88,4 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
 | ROI | 1 | 2 | 2 | 0 | 6 |
+| INTERNAL | 0 | 1 | 0 | 0 | 1 |

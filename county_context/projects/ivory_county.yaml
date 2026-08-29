@@ -21,7 +21,13 @@ rera:
   # NOTE: UPRERAPRM206951 is a PROMOTER registration, not a per-project
   # registration. Content must not present it as a project RERA number.
   promoter_registration_number: UPRERAPRM206951
-  project_registration_number: null  # verify per phase on up-rera.in
+  project_registration_numbers:
+    # Three phase-level registrations. Order follows the collection-account
+    # table in the price list; confirm the phase mapping on the portal
+    # before citing a specific number for a specific tower.
+    - UPRERAPRJ256314   # believed Phase 1
+    - UPRERAPRJ115902   # believed Phase 2
+    - UPRERAPRJ507062   # believed Phase 3
   portal_url: https://www.up-rera.in/
   source: Ivory County price list, w.e.f. 01 Mar 2026
   last_verified: 2026-08-29
@@ -117,3 +123,45 @@ prohibited_for_this_project:
   - Presenting the promoter registration number as a project RERA number
   - Quoting super area as the flat size without naming carpet area
   - Publishing any price without its effective date
+
+# ── Ivory Gold: the premium tier within Ivory County (E/F/G towers,
+# Phase 2), priced separately. Sourced from "Ivory Gold Price List",
+# w.e.f. 01 Sept 2026.
+sub_brand:
+  name: Ivory Gold
+  relationship: Premium tier within Ivory County, Phase 2 towers (E, F, G)
+  basic_rate_per_sqft_super: 24000
+  effective_from: 2026-09-01
+  parking_note: Minimum two parking spaces for E, F, G / Phase-2 towers
+  configurations:
+    - type: 4 BHK + 5T
+      code: E
+      super_area_sqft: 3987
+      built_up_area_sqft: 3376
+      carpet_area_sqft: 2249
+      basic_price_inr: 95688000
+    - type: 4 BHK + 5T + 2U
+      code: F
+      super_area_sqft: 4707
+      built_up_area_sqft: 4429
+      carpet_area_sqft: 2801
+      basic_price_inr: 112968000
+  # Unit G appears in agency specification content and the parking note
+  # names E, F and G towers, but G's areas are in no price list on file.
+  # Recorded as unverified so the auditor stops reporting it as an error
+  # without treating an unsourced figure as fact.
+  unverified_configurations:
+    - type: 5 BHK Signature Residence
+      code: G
+      super_area_sqft: 6939
+      carpet_area_sqft: 4085
+      status: unverified
+      seen_in: Ivory County specifications (agency content)
+      needed: Price list or floor-plan document covering G tower
+  source: Ivory Gold price list, w.e.f. 01 Sept 2026
+  last_verified: 2026-08-29
+  refresh_days: 60
+  note: >
+    Ivory Gold is priced at Rs 24,000/sq ft against Ivory County's
+    Rs 18,500-19,500. Content must not present one project's pricing as
+    the other's.

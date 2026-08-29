@@ -31,6 +31,8 @@ def registry(tmp_path: Path) -> Path:
         "  registration_number: RC/REP/HARERA/GGM/46\n"
         "configurations:\n"
         "  - {type: 3 BHK, super_area_sqft: 1565, carpet_area_sqft: 888}\n"
+        "  - {type: 3 BHK, super_area_sqft: 1910, carpet_area_sqft: 1076}\n"
+        "  - {type: 3 BHK, super_area_sqft: 2175, carpet_area_sqft: 1292}\n"
         "county_urls:\n"
         "  project_page: https://www.countygroup.in/centercourt/\n"
         "prohibited_for_this_project:\n"
@@ -333,3 +335,79 @@ def test_a_travel_time_claim_is_reported_once_not_twice(patched):
     result = audit_text("# X\n\nIt is 30 minutes from IFFCO Chowk.\n")
     hits = [i for i in result.issues if "travel time" in i.summary.lower()]
     assert len(hits) == 1
+
+
+# --- Carpet area validation ---
+
+def test_carpet_area_not_in_the_registry_is_critical(patched):
+    """The registry knows Center Court's carpet areas; a figure that matches
+    none of them is a RERA disclosure error."""
+    result = audit_text("# X\n\nThe Center Court has a carpet area of 1850 sq ft.\n")
+    assert any("not a registered configuration" in i.summary for i in criticals(result))
+
+
+@pytest.mark.parametrize("area", [888, 1076, 1292])
+def test_registered_carpet_areas_are_accepted(patched, area):
+    result = audit_text(f"# X\n\nThe Center Court has a carpet area of {area} sq ft.\n")
+    assert not any("not a registered" in i.summary for i in result.issues)
+
+
+def test_small_rounding_is_tolerated(patched):
+    """Writers round 888 to 890; that is not a factual error."""
+    result = audit_text("# X\n\nThe Center Court carpet area is 890 sq ft.\n")
+    assert not any("not a registered" in i.summary for i in result.issues)
+
+
+def test_a_figure_far_from_any_project_mention_is_not_attributed(patched):
+    """A generic market statistic must not be read as a project claim."""
+    body = "The Center Court is in Gurugram.\n\n" + ("Filler sentence. " * 80)
+    body += "\n\nTypical NCR homes have a carpet area of 1850 sq ft.\n"
+    result = audit_text(f"# X\n\n{body}")
+    assert not any("not a registered" in i.summary for i in result.issues)
+
+
+def test_projects_without_registered_areas_are_not_checked(patched):
+    """Ivory County in this fixture has one config; a project with none
+    must not produce false findings."""
+    result = audit_text("# X\n\nIvory County has a carpet area of 1255 sq ft.\n")
+    assert not any("not a registered" in i.summary for i in result.issues)
+
+
+def test_unverified_figure_reports_a_missing_source_not_a_wrong_number(tmp_path, monkeypatch):
+    """A figure the registry lists as unverified is awaiting a source, which
+    is a different problem from one that contradicts the registry."""
+    projects = tmp_path / "projects"
+    projects.mkdir(parents=True)
+    (projects / "p.yaml").write_text(
+        "project:\n  name: Ivory County\n"
+        "location:\n  city: Noida\n  state: Uttar Pradesh\n"
+        "configurations:\n"
+        "  - {type: 3 BHK, carpet_area_sqft: 1255}\n"
+        "unverified_configurations:\n"
+        "  - {type: 5 BHK, carpet_area_sqft: 4085, status: unverified}\n",
+        encoding="utf-8",
+    )
+    import search_authority.content_auditor as ca
+    monkeypatch.setattr(ca, "load_truth_layer", lambda *a: load_truth_layer(tmp_path))
+
+    result = audit_text("# X\n\nIvory County has a carpet area of 4085 sq ft.\n")
+
+    assert any("no source document" in i.summary for i in result.issues)
+    assert not any("not a registered" in i.summary for i in result.issues)
+
+
+def test_a_figure_matching_neither_list_is_still_a_factual_error(tmp_path, monkeypatch):
+    projects = tmp_path / "projects"
+    projects.mkdir(parents=True)
+    (projects / "p.yaml").write_text(
+        "project:\n  name: Ivory County\n"
+        "location:\n  city: Noida\n  state: Uttar Pradesh\n"
+        "configurations:\n  - {type: 3 BHK, carpet_area_sqft: 1255}\n"
+        "unverified_configurations:\n  - {type: 5 BHK, carpet_area_sqft: 4085}\n",
+        encoding="utf-8",
+    )
+    import search_authority.content_auditor as ca
+    monkeypatch.setattr(ca, "load_truth_layer", lambda *a: load_truth_layer(tmp_path))
+
+    result = audit_text("# X\n\nIvory County has a carpet area of 9999 sq ft.\n")
+    assert any("not a registered" in i.summary for i in result.issues)

@@ -73,7 +73,7 @@ The following issues require your attention.
 
 ### CG-PROJECT-009 — INFO
 
-**Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet**
+**Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area**
 
 - **Fix:** Confirm the content does not do this
-- **Done when:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Done when:** Quoting super area as the flat size without naming carpet area

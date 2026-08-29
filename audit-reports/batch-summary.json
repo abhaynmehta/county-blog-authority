@@ -4,7 +4,7 @@
   "skipped": 0,
   "errors": 0,
   "publishable": 42,
-  "avg_score": 67.9,
+  "avg_score": 67.8,
   "results": [
     {
       "slug": "flats-in-gurgaon-sector-88",
@@ -130,7 +130,7 @@
       "slug": "county-courtyard-commercial-delhi",
       "publishable": false,
       "score": 57,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -330,7 +330,7 @@
       "slug": "county-courtyard-nsp-upgrade",
       "publishable": false,
       "score": 60,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -589,8 +589,8 @@
     {
       "slug": "ivory-county-specifications",
       "publishable": false,
-      "score": 63,
-      "issue_count": 6,
+      "score": 55,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -870,7 +870,7 @@
       "slug": "county-courtyard-overview-nsp",
       "publishable": false,
       "score": 70,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -890,7 +890,7 @@
       "slug": "county-courtyard-masterplan",
       "publishable": false,
       "score": 70,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -910,7 +910,7 @@
       "slug": "county-courtyard-amenities",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -930,7 +930,7 @@
       "slug": "county-courtyard-location-nsp",
       "publishable": true,
       "score": 75,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -950,7 +950,7 @@
       "slug": "county-courtyard-workspace",
       "publishable": false,
       "score": 70,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -970,7 +970,7 @@
       "slug": "county-courtyard-retail",
       "publishable": false,
       "score": 70,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -990,7 +990,7 @@
       "slug": "county-courtyard-leisure",
       "publishable": true,
       "score": 75,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1170,7 +1170,7 @@
       "slug": "commercial-property-delhi-landing",
       "publishable": true,
       "score": 78,
-      "issue_count": 4,
+      "issue_count": 5,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1450,7 +1450,7 @@
       "slug": "commercial-real-estate-delhi-ncr",
       "publishable": true,
       "score": 72,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",

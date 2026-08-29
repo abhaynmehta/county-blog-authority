@@ -700,6 +700,64 @@ def _check_projects(text: str, issues: list[AuditIssue], issue_counter: list[int
                     ))
                     break
 
+        # A carpet-area figure attributed to this project that matches none
+        # of its registered configurations. This is the check the registry
+        # exists for: a wrong area is a RERA disclosure error, and no
+        # proofreader remembers four projects' worth of figures.
+        registered = set(project.carpet_areas())
+        if registered:
+            for match in re.finditer(
+                r"carpet\s+area[^.\n]{0,60}?([\d,]{3,7})\s*(?:sq\.?\s*ft|square\s+feet)",
+                text, re.IGNORECASE,
+            ):
+                try:
+                    stated = int(match.group(1).replace(",", ""))
+                except ValueError:
+                    continue
+                # Allow a small rounding tolerance; the source lists whole
+                # square feet but writers sometimes round to the nearest ten.
+                if any(abs(stated - r) <= 5 for r in registered):
+                    continue
+                # Only complain when the figure is plausibly about this
+                # project — i.e. the project is named nearby.
+                if not _near(text, project.name, match.group(1), window=400):
+                    continue
+                # A figure the registry knows about but cannot yet source is
+                # a different problem from one that contradicts the registry.
+                awaiting = any(abs(stated - u) <= 5
+                               for u in project.unverified_carpet_areas())
+                issue_counter[0] += 1
+                if awaiting:
+                    issues.append(AuditIssue(
+                        issue_id=f"CG-PROJECT-{issue_counter[0]:03d}",
+                        category=IssueCategory.MISSING_EVIDENCE,
+                        severity=Severity.HIGH,
+                        owner=Owner.INTERNAL,
+                        summary=(f"{project.name} carpet area {stated} sq ft has no "
+                                 f"source document on file"),
+                        claim=match.group(0)[:160],
+                        reason="Recorded in the registry as unverified",
+                        recommended_action="Obtain the price list or floor plan covering "
+                                           "this unit, then move it into configurations",
+                        acceptance_test=f"{stated} sq ft is backed by a dated source",
+                    ))
+                else:
+                    issues.append(AuditIssue(
+                        issue_id=f"CG-PROJECT-{issue_counter[0]:03d}",
+                        category=IssueCategory.FACTUAL_ERROR,
+                        severity=Severity.CRITICAL,
+                        owner=Owner.ROI,
+                        summary=(f"{project.name} carpet area {stated} sq ft is not a "
+                                 f"registered configuration"),
+                        claim=match.group(0)[:160],
+                        verified_status=(f"Registered carpet areas for {project.name}: "
+                                         + ", ".join(str(r) for r in sorted(registered)) + " sq ft"),
+                        recommended_action="Correct the figure to a registered carpet area, "
+                                           "or remove it",
+                        acceptance_test=f"Every {project.name} carpet area matches the registry",
+                        google_rule="CONTENT-RERA-002",
+                    ))
+
         # Project-specific bans declared in the project YAML.
         for rule in project.prohibited:
             issue_counter[0] += 1

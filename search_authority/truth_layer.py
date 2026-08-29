@@ -102,10 +102,23 @@ class Project:
     project_page: Optional[str] = None
     prohibited: list[str] = field(default_factory=list)
     configurations: list[dict] = field(default_factory=list)
+    # Figures seen in content but with no source document on file. Kept
+    # apart from `configurations` so they are never treated as verified,
+    # while still letting the auditor say "awaiting a source" rather than
+    # "this number is wrong".
+    unverified_configurations: list[dict] = field(default_factory=list)
 
     def carpet_areas(self) -> list[int]:
         out = []
         for c in self.configurations:
+            v = c.get("carpet_area_sqft")
+            if isinstance(v, (int, float)):
+                out.append(int(v))
+        return out
+
+    def unverified_carpet_areas(self) -> list[int]:
+        out = []
+        for c in self.unverified_configurations:
             v = c.get("carpet_area_sqft")
             if isinstance(v, (int, float)):
                 out.append(int(v))
@@ -306,8 +319,20 @@ def _load_projects(projects_dir: Path, errors: list[dict]) -> list[Project]:
                 for p in (data.get("prohibited_for_this_project") or [])
                 if str(p).strip()
             ],
+            # A sub-brand (Ivory Gold within Ivory County) is a tier of the
+            # same project, so its units are registered configurations too.
+            # Omitting them made valid carpet areas look unregistered.
             configurations=[
-                c for c in (data.get("configurations") or []) if isinstance(c, dict)
+                c for c in (
+                    (data.get("configurations") or [])
+                    + ((data.get("sub_brand") or {}).get("configurations") or [])
+                ) if isinstance(c, dict)
+            ],
+            unverified_configurations=[
+                c for c in (
+                    (data.get("unverified_configurations") or [])
+                    + ((data.get("sub_brand") or {}).get("unverified_configurations") or [])
+                ) if isinstance(c, dict)
             ],
         ))
 

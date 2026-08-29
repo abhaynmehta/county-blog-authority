@@ -81,19 +81,78 @@ county_urls:
   contact_page: null
   site_visit_page: null
 
-# Supplied 29 Aug 2026. Unit-level areas not yet provided — do not publish
-# any Clove County area figure until the floor-plan kit is in the registry.
-positioning:
-  tagline: Limited Residences, Infinite Calm
-  configurations_offered:
-    - 4 BHK
-    - 5 BHK
-  starting_price_inr: 80000000
-  starting_price_display: "Rs 8 Cr. Onwards"
-  source: County Group project material
+
+# ── Sourced from "Price List- 151", w.e.f. 01 Mar 2026, and CLOVE-MKIT
+# unit plans. Supplied by Abhay Mehta, 29 Aug 2026.
+rera_project:
+  authority: UP-RERA
+  registration_number: UPRERAPRJ696539/11/2025
+  project_launch_date: 2025-11-27
+  promoter_name: Shirja Real Estate Solutions Pvt. Ltd.
+  portal_url: https://www.up-rera.in/
+  source: Clove County price list, w.e.f. 01 Mar 2026
+  last_verified: 2026-08-29
+  refresh_days: 90
+  note: >
+    The RERA promoter is Shirja Real Estate Solutions Pvt. Ltd., not County
+    Group. Confirm how content may describe the relationship before
+    publishing "a County Group project" alongside this registration number.
+
+# Carpet area is the RERA-disclosed figure. Super area is a pricing
+# convention only and must never be presented as the size of the flat.
+configurations:
+  - type: 5 BHK + 6T + 2U
+    code: A
+    super_area_sqft: 6417
+    built_up_area_sqft: 5685
+    carpet_area_sqft: 3744
+    basic_price_inr: 128340000
+  - type: 5 BHK + 6T + 2U
+    code: B
+    super_area_sqft: 5310
+    built_up_area_sqft: 4726
+    carpet_area_sqft: 2990
+    basic_price_inr: 106200000
+  - type: 4 BHK + 5T + U
+    code: C
+    super_area_sqft: 4077
+    built_up_area_sqft: 3668
+    carpet_area_sqft: 2282
+    basic_price_inr: 81540000
+configurations_source: Clove County price list, w.e.f. 01 Mar 2026
+configurations_last_verified: 2026-08-29
+
+pricing:
+  basic_rate_per_sqft_super: 20000
+  currency: INR
+  effective_from: 2026-03-01
+  starting_price_inr: 81540000
+  starting_price_display: "Rs 8.15 Cr* onwards"
+  source: Clove County price list, w.e.f. 01 Mar 2026
   last_verified: 2026-08-29
   refresh_days: 60
 
+additional_charges:
+  parking_per_car_inr: 700000
+  parking_note: Two parking spaces are compulsory
+  one_time_lease_rent_per_sqft_inr: 600
+  club_membership_inr: 700000
+  power_backup_per_kva_inr: 25000
+  ifms_per_sqft_inr: 70
+
+floor_charges_per_sqft_inr:
+  "1-5": 250
+  "6-10": 350
+  "11-15": 300
+  "16-25": 200
+
+positioning:
+  tagline: Limited Residences, Infinite Calm
+  configurations_offered: [4 BHK, 5 BHK]
+  source: County Group project material
+  last_verified: 2026-08-29
+
 prohibited_for_this_project:
-  - Publishing a Clove County carpet or super area figure; none is registered yet
+  - Quoting super area as the flat size without naming carpet area
   - Publishing a price without its effective date and asterisk
+  - Presenting Shirja Real Estate Solutions as County Group without explaining the relationship

@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 7**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -61,3 +61,10 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROJECT-008 — INFO
+
+**Reviewer note for County Courtyard: Publishing any price, per-sq-ft rate, or "starting from" figure**
+
+- **Fix:** Confirm the content does not do this
+- **Done when:** Publishing any price, per-sq-ft rate, or "starting from" figure

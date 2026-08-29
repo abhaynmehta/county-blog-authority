@@ -1,7 +1,7 @@
 # County Group — Brand Context
 
 ## Who We Are
-County Group is an NCR-based real estate developer building premium and luxury residential projects in Noida, Greater Noida, Gurgaon, Ghaziabad, and Delhi. Our portfolio includes Clove County (Sector 151, Noida), Center Court (Sector 88A, Noida), Jade County (Ghaziabad), Ivory County (Noida), and County Courtyard (Delhi, commercial).
+County Group is an NCR-based real estate developer building premium and luxury residential projects in Noida, Greater Noida, Gurgaon, Ghaziabad, and Delhi. Our portfolio includes Clove County (Sector 151, Noida), The Center Court (Sector 88-A, Gurugram, Haryana — registered with HARERA, not UP-RERA), Jade County (Ghaziabad), Ivory County (Sector 115, Noida, including the Ivory Gold premium tier), and County Courtyard (Delhi, commercial).
 
 ## Our Audience
 Indian homebuyers and property investors in NCR — specifically:

@@ -27,3 +27,22 @@ pricing:
 
 county_urls:
   project_page: null
+
+# ── Commercial project. Pricing is deliberately NOT recorded: rates are not
+# fixed, so any published figure would go stale immediately. Confirmed by
+# Abhay Mehta, 29 Aug 2026.
+commercial:
+  asset_class: commercial
+  pricing_status: not_fixed
+  pricing_recorded: false
+  last_confirmed: 2026-08-29
+  note: >
+    Do not publish a price, rate, or "starting from" figure for County
+    Courtyard. Direct enquiries to the sales team instead.
+
+location_status: unverified   # registry says Delhi; no source document on file
+
+prohibited_for_this_project:
+  - Publishing any price, per-sq-ft rate, or "starting from" figure
+  - Stating a location as fact until a source document is on file
+  - Describing it as residential; it is a commercial project

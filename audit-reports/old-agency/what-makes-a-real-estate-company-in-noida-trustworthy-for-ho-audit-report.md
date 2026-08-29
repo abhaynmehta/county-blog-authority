@@ -79,12 +79,12 @@ Remember that the best builder in Noida will never flinch when you ask to see th
 
 ## INFO Issues (1)
 
-### CG-PROJECT-008: Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet
+### CG-PROJECT-008: Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area
 
 - **Owner:** ROI
 - **Category:** missing_evidence
 - **Action:** Confirm the content does not do this
-- **Acceptance test:** Publishing a Clove County carpet or super area figure; none is registered yet
+- **Acceptance test:** Quoting super area as the flat size without naming carpet area
 - **Editorial rule:** PROJECT_SPECIFIC_RULE
 
 ## Issues by Owner

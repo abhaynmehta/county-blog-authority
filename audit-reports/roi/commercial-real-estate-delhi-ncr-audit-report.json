@@ -4,16 +4,16 @@
   "paragraph_count": 17,
   "score": 72,
   "publishable": true,
-  "issue_count": 6,
+  "issue_count": 7,
   "issues_by_severity": {
     "critical": 0,
     "high": 2,
     "medium": 4,
     "low": 0,
-    "info": 0
+    "info": 1
   },
   "issues_by_owner": {
-    "ROI": 6,
+    "ROI": 7,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -104,6 +104,17 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-PROJECT-007",
+      "category": "missing_evidence",
+      "severity": "info",
+      "owner": "ROI",
+      "summary": "Reviewer note for County Courtyard: Publishing any price, per-sq-ft rate, or \"starting from\" figure",
+      "reason": "",
+      "recommended_action": "Confirm the content does not do this",
+      "acceptance_test": "Publishing any price, per-sq-ft rate, or \"starting from\" figure",
+      "editorial_rule": "PROJECT_SPECIFIC_RULE"
     }
   ]
 }

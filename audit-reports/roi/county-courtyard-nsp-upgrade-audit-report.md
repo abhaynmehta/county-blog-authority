@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 363
 **Paragraphs:** 13
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -71,8 +71,18 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## INFO Issues (1)
+
+### CG-PROJECT-007: Reviewer note for County Courtyard: Publishing any price, per-sq-ft rate, or "starting from" figure
+
+- **Owner:** ROI
+- **Category:** missing_evidence
+- **Action:** Confirm the content does not do this
+- **Acceptance test:** Publishing any price, per-sq-ft rate, or "starting from" figure
+- **Editorial rule:** PROJECT_SPECIFIC_RULE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 2 | 3 | 0 | 6 |
+| ROI | 1 | 2 | 3 | 0 | 7 |

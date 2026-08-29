@@ -135,10 +135,10 @@
       "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",
-      "summary": "Reviewer note for Clove County: Publishing a Clove County carpet or super area figure; none is registered yet",
+      "summary": "Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area",
       "reason": "",
       "recommended_action": "Confirm the content does not do this",
-      "acceptance_test": "Publishing a Clove County carpet or super area figure; none is registered yet",
+      "acceptance_test": "Quoting super area as the flat size without naming carpet area",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
     }
   ]

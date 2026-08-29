@@ -53,7 +53,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-commercial-delhi.md
   status: audited
   score: 57
-  issues: 7
+  issues: 8
   critical: 1
   publishable: false
 - id: 1KZc7X3GHcHjHyBbUMxJY4NHqZzA6xSGdchtFYDzcLGk
@@ -133,7 +133,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-nsp-upgrade.md
   status: audited
   score: 60
-  issues: 6
+  issues: 7
   critical: 1
   publishable: false
 - id: 1NnszjBdtjX8tjm8NEXC-e_62OSs7dg2mQmL4Xxo_67s
@@ -236,8 +236,8 @@ roi_google_docs:
   title: Ivory County Specifications
   local_file: blogs/roi-incoming/ivory-county-specifications.md
   status: audited
-  score: 63
-  issues: 6
+  score: 55
+  issues: 7
   critical: 1
   publishable: false
 - id: 1N2Zip65tSx2YTuIi_NPCt0kWq63FvqHARCBgeFfTN6M
@@ -349,7 +349,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-overview-nsp.md
   status: audited
   score: 70
-  issues: 5
+  issues: 6
   critical: 0
   publishable: false
 - id: 1gqaPIUsuayqK1snNY6z8t4rY44MQoQLUZEkl6r6qCaM
@@ -357,7 +357,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-masterplan.md
   status: audited
   score: 70
-  issues: 5
+  issues: 6
   critical: 0
   publishable: false
 - id: 1j75Wgm10f3Uau9u7jNuHv_kiYWSJF_7y5nYJ8VAkYw4
@@ -365,7 +365,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-amenities.md
   status: audited
   score: 78
-  issues: 4
+  issues: 5
   critical: 0
   publishable: true
 - id: 1dzVfcmfF3KdmEEUeOCx0u_qGEOunQvUWWJz3lBY2Fh8
@@ -373,7 +373,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-location-nsp.md
   status: audited
   score: 75
-  issues: 5
+  issues: 6
   critical: 0
   publishable: true
 - id: 1eBQQdKvQ05rmQZOkVtmeRtpi46cHayb4itZtVH5tMas
@@ -381,7 +381,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-workspace.md
   status: audited
   score: 70
-  issues: 5
+  issues: 6
   critical: 0
   publishable: false
 - id: 17HQw1sbdzcVrnYEx_K5wtBkKZ_kHLO2xs8tJiagLx2A
@@ -389,7 +389,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-retail.md
   status: audited
   score: 70
-  issues: 5
+  issues: 6
   critical: 0
   publishable: false
 - id: 1i3qHUWOgUITXeUwTgXb7bp8BqWiRq0-WHMeBoEUiHIk
@@ -397,7 +397,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-courtyard-leisure.md
   status: audited
   score: 75
-  issues: 5
+  issues: 6
   critical: 0
   publishable: true
 - id: 1NY3fEXqe6JXa0R9jK6KriXH_dyJat735zfY1fLWjnrk
@@ -469,7 +469,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/commercial-property-delhi-landing.md
   status: audited
   score: 78
-  issues: 4
+  issues: 5
   critical: 0
   publishable: true
 - id: 1pcMMZWx7eqqkyRA2TInDH8w8iP8cq1kkc5l8XM_uCs0
@@ -581,7 +581,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/commercial-real-estate-delhi-ncr.md
   status: audited
   score: 72
-  issues: 6
+  issues: 7
   critical: 0
   publishable: true
 - id: 1nOGzOrebrL0uUKQ7fRFUQkx6W2qni3FXwiGwHL6749A
