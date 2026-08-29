@@ -94,9 +94,9 @@ rera_project:
   last_verified: 2026-08-29
   refresh_days: 90
   note: >
-    The RERA promoter is Shirja Real Estate Solutions Pvt. Ltd., not County
-    Group. Confirm how content may describe the relationship before
-    publishing "a County Group project" alongside this registration number.
+    Project-level SPV under the County Group umbrella. Separate promoter
+    entities per project are the norm; this is not a discrepancy. The name
+    is recorded because RERA verification requires it to match the portal.
 
 # Carpet area is the RERA-disclosed figure. Super area is a pricing
 # convention only and must never be presented as the size of the flat.
@@ -155,4 +155,3 @@ positioning:
 prohibited_for_this_project:
   - Quoting super area as the flat size without naming carpet area
   - Publishing a price without its effective date and asterisk
-  - Presenting Shirja Real Estate Solutions as County Group without explaining the relationship

@@ -61,6 +61,55 @@ configurations:
     built_up_area_sqft: 2603
     carpet_area_sqft: 1950
     basic_price_inr: 62302500
+  # Ivory Gold tier — Phase-2 towers (E, F, G). Same project, premium
+  # pricing at Rs 24,000/sq ft super, w.e.f. 01 Sept 2026.
+  - type: 4 BHK + 5T
+    code: E
+    tier: Ivory Gold
+    super_area_sqft: 3987
+    built_up_area_sqft: 3376
+    carpet_area_sqft: 2249
+    basic_price_inr: 95688000
+    rate_per_sqft_super: 24000
+    effective_from: 2026-09-01
+  - type: 4 BHK + 5T + 2U
+    code: F
+    tier: Ivory Gold
+    super_area_sqft: 4707
+    built_up_area_sqft: 4429
+    carpet_area_sqft: 2801
+    basic_price_inr: 112968000
+    rate_per_sqft_super: 24000
+    effective_from: 2026-09-01
+
+# Seen in agency specification content; the parking note names E, F and G
+# towers, but G's areas appear in no price list on file. Kept out of the
+# verified list so nothing publishes it as fact.
+unverified_configurations:
+  - type: 5 BHK Signature Residence
+    code: G
+    tier: Ivory Gold
+    super_area_sqft: 6939
+    carpet_area_sqft: 4085
+    status: unverified
+    seen_in: Ivory County specifications (agency content)
+    needed: Price list or floor plan covering G tower
+
+tiers:
+  - name: Ivory County
+    towers: [A1, A2, A3, B1-B6, C1-C6, D1, D2]
+    rate_per_sqft_super: [18500, 19500]
+    effective_from: 2026-03-01
+  - name: Ivory Gold
+    towers: [E, F1, F2, G]
+    phase: 2
+    rate_per_sqft_super: 24000
+    effective_from: 2026-09-01
+    parking_note: Minimum two parking spaces for E, F, G / Phase-2 towers
+    note: >
+      Ivory Gold is a premium tier within Ivory County, not a separate
+      project. Content may use the Ivory Gold name, but must not present
+      its pricing as Ivory County's or vice versa.
 
 project_details:
   phases:
@@ -123,45 +172,3 @@ prohibited_for_this_project:
   - Presenting the promoter registration number as a project RERA number
   - Quoting super area as the flat size without naming carpet area
   - Publishing any price without its effective date
-
-# ── Ivory Gold: the premium tier within Ivory County (E/F/G towers,
-# Phase 2), priced separately. Sourced from "Ivory Gold Price List",
-# w.e.f. 01 Sept 2026.
-sub_brand:
-  name: Ivory Gold
-  relationship: Premium tier within Ivory County, Phase 2 towers (E, F, G)
-  basic_rate_per_sqft_super: 24000
-  effective_from: 2026-09-01
-  parking_note: Minimum two parking spaces for E, F, G / Phase-2 towers
-  configurations:
-    - type: 4 BHK + 5T
-      code: E
-      super_area_sqft: 3987
-      built_up_area_sqft: 3376
-      carpet_area_sqft: 2249
-      basic_price_inr: 95688000
-    - type: 4 BHK + 5T + 2U
-      code: F
-      super_area_sqft: 4707
-      built_up_area_sqft: 4429
-      carpet_area_sqft: 2801
-      basic_price_inr: 112968000
-  # Unit G appears in agency specification content and the parking note
-  # names E, F and G towers, but G's areas are in no price list on file.
-  # Recorded as unverified so the auditor stops reporting it as an error
-  # without treating an unsourced figure as fact.
-  unverified_configurations:
-    - type: 5 BHK Signature Residence
-      code: G
-      super_area_sqft: 6939
-      carpet_area_sqft: 4085
-      status: unverified
-      seen_in: Ivory County specifications (agency content)
-      needed: Price list or floor-plan document covering G tower
-  source: Ivory Gold price list, w.e.f. 01 Sept 2026
-  last_verified: 2026-08-29
-  refresh_days: 60
-  note: >
-    Ivory Gold is priced at Rs 24,000/sq ft against Ivory County's
-    Rs 18,500-19,500. Content must not present one project's pricing as
-    the other's.

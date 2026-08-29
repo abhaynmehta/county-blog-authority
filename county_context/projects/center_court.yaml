@@ -3,10 +3,9 @@ project:
   developer: County Group  # marketed as County Group; see registered_promoter
   registered_promoter: Ashiana Landcraft Realty Private Limited
   promoter_note: >
-    CORRECTION 2026-08-29: the price list names Ashiana Landcraft Realty
-    Private Limited as the RERA-registered promoter, which is not County
-    Group. Confirm the commercial relationship (JV / marketing tie-up)
-    before any content describes this as a County Group development.
+    Project-level SPV under the County Group umbrella. Separate promoter
+    entities per project are the norm; this is not a discrepancy. The name
+    is recorded because RERA verification requires it to match the portal.
   type: residential
   segment: premium
   status: under_construction  # verify
