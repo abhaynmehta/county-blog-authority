@@ -4,16 +4,16 @@
   "paragraph_count": 40,
   "score": 91,
   "publishable": true,
-  "issue_count": 5,
+  "issue_count": 6,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
     "medium": 3,
-    "low": 1,
+    "low": 2,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 4,
+    "ROI": 5,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 1
@@ -93,6 +93,17 @@
       "reason": "",
       "recommended_action": "Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
       "acceptance_test": "At least 2 external authority links present"
+    },
+    {
+      "issue_id": "CG-PROSE-006",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "6 paragraphs open with 'clove'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

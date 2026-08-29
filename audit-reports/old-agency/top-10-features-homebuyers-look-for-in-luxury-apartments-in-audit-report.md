@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1242
 **Paragraphs:** 8
-**Total Issues:** 9
+**Total Issues:** 10
 
 ## Publication Gates
 
@@ -88,6 +88,19 @@ Location is the prime factor that positions a property as luxurious in the first
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-010: Essay connector opening a paragraph
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 6
+- **Found:** "asures, indoor games rooms, and outdoor sports facilities. Additionally, convenience features are non-negotiable, such as- trained c"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Start with the point. Connectors like this are padding.
+- **Acceptance test:** No remaining instances of: essay connector opening a paragraph
+- **Editorial rule:** PROSE_MOREOVER
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-009: Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area
@@ -102,4 +115,4 @@ Location is the prime factor that positions a property as luxurious in the first
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 3 | 4 | 0 | 9 |
+| ROI | 1 | 3 | 4 | 1 | 10 |

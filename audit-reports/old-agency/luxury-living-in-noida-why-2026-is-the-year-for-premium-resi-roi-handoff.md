@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 8**
+**Total items: 10**
 
 The following issues require your attention.
 
@@ -61,6 +61,23 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-009 — LOW
+
+**Essay connector opening a paragraph**
+
+- **Where:** Paragraph 6
+- **Text in question:** “ectivity • Tidy surroundings • Planned urban development Additionally, residential projects on Yamuna Expressway are attracting ea”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Start with the point. Connectors like this are padding.
+- **Done when:** No remaining instances of: essay connector opening a paragraph
+
+### CG-PROSE-010 — LOW
+
+**7 paragraphs open with 'h2'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs
 
 ### CG-PROJECT-008 — INFO
 

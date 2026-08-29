@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1503
 **Paragraphs:** 62
-**Total Issues:** 7
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -72,6 +72,16 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-008: 6 paragraphs open with 'this'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-007: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
@@ -86,4 +96,4 @@ Meta Description: Looking for flats in Ghaziabad? Explore Jade County, a luxury 
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 1 | 4 | 0 | 7 |
+| ROI | 1 | 1 | 4 | 1 | 8 |

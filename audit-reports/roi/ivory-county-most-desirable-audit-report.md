@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1027
 **Paragraphs:** 33
-**Total Issues:** 12
+**Total Issues:** 15
 
 ## Publication Gates
 
@@ -123,6 +123,38 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (3)
+
+### CG-PROSE-013: 'Not only… but also' construction (2x)
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "ghtful planning and long-term value. The project stands out not only for its elegant design but also for its exceptional location and attention to quality. Deve"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Rewrite as a plain sentence.
+- **Acceptance test:** No remaining instances of: 'not only… but also' construction
+- **Editorial rule:** PROSE_RULE_OF_THREE
+
+### CG-PROSE-014: Decorative metaphor ('tapestry of', 'testament to')
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 9
+- **Found:** "ent. ## Architectural Excellence Ivory County stands as a testament to masterful architectural design that blends elegance with fu"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Replace with a concrete statement.
+- **Acceptance test:** No remaining instances of: decorative metaphor ('tapestry of', 'testament to')
+- **Editorial rule:** PROSE_TAPESTRY
+
+### CG-PROSE-015: 7 paragraphs open with 'ivory'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-012: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
@@ -137,4 +169,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 5 | 2 | 4 | 0 | 12 |
+| ROI | 5 | 2 | 4 | 3 | 15 |

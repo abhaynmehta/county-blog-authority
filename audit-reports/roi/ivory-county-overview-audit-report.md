@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 241
 **Paragraphs:** 11
-**Total Issues:** 5
+**Total Issues:** 6
 
 ## Publication Gates
 
@@ -50,6 +50,19 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-006: 'Nestled in' — property-listing cliche
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "emerges as a definitive status symbol of the 21st century. Nestled within Sector 115, Noida. ## A Living Philosophy Every aspect ref"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** State the location plainly.
+- **Acceptance test:** No remaining instances of: 'nestled in' — property-listing cliche
+- **Editorial rule:** PROSE_NESTLED
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-005: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
@@ -64,4 +77,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 2 | 0 | 5 |
+| ROI | 0 | 2 | 2 | 1 | 6 |

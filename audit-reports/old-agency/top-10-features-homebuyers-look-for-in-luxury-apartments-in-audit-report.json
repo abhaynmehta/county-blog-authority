@@ -4,16 +4,16 @@
   "paragraph_count": 8,
   "score": 49,
   "publishable": false,
-  "issue_count": 9,
+  "issue_count": 10,
   "issues_by_severity": {
     "critical": 1,
     "high": 3,
     "medium": 4,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 9,
+    "ROI": 10,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -140,6 +140,19 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Quoting super area as the flat size without naming carpet area",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-010",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "Essay connector opening a paragraph",
+      "paragraph": 6,
+      "claim": "asures, indoor games rooms, and outdoor sports facilities. Additionally, convenience features are non-negotiable, such as- trained c",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Start with the point. Connectors like this are padding.",
+      "acceptance_test": "No remaining instances of: essay connector opening a paragraph",
+      "editorial_rule": "PROSE_MOREOVER"
     }
   ]
 }

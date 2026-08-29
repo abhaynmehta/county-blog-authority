@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1793
 **Paragraphs:** 14
-**Total Issues:** 8
+**Total Issues:** 10
 
 ## Publication Gates
 
@@ -81,6 +81,27 @@ Earlier having a flat in Delhi NCR was considered as a big deal for people, but 
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (2)
+
+### CG-PROSE-009: Essay connector opening a paragraph
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 6
+- **Found:** "ectivity • Tidy surroundings • Planned urban development Additionally, residential projects on Yamuna Expressway are attracting ea"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Start with the point. Connectors like this are padding.
+- **Acceptance test:** No remaining instances of: essay connector opening a paragraph
+- **Editorial rule:** PROSE_MOREOVER
+
+### CG-PROSE-010: 7 paragraphs open with 'h2'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-008: Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area
@@ -95,4 +116,4 @@ Earlier having a flat in Delhi NCR was considered as a big deal for people, but 
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 2 | 4 | 0 | 8 |
+| ROI | 1 | 2 | 4 | 2 | 10 |

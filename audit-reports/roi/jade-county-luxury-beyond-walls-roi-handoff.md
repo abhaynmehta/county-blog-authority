@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 7**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -53,6 +53,13 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-008 — LOW
+
+**6 paragraphs open with 'this'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs
 
 ### CG-PROJECT-007 — INFO
 

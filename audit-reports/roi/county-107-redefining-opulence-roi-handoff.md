@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 7**
 
 The following issues require your attention.
 
@@ -53,3 +53,13 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-007 — LOW
+
+**'Nestled in' — property-listing cliche**
+
+- **Where:** Paragraph 3
+- **Text in question:** “s here to redefine the very essence of ultra luxury living. Nestled in the upscale neighborhood of Sector 107, this avant-garde re”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** State the location plainly.
+- **Done when:** No remaining instances of: 'nestled in' — property-listing cliche

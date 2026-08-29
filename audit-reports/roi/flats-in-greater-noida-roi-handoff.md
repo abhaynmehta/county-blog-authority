@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 9**
 
 The following issues require your attention.
 
@@ -52,3 +52,30 @@ The following issues require your attention.
 
 - **Fix:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
 - **Done when:** At least 2 external authority links present
+
+### CG-PROSE-010 — LOW
+
+**'Not only… but also' construction**
+
+- **Where:** Paragraph 34
+- **Text in question:** “g a residential community. A curated community should offer not only lifestyle amenities, but also practical planning that supports secure and comfortable fam”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Rewrite as a plain sentence.
+- **Done when:** No remaining instances of: 'not only… but also' construction
+
+### CG-PROSE-011 — LOW
+
+**Decorative metaphor ('tapestry of', 'testament to')**
+
+- **Where:** Paragraph 32
+- **Text in question:** “reak from the built environment. Cherry County stands as a testament to County Group's emphasis on thoughtful planning and refined”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Replace with a concrete statement.
+- **Done when:** No remaining instances of: decorative metaphor ('tapestry of', 'testament to')
+
+### CG-PROSE-012 — LOW
+
+**8 paragraphs open with 'for'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs

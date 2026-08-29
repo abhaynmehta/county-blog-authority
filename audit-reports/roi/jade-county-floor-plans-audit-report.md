@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 370
 **Paragraphs:** 16
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -67,6 +67,16 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-007: 4 paragraphs open with 'type'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-006: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
@@ -81,4 +91,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 2 | 2 | 0 | 6 |
+| ROI | 1 | 2 | 2 | 1 | 7 |

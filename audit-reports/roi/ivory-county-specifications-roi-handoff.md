@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 7**
 
 The following issues require your attention.
 
@@ -46,7 +46,14 @@ The following issues require your attention.
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
 
-### CG-PROJECT-007 — INFO
+### CG-PROSE-007 — LOW
+
+**4 paragraphs open with 'plan'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs
+
+### CG-PROJECT-006 — INFO
 
 **Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number**
 

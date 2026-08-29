@@ -4,16 +4,16 @@
   "paragraph_count": 11,
   "score": 78,
   "publishable": true,
-  "issue_count": 5,
+  "issue_count": 6,
   "issues_by_severity": {
     "critical": 0,
     "high": 2,
     "medium": 2,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 5,
+    "ROI": 6,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -93,6 +93,19 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Presenting the promoter registration number as a project RERA number",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-006",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Nestled in' \u2014 property-listing cliche",
+      "paragraph": 3,
+      "claim": "emerges as a definitive status symbol of the 21st century. Nestled within Sector 115, Noida. ## A Living Philosophy Every aspect ref",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "State the location plainly.",
+      "acceptance_test": "No remaining instances of: 'nestled in' \u2014 property-listing cliche",
+      "editorial_rule": "PROSE_NESTLED"
     }
   ]
 }

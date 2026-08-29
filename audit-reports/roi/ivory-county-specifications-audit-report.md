@@ -1,7 +1,7 @@
 # Blog Audit Report
 
 **File:** blogs/roi-incoming/ivory-county-specifications.md
-**Score:** 55/100
+**Score:** 63/100
 **Publishable:** No
 **Word Count:** 541
 **Paragraphs:** 18
@@ -30,7 +30,7 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 - **Acceptance test:** No 'world-class without evidence' language remains
 - **Editorial rule:** BRAND_PROHIBITED_001
 
-## HIGH Issues (3)
+## HIGH Issues (2)
 
 ### CG-CONTENT-003: No internal or external links found in content
 
@@ -46,15 +46,6 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 - **Action:** Expand content to at least 1200-1500 words with substantive sections
 - **Acceptance test:** Word count >= 1200
 - **Google rule:** CONTENT-THIN-001
-
-### CG-PROJECT-006: Ivory County carpet area 4085 sq ft has no source document on file
-
-- **Owner:** INTERNAL
-- **Category:** missing_evidence
-- **Found:** "Carpet Area:** 4085 sq. ft"
-- **Reason:** Recorded in the registry as unverified
-- **Action:** Obtain the price list or floor plan covering this unit, then move it into configurations
-- **Acceptance test:** 4085 sq ft is backed by a dated source
 
 ## MEDIUM Issues (2)
 
@@ -73,9 +64,19 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-007: 4 paragraphs open with 'plan'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## INFO Issues (1)
 
-### CG-PROJECT-007: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
+### CG-PROJECT-006: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
 
 - **Owner:** ROI
 - **Category:** missing_evidence
@@ -87,5 +88,4 @@ Meta Description: Explore Ivory County floor plans and specifications. Premium 3
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 2 | 2 | 0 | 6 |
-| INTERNAL | 0 | 1 | 0 | 0 | 1 |
+| ROI | 1 | 2 | 2 | 1 | 7 |

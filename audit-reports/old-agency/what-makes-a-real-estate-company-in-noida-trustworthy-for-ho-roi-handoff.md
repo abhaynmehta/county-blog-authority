@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 8**
+**Total items: 9**
 
 The following issues require your attention.
 
@@ -60,6 +60,16 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-009 — LOW
+
+**'Not only… but also' construction**
+
+- **Where:** Paragraph 5
+- **Text in question:** “hidden costs, which become surprisingly high for buyers. It not only creates a burden on homebuyers but also ruins the image of the builders in the long run. Trustworth”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Rewrite as a plain sentence.
+- **Done when:** No remaining instances of: 'not only… but also' construction
 
 ### CG-PROJECT-008 — INFO
 

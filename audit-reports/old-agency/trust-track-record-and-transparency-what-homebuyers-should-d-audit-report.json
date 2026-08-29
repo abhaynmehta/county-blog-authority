@@ -4,16 +4,16 @@
   "paragraph_count": 3,
   "score": 72,
   "publishable": false,
-  "issue_count": 6,
+  "issue_count": 7,
   "issues_by_severity": {
     "critical": 0,
     "high": 2,
     "medium": 4,
-    "low": 0,
+    "low": 1,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 6,
+    "ROI": 7,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -104,6 +104,19 @@
       "reason": "",
       "recommended_action": "Add 1 hero image and 2-4 supporting visuals with descriptive alt text",
       "acceptance_test": "Hero image + 2 supporting images with specific alt text"
+    },
+    {
+      "issue_id": "CG-PROSE-007",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Not only\u2026 but also' construction",
+      "paragraph": 3,
+      "claim": "der market movement, where buyer confidence is strengthened not only through premium projects but also through communication, planning clarity and long-term relat",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Rewrite as a plain sentence.",
+      "acceptance_test": "No remaining instances of: 'not only\u2026 but also' construction",
+      "editorial_rule": "PROSE_RULE_OF_THREE"
     }
   ]
 }

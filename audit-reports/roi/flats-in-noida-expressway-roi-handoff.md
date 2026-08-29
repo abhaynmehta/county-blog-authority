@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -44,6 +44,23 @@ The following issues require your attention.
 - **Fix:** Replace with descriptive anchor text linking to specific content
 - **Done when:** No generic 'read more' or 'click here' CTAs in body
 - **Rule:** SPAM-CLICKBAIT-002
+
+### CG-PROSE-010 — LOW
+
+**'Not only… but also' construction**
+
+- **Where:** Paragraph 14
+- **Text in question:** “to sustained housing demand, making the corridor attractive not only for homebuyers but also for those seeking long-term [real estate investment](https:”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Rewrite as a plain sentence.
+- **Done when:** No remaining instances of: 'not only… but also' construction
+
+### CG-PROSE-011 — LOW
+
+**8 paragraphs open with 'this'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs
 
 ### CG-PROJECT-006 — INFO
 

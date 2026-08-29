@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 4**
+**Total items: 5**
 
 The following issues require your attention.
 
@@ -27,6 +27,13 @@ The following issues require your attention.
 
 - **Fix:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
 - **Done when:** At least 2 external authority links present
+
+### CG-PROSE-006 — LOW
+
+**6 paragraphs open with 'clove'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs
 
 ### CG-PROJECT-003 — INFO
 

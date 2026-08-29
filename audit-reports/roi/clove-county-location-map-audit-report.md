@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 253
 **Paragraphs:** 12
-**Total Issues:** 8
+**Total Issues:** 9
 
 ## Publication Gates
 
@@ -65,7 +65,7 @@
 - **Action:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
 - **Acceptance test:** At least 2 external authority links present
 
-## LOW Issues (1)
+## LOW Issues (2)
 
 ### CG-LINK-007: Internal URL needs verification: countygroup.in/clovecounty/location-map
 
@@ -75,6 +75,17 @@
 - **Reason:** not listed in site_urls.yaml
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-PROSE-009: 'Nestled in' — property-listing cliche
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "ww.countygroup.in/clovecounty/location-map # Location Map Nestled in one of Noida's fastest emerging residential corridors, Clov"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** State the location plainly.
+- **Acceptance test:** No remaining instances of: 'nestled in' — property-listing cliche
+- **Editorial rule:** PROSE_NESTLED
 
 ## INFO Issues (1)
 
@@ -90,5 +101,5 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 4 | 0 | 7 |
+| ROI | 0 | 2 | 4 | 1 | 8 |
 | INTERNAL | 0 | 0 | 0 | 1 | 1 |

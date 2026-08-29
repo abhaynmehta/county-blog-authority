@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 1327
 **Paragraphs:** 40
-**Total Issues:** 5
+**Total Issues:** 6
 
 ## Publication Gates
 
@@ -40,7 +40,7 @@
 - **Action:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
 - **Acceptance test:** At least 2 external authority links present
 
-## LOW Issues (1)
+## LOW Issues (2)
 
 ### CG-LINK-004: Internal URL needs verification: countygroup.in/flats-in-noida
 
@@ -50,6 +50,14 @@
 - **Reason:** already listed as unverified in site_urls.yaml
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
+
+### CG-PROSE-006: 6 paragraphs open with 'clove'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
 
 ## INFO Issues (1)
 
@@ -65,5 +73,5 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 0 | 3 | 0 | 4 |
+| ROI | 0 | 0 | 3 | 1 | 5 |
 | INTERNAL | 0 | 0 | 0 | 1 | 1 |

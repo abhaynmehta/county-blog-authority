@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 6**
+**Total items: 7**
 
 The following issues require your attention.
 
@@ -51,3 +51,13 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-007 — LOW
+
+**'Not only… but also' construction**
+
+- **Where:** Paragraph 3
+- **Text in question:** “der market movement, where buyer confidence is strengthened not only through premium projects but also through communication, planning clarity and long-term relat”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Rewrite as a plain sentence.
+- **Done when:** No remaining instances of: 'not only… but also' construction

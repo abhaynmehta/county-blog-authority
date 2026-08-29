@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 2138
 **Paragraphs:** 54
-**Total Issues:** 8
+**Total Issues:** 9
 
 ## Publication Gates
 
@@ -58,7 +58,7 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
-## LOW Issues (3)
+## LOW Issues (4)
 
 ### CG-LINK-006: Internal URL needs verification: countygroup.in/flats-in-greater-noida
 
@@ -87,9 +87,17 @@
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
 
+### CG-PROSE-009: 4 paragraphs open with 'for'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 0 | 5 | 0 | 5 |
+| ROI | 0 | 0 | 5 | 1 | 6 |
 | INTERNAL | 0 | 0 | 0 | 3 | 3 |

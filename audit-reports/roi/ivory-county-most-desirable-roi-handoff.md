@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 12**
+**Total items: 15**
 
 The following issues require your attention.
 
@@ -101,6 +101,33 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-013 — LOW
+
+**'Not only… but also' construction (2x)**
+
+- **Where:** Paragraph 3
+- **Text in question:** “ghtful planning and long-term value. The project stands out not only for its elegant design but also for its exceptional location and attention to quality. Deve”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Rewrite as a plain sentence.
+- **Done when:** No remaining instances of: 'not only… but also' construction
+
+### CG-PROSE-014 — LOW
+
+**Decorative metaphor ('tapestry of', 'testament to')**
+
+- **Where:** Paragraph 9
+- **Text in question:** “ent. ## Architectural Excellence Ivory County stands as a testament to masterful architectural design that blends elegance with fu”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Replace with a concrete statement.
+- **Done when:** No remaining instances of: decorative metaphor ('tapestry of', 'testament to')
+
+### CG-PROSE-015 — LOW
+
+**7 paragraphs open with 'ivory'**
+
+- **Fix:** Vary the sentence openings.
+- **Done when:** No word opens more than three paragraphs
 
 ### CG-PROJECT-012 — INFO
 

@@ -4,16 +4,16 @@
   "paragraph_count": 12,
   "score": 72,
   "publishable": true,
-  "issue_count": 8,
+  "issue_count": 9,
   "issues_by_severity": {
     "critical": 0,
     "high": 2,
     "medium": 4,
-    "low": 1,
+    "low": 2,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 7,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 1
@@ -125,6 +125,19 @@
       "reason": "",
       "recommended_action": "Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
       "acceptance_test": "At least 2 external authority links present"
+    },
+    {
+      "issue_id": "CG-PROSE-009",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Nestled in' \u2014 property-listing cliche",
+      "paragraph": 3,
+      "claim": "ww.countygroup.in/clovecounty/location-map # Location Map Nestled in one of Noida's fastest emerging residential corridors, Clov",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "State the location plainly.",
+      "acceptance_test": "No remaining instances of: 'nestled in' \u2014 property-listing cliche",
+      "editorial_rule": "PROSE_NESTLED"
     }
   ]
 }

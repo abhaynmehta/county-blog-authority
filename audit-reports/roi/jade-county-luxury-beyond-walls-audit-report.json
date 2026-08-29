@@ -4,16 +4,16 @@
   "paragraph_count": 62,
   "score": 65,
   "publishable": false,
-  "issue_count": 7,
+  "issue_count": 8,
   "issues_by_severity": {
     "critical": 1,
     "high": 1,
     "medium": 4,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 7,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -117,6 +117,17 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Quoting super area as the flat size without naming carpet area",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-008",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "6 paragraphs open with 'this'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 367
 **Paragraphs:** 9
-**Total Issues:** 8
+**Total Issues:** 9
 
 ## Publication Gates
 
@@ -80,6 +80,19 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-009: 'Nestled in' — property-listing cliche
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "a project that redefines what it means to live in opulence. Nestled within the prestigious Ivory County at Sector 115, Noida, Ivory Co"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** State the location plainly.
+- **Acceptance test:** No remaining instances of: 'nestled in' — property-listing cliche
+- **Editorial rule:** PROSE_NESTLED
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-008: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
@@ -94,4 +107,4 @@ Meta Description: Discover Ivory County Gold in Sector 115, Noida, luxurious 4 &
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 3 | 3 | 0 | 8 |
+| ROI | 1 | 3 | 3 | 1 | 9 |

@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1858
 **Paragraphs:** 5
-**Total Issues:** 8
+**Total Issues:** 9
 
 ## Publication Gates
 
@@ -77,6 +77,19 @@ Remember that the best builder in Noida will never flinch when you ask to see th
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-009: 'Not only… but also' construction
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 5
+- **Found:** "hidden costs, which become surprisingly high for buyers. It not only creates a burden on homebuyers but also ruins the image of the builders in the long run. Trustworth"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Rewrite as a plain sentence.
+- **Acceptance test:** No remaining instances of: 'not only… but also' construction
+- **Editorial rule:** PROSE_RULE_OF_THREE
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-008: Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area
@@ -91,4 +104,4 @@ Remember that the best builder in Noida will never flinch when you ask to see th
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 3 | 4 | 0 | 8 |
+| ROI | 0 | 3 | 4 | 1 | 9 |

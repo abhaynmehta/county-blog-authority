@@ -54,10 +54,7 @@ configurations:
     super_area_sqft: 2727
     built_up_area_sqft: 2253
     carpet_area_sqft: 1636
-    basic_price_inr: null   # NOT in the 01 Sept 2026 list as converted.
-    # 2727 sq ft falls between the two rate bands (19,000 and 20,000), so
-    # the price is 5,18,13,000 or 5,45,40,000. Confirm from the PDF before
-    # publishing; the March figure of 5,04,49,500 is superseded.
+    basic_price_inr: 51813000   # confirmed 29 Aug 2026; 2727 x 19,000
   - type: 4 BHK + 4T + Utility
     code: D
     super_area_sqft: 3195
@@ -129,8 +126,8 @@ project_details:
 
 pricing:
   basic_rate_per_sqft_super:
-    - 19000   # applies to types A and B
-    - 20000   # applies to type D
+    - 19000   # types A, B, C
+    - 20000   # type D
   currency: INR
   effective_from: 2026-09-01
   supersedes:

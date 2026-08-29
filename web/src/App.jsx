@@ -1,5 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { api, sortIssues, scoreBand } from "./api.js";
+import Corpus from "./Corpus.jsx";
+import Hygiene from "./Hygiene.jsx";
+import Overlap from "./Overlap.jsx";
+
+const TABS = [
+  { id: "audit", label: "Audit a draft" },
+  { id: "corpus", label: "All content" },
+  { id: "overlap", label: "Keyword overlap" },
+  { id: "hygiene", label: "Live pages" },
+];
 
 /* ── Small presentational pieces ─────────────────────────────────────── */
 
@@ -122,7 +132,7 @@ function ProjectReference({ projects }) {
 
 /* ── Main ────────────────────────────────────────────────────────────── */
 
-export default function App() {
+function AuditPanel() {
   const [content, setContent] = useState("");
   const [slug, setSlug] = useState("untitled");
   const [result, setResult] = useState(null);
@@ -154,18 +164,7 @@ export default function App() {
   const wordCount = content.trim() ? content.trim().split(/\s+/).length : 0;
 
   return (
-    <div className="app">
-      <header className="mast">
-        <div>
-          <h1>County Content Console</h1>
-          <p>
-            Paste a draft. The same deterministic engine the CLI runs checks it
-            against the project registry.
-          </p>
-        </div>
-      </header>
-
-      <div className="cols">
+    <div className="cols">
         <div className="col">
           <form className="card" onSubmit={runAudit}>
             <label className="lbl" htmlFor="slug">
@@ -249,8 +248,42 @@ export default function App() {
               </section>
             </>
           )}
-        </div>
       </div>
+    </div>
+  );
+}
+
+export default function App() {
+  const [tab, setTab] = useState("audit");
+
+  return (
+    <div className="app">
+      <header className="mast">
+        <h1>County Content Console</h1>
+        <p>
+          Deterministic checks against the project registry. The same engine the
+          CLI runs, so the browser and the terminal never disagree.
+        </p>
+      </header>
+
+      <nav className="tabs" role="tablist">
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            role="tab"
+            className="tab"
+            aria-selected={tab === t.id}
+            onClick={() => setTab(t.id)}
+          >
+            {t.label}
+          </button>
+        ))}
+      </nav>
+
+      {tab === "audit" && <AuditPanel />}
+      {tab === "corpus" && <Corpus />}
+      {tab === "overlap" && <Overlap />}
+      {tab === "hygiene" && <Hygiene />}
     </div>
   );
 }

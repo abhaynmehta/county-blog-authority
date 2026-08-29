@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 9**
+**Total items: 10**
 
 The following issues require your attention.
 
@@ -70,6 +70,16 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-010 — LOW
+
+**Essay connector opening a paragraph**
+
+- **Where:** Paragraph 6
+- **Text in question:** “asures, indoor games rooms, and outdoor sports facilities. Additionally, convenience features are non-negotiable, such as- trained c”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** Start with the point. Connectors like this are padding.
+- **Done when:** No remaining instances of: essay connector opening a paragraph
 
 ### CG-PROJECT-009 — INFO
 

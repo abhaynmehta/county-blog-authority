@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 7**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -50,6 +50,16 @@ The following issues require your attention.
 
 - **Fix:** Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)
 - **Done when:** At least 2 external authority links present
+
+### CG-PROSE-009 — LOW
+
+**'Nestled in' — property-listing cliche**
+
+- **Where:** Paragraph 3
+- **Text in question:** “ww.countygroup.in/clovecounty/location-map # Location Map Nestled in one of Noida's fastest emerging residential corridors, Clov”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** State the location plainly.
+- **Done when:** No remaining instances of: 'nestled in' — property-listing cliche
 
 ### CG-PROJECT-006 — INFO
 

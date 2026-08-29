@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 7**
+**Total items: 8**
 
 The following issues require your attention.
 
@@ -53,6 +53,16 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-008 — LOW
+
+**'Nestled in' — property-listing cliche**
+
+- **Where:** Paragraph 3
+- **Text in question:** “iabad # Jade County Gold: Blending Opulence with Serenity Nestled in Wave City, Ghaziabad, Jade County Gold is the crown jewel o”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** State the location plainly.
+- **Done when:** No remaining instances of: 'nestled in' — property-listing cliche
 
 ### CG-PROJECT-007 — INFO
 

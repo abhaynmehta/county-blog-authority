@@ -4,16 +4,16 @@
   "paragraph_count": 18,
   "score": 55,
   "publishable": false,
-  "issue_count": 6,
+  "issue_count": 7,
   "issues_by_severity": {
     "critical": 1,
     "high": 3,
     "medium": 2,
-    "low": 0,
+    "low": 1,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 6,
+    "ROI": 7,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -106,6 +106,19 @@
       "recommended_action": "Expand content to at least 1200-1500 words with substantive sections",
       "acceptance_test": "Word count >= 1200",
       "google_rule": "CONTENT-THIN-001"
+    },
+    {
+      "issue_id": "CG-PROSE-007",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Nestled in' \u2014 property-listing cliche",
+      "paragraph": 3,
+      "claim": "s here to redefine the very essence of ultra luxury living. Nestled in the upscale neighborhood of Sector 107, this avant-garde re",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "State the location plainly.",
+      "acceptance_test": "No remaining instances of: 'nestled in' \u2014 property-listing cliche",
+      "editorial_rule": "PROSE_NESTLED"
     }
   ]
 }

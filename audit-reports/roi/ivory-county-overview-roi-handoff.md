@@ -1,6 +1,6 @@
 # ROI Action Items
 
-**Total items: 5**
+**Total items: 6**
 
 The following issues require your attention.
 
@@ -35,6 +35,16 @@ The following issues require your attention.
 
 - **Fix:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Done when:** Hero image + 2 supporting images with specific alt text
+
+### CG-PROSE-006 — LOW
+
+**'Nestled in' — property-listing cliche**
+
+- **Where:** Paragraph 3
+- **Text in question:** “emerges as a definitive status symbol of the 21st century. Nestled within Sector 115, Noida. ## A Living Philosophy Every aspect ref”
+- **Why:** Reads as unedited machine output or boilerplate
+- **Fix:** State the location plainly.
+- **Done when:** No remaining instances of: 'nestled in' — property-listing cliche
 
 ### CG-PROJECT-005 — INFO
 

@@ -20,7 +20,7 @@ already_processed:
   local_file: blogs/roi-incoming/flats-in-noida-expressway.md
   status: audited
   score: 85
-  issues: 9
+  issues: 11
   critical: 0
   publishable: true
 - id: 10Yfq1i1mUOzSqJXoZcptznniIpeddDidvSM_gyNMB68
@@ -36,7 +36,7 @@ already_processed:
   local_file: blogs/roi-incoming/flats-in-greater-noida.md
   status: audited
   score: 82
-  issues: 9
+  issues: 12
   critical: 0
   publishable: true
 roi_google_docs:
@@ -45,7 +45,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/ivory-county-most-desirable.md
   status: audited
   score: 0
-  issues: 12
+  issues: 15
   critical: 5
   publishable: false
 - id: 1hj_zL2JQ1b0ZoQXdJg2xHNV3BuoAdA6g_t1XX42aXFQ
@@ -61,7 +61,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/county-107-redefining-opulence.md
   status: audited
   score: 55
-  issues: 6
+  issues: 7
   critical: 1
   publishable: false
 - id: 1eDChJQrEK-aWs82FJFU5MsPUza4hmN4_sPJQYBlg0AY
@@ -109,7 +109,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/ivory-county-sustainable-luxury.md
   status: audited
   score: 75
-  issues: 6
+  issues: 7
   critical: 0
   publishable: true
 - id: 1F7NFwcbT6IYh9LgoHJY3Ay0ye-lWl5DA-HEvy8FM4eA
@@ -141,7 +141,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/ivory-county-gold-ultra-luxury.md
   status: audited
   score: 52
-  issues: 8
+  issues: 9
   critical: 1
   publishable: false
 - id: 1hwNxQr_BaiLjHvymgpguiMtmSu0DUm3TN6WLfaji6Qg
@@ -157,7 +157,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/jade-county-floor-plans.md
   status: audited
   score: 63
-  issues: 6
+  issues: 7
   critical: 1
   publishable: false
 - id: 1zozg-RKzoHuWNyWbNshUnVNSKffTVOT9nkZXWQyQhZ4
@@ -173,7 +173,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/jade-county-gold-opulence.md
   status: audited
   score: 55
-  issues: 7
+  issues: 8
   critical: 1
   publishable: false
 - id: 1UO2o3nz46zJgNCB3jmmQM4-Dfwi8EekCzxYYG4DhEi0
@@ -205,7 +205,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/jade-county-luxury-beyond-walls.md
   status: audited
   score: 65
-  issues: 7
+  issues: 8
   critical: 1
   publishable: false
 - id: 1eFIURN4DtymNsyUTxBfVZY_22g2qpjAlyeuhJnsaMpg
@@ -236,7 +236,7 @@ roi_google_docs:
   title: Ivory County Specifications
   local_file: blogs/roi-incoming/ivory-county-specifications.md
   status: audited
-  score: 55
+  score: 63
   issues: 7
   critical: 1
   publishable: false
@@ -277,7 +277,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/ivory-county-overview.md
   status: audited
   score: 78
-  issues: 5
+  issues: 6
   critical: 0
   publishable: true
 - id: 1alVZbWNnI06dOPWi9_ITLEh5wqaE2ccxpwreQRaZf7Q
@@ -589,7 +589,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/flats-greater-noida-west-conveniences.md
   status: audited
   score: 85
-  issues: 8
+  issues: 9
   critical: 0
   publishable: true
 - id: 1LMLArqmsZPgoPserp9BNB0y_W0KarJk8ivIbjtw-f5I
@@ -613,7 +613,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/clove-county-location-map.md
   status: audited
   score: 72
-  issues: 8
+  issues: 9
   critical: 0
   publishable: true
 - id: 1IACw_iHEYNT0IBW7NT37nMQrXQwfcrw1xn_AMtqnYnA
@@ -621,7 +621,7 @@ roi_google_docs:
   local_file: blogs/roi-incoming/clove-county-seo-page.md
   status: audited
   score: 91
-  issues: 5
+  issues: 6
   critical: 0
   publishable: true
 - id: 1mb2CJnwSnjIvO0FLCqIidZMGegLSIaHxXz3VMatich8
@@ -658,7 +658,7 @@ old_agency_local:
     Premium Residential Investments - Blog 1.txt
   status: audited
   score: 57
-  issues: 8
+  issues: 10
   critical: 1
   publishable: false
 - file: blogs/old-agency-incoming/The County Group Philosophy_ How a Design-First
@@ -672,20 +672,20 @@ old_agency_local:
     in Noida - Blog 4.txt
   status: audited
   score: 49
-  issues: 9
+  issues: 10
   critical: 1
   publishable: false
 - file: blogs/old-agency-incoming/Trust, Track Record, and Transparency_ What Homebuyers
     Should Demand from Any Real Estate Group in NCR.txt
   status: audited
   score: 72
-  issues: 6
+  issues: 7
   critical: 0
   publishable: false
 - file: blogs/old-agency-incoming/What Makes a Real Estate Company in Noida Trustworthy
     for Homebuyers - Blog 3 (1).txt
   status: audited
   score: 64
-  issues: 8
+  issues: 9
   critical: 0
   publishable: false

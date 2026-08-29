@@ -4,16 +4,16 @@
   "paragraph_count": 9,
   "score": 52,
   "publishable": false,
-  "issue_count": 8,
+  "issue_count": 9,
   "issues_by_severity": {
     "critical": 1,
     "high": 3,
     "medium": 3,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 8,
+    "ROI": 9,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -128,6 +128,19 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Presenting the promoter registration number as a project RERA number",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-009",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Nestled in' \u2014 property-listing cliche",
+      "paragraph": 3,
+      "claim": "a project that redefines what it means to live in opulence. Nestled within the prestigious Ivory County at Sector 115, Noida, Ivory Co",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "State the location plainly.",
+      "acceptance_test": "No remaining instances of: 'nestled in' \u2014 property-listing cliche",
+      "editorial_rule": "PROSE_NESTLED"
     }
   ]
 }

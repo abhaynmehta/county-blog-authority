@@ -4,16 +4,16 @@
   "paragraph_count": 78,
   "score": 82,
   "publishable": true,
-  "issue_count": 9,
+  "issue_count": 12,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
     "medium": 6,
-    "low": 3,
+    "low": 6,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 6,
+    "ROI": 9,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 3
@@ -138,6 +138,43 @@
       "reason": "",
       "recommended_action": "Cite 2-3 external sources (UP-RERA, HARERA, ANAROCK, PIB, official news)",
       "acceptance_test": "At least 2 external authority links present"
+    },
+    {
+      "issue_id": "CG-PROSE-010",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Not only\u2026 but also' construction",
+      "paragraph": 34,
+      "claim": "g a residential community. A curated community should offer not only lifestyle amenities, but also practical planning that supports secure and comfortable fam",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Rewrite as a plain sentence.",
+      "acceptance_test": "No remaining instances of: 'not only\u2026 but also' construction",
+      "editorial_rule": "PROSE_RULE_OF_THREE"
+    },
+    {
+      "issue_id": "CG-PROSE-011",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "Decorative metaphor ('tapestry of', 'testament to')",
+      "paragraph": 32,
+      "claim": "reak from the built environment. Cherry County stands as a testament to County Group's emphasis on thoughtful planning and refined",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Replace with a concrete statement.",
+      "acceptance_test": "No remaining instances of: decorative metaphor ('tapestry of', 'testament to')",
+      "editorial_rule": "PROSE_TAPESTRY"
+    },
+    {
+      "issue_id": "CG-PROSE-012",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "8 paragraphs open with 'for'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

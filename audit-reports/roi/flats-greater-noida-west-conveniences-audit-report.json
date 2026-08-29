@@ -4,16 +4,16 @@
   "paragraph_count": 54,
   "score": 85,
   "publishable": true,
-  "issue_count": 8,
+  "issue_count": 9,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
     "medium": 5,
-    "low": 3,
+    "low": 4,
     "info": 0
   },
   "issues_by_owner": {
-    "ROI": 5,
+    "ROI": 6,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 3
@@ -128,6 +128,17 @@
       "reason": "already listed as unverified in site_urls.yaml",
       "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
       "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-PROSE-009",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "4 paragraphs open with 'for'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

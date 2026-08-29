@@ -4,16 +4,16 @@
   "paragraph_count": 14,
   "score": 57,
   "publishable": false,
-  "issue_count": 8,
+  "issue_count": 10,
   "issues_by_severity": {
     "critical": 1,
     "high": 2,
     "medium": 4,
-    "low": 0,
+    "low": 2,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 8,
+    "ROI": 10,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -128,6 +128,30 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Quoting super area as the flat size without naming carpet area",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-009",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "Essay connector opening a paragraph",
+      "paragraph": 6,
+      "claim": "ectivity \u2022 Tidy surroundings \u2022 Planned urban development Additionally, residential projects on Yamuna Expressway are attracting ea",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Start with the point. Connectors like this are padding.",
+      "acceptance_test": "No remaining instances of: essay connector opening a paragraph",
+      "editorial_rule": "PROSE_MOREOVER"
+    },
+    {
+      "issue_id": "CG-PROSE-010",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "7 paragraphs open with 'h2'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

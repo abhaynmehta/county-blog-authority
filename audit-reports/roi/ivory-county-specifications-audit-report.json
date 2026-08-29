@@ -2,21 +2,21 @@
   "file_path": "blogs/roi-incoming/ivory-county-specifications.md",
   "word_count": 541,
   "paragraph_count": 18,
-  "score": 55,
+  "score": 63,
   "publishable": false,
   "issue_count": 7,
   "issues_by_severity": {
     "critical": 1,
-    "high": 3,
+    "high": 2,
     "medium": 2,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 6,
+    "ROI": 7,
     "AGO": 0,
     "BOTH": 0,
-    "INTERNAL": 1
+    "INTERNAL": 0
   },
   "gates": [
     {
@@ -99,17 +99,6 @@
     {
       "issue_id": "CG-PROJECT-006",
       "category": "missing_evidence",
-      "severity": "high",
-      "owner": "INTERNAL",
-      "summary": "Ivory County carpet area 4085 sq ft has no source document on file",
-      "claim": "Carpet Area:** 4085 sq. ft",
-      "reason": "Recorded in the registry as unverified",
-      "recommended_action": "Obtain the price list or floor plan covering this unit, then move it into configurations",
-      "acceptance_test": "4085 sq ft is backed by a dated source"
-    },
-    {
-      "issue_id": "CG-PROJECT-007",
-      "category": "missing_evidence",
       "severity": "info",
       "owner": "ROI",
       "summary": "Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number",
@@ -117,6 +106,17 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Presenting the promoter registration number as a project RERA number",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-007",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "4 paragraphs open with 'plan'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

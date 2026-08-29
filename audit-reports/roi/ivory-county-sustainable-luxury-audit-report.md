@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 371
 **Paragraphs:** 17
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -58,6 +58,19 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-007: 'Not only… but also' construction
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "ake Ivory County Stand Out Modern buyers demand homes that not only look stunning, but also respect the planet. In Noida, rising energy costs and water"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Rewrite as a plain sentence.
+- **Acceptance test:** No remaining instances of: 'not only… but also' construction
+- **Editorial rule:** PROSE_RULE_OF_THREE
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-006: Reviewer note for Ivory County: Presenting the promoter registration number as a project RERA number
@@ -72,4 +85,4 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 3 | 0 | 6 |
+| ROI | 0 | 2 | 3 | 1 | 7 |

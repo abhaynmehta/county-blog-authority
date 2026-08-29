@@ -4,7 +4,7 @@
   "skipped": 0,
   "errors": 0,
   "publishable": 42,
-  "avg_score": 67.8,
+  "avg_score": 67.9,
   "results": [
     {
       "slug": "flats-in-gurgaon-sector-88",
@@ -50,7 +50,7 @@
       "slug": "flats-in-noida-expressway",
       "publishable": true,
       "score": 85,
-      "issue_count": 9,
+      "issue_count": 11,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -90,7 +90,7 @@
       "slug": "flats-in-greater-noida",
       "publishable": true,
       "score": 82,
-      "issue_count": 9,
+      "issue_count": 12,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -110,7 +110,7 @@
       "slug": "ivory-county-most-desirable",
       "publishable": false,
       "score": 0,
-      "issue_count": 12,
+      "issue_count": 15,
       "critical_count": 5,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -150,7 +150,7 @@
       "slug": "county-107-redefining-opulence",
       "publishable": false,
       "score": 55,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -270,7 +270,7 @@
       "slug": "ivory-county-sustainable-luxury",
       "publishable": true,
       "score": 75,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -350,7 +350,7 @@
       "slug": "ivory-county-gold-ultra-luxury",
       "publishable": false,
       "score": 52,
-      "issue_count": 8,
+      "issue_count": 9,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -390,7 +390,7 @@
       "slug": "jade-county-floor-plans",
       "publishable": false,
       "score": 63,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -430,7 +430,7 @@
       "slug": "jade-county-gold-opulence",
       "publishable": false,
       "score": 55,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -510,7 +510,7 @@
       "slug": "jade-county-luxury-beyond-walls",
       "publishable": false,
       "score": 65,
-      "issue_count": 7,
+      "issue_count": 8,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -589,7 +589,7 @@
     {
       "slug": "ivory-county-specifications",
       "publishable": false,
-      "score": 55,
+      "score": 63,
       "issue_count": 7,
       "critical_count": 1,
       "gates": {
@@ -690,7 +690,7 @@
       "slug": "ivory-county-overview",
       "publishable": true,
       "score": 78,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1470,7 +1470,7 @@
       "slug": "flats-greater-noida-west-conveniences",
       "publishable": true,
       "score": 85,
-      "issue_count": 8,
+      "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1530,7 +1530,7 @@
       "slug": "clove-county-location-map",
       "publishable": true,
       "score": 72,
-      "issue_count": 8,
+      "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1550,7 +1550,7 @@
       "slug": "clove-county-seo-page",
       "publishable": true,
       "score": 91,
-      "issue_count": 5,
+      "issue_count": 6,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1650,7 +1650,7 @@
       "slug": "luxury-living-in-noida-why-2026-is-the-year-for-premium-resi",
       "publishable": false,
       "score": 57,
-      "issue_count": 8,
+      "issue_count": 10,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1690,7 +1690,7 @@
       "slug": "top-10-features-homebuyers-look-for-in-luxury-apartments-in",
       "publishable": false,
       "score": 49,
-      "issue_count": 9,
+      "issue_count": 10,
       "critical_count": 1,
       "gates": {
         "Factual Accuracy": "FAIL",
@@ -1710,7 +1710,7 @@
       "slug": "trust-track-record-and-transparency-what-homebuyers-should-d",
       "publishable": false,
       "score": 72,
-      "issue_count": 6,
+      "issue_count": 7,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",
@@ -1730,7 +1730,7 @@
       "slug": "what-makes-a-real-estate-company-in-noida-trustworthy-for-ho",
       "publishable": false,
       "score": 64,
-      "issue_count": 8,
+      "issue_count": 9,
       "critical_count": 0,
       "gates": {
         "Factual Accuracy": "PASS",

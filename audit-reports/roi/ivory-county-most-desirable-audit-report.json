@@ -4,16 +4,16 @@
   "paragraph_count": 33,
   "score": 0,
   "publishable": false,
-  "issue_count": 12,
+  "issue_count": 15,
   "issues_by_severity": {
     "critical": 5,
     "high": 2,
     "medium": 4,
-    "low": 0,
+    "low": 3,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 12,
+    "ROI": 15,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -180,6 +180,43 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Presenting the promoter registration number as a project RERA number",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-013",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Not only\u2026 but also' construction (2x)",
+      "paragraph": 3,
+      "claim": "ghtful planning and long-term value. The project stands out not only for its elegant design but also for its exceptional location and attention to quality. Deve",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Rewrite as a plain sentence.",
+      "acceptance_test": "No remaining instances of: 'not only\u2026 but also' construction",
+      "editorial_rule": "PROSE_RULE_OF_THREE"
+    },
+    {
+      "issue_id": "CG-PROSE-014",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "Decorative metaphor ('tapestry of', 'testament to')",
+      "paragraph": 9,
+      "claim": "ent. ## Architectural Excellence Ivory County stands as a testament to masterful architectural design that blends elegance with fu",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Replace with a concrete statement.",
+      "acceptance_test": "No remaining instances of: decorative metaphor ('tapestry of', 'testament to')",
+      "editorial_rule": "PROSE_TAPESTRY"
+    },
+    {
+      "issue_id": "CG-PROSE-015",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "7 paragraphs open with 'ivory'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 481
 **Paragraphs:** 18
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -72,8 +72,21 @@ Meta Description: Invest in County 107 – exclusive 4 & 5 BHK in Noida with wor
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-007: 'Nestled in' — property-listing cliche
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "s here to redefine the very essence of ultra luxury living. Nestled in the upscale neighborhood of Sector 107, this avant-garde re"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** State the location plainly.
+- **Acceptance test:** No remaining instances of: 'nestled in' — property-listing cliche
+- **Editorial rule:** PROSE_NESTLED
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 3 | 2 | 0 | 6 |
+| ROI | 1 | 3 | 2 | 1 | 7 |

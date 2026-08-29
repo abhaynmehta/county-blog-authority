@@ -4,16 +4,16 @@
   "paragraph_count": 56,
   "score": 85,
   "publishable": true,
-  "issue_count": 9,
+  "issue_count": 11,
   "issues_by_severity": {
     "critical": 0,
     "high": 0,
     "medium": 5,
-    "low": 3,
+    "low": 5,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 6,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 3
@@ -138,6 +138,30 @@
       "reason": "already listed as unverified in site_urls.yaml",
       "recommended_action": "Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link",
       "acceptance_test": "Every internal link resolves and is listed in site_urls.yaml"
+    },
+    {
+      "issue_id": "CG-PROSE-010",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Not only\u2026 but also' construction",
+      "paragraph": 14,
+      "claim": "to sustained housing demand, making the corridor attractive not only for homebuyers but also for those seeking long-term [real estate investment](https:",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Rewrite as a plain sentence.",
+      "acceptance_test": "No remaining instances of: 'not only\u2026 but also' construction",
+      "editorial_rule": "PROSE_RULE_OF_THREE"
+    },
+    {
+      "issue_id": "CG-PROSE-011",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "8 paragraphs open with 'this'",
+      "reason": "",
+      "recommended_action": "Vary the sentence openings.",
+      "acceptance_test": "No word opens more than three paragraphs",
+      "editorial_rule": "PROSE_REPEATED_OPENER"
     }
   ]
 }

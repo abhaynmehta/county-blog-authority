@@ -4,16 +4,16 @@
   "paragraph_count": 11,
   "score": 55,
   "publishable": false,
-  "issue_count": 7,
+  "issue_count": 8,
   "issues_by_severity": {
     "critical": 1,
     "high": 3,
     "medium": 2,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 7,
+    "ROI": 8,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -117,6 +117,19 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Quoting super area as the flat size without naming carpet area",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-008",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Nestled in' \u2014 property-listing cliche",
+      "paragraph": 3,
+      "claim": "iabad # Jade County Gold: Blending Opulence with Serenity Nestled in Wave City, Ghaziabad, Jade County Gold is the crown jewel o",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "State the location plainly.",
+      "acceptance_test": "No remaining instances of: 'nestled in' \u2014 property-listing cliche",
+      "editorial_rule": "PROSE_NESTLED"
     }
   ]
 }

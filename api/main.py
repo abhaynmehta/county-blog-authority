@@ -26,6 +26,7 @@ from search_authority import __version__ as engine_version
 from search_authority.cannibalization import analyse_corpus
 from search_authority.content_auditor import audit_text
 from search_authority.dashboard import collect_data
+from search_authority.hygiene import run as run_hygiene
 from search_authority.models import Severity
 from search_authority.schema import (
     generate_blog_schema, generate_breadcrumb_schema, schemas_to_jsonld,
@@ -234,3 +235,13 @@ def cannibalization() -> dict:
     for section in ("already_processed", "roi_google_docs", "old_agency_local"):
         entries.extend(inventory.get(section) or [])
     return analyse_corpus(entries)
+
+
+@app.get("/hygiene", tags=["corpus"])
+def hygiene() -> dict:
+    """Check every live County page against the registry.
+
+    Slow — it fetches ~21 pages — so the console calls it on demand rather
+    than on load.
+    """
+    return run_hygiene()

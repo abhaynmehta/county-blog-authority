@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 296
 **Paragraphs:** 11
-**Total Issues:** 7
+**Total Issues:** 8
 
 ## Publication Gates
 
@@ -72,6 +72,19 @@ Meta Description: Explore Jade County Gold in Wave City, Ghaziabad, iconic luxur
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-008: 'Nestled in' — property-listing cliche
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "iabad # Jade County Gold: Blending Opulence with Serenity Nestled in Wave City, Ghaziabad, Jade County Gold is the crown jewel o"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** State the location plainly.
+- **Acceptance test:** No remaining instances of: 'nestled in' — property-listing cliche
+- **Editorial rule:** PROSE_NESTLED
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-007: Reviewer note for Jade County: Quoting super area as the flat size without naming carpet area
@@ -86,4 +99,4 @@ Meta Description: Explore Jade County Gold in Wave City, Ghaziabad, iconic luxur
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 1 | 3 | 2 | 0 | 7 |
+| ROI | 1 | 3 | 2 | 1 | 8 |

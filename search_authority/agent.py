@@ -21,6 +21,7 @@ from .batch import load_inventory, save_inventory, ROI_OUTPUT
 from .pipeline import run_pipeline
 from .truth_layer import registry_report
 from .dashboard import build as build_dashboard
+from .hygiene import run as run_hygiene
 
 AGENT_LOG = Path("agent-logs")
 CONFIG_PATH = Path("agent-config.yaml")
@@ -614,12 +615,13 @@ Commands:
   truth         Report stale/incomplete claims in the truth layer
   links         Check that County URLs actually resolve
   cannibals     Find pages competing for the same search terms
+  hygiene       Check live pages against the registry
   dashboard     Build the HTML dashboard from current audit data
         """,
     )
     parser.add_argument("command", choices=[
         "watch", "health", "decay", "citations", "refresh", "pagespeed",
-        "competitors", "truth", "links", "cannibals", "dashboard",
+        "competitors", "truth", "links", "cannibals", "dashboard", "hygiene",
     ])
     parser.add_argument("--dir", default="blogs/roi-incoming", help="Directory to watch (for 'watch')")
     parser.add_argument("--file", help="File path (for 'refresh')")
@@ -658,6 +660,10 @@ Commands:
         result = check_links(urls=args.urls)
     elif args.command == "cannibals":
         result = check_cannibalization()
+    elif args.command == "hygiene":
+        result = run_hygiene(urls=args.urls)
+        _log("hygiene", {"pages": result["pages_checked"],
+                         "findings": result["total_findings"]})
     elif args.command == "dashboard":
         result = build_dashboard()
         _log("dashboard", result)

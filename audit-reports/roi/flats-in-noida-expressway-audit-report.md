@@ -5,7 +5,7 @@
 **Publishable:** Yes
 **Word Count:** 1856
 **Paragraphs:** 56
-**Total Issues:** 9
+**Total Issues:** 11
 
 ## Publication Gates
 
@@ -57,7 +57,7 @@
 - **Acceptance test:** No generic 'read more' or 'click here' CTAs in body
 - **Google rule:** SPAM-CLICKBAIT-002
 
-## LOW Issues (3)
+## LOW Issues (5)
 
 ### CG-LINK-007: Internal URL needs verification: countygroup.in/flats-in-noida
 
@@ -86,6 +86,25 @@
 - **Action:** Run `agent links` to check it resolves, then add it to county_context/site_urls.yaml or correct the link
 - **Acceptance test:** Every internal link resolves and is listed in site_urls.yaml
 
+### CG-PROSE-010: 'Not only… but also' construction
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 14
+- **Found:** "to sustained housing demand, making the corridor attractive not only for homebuyers but also for those seeking long-term [real estate investment](https:"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Rewrite as a plain sentence.
+- **Acceptance test:** No remaining instances of: 'not only… but also' construction
+- **Editorial rule:** PROSE_RULE_OF_THREE
+
+### CG-PROSE-011: 8 paragraphs open with 'this'
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Action:** Vary the sentence openings.
+- **Acceptance test:** No word opens more than three paragraphs
+- **Editorial rule:** PROSE_REPEATED_OPENER
+
 ## INFO Issues (1)
 
 ### CG-PROJECT-006: Reviewer note for Clove County: Quoting super area as the flat size without naming carpet area
@@ -100,5 +119,5 @@
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 0 | 5 | 0 | 6 |
+| ROI | 0 | 0 | 5 | 2 | 8 |
 | INTERNAL | 0 | 0 | 0 | 3 | 3 |

@@ -5,7 +5,7 @@
 **Publishable:** No
 **Word Count:** 1151
 **Paragraphs:** 3
-**Total Issues:** 6
+**Total Issues:** 7
 
 ## Publication Gates
 
@@ -66,8 +66,21 @@
 - **Action:** Add 1 hero image and 2-4 supporting visuals with descriptive alt text
 - **Acceptance test:** Hero image + 2 supporting images with specific alt text
 
+## LOW Issues (1)
+
+### CG-PROSE-007: 'Not only… but also' construction
+
+- **Owner:** ROI
+- **Category:** grammar
+- **Paragraph:** 3
+- **Found:** "der market movement, where buyer confidence is strengthened not only through premium projects but also through communication, planning clarity and long-term relat"
+- **Reason:** Reads as unedited machine output or boilerplate
+- **Action:** Rewrite as a plain sentence.
+- **Acceptance test:** No remaining instances of: 'not only… but also' construction
+- **Editorial rule:** PROSE_RULE_OF_THREE
+
 ## Issues by Owner
 
 | Owner | Critical | High | Medium | Low | Total |
 |-------|----------|------|--------|-----|-------|
-| ROI | 0 | 2 | 4 | 0 | 6 |
+| ROI | 0 | 2 | 4 | 1 | 7 |

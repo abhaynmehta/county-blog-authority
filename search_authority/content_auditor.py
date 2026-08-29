@@ -13,6 +13,7 @@ from .models import (
     AuditIssue, ContentAnalysis, GateResult, GateStatus,
     IssueCategory, MetadataAnalysis, Owner, Severity,
 )
+from .prose import check_prose
 from .truth_layer import load_truth_layer, _normalise_url
 
 
@@ -605,6 +606,18 @@ def _near(text: str, anchor: str, target: str, window: int = 220):
     return None
 
 
+def _is_table_header(text: str, position: int) -> bool:
+    """True when "carpet area" here is a column heading, not a label.
+
+    Flattening an HTML table puts the headings ("Super Area Built-up Area
+    Carpet Area") immediately before the row's values, so the first number
+    after "Carpet Area" is the *super* area. A correctly-labelled table
+    would otherwise be reported as a wrong figure.
+    """
+    preceding = text[max(0, position - 80):position].lower()
+    return "super area" in preceding or "built-up area" in preceding or "built up area" in preceding
+
+
 def _check_projects(text: str, issues: list[AuditIssue], issue_counter: list[int],
                     layer):
     """Verify claims made about a named project against the registry.
@@ -707,12 +720,14 @@ def _check_projects(text: str, issues: list[AuditIssue], issue_counter: list[int
         registered = set(project.carpet_areas())
         if registered:
             for match in re.finditer(
-                r"carpet\s+area[^.\n]{0,60}?([\d,]{3,7})\s*(?:sq\.?\s*ft|square\s+feet)",
+                r"carpet\s+area\b(?![^.]{0,40}\b(?:super|built[- ]?up)\b)[^.\n]{0,22}?([\d,]{3,7})\s*(?:sq\.?\s*ft|square\s+feet)",
                 text, re.IGNORECASE,
             ):
                 try:
                     stated = int(match.group(1).replace(",", ""))
                 except ValueError:
+                    continue
+                if _is_table_header(text, match.start()):
                     continue
                 # Allow a small rounding tolerance; the source lists whole
                 # square feet but writers sometimes round to the nearest ten.
@@ -942,6 +957,10 @@ def audit_text(text: str, file_path: str = "unknown") -> ContentAnalysis:
     _layer = load_truth_layer()
     _check_projects(text, analysis.issues, issue_counter, _layer)
     _check_links(text, analysis.issues, issue_counter, _layer)
+
+    # Style findings. These lower the score but never fail a gate — a
+    # cliche is a quality problem, not a compliance one.
+    analysis.issues.extend(check_prose(text, issue_counter))
 
     # Run publication gates
     _run_gates(analysis)

@@ -4,16 +4,16 @@
   "paragraph_count": 5,
   "score": 64,
   "publishable": false,
-  "issue_count": 8,
+  "issue_count": 9,
   "issues_by_severity": {
     "critical": 0,
     "high": 3,
     "medium": 4,
-    "low": 0,
+    "low": 1,
     "info": 1
   },
   "issues_by_owner": {
-    "ROI": 8,
+    "ROI": 9,
     "AGO": 0,
     "BOTH": 0,
     "INTERNAL": 0
@@ -128,6 +128,19 @@
       "recommended_action": "Confirm the content does not do this",
       "acceptance_test": "Quoting super area as the flat size without naming carpet area",
       "editorial_rule": "PROJECT_SPECIFIC_RULE"
+    },
+    {
+      "issue_id": "CG-PROSE-009",
+      "category": "grammar",
+      "severity": "low",
+      "owner": "ROI",
+      "summary": "'Not only\u2026 but also' construction",
+      "paragraph": 5,
+      "claim": "hidden costs, which become surprisingly high for buyers. It not only creates a burden on homebuyers but also ruins the image of the builders in the long run. Trustworth",
+      "reason": "Reads as unedited machine output or boilerplate",
+      "recommended_action": "Rewrite as a plain sentence.",
+      "acceptance_test": "No remaining instances of: 'not only\u2026 but also' construction",
+      "editorial_rule": "PROSE_RULE_OF_THREE"
     }
   ]
 }
