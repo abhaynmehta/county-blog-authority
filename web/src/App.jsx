@@ -4,13 +4,15 @@ import Corpus from "./Corpus.jsx";
 import Hygiene from "./Hygiene.jsx";
 import Overlap from "./Overlap.jsx";
 import Reports from "./Reports.jsx";
+import Social from "./Social.jsx";
 
 const TABS = [
   { id: "audit", label: "Audit a draft" },
   { id: "corpus", label: "All content" },
   { id: "overlap", label: "Keyword overlap" },
   { id: "hygiene", label: "Live pages" },
-  { id: "reports", label: "Weekly report" },
+  { id: "reports", label: "Ads report" },
+  { id: "social", label: "Social report" },
 ];
 
 /* ── Small presentational pieces ─────────────────────────────────────── */
@@ -287,6 +289,7 @@ export default function App() {
       {tab === "overlap" && <Overlap />}
       {tab === "hygiene" && <Hygiene />}
       {tab === "reports" && <Reports />}
+      {tab === "social" && <Social />}
     </div>
   );
 }

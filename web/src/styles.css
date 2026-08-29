@@ -187,3 +187,6 @@ td.good { color: var(--good); font-weight: 600; }
 td.bad { color: var(--bad); font-weight: 600; }
 .issue-good { border-left-color: var(--good); }
 .pill-info { background: var(--info-bg); color: var(--info); }
+
+a { color: var(--primary); }
+.mini.wide a { font-size: 12px; }

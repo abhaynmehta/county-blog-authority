@@ -28,6 +28,7 @@ from search_authority.content_auditor import audit_text
 from search_authority.dashboard import collect_data
 from search_authority.hygiene import run as run_hygiene
 from search_authority.reports import compare, explain, load_leads, load_rows
+from search_authority.social import social_report
 from search_authority.models import Severity
 from search_authority.schema import (
     generate_blog_schema, generate_breadcrumb_schema, schemas_to_jsonld,
@@ -320,9 +321,39 @@ async def weekly(
             "rows_compared": len(comparison["rows"]),
             "totals": comparison["totals"],
             "leads": lead_data,
-            "findings": explain(comparison, lead_data),
+            "findings": explain(comparison, lead_data, current_meta),
             "campaigns": comparison["rows"],
+            "warnings": {
+                k: v for k, v in current_meta.items()
+                if k in ("mixed_conversion_metrics", "header_row")
+            },
         }
     finally:
         for path in paths:
             path.unlink(missing_ok=True)
+
+
+@app.post("/report/social", tags=["reporting"])
+async def social(
+    export: UploadFile = File(..., description="Social post export (CSV)"),
+    window_days: int = 28,
+) -> dict:
+    """Analyse social post performance.
+
+    One file, not two: social exports carry a date per post, so the periods
+    are split from the data rather than requiring separate uploads.
+    """
+    import tempfile
+
+    suffix = Path(export.filename or "social.csv").suffix or ".csv"
+    handle = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+    handle.write(export.file.read())
+    handle.close()
+    path = Path(handle.name)
+    try:
+        result = social_report(path, split_days=window_days)
+        if "error" in result:
+            raise HTTPException(422, result)
+        return result
+    finally:
+        path.unlink(missing_ok=True)

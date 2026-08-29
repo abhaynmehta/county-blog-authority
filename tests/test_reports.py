@@ -64,9 +64,13 @@ def test_a_totals_row_is_not_treated_as_a_campaign(tmp_path):
 
 
 def test_an_export_without_a_campaign_column_reports_why(tmp_path):
+    """The header detector looks for a campaign-like column, so a file
+    without one fails there rather than later."""
     path = write(tmp_path / "x.csv", ["Date", "Spend"], [["2026-08-01", 100]])
     rows, meta = load_rows(path)
-    assert rows == [] and "no campaign" in meta["error"]
+    assert rows == []
+    assert "no header row" in meta["error"] or "no campaign" in meta["error"]
+    assert meta.get("first_rows") or meta.get("headers")
 
 
 def test_a_missing_file_raises(tmp_path):
@@ -230,3 +234,99 @@ def test_weekly_report_works_without_lead_data(tmp_path):
     current = write(tmp_path / "c.csv", META, [["A", 200, 20, "200", 2]])
     report = weekly_report(previous, current)
     assert report["leads"] is None and report["findings"]
+
+
+# ── The County weekly sheet's actual shape ────────────────────────────────
+#
+# These pin the format the real export uses. Every one of them failed before
+# the parser met the file: it assumed row 1 held headers, and its aliases
+# missed "Spent" and "Impression".
+
+COUNTY = ["Platform", "Campaign Name", "Spent", "Impression", "Reach",
+          "Conversion Metric", "Conversions", "Cost per conversion"]
+
+
+def county_sheet(path: Path, rows) -> Path:
+    """The real export opens with a title banner above the header row."""
+    with open(path, "w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["County Group 17 Aug - 23 Aug 2026", "", "", "", "", "", "", ""])
+        writer.writerow(COUNTY)
+        writer.writerows(rows)
+    return path
+
+
+def test_a_title_banner_above_the_headers_is_skipped(tmp_path):
+    path = county_sheet(tmp_path / "c.csv",
+                        [["Meta Branding", "Campaign A", "24,474.12", "2,986,952",
+                          "1,811,534", "Reach", "1,811,534", "13.51"]])
+    rows, meta = load_rows(path)
+    assert meta["header_row"] == 2
+    assert [r.name for r in rows] == ["Campaign A"]
+
+
+def test_spent_and_impression_singular_are_recognised(tmp_path):
+    """The sheet says "Spent", which does not contain "spend"."""
+    path = county_sheet(tmp_path / "c.csv",
+                        [["Meta", "A", "1,000", "5,000", "4,000", "Reach", "10", "100"]])
+    _, meta = load_rows(path)
+    assert meta["columns_used"]["spend"] == "Spent"
+    assert meta["columns_used"]["impressions"] == "Impression"
+
+
+def test_a_sparse_platform_column_is_carried_down(tmp_path):
+    """Grouped sheets name the platform once per block and leave the rest blank."""
+    path = county_sheet(tmp_path / "c.csv", [
+        ["Meta Branding", "A", "100", "1000", "900", "Reach", "5", "20"],
+        ["", "B", "200", "2000", "1800", "Reach", "10", "20"],
+    ])
+    rows, _ = load_rows(path)
+    assert [r.platform for r in rows] == ["Meta Branding", "Meta Branding"]
+
+
+def test_totals_rows_inside_the_sheet_are_excluded(tmp_path):
+    """Totals appear mid-sheet, not only at the end."""
+    path = county_sheet(tmp_path / "c.csv", [
+        ["Meta", "A", "100", "1000", "900", "Reach", "5", "20"],
+        ["", "Total (Branding)", "100", "1000", "900", "", "5", "-"],
+        ["", "Grand Total (Leads+Branding)", "100", "1000", "900", "", "5", "-"],
+    ])
+    rows, _ = load_rows(path)
+    assert [r.name for r in rows] == ["A"]
+
+
+def test_mixing_conversion_metrics_is_reported(tmp_path):
+    """Reach, page likes and post engagements are not comparable, so a total
+    across them is meaningless and must not be produced silently."""
+    path = county_sheet(tmp_path / "c.csv", [
+        ["Meta", "A", "100", "1000", "900", "Reach", "900", "0.1"],
+        ["", "B", "100", "1000", "900", "Page Like", "45", "2.2"],
+        ["", "C", "100", "1000", "900", "Post Engagement", "300", "0.3"],
+    ])
+    _, meta = load_rows(path)
+    assert meta["mixed_conversion_metrics"] == ["Page Like", "Post Engagement", "Reach"]
+
+
+def test_the_mixed_metric_warning_reaches_the_findings(tmp_path):
+    rows = [["Meta", "A", "100", "1000", "900", "Reach", "900", "0.1"],
+            ["", "B", "100", "1000", "900", "Page Like", "45", "2.2"]]
+    previous = county_sheet(tmp_path / "p.csv", rows)
+    current = county_sheet(tmp_path / "c.csv", rows)
+    report = weekly_report(previous, current)
+    assert any("mixes different metrics" in f["headline"] for f in report["findings"])
+
+
+def test_a_single_metric_sheet_raises_no_warning(tmp_path):
+    rows = [["Meta", "A", "100", "1000", "900", "Reach", "900", "0.1"],
+            ["", "B", "100", "1000", "900", "Reach", "800", "0.1"]]
+    report = weekly_report(county_sheet(tmp_path / "p.csv", rows),
+                           county_sheet(tmp_path / "c.csv", rows))
+    assert "mixed_conversion_metrics" not in report["warnings"]
+
+
+def test_a_file_with_no_recognisable_header_reports_the_first_rows(tmp_path):
+    path = tmp_path / "x.csv"
+    with open(path, "w", newline="", encoding="utf-8") as handle:
+        csv.writer(handle).writerows([["just"], ["some"], ["notes"]])
+    rows, meta = load_rows(path)
+    assert rows == [] and "no header row" in meta["error"]

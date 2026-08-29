@@ -27,10 +27,17 @@ from typing import Iterable, Optional
 ALIASES: dict[str, tuple[str, ...]] = {
     "campaign": ("campaign name", "campaign", "ad set name", "ad group",
                  "top pages", "page", "landing page", "query", "source / medium"),
-    "impressions": ("impressions", "impr.", "reach"),
+    "impressions": ("impressions", "impression", "impr.", "reach"),
     "clicks": ("clicks", "link clicks", "sessions"),
-    "spend": ("amount spent", "spend", "cost", "amount"),
+    # "Spent" is what the County weekly sheet uses; it does not contain
+    # "spend", so substring matching alone would miss it.
+    "spend": ("amount spent", "spent", "spend", "cost", "amount"),
     "leads": ("leads", "conversions", "results", "conversion", "form submissions"),
+    # Names what the conversion column actually counts. Reach, page likes and
+    # post engagements are not comparable quantities, so summing a column that
+    # mixes them produces a meaningless total.
+    "conversion_metric": ("conversion metric", "result type", "metric"),
+    "platform": ("platform", "channel", "source"),
 }
 
 # Derived metrics: (name, numerator, denominator, multiplier).
@@ -55,6 +62,7 @@ class Row:
     """One campaign, page, or query in a period."""
     name: str
     metrics: dict[str, float] = field(default_factory=dict)
+    platform: Optional[str] = None
 
     def derive(self) -> None:
         for key, num, den, mult in DERIVED:
@@ -89,6 +97,21 @@ def _match_column(headers: Iterable[str], field_name: str) -> Optional[str]:
     return None
 
 
+def _find_header_row(rows: list[list[str]], limit: int = 10) -> Optional[int]:
+    """Index of the row that looks like column headers.
+
+    Matches the first row containing a campaign/page-like column name, so a
+    title or date banner above the table does not become the header.
+    """
+    for index, row in enumerate(rows[:limit]):
+        cells = [c.strip().lower() for c in row if c and c.strip()]
+        if len(cells) < 2:
+            continue
+        if any(any(alias in cell for alias in ALIASES["campaign"]) for cell in cells):
+            return index
+    return None
+
+
 def load_rows(path: str | Path) -> tuple[list[Row], dict]:
     """Read an export into normalised rows.
 
@@ -100,22 +123,55 @@ def load_rows(path: str | Path) -> tuple[list[Row], dict]:
         raise FileNotFoundError(f"No such export: {path}")
 
     with open(file, newline="", encoding="utf-8-sig") as handle:
-        raw = list(csv.DictReader(handle))
-    if not raw:
+        rows_raw = list(csv.reader(handle))
+    if not rows_raw:
         return [], {"error": "empty file"}
 
-    headers = list(raw[0].keys())
+    # Exported sheets often open with a title row ("County Group 17 Aug - 23
+    # Aug 2026") before the real headers, so the first line is not reliably
+    # the header. Take the first row that names a campaign-like column.
+    header_index = _find_header_row(rows_raw)
+    if header_index is None:
+        return [], {"error": "no header row found",
+                    "first_rows": [r[:4] for r in rows_raw[:4]]}
+
+    headers = [h.strip() for h in rows_raw[header_index]]
+    raw = [
+        {headers[i]: (row[i] if i < len(row) else "") for i in range(len(headers))}
+        for row in rows_raw[header_index + 1:]
+    ]
+    if not raw:
+        return [], {"error": "header row found but no data rows"}
     mapping = {f: _match_column(headers, f) for f in ALIASES}
     if not mapping["campaign"]:
         return [], {"error": "no campaign/page column found", "headers": headers}
 
     rows: list[Row] = []
+    metrics_seen: set[str] = set()
+    platform = None
     for record in raw:
+        # Grouped sheets fill the platform cell only on the first row of a
+        # block, leaving the rest blank; carry it down.
+        if mapping.get("platform"):
+            cell = (record.get(mapping["platform"]) or "").strip()
+            if cell:
+                platform = cell
+
         name = (record.get(mapping["campaign"]) or "").strip()
-        # Platform exports end with a totals line that must not be a row.
-        if not name or name.lower().startswith(("total", "—", "grand total")):
+        lowered = name.lower()
+        # Totals appear mid-sheet as well as at the end.
+        if not name or lowered.startswith(("total", "grand total", "—", "-")) \
+                or "total (" in lowered:
             continue
+
+        if mapping.get("conversion_metric"):
+            metric = (record.get(mapping["conversion_metric"]) or "").strip()
+            if metric and metric != "-":
+                metrics_seen.add(metric)
+
         row = Row(name=name)
+        if platform:
+            row.platform = platform
         for field_name in ("impressions", "clicks", "spend", "leads"):
             column = mapping[field_name]
             if column:
@@ -125,7 +181,13 @@ def load_rows(path: str | Path) -> tuple[list[Row], dict]:
         row.derive()
         rows.append(row)
 
-    return rows, {"columns_used": mapping, "rows": len(rows)}
+    meta = {"columns_used": mapping, "rows": len(rows),
+            "header_row": header_index + 1}
+    if len(metrics_seen) > 1:
+        # Reach, page likes and post engagements are different quantities.
+        # Adding them would produce a confident, meaningless total.
+        meta["mixed_conversion_metrics"] = sorted(metrics_seen)
+    return rows, meta
 
 
 def load_leads(path: str | Path) -> dict:
@@ -244,7 +306,8 @@ def compare(previous: list[Row], current: list[Row]) -> dict:
     return {"totals": totals, "rows": rows}
 
 
-def explain(comparison: dict, leads: Optional[dict] = None) -> list[dict]:
+def explain(comparison: dict, leads: Optional[dict] = None,
+            meta: Optional[dict] = None) -> list[dict]:
     """Turn the numbers into findings a person can act on.
 
     Each finding states what moved, the arithmetic reason it moved, and what
@@ -253,6 +316,21 @@ def explain(comparison: dict, leads: Optional[dict] = None) -> list[dict]:
     """
     totals = comparison["totals"]
     findings: list[dict] = []
+
+    # Warn before anything else if the conversion column mixes quantities.
+    # A sheet counting reach on one row and page likes on another produces a
+    # total that looks authoritative and means nothing.
+    mixed = (meta or {}).get("mixed_conversion_metrics")
+    if mixed:
+        findings.append({
+            "severity": "high",
+            "headline": "The conversion column mixes different metrics: "
+                        + ", ".join(mixed),
+            "why": "These are not comparable quantities, so any total or "
+                   "cost-per-conversion across them is meaningless.",
+            "action": "Split branding rows from lead-generation rows and "
+                      "compare each against its own metric.",
+        })
 
     def pct(metric: str) -> Optional[float]:
         return (totals.get(metric) or {}).get("change_pct")
@@ -387,6 +465,10 @@ def weekly_report(previous_path: str | Path, current_path: str | Path,
         "rows_compared": len(comparison["rows"]),
         "totals": comparison["totals"],
         "leads": leads,
-        "findings": explain(comparison, leads),
+        "findings": explain(comparison, leads, curr_meta),
         "campaigns": comparison["rows"],
+        "warnings": {
+            k: v for k, v in curr_meta.items()
+            if k in ("mixed_conversion_metrics", "header_row")
+        },
     }
