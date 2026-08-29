@@ -18,6 +18,7 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
+from . import yaml_strict
 import yaml
 
 CONTEXT_DIR = Path("county_context")
@@ -97,7 +98,11 @@ class Project:
     state: Optional[str] = None
     sector: Optional[str] = None
     rera_authority: Optional[str] = None
-    rera_number: Optional[str] = None
+    # Every registration this project holds. A project may be registered in
+    # phases, each with its own number, so a single field silently dropped
+    # all but one — and for three of five projects, dropped all of them.
+    rera_numbers: list[str] = field(default_factory=list)
+    promoter_registration: Optional[str] = None
     promoter: Optional[str] = None
     project_page: Optional[str] = None
     prohibited: list[str] = field(default_factory=list)
@@ -115,6 +120,12 @@ class Project:
             if isinstance(v, (int, float)):
                 out.append(int(v))
         return out
+
+    @property
+    def rera_number(self) -> Optional[str]:
+        """The first registration, for callers that want one. Prefer
+        `rera_numbers` — most projects have more than one."""
+        return self.rera_numbers[0] if self.rera_numbers else None
 
     def unverified_carpet_areas(self) -> list[int]:
         out = []
@@ -183,10 +194,16 @@ def load_truth_layer(base_dir: Path | str = CONTEXT_DIR) -> TruthLayer:
     # or neither. Missing claims must not stop projects from loading.
     for path in sorted(claims_dir.glob("*.yaml")) if claims_dir.is_dir() else []:
         try:
-            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-        except yaml.YAMLError:
+            data = yaml_strict.load_file(path) or {}
+        except yaml.YAMLError as exc:
+            layer.load_errors.append(
+                {"file": str(path), "error": str(exc).splitlines()[0]}
+            )
             continue
         if not isinstance(data, dict):
+            layer.load_errors.append(
+                {"file": str(path), "error": "top level is not a mapping"}
+            )
             continue
 
         category = data.get("claim_category") or path.stem
@@ -238,7 +255,7 @@ def _load_site_urls(path: Path, errors: list[dict]) -> tuple[set[str], set[str]]
     if not path.is_file():
         return set(), set()
     try:
-        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        data = yaml_strict.load_file(path) or {}
     except yaml.YAMLError as exc:
         errors.append({"file": str(path), "error": str(exc).split("\n")[0]})
         return set(), set()
@@ -274,6 +291,48 @@ def raw_site_urls(base_dir: Path | str = CONTEXT_DIR) -> list[str]:
     return sorted(_RAW_URLS)
 
 
+# RERA data is spelled several ways across the registry: a `rera:` block, a
+# newer `rera_project:` block, singular `registration_number`, plural
+# `registration_numbers`, and `project_registration_numbers`. Rather than
+# rewrite every file and hope, the loader reads all of them and prefers the
+# project-level record over the older flat one.
+_RERA_BLOCKS = ("rera_project", "rera")
+_NUMBER_KEYS = ("registration_numbers", "project_registration_numbers",
+                "registration_number", "project_registration_number")
+
+
+def _read_rera(data: dict) -> tuple[Optional[str], list[str], Optional[str]]:
+    """Return (authority, [registration numbers], promoter registration)."""
+    authority = None
+    numbers: list[str] = []
+    promoter = None
+
+    for block_name in _RERA_BLOCKS:
+        block = data.get(block_name)
+        if not isinstance(block, dict):
+            continue
+        authority = authority or block.get("authority")
+        promoter = promoter or block.get("promoter_registration_number")
+
+        for key in _NUMBER_KEYS:
+            value = block.get(key)
+            if isinstance(value, str) and value.strip():
+                if value not in numbers:
+                    numbers.append(value.strip())
+            elif isinstance(value, list):
+                for item in value:
+                    text = str(item).split("#")[0].strip()
+                    if text and text not in numbers:
+                        numbers.append(text)
+
+    # Infer the authority from the state when the file does not say.
+    if not authority:
+        state = ((data.get("location") or {}).get("state") or "").strip().lower()
+        authority = {"uttar pradesh": "UP-RERA", "haryana": "HARERA"}.get(state)
+
+    return authority, numbers, promoter
+
+
 def _load_projects(projects_dir: Path, errors: list[dict]) -> list[Project]:
     """Load one Project per YAML file under `projects/`.
 
@@ -287,7 +346,7 @@ def _load_projects(projects_dir: Path, errors: list[dict]) -> list[Project]:
     projects: list[Project] = []
     for path in sorted(projects_dir.glob("*.yaml")):
         try:
-            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            data = yaml_strict.load_file(path) or {}
         except yaml.YAMLError as exc:
             errors.append({"file": str(path), "error": str(exc).split("\n")[0]})
             continue
@@ -302,7 +361,7 @@ def _load_projects(projects_dir: Path, errors: list[dict]) -> list[Project]:
             continue
 
         loc = data.get("location") or {}
-        rera = data.get("rera") or {}
+        authority, numbers, promoter_reg = _read_rera(data)
 
         projects.append(Project(
             name=str(name),
@@ -310,8 +369,9 @@ def _load_projects(projects_dir: Path, errors: list[dict]) -> list[Project]:
             city=loc.get("city"),
             state=loc.get("state"),
             sector=str(loc["sector"]) if loc.get("sector") is not None else None,
-            rera_authority=rera.get("authority"),
-            rera_number=rera.get("registration_number"),
+            rera_authority=authority,
+            rera_numbers=numbers,
+            promoter_registration=promoter_reg,
             promoter=meta.get("registered_promoter"),
             project_page=(data.get("county_urls") or {}).get("project_page"),
             prohibited=[

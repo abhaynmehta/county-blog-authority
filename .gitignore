@@ -113,3 +113,10 @@ dashboard/
 # React console build output and deps
 web/node_modules/
 web/dist/
+
+# Generated audit output. Regenerate with:
+#   python -m search_authority.batch --force
+# Committing 450+ generated files makes every real diff unreadable, and the
+# schema files carried fabricated publication dates before the pipeline was
+# changed to require a real one.
+audit-reports/

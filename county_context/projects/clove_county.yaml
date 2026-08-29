@@ -24,17 +24,35 @@ location:
       status: operational
 
 rera:
-  registration_number: UPRERAPRJ401801  # verify exact number
-  portal_url: https://www.up-rera.in/Projectsummary?IRSAHEB=D6PY3lyims8%3D&NPJ6RAme=ejOIFvGmsis6emaJtD%2Fl5g%3D%3D&PaURJEMAN4=ZL9MNERkNdZvkLCfu85Q0j1Uin2HFdhy&UI0aPA1ISD=C4BAF%2FPT+Ls%3D&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP
-  statutory_filing: https://up-rera.in/ViewDocument?Param=PRJ401801405CA_Certificate_Clove_County.pdf
+  authority: UP-RERA
+  # UNRESOLVED — two registrations exist for this project and neither is
+  # evidently wrong. Both are recorded rather than one being chosen by code.
+  # A human must confirm on the UP-RERA portal which covers which phase
+  # before content cites a number for a specific tower.
+  #   PRJ401801            — from the original project record; has a live
+  #                          portal link and a statutory filing PDF.
+  #   PRJ696539/11/2025    — from the price list w.e.f. 01 Mar 2026,
+  #                          launched 27 Nov 2025. Likely a later phase.
+  registration_numbers:
+    - UPRERAPRJ696539/11/2025
+    - UPRERAPRJ401801
+  resolution_status: needs_human_review
+  registrations:
+    - number: UPRERAPRJ401801
+      portal_url: https://www.up-rera.in/Projectsummary?IRSAHEB=D6PY3lyims8%3D&NPJ6RAme=ejOIFvGmsis6emaJtD%2Fl5g%3D%3D&PaURJEMAN4=ZL9MNERkNdZvkLCfu85Q0j1Uin2HFdhy&UI0aPA1ISD=C4BAF%2FPT+Ls%3D&hfFlag=9emr4VdBw22M7BGjKtJWMPDI4s5cHQZP
+      statutory_filing: https://up-rera.in/ViewDocument?Param=PRJ401801405CA_Certificate_Clove_County.pdf
+      phase: unconfirmed
+    - number: UPRERAPRJ696539/11/2025
+      project_launch_date: 2025-11-27
+      promoter_name: Shirja Real Estate Solutions Pvt. Ltd.
+      source: Clove County price list, w.e.f. 01 Mar 2026
+      phase: unconfirmed
+  portal_url: https://www.up-rera.in/
   registered_completion_date: null  # fill from RERA portal
-  # IMPORTANT: RERA registration is a regulatory filing, NOT a government endorsement or delivery guarantee
-
-configurations:
-  - type: 4 BHK
-    carpet_area_sqft: null  # fill from RERA/sanctioned plan, not brochure
-  - type: 5 BHK
-    carpet_area_sqft: null
+  last_verified: 2026-08-29
+  refresh_days: 90
+  # RERA registration is a regulatory filing, NOT a government endorsement
+  # or a delivery guarantee.
 
 project_details:
   total_units: 226  # source: RERA filing — verify
@@ -69,30 +87,15 @@ certifications:
     evidence: null  # no current IGBC certificate found
     # IMPORTANT: "Targeting IGBC Platinum" ≠ "IGBC Platinum certified"
 
-pricing:
-  # NEVER invent prices. Only populate from current official sources.
-  price_per_sqft: null
-  starting_price: null
-  last_verified: null
-  source: null
-
 county_urls:
-  project_page: null  # fill with actual URL
+  project_page: https://www.countygroup.in/clovecounty/
   contact_page: null
   site_visit_page: null
 
 
 # ── Sourced from "Price List- 151", w.e.f. 01 Mar 2026, and CLOVE-MKIT
 # unit plans. Supplied by Abhay Mehta, 29 Aug 2026.
-rera_project:
-  authority: UP-RERA
-  registration_number: UPRERAPRJ696539/11/2025
-  project_launch_date: 2025-11-27
-  promoter_name: Shirja Real Estate Solutions Pvt. Ltd.
-  portal_url: https://www.up-rera.in/
-  source: Clove County price list, w.e.f. 01 Mar 2026
-  last_verified: 2026-08-29
-  refresh_days: 90
+# RERA is recorded once, in the canonical `rera:` block above.
   note: >
     Project-level SPV under the County Group umbrella. Separate promoter
     entities per project are the norm; this is not a discrepancy. The name

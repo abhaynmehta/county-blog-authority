@@ -73,11 +73,17 @@ def test_missing_directory_yields_empty_layer_not_an_error(tmp_path):
     assert layer.is_empty
 
 
-def test_malformed_yaml_is_skipped_not_raised(tmp_path):
+def test_malformed_yaml_is_reported_not_silently_skipped(tmp_path):
+    """A claims file that stops parsing disables every fact it holds, so it
+    must surface as a load error rather than vanishing."""
     claims = tmp_path / "claims"
     claims.mkdir(parents=True)
     (claims / "broken.yaml").write_text("claims: [unclosed\n", encoding="utf-8")
-    assert load_truth_layer(tmp_path).is_empty
+
+    layer = load_truth_layer(tmp_path)
+
+    assert layer.is_empty
+    assert layer.load_errors and "broken.yaml" in layer.load_errors[0]["file"]
 
 
 # --- Staleness ---

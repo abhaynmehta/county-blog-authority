@@ -24,6 +24,8 @@ def run_pipeline(
     slug: str = "blog",
     output_dir: str = "output",
     url_base: str = "https://countygroup.in/blog",
+    date_published: str | None = None,
+    strict: bool = False,
 ) -> dict:
     """Run the full audit → schema → package pipeline.
 
@@ -33,6 +35,13 @@ def run_pipeline(
         slug: URL slug for the blog post.
         output_dir: Directory to write output files.
         url_base: Base URL for schema generation.
+        date_published: The post's real publication date (ISO). Required for
+            schema. Auditing must never invent one — a rerun would otherwise
+            rewrite publication history and put a false date in structured
+            data.
+        strict: When True, content that fails a gate gets diagnostics only.
+            No schema and no agency package, so "audited" can never be
+            mistaken for "approved".
 
     Returns:
         dict with keys: audit_result, schema, output_files
@@ -61,20 +70,30 @@ def run_pipeline(
         else:
             text = p.read_text(encoding="utf-8")
 
-    # Stage 2: Schema
     headline = _extract_headline(result, text or "")
-    blog_schema = generate_blog_schema(
-        headline=headline,
-        description=result.metadata.meta_description or f"County Group blog: {headline}",
-        url=f"{url_base}/{slug}",
-        date_published=_today(),
-    )
-    breadcrumb = generate_breadcrumb_schema([
-        {"name": "Home", "url": "https://countygroup.in/"},
-        {"name": "Blog", "url": "https://countygroup.in/blog/"},
-        {"name": headline},
-    ])
-    combined_schema = schemas_to_jsonld(blog_schema, breadcrumb)
+
+    # Content that failed a gate must not receive a CMS-looking package.
+    blocked = strict and not result.publishable
+    if blocked:
+        out = out / "failed-audits"
+        out.mkdir(parents=True, exist_ok=True)
+
+    # Stage 2: Schema — only for content that passed, and only with a real
+    # publication date supplied by the caller.
+    combined_schema = None
+    if not blocked and date_published:
+        blog_schema = generate_blog_schema(
+            headline=headline,
+            description=result.metadata.meta_description or f"County Group blog: {headline}",
+            url=f"{url_base}/{slug}",
+            date_published=date_published,
+        )
+        breadcrumb = generate_breadcrumb_schema([
+            {"name": "Home", "url": "https://countygroup.in/"},
+            {"name": "Blog", "url": "https://countygroup.in/blog/"},
+            {"name": headline},
+        ])
+        combined_schema = schemas_to_jsonld(blog_schema, breadcrumb)
 
     # Stage 3: Package
     files = {}
@@ -92,9 +111,10 @@ def run_pipeline(
     files["audit_report_json"] = str(json_path)
 
     # Schema
-    schema_path = out / f"{slug}-schema.json"
-    schema_path.write_text(combined_schema, encoding="utf-8")
-    files["schema"] = str(schema_path)
+    if combined_schema:
+        schema_path = out / f"{slug}-schema.json"
+        schema_path.write_text(combined_schema, encoding="utf-8")
+        files["schema"] = str(schema_path)
 
     # ROI handoff
     roi = generate_agency_handoff([result], Owner.ROI)
@@ -111,6 +131,13 @@ def run_pipeline(
     return {
         "slug": slug,
         "publishable": result.publishable,
+        "blocked": blocked,
+        "schema_emitted": combined_schema is not None,
+        "schema_skipped_reason": (
+            "gates failed" if blocked
+            else None if combined_schema
+            else "no date_published supplied"
+        ),
         "score": result.score,
         "issue_count": len(result.issues),
         "critical_count": sum(1 for i in result.issues if i.severity.name == "CRITICAL"),

@@ -101,11 +101,50 @@ def test_audit_is_deterministic_across_calls():
 
 # ── Schema ────────────────────────────────────────────────────────────────
 
-def test_schema_endpoint_returns_jsonld():
+PASSING = (
+    "# The Center Court\n\n"
+    "Meta Title: The Center Court Sector 88-A Gurugram Homes Guide\n"
+    "Meta Description: A guide to The Center Court in Sector 88-A Gurugram, "
+    "covering carpet areas, HARERA registration and how to verify it.\n\n"
+    "The Center Court is in Sector 88-A, Gurugram, Haryana, registered with "
+    "HARERA under registration number RC/REP/HARERA/GGM/46 of "
+    "2017/7(3)/45/2024/04. Carpet area is 888 sq ft for Type A.\n\n"
+    "![Tower elevation](center-court.jpg)\n\n"
+    "See the [HARERA portal](https://www.haryanarera.gov.in/) and the "
+    "[project page](https://www.countygroup.in/centercourt/).\n\n"
+    + ("Substantive sentence about the development. " * 200)
+)
+
+
+def test_schema_uses_the_supplied_publication_date():
+    """A rerun must never rewrite publication history."""
     import json
-    body = client.post("/schema", json={"content": GOOD, "slug": "cc"}).json()
-    parsed = json.loads(body["jsonld"])
-    assert "@graph" in parsed or "@context" in parsed
+    body = client.post("/schema", json={
+        "content": PASSING, "slug": "cc", "date_published": "2026-06-01",
+    }).json()
+    assert json.loads(body["jsonld"])["@graph"][0]["datePublished"] == "2026-06-01"
+
+
+def test_schema_requires_a_publication_date():
+    response = client.post("/schema", json={"content": PASSING, "slug": "cc"})
+    assert response.status_code == 422
+
+
+def test_schema_is_refused_for_content_that_failed_a_gate():
+    """Structured data must describe a page fit to publish."""
+    response = client.post("/schema", json={
+        "content": BAD, "slug": "cc", "date_published": "2026-06-01",
+    })
+    assert response.status_code == 409
+    assert response.json()["detail"]["failed_gates"]
+
+
+def test_schema_honours_a_supplied_canonical_url():
+    body = client.post("/schema", json={
+        "content": PASSING, "slug": "cc", "date_published": "2026-06-01",
+        "canonical_url": "https://www.countygroup.in/blog/custom/",
+    }).json()
+    assert body["canonical_url"] == "https://www.countygroup.in/blog/custom/"
 
 
 # ── Registry ──────────────────────────────────────────────────────────────

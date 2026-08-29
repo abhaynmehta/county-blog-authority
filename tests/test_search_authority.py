@@ -381,9 +381,21 @@ Enter the project or promoter name.
     assert result["publishable"] is True
     assert result["score"] > 50
     assert result["critical_count"] == 0
-    assert Path(result["output_files"]["schema"]).exists()
-    schema = json.loads(Path(result["output_files"]["schema"]).read_text())
+    # No schema without a real publication date: the pipeline must never
+    # invent one, so a caller that omits it gets diagnostics only.
+    assert "schema" not in result["output_files"]
+    assert result["schema_skipped_reason"] == "no date_published supplied"
+
+    # Supplying the real date produces schema carrying that date, not today's.
+    dated = run_pipeline(
+        text=text,
+        slug="rera-guide-dated",
+        output_dir=str(tmp_path),
+        date_published="2026-06-01",
+    )
+    schema = json.loads(Path(dated["output_files"]["schema"]).read_text())
     assert "@graph" in schema
+    assert schema["@graph"][0]["datePublished"] == "2026-06-01"
 
 
 def test_pipeline_bad_blog_not_publishable(tmp_path):

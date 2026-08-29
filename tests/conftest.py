@@ -113,3 +113,15 @@ Some content.
 }
 </script>
 """
+
+
+def pytest_addoption(parser):
+    """--snapshot-update rewrites the committed score baseline.
+
+    Registered here because pytest only reads addoption hooks from conftest
+    files, not from test modules.
+    """
+    parser.addoption(
+        "--snapshot-update", action="store_true", default=False,
+        help="Rewrite tests/fixtures/score_baseline.json from current behaviour",
+    )

@@ -18,8 +18,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 # Dependencies first, so code edits do not invalidate the layer.
 COPY pyproject.toml ./
+# python-multipart is not optional: the upload routes import it, so omitting
+# it makes the container fail at start rather than at first request.
 RUN pip install --no-cache-dir \
-      "fastapi>=0.110" "uvicorn[standard]>=0.29" "pyyaml>=6" "python-docx>=1.1"
+      "fastapi>=0.110,<1.0" "uvicorn[standard]>=0.29,<1.0" \
+      "python-multipart>=0.0.9,<1.0" "pyyaml>=6" "python-docx>=1.1,<2.0"
 
 COPY search_authority/ ./search_authority/
 COPY api/ ./api/

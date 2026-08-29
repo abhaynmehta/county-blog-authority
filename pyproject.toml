@@ -32,6 +32,16 @@ documentation = "https://github.com/AgriciDaniel/claude-blog/tree/main/docs"
 changelog = "https://github.com/AgriciDaniel/claude-blog/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
+# Everything the HTTP API and its tests need. python-multipart is required
+# for the file-upload routes: without it the app raises on import, which
+# previously took the Docker container down at start.
+console = [
+    "fastapi>=0.110,<1.0",
+    "uvicorn[standard]>=0.29,<1.0",
+    "python-multipart>=0.0.9,<1.0",
+    "httpx>=0.27,<1.0",
+    "python-docx>=1.1,<2.0",
+]
 core = [
     # Bounded ranges align with requirements.txt to ensure both install paths
     # resolve to compatible majors (closes audit VULN-407 mismatch).

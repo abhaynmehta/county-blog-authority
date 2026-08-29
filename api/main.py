@@ -58,6 +58,15 @@ class AuditRequest(BaseModel):
     slug: str = Field("untitled", description="Slug used for schema URLs")
 
 
+class SchemaRequest(AuditRequest):
+    # No default. Auditing must never invent a publication date: a rerun
+    # would rewrite the post's history and put a false date into structured
+    # data, which Google's structured-data policy treats as misrepresentation.
+    date_published: str = Field(..., description="Real publication date, ISO (YYYY-MM-DD)")
+    date_modified: Optional[str] = Field(None, description="Set only after an approved visible change")
+    canonical_url: Optional[str] = Field(None, description="The page's canonical URL")
+
+
 class IssueOut(BaseModel):
     issue_id: str
     severity: str
@@ -156,22 +165,39 @@ def audit(request: AuditRequest) -> AuditResponse:
 
 
 @app.post("/schema", tags=["audit"])
-def schema(request: AuditRequest) -> dict:
-    """Generate JSON-LD for a post, ready for AGO to paste into the CMS."""
+def schema(request: SchemaRequest) -> dict:
+    """Generate JSON-LD for a post, ready for AGO to paste into the CMS.
+
+    Refuses content that fails a gate: structured data must describe a page
+    that is fit to publish, and emitting it for failed content invites
+    someone to deploy it.
+    """
     result = audit_text(request.content)
+    if not result.publishable:
+        failed = [g.gate_name for g in result.gates if g.status.value == "FAIL"]
+        raise HTTPException(409, {
+            "message": "Content failed a publication gate; no schema emitted",
+            "failed_gates": failed,
+            "score": result.score,
+        })
+
     headline = result.metadata.title or result.metadata.h1 or request.slug
+    url = request.canonical_url or f"https://www.countygroup.in/blog/{request.slug}"
     blog = generate_blog_schema(
         headline=headline,
         description=result.metadata.meta_description or headline,
-        url=f"https://www.countygroup.in/blog/{request.slug}",
-        date_published=datetime.now(timezone.utc).date().isoformat(),
+        url=url,
+        date_published=request.date_published,
     )
+    if request.date_modified:
+        blog["dateModified"] = request.date_modified
     crumbs = generate_breadcrumb_schema([
         {"name": "Home", "url": "https://www.countygroup.in/"},
         {"name": "Blog", "url": "https://www.countygroup.in/blog/"},
         {"name": headline},
     ])
-    return {"slug": request.slug, "jsonld": schemas_to_jsonld(blog, crumbs)}
+    return {"slug": request.slug, "canonical_url": url,
+            "jsonld": schemas_to_jsonld(blog, crumbs)}
 
 
 @app.get("/projects", tags=["registry"])

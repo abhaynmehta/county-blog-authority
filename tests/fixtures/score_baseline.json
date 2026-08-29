@@ -1,0 +1,255 @@
+{
+  "_registry": {
+    "carpet_areas": {
+      "Clove County": [
+        2282,
+        2990,
+        3744
+      ],
+      "Ivory County": [
+        1255,
+        1396,
+        1636,
+        1950,
+        2249,
+        2801
+      ],
+      "Jade County": [
+        1297,
+        1612,
+        2038,
+        2951
+      ],
+      "The Center Court": [
+        888,
+        1076,
+        1292
+      ]
+    },
+    "load_errors": [],
+    "prohibited_phrase_count": 14,
+    "projects": [
+      "Clove County",
+      "County Courtyard",
+      "Ivory County",
+      "Jade County",
+      "The Center Court"
+    ],
+    "rera_numbers": {
+      "Clove County": [
+        "UPRERAPRJ401801",
+        "UPRERAPRJ696539/11/2025"
+      ],
+      "Ivory County": [
+        "UPRERAPRJ115902",
+        "UPRERAPRJ256314",
+        "UPRERAPRJ507062"
+      ],
+      "Jade County": [
+        "UPRERAPRJ267958/06/2025",
+        "UPRERAPRJ639770/06/2025"
+      ],
+      "The Center Court": [
+        "RC/REP/HARERA/GGM/46 of 2017/7(3)/45/2024/04"
+      ]
+    }
+  },
+  "clean_compliant": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "PASS"
+    },
+    "issue_count": 2,
+    "issue_ids": [
+      "CG-CONTENT-001",
+      "CG-PROJECT-002"
+    ],
+    "publishable": true,
+    "score": 97
+  },
+  "just_above_thin_threshold": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 5,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-META-001",
+      "CG-META-002"
+    ],
+    "publishable": false,
+    "score": 70
+  },
+  "just_below_keyword_stuffing_limit": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 6,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-CONTENT-006",
+      "CG-META-001",
+      "CG-META-002"
+    ],
+    "publishable": false,
+    "score": 62
+  },
+  "link_problems": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 6,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-LINK-005",
+      "CG-LINK-006",
+      "CG-META-001",
+      "CG-META-002"
+    ],
+    "publishable": false,
+    "score": 67
+  },
+  "prohibited_language": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "FAIL",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 7,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-CONTENT-006",
+      "CG-CONTENT-007",
+      "CG-META-001",
+      "CG-META-002"
+    ],
+    "publishable": false,
+    "score": 35
+  },
+  "prose_tells": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 12,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-META-001",
+      "CG-META-002",
+      "CG-PROSE-006",
+      "CG-PROSE-007",
+      "CG-PROSE-008",
+      "CG-PROSE-009",
+      "CG-PROSE-010",
+      "CG-PROSE-011",
+      "CG-PROSE-012"
+    ],
+    "publishable": false,
+    "score": 65
+  },
+  "stale_infrastructure": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "FAIL",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 7,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-CONTENT-006",
+      "CG-CONTENT-007",
+      "CG-META-001",
+      "CG-META-002"
+    ],
+    "publishable": false,
+    "score": 47
+  },
+  "thin_content": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "PASS",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 5,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-META-001",
+      "CG-META-002"
+    ],
+    "publishable": false,
+    "score": 65
+  },
+  "wrong_carpet_area": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "FAIL",
+      "RERA & Legal Compliance": "PASS",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 7,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-META-001",
+      "CG-META-002",
+      "CG-PROJECT-006",
+      "CG-PROJECT-007"
+    ],
+    "publishable": false,
+    "score": 50
+  },
+  "wrong_city_and_authority": {
+    "gates": {
+      "Deployment Integrity": "WARNING",
+      "Factual Accuracy": "FAIL",
+      "RERA & Legal Compliance": "FAIL",
+      "Technical SEO Eligibility": "FAIL"
+    },
+    "issue_count": 11,
+    "issue_ids": [
+      "CG-CONTENT-003",
+      "CG-CONTENT-004",
+      "CG-CONTENT-005",
+      "CG-CONTENT-006",
+      "CG-CONTENT-007",
+      "CG-META-001",
+      "CG-META-002",
+      "CG-PROJECT-008",
+      "CG-PROJECT-009",
+      "CG-PROJECT-010",
+      "CG-PROJECT-011"
+    ],
+    "publishable": false,
+    "score": 4
+  }
+}
