@@ -353,9 +353,17 @@ function Dashboard({ onNavigate }) {
           Audit a draft
           <span>Paste content and check before publishing</span>
         </button>
+        <button className="quick-action" onClick={() => onNavigate("schema")}>
+          Generate schema
+          <span>JSON-LD for approved content — paste into CMS</span>
+        </button>
         <button className="quick-action" onClick={() => onNavigate("overlap")}>
           Check keyword overlap
           <span>Find pages competing for the same query</span>
+        </button>
+        <button className="quick-action" onClick={() => onNavigate("registry")}>
+          Registry health
+          <span>Check for stale or incomplete facts</span>
         </button>
         <button className="quick-action" onClick={() => onNavigate("benchmark")}>
           Run competitor benchmark

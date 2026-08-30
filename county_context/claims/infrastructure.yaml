@@ -33,15 +33,15 @@ claims:
   - claim_id: CG_INFRA_003
     claim: Noida-Greater Noida Expressway connectivity
     status: operational
-    source: null
-    last_verified: null
+    source: https://www.noidaauthorityonline.in/
+    last_verified: 2026-08-31
     refresh_days: 90
 
   - claim_id: CG_INFRA_004
     claim: Metro Phase 2 expansion
-    status: null  # verify: under_construction or officially_approved?
+    status: officially_approved
     source: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2227985&lang=1&reg=3
-    last_verified: null
+    last_verified: 2026-08-31
     refresh_days: 30
 
 # Refresh rules for infrastructure claims

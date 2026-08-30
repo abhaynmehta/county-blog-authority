@@ -11,6 +11,7 @@ claims:
     confidence: requires_verification
     evidence_required: true
     evidence_type: rera_possession_records
+    source: https://www.up-rera.in/
     last_verified: 2026-08-31
     note: >
       Known completed projects: Cleo County, Cherry County (verify dates

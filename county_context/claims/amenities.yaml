@@ -9,6 +9,7 @@ claims:
     projects: [Clove County]
     status: planned
     source_tier: brochure
+    source: https://www.countygroup.in/clovecounty/
     evidence: Listed in Clove County project brochure and marketing material
     refresh_rule: event_driven
     last_verified: 2026-08-29
@@ -22,6 +23,7 @@ claims:
     projects: [Clove County]
     status: planned
     source_tier: brochure
+    source: https://www.countygroup.in/clovecounty/
     evidence: Listed in Clove County brochure specifications
     last_verified: 2026-08-29
     note: >
@@ -33,6 +35,7 @@ claims:
     projects: [Clove County]
     status: planned
     source_tier: brochure
+    source: https://www.countygroup.in/clovecounty/
     evidence: Listed in Clove County brochure as project specification
     last_verified: 2026-08-29
     note: >
@@ -45,6 +48,7 @@ claims:
     projects: [Clove County]
     status: planned
     source_tier: brochure
+    source: https://www.countygroup.in/clovecounty/
     evidence: Listed in Clove County brochure amenity list
     last_verified: 2026-08-29
     note: >
@@ -56,6 +60,7 @@ claims:
     projects: [Clove County]
     status: claimed
     source_tier: brochure
+    source: https://www.countygroup.in/clovecounty/
     evidence: >
       226 total units and 3 towers per RERA filing (verify).
       Land area not yet confirmed — units/acre calculation pending.
