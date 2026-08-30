@@ -7,48 +7,63 @@ claims:
   - claim_id: CG_AMENITY_001
     claim: Indoor heated swimming pool
     projects: [Clove County]
-    status: planned  # planned | under_construction | operational
+    status: planned
     source_tier: brochure
-    evidence: null
+    evidence: Listed in Clove County project brochure and marketing material
     refresh_rule: event_driven
+    last_verified: 2026-08-29
     note: >
-      Verify whether pool is built/operational vs only in plans.
-      Do not describe as "available" if only in architectural drawings.
+      Listed in brochure as planned amenity. Project is under construction
+      (Sec 151, Noida). Do not describe as "available" or "operational"
+      until construction of the pool is independently confirmed.
 
   - claim_id: CG_AMENITY_002
     claim: Air conditioning in all apartments
     projects: [Clove County]
     status: planned
     source_tier: brochure
-    evidence: null
-    note: Verify from BBA/Agreement for Sale if AC is standard or optional.
+    evidence: Listed in Clove County brochure specifications
+    last_verified: 2026-08-29
+    note: >
+      Verify from BBA/Agreement for Sale if AC is standard or optional.
+      Currently sourced only from brochure, not RERA filing.
 
   - claim_id: CG_AMENITY_003
     claim: Premium fittings and fixtures
     projects: [Clove County]
     status: planned
     source_tier: brochure
-    evidence: null
+    evidence: Listed in Clove County brochure as project specification
+    last_verified: 2026-08-29
     note: >
-      Specify which fittings. "Premium" is vague.
-      Better: "Branded bathroom fittings from [manufacturer]" with evidence.
+      "Premium" is vague without brand names. Acceptable wording:
+      "The project specifications include premium fittings as per the brochure."
+      Better: name the manufacturer once known from the Agreement for Sale.
 
   - claim_id: CG_AMENITY_004
-    claim: Lavish clubhouse and gymnasium
+    claim: Clubhouse and gymnasium
     projects: [Clove County]
     status: planned
     source_tier: brochure
-    evidence: null
+    evidence: Listed in Clove County brochure amenity list
+    last_verified: 2026-08-29
+    note: >
+      Do not use "lavish" — subjective and unverifiable.
+      Acceptable: "The project includes a clubhouse and gymnasium."
 
   - claim_id: CG_AMENITY_005
-    claim: Low-density living
+    claim: Low-density living (226 units across 3 towers)
     projects: [Clove County]
     status: claimed
     source_tier: brochure
-    evidence: null
+    evidence: >
+      226 total units and 3 towers per RERA filing (verify).
+      Land area not yet confirmed — units/acre calculation pending.
+    last_verified: 2026-08-29
     note: >
-      Must be substantiated with units/acre calculation from RERA filing.
-      226 units on X acres = Y units/acre. Compare against sector average.
+      226 units on X acres = Y units/acre. Land area must be confirmed
+      from RERA filing to substantiate this claim numerically.
+      Until then, state unit count without the "low density" label.
 
 permitted_wording:
   - "Clove County features [amenity] as per the project brochure"

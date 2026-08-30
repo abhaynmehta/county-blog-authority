@@ -6,7 +6,16 @@ import { api, sortIssues, scoreBand } from "./api.js";
 
 vi.mock("./api.js", async () => {
   const actual = await vi.importActual("./api.js");
-  return { ...actual, api: { projects: vi.fn(), audit: vi.fn() } };
+  return {
+    ...actual,
+    api: {
+      projects: vi.fn(),
+      audit: vi.fn(),
+      health: vi.fn(),
+      corpus: vi.fn(),
+      history: vi.fn(),
+    },
+  };
 });
 
 const AUDIT = {
@@ -44,11 +53,35 @@ const PROJECTS = {
   prohibited_wording: [],
 };
 
+const HEALTH = {
+  status: "ok", engine_version: "0.1.0", projects_loaded: 5,
+  claims_loaded: 10, registry_errors: [],
+  storage: { durable: true, warning: null },
+};
+
+const CORPUS = {
+  summary: { total: 87, publishable: 42, avg_score: 67.9, critical_docs: 24 },
+  documents: [],
+};
+
+const HISTORY = { runs: 0, message: "No audit history yet." };
+
 beforeEach(() => {
   vi.clearAllMocks();
   api.projects.mockResolvedValue(PROJECTS);
   api.audit.mockResolvedValue(AUDIT);
+  api.health.mockResolvedValue(HEALTH);
+  api.corpus.mockResolvedValue(CORPUS);
+  api.history.mockResolvedValue(HISTORY);
 });
+
+async function goToAuditTab() {
+  const user = userEvent.setup();
+  render(<App />);
+  const auditTab = await screen.findByRole("tab", { name: /audit a draft/i });
+  await user.click(auditTab);
+  return user;
+}
 
 describe("helpers", () => {
   it("sorts issues worst first", () => {
@@ -68,22 +101,32 @@ describe("helpers", () => {
     });
 });
 
+describe("dashboard", () => {
+  it("shows the dashboard by default", async () => {
+    render(<App />);
+    expect(await screen.findByRole("heading", { name: "Dashboard" })).toBeInTheDocument();
+  });
+
+  it("shows system status when health loads", async () => {
+    render(<App />);
+    expect(await screen.findByText("5 projects loaded")).toBeInTheDocument();
+  });
+});
+
 describe("audit flow", () => {
   it("disables the button until there is content", async () => {
-    render(<App />);
+    await goToAuditTab();
     expect(screen.getByRole("button", { name: /run audit/i })).toBeDisabled();
   });
 
   it("enables the button once content is typed", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.type(screen.getByLabelText(/draft content/i), "Some copy");
     expect(screen.getByRole("button", { name: /run audit/i })).toBeEnabled();
   });
 
   it("shows the score and publishable state after auditing", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.type(screen.getByLabelText(/draft content/i), "Some copy");
     await user.click(screen.getByRole("button", { name: /run audit/i }));
 
@@ -92,19 +135,20 @@ describe("audit flow", () => {
   });
 
   it("renders critical issues before medium ones", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.type(screen.getByLabelText(/draft content/i), "Some copy");
     await user.click(screen.getByRole("button", { name: /run audit/i }));
 
     await screen.findByText(/Center Court placed in Noida/);
     const headings = screen.getAllByRole("heading", { level: 4 });
-    expect(headings[0]).toHaveTextContent(/Center Court placed in Noida/);
+    const issueHeadings = headings.filter(h =>
+      h.textContent.includes("Center Court") || h.textContent.includes("Meta title")
+    );
+    expect(issueHeadings[0]).toHaveTextContent(/Center Court placed in Noida/);
   });
 
   it("shows the quoted text and the verified fact", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.type(screen.getByLabelText(/draft content/i), "Some copy");
     await user.click(screen.getByRole("button", { name: /run audit/i }));
 
@@ -113,8 +157,7 @@ describe("audit flow", () => {
   });
 
   it("shows every gate with its status", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.type(screen.getByLabelText(/draft content/i), "Some copy");
     await user.click(screen.getByRole("button", { name: /run audit/i }));
 
@@ -125,8 +168,7 @@ describe("audit flow", () => {
 
   it("surfaces an API error to the user instead of failing silently", async () => {
     api.audit.mockRejectedValue(new Error("content exceeds 200000 characters"));
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.type(screen.getByLabelText(/draft content/i), "Some copy");
     await user.click(screen.getByRole("button", { name: /run audit/i }));
 
@@ -136,20 +178,19 @@ describe("audit flow", () => {
   it("still renders when the projects call fails", async () => {
     api.projects.mockRejectedValue(new Error("offline"));
     render(<App />);
-    expect(await screen.findByRole("heading", { name: /county content console/i }))
+    expect(await screen.findByRole("heading", { name: /county group/i }))
       .toBeInTheDocument();
   });
 });
 
 describe("project reference", () => {
   it("lists projects from the registry", async () => {
-    render(<App />);
+    await goToAuditTab();
     expect(await screen.findByText("The Center Court")).toBeInTheDocument();
   });
 
   it("reveals verified figures when a project is expanded", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     await user.click(await screen.findByRole("button", { name: /The Center Court/ }));
 
     expect(screen.getByText("888")).toBeInTheDocument();
@@ -157,8 +198,7 @@ describe("project reference", () => {
   });
 
   it("collapses an expanded project when clicked again", async () => {
-    const user = userEvent.setup();
-    render(<App />);
+    const user = await goToAuditTab();
     const toggle = await screen.findByRole("button", { name: /The Center Court/ });
     await user.click(toggle);
     await user.click(toggle);

@@ -35,6 +35,18 @@ export const api = {
   hygiene: () => request("/hygiene"),
   history: () => request("/history"),
   competitors: () => request("/competitors"),
+  registryHealth: () => request("/registry/health"),
+  schema: (content, slug, datePublished, dateModified, canonicalUrl) =>
+    request("/schema", {
+      method: "POST",
+      body: JSON.stringify({
+        content,
+        slug,
+        date_published: datePublished,
+        date_modified: dateModified || undefined,
+        canonical_url: canonicalUrl || undefined,
+      }),
+    }),
 };
 
 // Ordering used everywhere issues are displayed: worst first.

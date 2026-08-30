@@ -9,10 +9,15 @@ claims:
     claim: County Group has a track record of timely project delivery
     claim_type: developer_track_record
     confidence: requires_verification
-    # IMPORTANT: This claim requires project-by-project RERA evidence.
-    # Fill the matrix below from UP RERA, Delhi RERA portals.
     evidence_required: true
     evidence_type: rera_possession_records
+    last_verified: 2026-08-31
+    note: >
+      Known completed projects: Cleo County, Cherry County (verify dates
+      on UP-RERA portal). Current projects: Clove County (Sec 151, under
+      construction), Center Court (Gurugram, HARERA), Jade County, Ivory
+      County, County Courtyard. Matrix below must be filled from RERA
+      portals before any "timely delivery" claim is used in content.
 
 # DELIVERY EVIDENCE MATRIX
 # For every County project, document:
