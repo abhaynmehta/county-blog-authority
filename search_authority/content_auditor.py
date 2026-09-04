@@ -95,23 +95,107 @@ IMPLIED_APPRECIATION_PATTERNS = [
 
 
 def _extract_metadata_from_text(text: str) -> MetadataAnalysis:
-    """Extract metadata markers from blog text (Meta Title:, Meta Description:, etc.)."""
+    """Extract metadata markers from blog text.
+
+    Handles two formats:
+    1. Inline: ``Meta Title: …`` / ``Meta Description: …`` anywhere in text
+    2. ROI section: a ``Meta Tags:`` header followed by ``Title:``,
+       ``Description:``, ``Category:``, ``Image Alt:``, ``Image file name:``
+       lines, then optionally ``FAQ Schema Code:`` with a ``<script>`` block.
+    Also captures a standalone ``Keywords:`` line anywhere in the text.
+    """
     meta = MetadataAnalysis()
     lines = text.split("\n")
+
+    in_meta_section = False
+    in_faq_schema = False
+    faq_lines: list[str] = []
 
     for line in lines:
         stripped = line.strip()
         lower = stripped.lower()
 
-        # Meta title detection
-        if lower.startswith("meta title:") or lower.startswith("title tag:"):
-            meta.title = stripped.split(":", 1)[1].strip().strip('"\'')
-            meta.title_length = len(meta.title)
-        elif lower.startswith("meta description:"):
-            meta.meta_description = stripped.split(":", 1)[1].strip().strip('"\'')
-            meta.meta_description_length = len(meta.meta_description)
+        # ── FAQ schema collector (active after "FAQ Schema Code:" header) ──
+        if in_faq_schema:
+            if stripped.startswith("<script") or stripped.startswith("{") or stripped.startswith('"') or stripped.startswith("</script"):
+                faq_lines.append(stripped)
+                if "</script>" in stripped.lower():
+                    meta.faq_schema = "\n".join(faq_lines)
+                    in_faq_schema = False
+                    faq_lines = []
+                continue
+            # A closing brace or bracket inside the JSON
+            if faq_lines and (stripped.startswith("}") or stripped.startswith("]") or stripped.startswith("'")):
+                faq_lines.append(stripped)
+                continue
+            # Skip separator/blank lines between header and <script>
+            if not stripped or re.match(r"^[-—–=]{3,}", stripped):
+                continue
+            # Anything else ends FAQ collection
+            if faq_lines:
+                meta.faq_schema = "\n".join(faq_lines)
+            in_faq_schema = False
+            faq_lines = []
 
-    # Heading detection
+        # ── "FAQ Schema Code:" header (can appear inside or outside meta section) ──
+        if lower.startswith("faq schema code") or lower.startswith("faq schema:"):
+            in_faq_schema = True
+            in_meta_section = False
+            faq_lines = []
+            continue
+
+        # ── Standalone Keywords line (often at the very top of ROI docs) ──
+        if lower.startswith("keywords:") and not in_meta_section:
+            meta.keywords = stripped.split(":", 1)[1].strip()
+            continue
+
+        # ── "Meta Tags:" section header ──
+        if lower in ("meta tags:", "meta tags"):
+            in_meta_section = True
+            continue
+
+        # ── Inside the Meta Tags section ──
+        if in_meta_section:
+            # Separator ends the section
+            if re.match(r"^[-—–=]{3,}", stripped):
+                in_meta_section = False
+                continue
+            # Empty line — skip but stay in section
+            if not stripped:
+                continue
+
+            # Parse known fields (ROI uses "Title:" not "Meta Title:" inside the section)
+            if lower.startswith("title:"):
+                meta.title = stripped.split(":", 1)[1].strip().strip('"\'')
+                meta.title_length = len(meta.title)
+            elif lower.startswith("description:"):
+                meta.meta_description = stripped.split(":", 1)[1].strip().strip('"\'')
+                meta.meta_description_length = len(meta.meta_description)
+            elif lower.startswith("category:"):
+                meta.category = stripped.split(":", 1)[1].strip()
+            elif lower.startswith("image alt:"):
+                meta.image_alt = stripped.split(":", 1)[1].strip()
+            elif lower.startswith("image file name:") or lower.startswith("image filename:"):
+                meta.image_filename = stripped.split(":", 1)[1].strip()
+            elif lower.startswith("keywords:"):
+                meta.keywords = stripped.split(":", 1)[1].strip()
+            continue
+
+        # ── Inline format (anywhere outside a Meta Tags section) ──
+        if lower.startswith("meta title:") or lower.startswith("title tag:"):
+            if not meta.title:
+                meta.title = stripped.split(":", 1)[1].strip().strip('"\'')
+                meta.title_length = len(meta.title)
+        elif lower.startswith("meta description:"):
+            if not meta.meta_description:
+                meta.meta_description = stripped.split(":", 1)[1].strip().strip('"\'')
+                meta.meta_description_length = len(meta.meta_description)
+
+    # If FAQ was still collecting at EOF
+    if faq_lines:
+        meta.faq_schema = "\n".join(faq_lines)
+
+    # ── Heading detection ──
     heading_pattern = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
     for match in heading_pattern.finditer(text):
         level = len(match.group(1))
@@ -121,8 +205,6 @@ def _extract_metadata_from_text(text: str) -> MetadataAnalysis:
             meta.h1 = heading_text
             meta.h1_count += 1
 
-    # Also detect DOCX-style headings (lines that look like headings without #)
-    # H1: / H2: / H3: labels sometimes appear in agency docs
     h_label_pattern = re.compile(r"^H([1-6])[\s:]+(.+)$", re.MULTILINE | re.IGNORECASE)
     for match in h_label_pattern.finditer(text):
         level = int(match.group(1))
@@ -132,6 +214,13 @@ def _extract_metadata_from_text(text: str) -> MetadataAnalysis:
             if not meta.h1:
                 meta.h1 = heading_text
             meta.h1_count += 1
+
+    # Detect numbered heading pattern (ROI uses "1. Heading Text" without #)
+    numbered_heading = re.compile(r"^(\d+)\.\s+([A-Z][^\n]{5,80})$", re.MULTILINE)
+    for match in numbered_heading.finditer(text):
+        heading_text = match.group(2).strip()
+        if heading_text not in [h["text"] for h in meta.headings]:
+            meta.headings.append({"level": 2, "text": heading_text, "numbered": True})
 
     return meta
 

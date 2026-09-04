@@ -36,6 +36,8 @@ export const api = {
   history: () => request("/history"),
   competitors: () => request("/competitors"),
   registryHealth: () => request("/registry/health"),
+  revise: (content, slug = "untitled") =>
+    request("/revise", { method: "POST", body: JSON.stringify({ content, slug }) }),
   schema: (content, slug, datePublished, dateModified, canonicalUrl) =>
     request("/schema", {
       method: "POST",

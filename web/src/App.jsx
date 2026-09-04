@@ -374,6 +374,180 @@ function Dashboard({ onNavigate }) {
   );
 }
 
+/* ── Meta tag display ──────────────────────────────────────────────── */
+
+function MetaField({ label, value, charCount, good, warn }) {
+  if (!value && !charCount) return null;
+  return (
+    <div className="meta-field">
+      <span className="meta-label">{label}</span>
+      <span className="meta-value">{value || "NOT FOUND"}</span>
+      {charCount > 0 && (
+        <span className={`meta-chars ${good ? "meta-ok" : warn ? "meta-warn" : ""}`}>
+          {charCount} chars
+        </span>
+      )}
+    </div>
+  );
+}
+
+/* ── Section row (expandable) ─────────────────────────────────────── */
+
+function SectionRow({ section }) {
+  const [open, setOpen] = useState(false);
+  const hasIssues = section.issues?.length > 0;
+  const isThin = section.word_count < 100 && section.heading;
+
+  return (
+    <div className={`section-row ${hasIssues ? "section-has-issues" : ""}`}>
+      <div className="section-head" onClick={() => setOpen(!open)}>
+        <span className="section-heading">{section.heading || "(Introduction)"}</span>
+        <span className="section-stats">
+          {section.word_count} words
+          {hasIssues && <Pill tone="warn">{section.issues.length} issues</Pill>}
+          {isThin && <Pill tone="bad">thin</Pill>}
+        </span>
+        <span className="expand-icon">{open ? "▾" : "▸"}</span>
+      </div>
+      {open && (
+        <div className="section-body">
+          {section.issues?.map((iss, idx) => (
+            <div key={idx} className={`section-issue issue-${iss.severity}`}>
+              <Pill tone={severityTone(iss.severity)}>{iss.severity}</Pill>
+              <span>{iss.summary}</span>
+            </div>
+          ))}
+          {!hasIssues && <p className="hint">No issues in this section.</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Revision panel ───────────────────────────────────────────────── */
+
+function RevisionPanel({ content, slug }) {
+  const [revision, setRevision] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [copied, setCopied] = useState(null);
+
+  async function generateRevision() {
+    setLoading(true);
+    setError(null);
+    try {
+      setRevision(await api.revise(content, slug));
+    } catch (err) {
+      setError(err.message);
+    }
+    setLoading(false);
+  }
+
+  function copyText(text, label) {
+    navigator.clipboard.writeText(text);
+    setCopied(label);
+    setTimeout(() => setCopied(null), 2000);
+  }
+
+  if (!revision) {
+    return (
+      <section className="card">
+        <h3>Revision Assistant</h3>
+        <p className="hint">Generate section-by-section revision suggestions with corrected meta tags and a full checklist.</p>
+        <button onClick={generateRevision} disabled={loading} style={{ marginTop: 8 }}>
+          {loading ? "Generating…" : "Generate Revision Brief"}
+        </button>
+        {error && <p className="err">{error}</p>}
+      </section>
+    );
+  }
+
+  const needsRevision = revision.sections.filter((s) => s.status === "needs_revision");
+
+  return (
+    <>
+      <section className="card">
+        <h3>Revision Brief</h3>
+        <p className="hint">
+          {needsRevision.length} of {revision.sections.length} sections need revisions · {revision.total_issues} total issues
+        </p>
+
+        {/* Corrected Meta Tags — copy-paste ready */}
+        {revision.corrected_meta && Object.keys(revision.corrected_meta).length > 0 && (
+          <div className="revision-meta">
+            <h4>Corrected Meta Tags <button className="btn-sm" onClick={() => copyText(formatMeta(revision.corrected_meta), "meta")}>{copied === "meta" ? "Copied!" : "Copy"}</button></h4>
+            <pre className="schema-output">{formatMeta(revision.corrected_meta)}</pre>
+          </div>
+        )}
+      </section>
+
+      {/* Section-by-section revisions */}
+      {needsRevision.map((sec) => (
+        <section key={sec.index} className="card">
+          <div className="revision-section-head">
+            <h4>{sec.heading || "(Introduction)"}</h4>
+            <span className="hint">{sec.word_count} words · {sec.issue_count} issues</span>
+            <button className="btn-sm" onClick={() => copyText(sec.original, `sec-${sec.index}`)}>
+              {copied === `sec-${sec.index}` ? "Copied!" : "Copy original"}
+            </button>
+          </div>
+
+          {sec.suggestions.map((sug, i) => (
+            <div key={i} className={`revision-suggestion issue-${sug.severity}`}>
+              <div className="revision-problem">
+                <Pill tone={severityTone(sug.severity)}>{sug.severity}</Pill>
+                <span><b>{sug.category.replace(/_/g, " ")}:</b> {sug.problem}</span>
+              </div>
+              <div className="revision-fix">
+                <b>Fix:</b> {sug.fix}
+              </div>
+              {sug.correct_fact && (
+                <div className="revision-fact">
+                  <b>Correct fact:</b> {sug.correct_fact}
+                </div>
+              )}
+              {sug.source && (
+                <div className="revision-source">
+                  <b>Source:</b> <a href={sug.source} target="_blank" rel="noopener noreferrer">{sug.source}</a>
+                </div>
+              )}
+            </div>
+          ))}
+        </section>
+      ))}
+
+      {/* Checklist */}
+      <section className="card">
+        <h4>Revision Checklist</h4>
+        {revision.checklist.map((item, i) => (
+          <label key={i} className="checklist-item">
+            <input type="checkbox" />
+            <Pill tone={severityTone(item.severity)}>{item.severity}</Pill>
+            <span>{item.action}</span>
+          </label>
+        ))}
+      </section>
+    </>
+  );
+}
+
+function formatMeta(meta) {
+  let out = "Meta Tags:\n";
+  if (meta.title) out += `Title: ${meta.title}\n`;
+  if (meta.title_note) out += `# NOTE: ${meta.title_note}\n`;
+  if (meta.description_trimmed) {
+    out += `Description: ${meta.description_trimmed}\n`;
+    out += `# NOTE: ${meta.description_note}\n`;
+  } else if (meta.description) {
+    out += `Description: ${meta.description}\n`;
+  }
+  if (meta.keywords) out += `Keywords: ${meta.keywords}\n`;
+  if (meta.category) out += `Category: ${meta.category}\n`;
+  if (meta.image_alt) out += `Image Alt: ${meta.image_alt}\n`;
+  if (meta.image_filename) out += `Image file name: ${meta.image_filename}\n`;
+  return out;
+}
+
 /* ── Audit panel ────────────────────────────────────────────────────── */
 
 function AuditPanel() {
@@ -480,6 +654,55 @@ function AuditPanel() {
                 </div>
               </section>
 
+              {/* Meta Tags Extracted */}
+              {result.meta_tags && (
+                <section className="card">
+                  <h3>Meta Tags Extracted</h3>
+                  <div className="meta-grid">
+                    <MetaField
+                      label="Meta Title"
+                      value={result.meta_tags.title}
+                      charCount={result.meta_tags.title_length}
+                      good={result.meta_tags.title_length >= 30 && result.meta_tags.title_length <= 60}
+                      warn={result.meta_tags.title_length > 60}
+                    />
+                    <MetaField
+                      label="Meta Description"
+                      value={result.meta_tags.meta_description}
+                      charCount={result.meta_tags.meta_description_length}
+                      good={result.meta_tags.meta_description_length >= 120 && result.meta_tags.meta_description_length <= 155}
+                      warn={result.meta_tags.meta_description_length > 155}
+                    />
+                    {result.meta_tags.keywords && (
+                      <MetaField label="Keywords" value={result.meta_tags.keywords} />
+                    )}
+                    {result.meta_tags.category && (
+                      <MetaField label="Category" value={result.meta_tags.category} />
+                    )}
+                    {result.meta_tags.image_alt && (
+                      <MetaField label="Image Alt" value={result.meta_tags.image_alt} />
+                    )}
+                    {result.meta_tags.image_filename && (
+                      <MetaField label="Image Filename" value={result.meta_tags.image_filename} />
+                    )}
+                    <div className="meta-field">
+                      <span className="meta-label">FAQ Schema</span>
+                      <span className={`meta-value ${result.meta_tags.faq_schema_present ? "meta-ok" : "meta-missing"}`}>
+                        {result.meta_tags.faq_schema_present ? "Present" : "Not found"}
+                      </span>
+                    </div>
+                    <div className="meta-field">
+                      <span className="meta-label">H1</span>
+                      <span className="meta-value">{result.meta_tags.h1 || "Not found"}</span>
+                    </div>
+                    <div className="meta-field">
+                      <span className="meta-label">Headings</span>
+                      <span className="meta-value">{result.meta_tags.headings_count} found</span>
+                    </div>
+                  </div>
+                </section>
+              )}
+
               <section className="card">
                 <h3>Issues</h3>
                 {issues.length === 0 ? (
@@ -490,6 +713,22 @@ function AuditPanel() {
                   ))
                 )}
               </section>
+
+              {/* Section-level analysis */}
+              {result.sections?.length > 0 && (
+                <section className="card">
+                  <h3>Section Analysis</h3>
+                  <p className="hint">Click a section to see its issues.</p>
+                  {result.sections.map((sec) => (
+                    <SectionRow key={sec.index} section={sec} />
+                  ))}
+                </section>
+              )}
+
+              {/* Revision button */}
+              {result.issues.length > 0 && (
+                <RevisionPanel content={content} slug={slug} />
+              )}
             </>
           )}
       </div>

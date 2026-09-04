@@ -11,6 +11,7 @@ Run locally:
 
 from __future__ import annotations
 
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -93,6 +94,28 @@ class GateOut(BaseModel):
     details: str
 
 
+class MetaTagsOut(BaseModel):
+    title: Optional[str] = None
+    title_length: int = 0
+    meta_description: Optional[str] = None
+    meta_description_length: int = 0
+    keywords: Optional[str] = None
+    category: Optional[str] = None
+    image_alt: Optional[str] = None
+    image_filename: Optional[str] = None
+    faq_schema_present: bool = False
+    h1: Optional[str] = None
+    headings_count: int = 0
+
+
+class SectionOut(BaseModel):
+    index: int
+    heading: Optional[str] = None
+    word_count: int = 0
+    text: str = ""
+    issues: list[IssueOut] = []
+
+
 class AuditResponse(BaseModel):
     slug: str
     score: int
@@ -101,6 +124,8 @@ class AuditResponse(BaseModel):
     gates: list[GateOut]
     issues: list[IssueOut]
     counts: dict
+    meta_tags: Optional[MetaTagsOut] = None
+    sections: list[SectionOut] = []
     audited_at: str
 
 
@@ -123,6 +148,51 @@ def _to_issue(issue) -> IssueOut:
     )
 
 
+def _split_sections(content: str, issues: list, meta) -> list[SectionOut]:
+    """Split content into sections by heading for section-level analysis."""
+    lines = content.split("\n")
+    sections: list[dict] = []
+    current: dict = {"heading": None, "lines": [], "index": 0}
+
+    heading_re = re.compile(r"^(?:#{1,6}\s+|(\d+)\.\s+)(.+)$")
+
+    for line in lines:
+        m = heading_re.match(line.strip())
+        if m:
+            if current["lines"]:
+                sections.append(current)
+            current = {
+                "heading": m.group(2).strip() if m.group(2) else line.strip(),
+                "lines": [line],
+                "index": len(sections),
+            }
+        else:
+            current["lines"].append(line)
+
+    if current["lines"]:
+        sections.append(current)
+
+    result = []
+    for sec in sections:
+        text = "\n".join(sec["lines"])
+        words = len(text.split())
+        sec_issues = []
+        for issue in issues:
+            if issue.paragraph:
+                para_text = content.split("\n\n")[issue.paragraph - 1] if issue.paragraph <= len(content.split("\n\n")) else ""
+                if para_text and para_text.strip() in text:
+                    sec_issues.append(_to_issue(issue))
+        result.append(SectionOut(
+            index=sec["index"],
+            heading=sec["heading"],
+            word_count=words,
+            text=text[:2000],
+            issues=sec_issues,
+        ))
+
+    return result
+
+
 def _run_audit(content: str, slug: str) -> AuditResponse:
     if not content.strip():
         raise HTTPException(422, "content is empty")
@@ -132,6 +202,24 @@ def _run_audit(content: str, slug: str) -> AuditResponse:
         )
 
     result = audit_text(content)
+    m = result.metadata
+
+    meta_tags = MetaTagsOut(
+        title=m.title,
+        title_length=m.title_length,
+        meta_description=m.meta_description,
+        meta_description_length=m.meta_description_length,
+        keywords=m.keywords,
+        category=m.category,
+        image_alt=m.image_alt,
+        image_filename=m.image_filename,
+        faq_schema_present=bool(m.faq_schema),
+        h1=m.h1,
+        headings_count=len(m.headings),
+    )
+
+    sections = _split_sections(content, result.issues, m)
+
     return AuditResponse(
         slug=slug,
         score=result.score,
@@ -144,6 +232,8 @@ def _run_audit(content: str, slug: str) -> AuditResponse:
             sev.value: sum(1 for i in result.issues if i.severity == sev)
             for sev in Severity
         },
+        meta_tags=meta_tags,
+        sections=sections,
         audited_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
     )
 
@@ -168,6 +258,113 @@ def health() -> dict:
 def audit(request: AuditRequest) -> AuditResponse:
     """Audit pasted content. The same engine the CLI uses."""
     return _run_audit(request.content, request.slug)
+
+
+class ReviseRequest(BaseModel):
+    content: str = Field(..., description="Original blog text")
+    slug: str = Field("untitled", description="Slug for identification")
+
+
+@app.post("/revise", tags=["audit"])
+def revise(request: ReviseRequest) -> dict:
+    """Generate section-by-section revision suggestions for a blog.
+
+    Takes the same content as /audit, runs the audit internally, then
+    produces actionable revision briefs for each section that has issues.
+    """
+    if not request.content.strip():
+        raise HTTPException(422, "content is empty")
+    if len(request.content) > MAX_CONTENT_CHARS:
+        raise HTTPException(413, f"content exceeds {MAX_CONTENT_CHARS} characters")
+
+    result = audit_text(request.content)
+    m = result.metadata
+    sections = _split_sections(request.content, result.issues, m)
+
+    # Build revision briefs per section
+    revision_sections = []
+    for sec in sections:
+        if not sec.issues:
+            revision_sections.append({
+                "index": sec.index,
+                "heading": sec.heading,
+                "word_count": sec.word_count,
+                "status": "ok",
+                "issues": [],
+                "suggestions": [],
+                "original": sec.text,
+            })
+            continue
+
+        suggestions = []
+        for iss in sec.issues:
+            sug = {
+                "severity": iss.severity,
+                "category": iss.category,
+                "problem": iss.summary,
+                "fix": iss.recommended_action,
+                "done_when": iss.acceptance_test,
+            }
+            if iss.verified_fact:
+                sug["correct_fact"] = iss.verified_fact
+            if iss.source:
+                sug["source"] = iss.source
+            suggestions.append(sug)
+
+        revision_sections.append({
+            "index": sec.index,
+            "heading": sec.heading,
+            "word_count": sec.word_count,
+            "status": "needs_revision",
+            "issue_count": len(sec.issues),
+            "issues": [{"severity": i.severity, "summary": i.summary} for i in sec.issues],
+            "suggestions": suggestions,
+            "original": sec.text,
+        })
+
+    # Corrected meta tags block
+    corrected_meta = {}
+    if m.title:
+        corrected_meta["title"] = m.title
+        corrected_meta["title_length"] = m.title_length
+        if m.title_length > 60:
+            corrected_meta["title_note"] = f"Currently {m.title_length} chars — trim to ≤60"
+    if m.meta_description:
+        desc = m.meta_description
+        corrected_meta["description"] = desc
+        corrected_meta["description_length"] = m.meta_description_length
+        if m.meta_description_length > 155:
+            corrected_meta["description_trimmed"] = desc[:152] + "..."
+            corrected_meta["description_note"] = f"Currently {m.meta_description_length} chars — trimmed to ≤155"
+    if m.keywords:
+        corrected_meta["keywords"] = m.keywords
+    if m.category:
+        corrected_meta["category"] = m.category
+    if m.image_alt:
+        corrected_meta["image_alt"] = m.image_alt
+    if m.image_filename:
+        corrected_meta["image_filename"] = m.image_filename
+
+    # Checklist
+    checklist = []
+    for iss in result.issues:
+        checklist.append({
+            "severity": iss.severity.value,
+            "category": iss.category.value,
+            "action": iss.recommended_action,
+            "done_when": iss.acceptance_test,
+        })
+
+    return {
+        "slug": request.slug,
+        "score": result.score,
+        "publishable": result.publishable,
+        "total_issues": len(result.issues),
+        "sections": revision_sections,
+        "corrected_meta": corrected_meta,
+        "checklist": checklist,
+        "revised_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
 
 
 @app.post("/schema", tags=["audit"])

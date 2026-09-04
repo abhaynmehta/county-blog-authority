@@ -107,6 +107,11 @@ class MetadataAnalysis:
     h1_count: int = 0
     headings: list[dict] = field(default_factory=list)
     heading_issues: list[str] = field(default_factory=list)
+    keywords: Optional[str] = None
+    category: Optional[str] = None
+    image_alt: Optional[str] = None
+    image_filename: Optional[str] = None
+    faq_schema: Optional[str] = None
 
 
 @dataclass
