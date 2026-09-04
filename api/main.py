@@ -260,6 +260,54 @@ def audit(request: AuditRequest) -> AuditResponse:
     return _run_audit(request.content, request.slug)
 
 
+@app.post("/audit/file", tags=["audit"])
+async def audit_file_upload(file: UploadFile = File(..., description="DOCX or text file")) -> AuditResponse:
+    """Audit an uploaded DOCX or text file."""
+    import tempfile
+
+    suffix = Path(file.filename or "blog.txt").suffix or ".txt"
+    handle = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+    handle.write(await file.read())
+    handle.close()
+    path = Path(handle.name)
+    try:
+        from search_authority.content_auditor import audit_file as _audit_file
+        result = _audit_file(str(path))
+        m = result.metadata
+        content = path.read_text(encoding="utf-8", errors="replace") if suffix != ".docx" else ""
+        if suffix == ".docx":
+            try:
+                from search_authority.content_auditor import _read_docx
+                content = _read_docx(path)
+            except Exception:
+                content = ""
+
+        meta_tags = MetaTagsOut(
+            title=m.title, title_length=m.title_length,
+            meta_description=m.meta_description,
+            meta_description_length=m.meta_description_length,
+            keywords=m.keywords, category=m.category,
+            image_alt=m.image_alt, image_filename=m.image_filename,
+            faq_schema_present=bool(m.faq_schema),
+            h1=m.h1, headings_count=len(m.headings),
+        )
+        sections = _split_sections(content, result.issues, m) if content else []
+        slug = Path(file.filename or "unknown").stem
+
+        return AuditResponse(
+            slug=slug, score=result.score, publishable=result.publishable,
+            word_count=result.word_count,
+            gates=[GateOut(gate=g.gate_name, status=g.status.value, details=g.details)
+                   for g in result.gates],
+            issues=[_to_issue(i) for i in result.issues],
+            counts={sev.value: sum(1 for i in result.issues if i.severity == sev) for sev in Severity},
+            meta_tags=meta_tags, sections=sections,
+            audited_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        )
+    finally:
+        path.unlink(missing_ok=True)
+
+
 class ReviseRequest(BaseModel):
     content: str = Field(..., description="Original blog text")
     slug: str = Field("untitled", description="Slug for identification")

@@ -557,6 +557,9 @@ function AuditPanel() {
   const [projects, setProjects] = useState([]);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
+  const [fileQueue, setFileQueue] = useState([]);
+  const [batchResults, setBatchResults] = useState([]);
+  const [batchIdx, setBatchIdx] = useState(-1);
 
   useEffect(() => {
     api
@@ -575,6 +578,42 @@ function AuditPanel() {
     } catch (err) {
       setError(err.message);
       setStatus("error");
+    }
+  }
+
+  async function handleFileUpload(event) {
+    const files = Array.from(event.target.files);
+    if (!files.length) return;
+    setFileQueue(files);
+    setBatchResults([]);
+    setBatchIdx(0);
+    setStatus("loading");
+    setError(null);
+
+    const results = [];
+    for (let i = 0; i < files.length; i++) {
+      setBatchIdx(i);
+      try {
+        const r = await api.auditFile(files[i]);
+        results.push({ name: files[i].name, result: r, error: null });
+      } catch (err) {
+        results.push({ name: files[i].name, result: null, error: err.message });
+      }
+    }
+    setBatchResults(results);
+    setBatchIdx(-1);
+    if (results.length === 1 && results[0].result) {
+      setResult(results[0].result);
+      setSlug(results[0].result.slug);
+    }
+    setStatus("done");
+  }
+
+  function viewBatchResult(idx) {
+    const r = batchResults[idx];
+    if (r?.result) {
+      setResult(r.result);
+      setSlug(r.result.slug);
     }
   }
 
@@ -608,9 +647,24 @@ function AuditPanel() {
 
             <div className="row">
               <button type="submit" disabled={status === "loading" || !content.trim()}>
-                {status === "loading" ? "Auditing…" : "Run audit"}
+                {status === "loading" && batchIdx < 0 ? "Auditing…" : "Run audit"}
               </button>
               <span className="hint">{wordCount} words</span>
+            </div>
+
+            <div className="file-upload-section">
+              <label className="lbl">Or upload DOCX files</label>
+              <input
+                type="file"
+                accept=".docx,.txt,.md"
+                multiple
+                onChange={handleFileUpload}
+                disabled={status === "loading"}
+                className="file-input"
+              />
+              {status === "loading" && batchIdx >= 0 && (
+                <p className="hint">Auditing file {batchIdx + 1} of {fileQueue.length}…</p>
+              )}
             </div>
 
             {error && (
@@ -619,6 +673,35 @@ function AuditPanel() {
               </p>
             )}
           </form>
+
+          {/* Batch results */}
+          {batchResults.length > 1 && (
+            <section className="card">
+              <h3>Batch Audit Results</h3>
+              <p className="hint">{batchResults.length} files audited. Click one to see details.</p>
+              <div className="batch-list">
+                {batchResults.map((br, idx) => (
+                  <div
+                    key={idx}
+                    className={`batch-item ${br.result?.slug === result?.slug ? "batch-active" : ""} ${br.error ? "batch-error" : ""}`}
+                    onClick={() => viewBatchResult(idx)}
+                  >
+                    <div className="batch-name">{br.name}</div>
+                    {br.result && (
+                      <div className="batch-stats">
+                        <span className={`score-mini score-${scoreBand(br.result.score)}`}>{br.result.score}</span>
+                        <Pill tone={br.result.publishable ? "good" : "bad"}>
+                          {br.result.publishable ? "Pass" : "Blocked"}
+                        </Pill>
+                        <span className="hint">{br.result.issues.length} issues</span>
+                      </div>
+                    )}
+                    {br.error && <span className="err">{br.error}</span>}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           <ProjectReference projects={projects} />
         </div>

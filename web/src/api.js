@@ -36,6 +36,17 @@ export const api = {
   history: () => request("/history"),
   competitors: () => request("/competitors"),
   registryHealth: () => request("/registry/health"),
+  auditFile: async (file) => {
+    const form = new FormData();
+    form.append("file", file);
+    const response = await fetch(`${BASE}/audit/file`, { method: "POST", body: form });
+    if (!response.ok) {
+      let detail = `Upload failed (${response.status})`;
+      try { const body = await response.json(); if (body?.detail) detail = body.detail; } catch {}
+      throw new Error(detail);
+    }
+    return response.json();
+  },
   revise: (content, slug = "untitled") =>
     request("/revise", { method: "POST", body: JSON.stringify({ content, slug }) }),
   schema: (content, slug, datePublished, dateModified, canonicalUrl) =>

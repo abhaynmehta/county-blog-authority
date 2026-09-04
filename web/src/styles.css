@@ -422,6 +422,7 @@ a { color: var(--primary); }
 .revision-meta h4 { display: flex; align-items: center; gap: 8px; font-size: 13px; }
 .revision-section-head {
   display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;
+  min-width: 0;
 }
 .revision-section-head h4 { margin: 0; font-size: 14px; }
 .revision-suggestion {
@@ -440,8 +441,39 @@ a { color: var(--primary); }
 
 /* ── Checklist ───────────────────────────────────────────────────── */
 .checklist-item {
-  display: flex; align-items: center; gap: 8px; padding: 6px 0;
+  display: flex; align-items: flex-start; gap: 8px; padding: 8px 0;
   font-size: 13px; border-bottom: 1px solid var(--rule-soft); cursor: pointer;
+  min-width: 0;
 }
 .checklist-item:last-child { border-bottom: none; }
-.checklist-item input[type="checkbox"] { flex-shrink: 0; }
+.checklist-item input[type="checkbox"] { flex-shrink: 0; margin-top: 3px; }
+.checklist-item .pill { flex-shrink: 0; }
+.checklist-item > span { min-width: 0; word-break: break-word; }
+
+/* ── File upload & batch ─────────────────────────────────────────── */
+.file-upload-section {
+  margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule-soft);
+}
+.file-input {
+  display: block; width: 100%; padding: 8px; margin-top: 4px;
+  border: 1px dashed var(--rule); border-radius: 6px; font-size: 13px;
+  background: var(--raised); color: var(--ink2); cursor: pointer;
+}
+.file-input:hover { border-color: var(--primary); }
+.batch-list { display: flex; flex-direction: column; gap: 4px; }
+.batch-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--rule-soft); background: var(--surface);
+}
+.batch-item:hover { background: var(--raised); }
+.batch-item.batch-active { border-color: var(--primary); background: var(--primary-bg); }
+.batch-item.batch-error { border-color: var(--bad); }
+.batch-name { font-size: 13px; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.batch-stats { display: flex; align-items: center; gap: 6px; flex-shrink: 0; margin-left: 8px; }
+.score-mini {
+  font-size: 14px; font-weight: 700; min-width: 28px; text-align: center;
+}
+.score-mini.score-good { color: var(--good); }
+.score-mini.score-fair { color: var(--warn); }
+.score-mini.score-poor { color: var(--bad); }
